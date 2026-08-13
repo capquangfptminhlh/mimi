@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { calcNights, isVietnamPhone, sanitizeSettingValue, sanitizeStatus, validateBooking } from '../src/validation.js';
+
+test('Vietnam phone validation',()=>{assert.equal(isVietnamPhone('0989 979 675'),true);assert.equal(isVietnamPhone('+84 989 979 675'),true);assert.equal(isVietnamPhone('12345'),false)});
+test('appointment booking validation',()=>{const r=validateBooking({type:'appointment',owner:'Minh',phone:'0989 979 675',pet:'Mimi',petType:'Mèo',service:'Tắm & Spa',date:'2026-08-20',time:'10:30',consent:true});assert.equal(r.ok,true);assert.equal(r.data.service,'Tắm & Spa');assert.equal(r.data.quantity,1)});
+test('hotel booking calculates nights',()=>{const r=validateBooking({type:'hotel',owner:'Minh',phone:'0989 979 675',pet:'Mimi',petType:'Mèo',quantity:2,checkinDate:'2026-08-20',checkinTime:'09:00',checkoutDate:'2026-08-23',checkoutTime:'18:00',consent:true});assert.equal(r.ok,true);assert.equal(r.data.nights,3);assert.equal(calcNights('2026-08-20','2026-08-23'),3)});
+test('hotel rejects invalid date range',()=>{const r=validateBooking({type:'hotel',owner:'Minh',phone:'0989 979 675',pet:'Mimi',petType:'Mèo',quantity:1,checkinDate:'2026-08-23',checkinTime:'09:00',checkoutDate:'2026-08-20',checkoutTime:'18:00',consent:true});assert.equal(r.ok,false);assert.equal(r.error,'HOTEL_DATE_RANGE_INVALID')});
+test('consent is mandatory',()=>{const r=validateBooking({type:'appointment',owner:'Minh',phone:'0989 979 675',pet:'Mimi',petType:'Mèo',service:'Grooming',date:'2026-08-20',time:'10:30',consent:false});assert.equal(r.ok,false);assert.equal(r.error,'CONSENT_REQUIRED')});
+test('status and settings whitelist',()=>{assert.equal(sanitizeStatus('confirmed'),'CONFIRMED');assert.equal(sanitizeStatus('INVALID_STATUS'),null);assert.equal(sanitizeSettingValue('hotel_capacity',12),'12');assert.equal(sanitizeSettingValue('price_published',true),'true');assert.equal(sanitizeSettingValue('unknown',1),null)});

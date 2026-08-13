@@ -11,4 +11,21 @@
   }
   links.forEach(a=>a.addEventListener('click',()=>setActive(a.getAttribute('href').slice(1))));
   const year=document.querySelector('[data-year]'); if(year) year.textContent=new Date().getFullYear();
+
+  const loadScript=src=>new Promise((resolve,reject)=>{
+    if(document.querySelector(`script[src="${src}"]`)){resolve();return}
+    const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=reject;document.head.appendChild(s);
+  });
+  const loadRemoteStack=async()=>{
+    if(!document.querySelector('link[href="assets/booking-remote.css"]')){
+      const l=document.createElement('link');l.rel='stylesheet';l.href='assets/booking-remote.css';document.head.appendChild(l);
+    }
+    try{
+      await loadScript('assets/api-config.js');
+      await loadScript('assets/api-client.js');
+      if(window.LumiApi?.configured()) await loadScript('assets/booking-remote.js');
+    }catch(e){console.warn('Lumi remote features unavailable')}
+  };
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',loadRemoteStack,{once:true});
+  else loadRemoteStack();
 })();
