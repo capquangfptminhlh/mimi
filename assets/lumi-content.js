@@ -33,23 +33,7 @@
     about: 'Giới thiệu Lumi Pet',
     faq: 'Câu hỏi thường gặp Lumi Pet'
   };
-
-  const photoMap = {
-    'hero.svg': 'https://images.pexels.com/photos/16395150/pexels-photo-16395150.jpeg?auto=compress&cs=tinysrgb&w=1600',
-    'spa.svg': 'https://images.pexels.com/photos/19145895/pexels-photo-19145895.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'grooming.svg': 'https://images.pexels.com/photos/6816844/pexels-photo-6816844.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'hotel.svg': 'https://images.pexels.com/photos/37264836/pexels-photo-37264836.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'shop.svg': 'https://images.pexels.com/photos/18705269/pexels-photo-18705269.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'care-journey.svg': 'https://images.pexels.com/photos/6821106/pexels-photo-6821106.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    'spa-detail.svg': 'https://images.pexels.com/photos/19145877/pexels-photo-19145877.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    'grooming-detail.svg': 'https://images.pexels.com/photos/6816837/pexels-photo-6816837.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    'hotel-detail.svg': 'https://images.pexels.com/photos/14770947/pexels-photo-14770947.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    'shop-detail.svg': 'https://images.pexels.com/photos/4001455/pexels-photo-4001455.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    'lobby.svg': 'https://images.pexels.com/photos/16366333/pexels-photo-16366333.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    'trust-lobby.svg': 'https://images.pexels.com/photos/10954785/pexels-photo-10954785.jpeg?auto=compress&cs=tinysrgb&w=1400'
-  };
-  const eagerPhotoKeys = new Set(['hero.svg', 'spa.svg', 'grooming.svg', 'hotel.svg', 'shop.svg']);
-
+  const primaryImageNames = new Set(['hero.svg', 'spa.svg', 'grooming.svg', 'hotel.svg', 'shop.svg']);
   const pagePath = paths[pageKey] || '/';
   const pageUrl = `${siteRoot}${pagePath}`;
   const contentUrl = `${base}/content/${pageKey}.html`;
@@ -75,7 +59,7 @@
       .card,.panel,.book,.topic-card,.callout,.compare>div,.faq details{border-color:rgba(189,153,130,.35);box-shadow:0 16px 42px rgba(72,39,24,.07)}
       .card img{aspect-ratio:16/11;object-fit:cover}.card h3,.product h4{letter-spacing:-.025em}
       .page-hero .inner{grid-template-columns:1fr .9fr;gap:30px}.page-hero img{aspect-ratio:4/3;min-height:0;border:0;box-shadow:0 28px 70px rgba(61,36,27,.16)}
-      .panel img,.content-figure img{object-fit:cover;filter:saturate(.94) contrast(1.02)}
+      .panel img,.content-figure img{object-fit:cover;filter:saturate(.96) contrast(1.02)}
       .content-figure{border:0}.content-figure img{aspect-ratio:16/11}
       .eyebrow{background:#efe0d2;padding:8px 13px}.btn{padding:12px 18px}.btn.primary{box-shadow:0 10px 26px rgba(159,71,40,.22)}
       .proof div{background:rgba(255,255,255,.8);backdrop-filter:blur(8px)}
@@ -86,18 +70,14 @@
     d.head.appendChild(style);
   }
 
-  function replaceIllustrationsWithPhotos() {
-    const images = [...d.querySelectorAll('img')];
-    images.forEach((img) => {
-      const current = img.getAttribute('src') || '';
-      const key = Object.keys(photoMap).find((name) => current.endsWith(name));
-      if (!key || img.dataset.photoUpgraded === '1') return;
-      img.src = photoMap[key];
-      img.dataset.photoUpgraded = '1';
+  function configureLocalImages() {
+    d.querySelectorAll('img').forEach((img) => {
+      const src = img.getAttribute('src') || '';
+      const name = src.split('/').pop();
       img.decoding = 'async';
-      if (eagerPhotoKeys.has(key) || img.closest('.page-hero')) {
+      if (primaryImageNames.has(name) || img.closest('.page-hero')) {
         img.loading = 'eager';
-        img.fetchPriority = key === 'hero.svg' ? 'high' : 'auto';
+        img.fetchPriority = name === 'hero.svg' ? 'high' : 'auto';
       } else {
         img.loading = 'lazy';
       }
@@ -111,7 +91,6 @@
       style.textContent = ':root{--clay:#9f4728}.footer{color:#fff}.footer a,.footer span,.footnote{opacity:1}';
       d.head.appendChild(style);
     }
-
     let sequence = 0;
     d.querySelectorAll('.field').forEach((field) => {
       const label = field.querySelector('label');
@@ -158,36 +137,21 @@
         areaServed: { '@type': 'AdministrativeArea', name: 'Bình Thạnh, TP.HCM' }
       };
     }
-    if (pageKey === 'shop') {
-      return { '@type': 'CollectionPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
-    }
-    if (pageKey === 'contact') {
-      return { '@type': 'ContactPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
-    }
-    if (pageKey === 'about') {
-      return { '@type': 'AboutPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
-    }
-    if (pageKey === 'home') {
-      return { '@type': 'WebSite', '@id': `${siteRoot}/#website`, url: `${siteRoot}/`, name: names.home, inLanguage: 'vi-VN' };
-    }
+    if (pageKey === 'shop') return { '@type': 'CollectionPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
+    if (pageKey === 'contact') return { '@type': 'ContactPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
+    if (pageKey === 'about') return { '@type': 'AboutPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
+    if (pageKey === 'home') return { '@type': 'WebSite', '@id': `${siteRoot}/#website`, url: `${siteRoot}/`, name: names.home, inLanguage: 'vi-VN' };
     return { '@type': 'WebPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] || names.home };
   }
 
   function faqNode() {
-    const questions = [...app.querySelectorAll('.long-faq details')]
-      .map((details) => {
-        const question = details.querySelector('summary')?.textContent?.trim();
-        const answer = details.querySelector('p')?.textContent?.trim();
-        if (!question || !answer) return null;
-        return {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: { '@type': 'Answer', text: answer }
-        };
-      })
-      .filter(Boolean);
-    if (!questions.length) return null;
-    return { '@type': 'FAQPage', mainEntity: questions };
+    const questions = [...app.querySelectorAll('.long-faq details')].map((details) => {
+      const question = details.querySelector('summary')?.textContent?.trim();
+      const answer = details.querySelector('p')?.textContent?.trim();
+      if (!question || !answer) return null;
+      return { '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } };
+    }).filter(Boolean);
+    return questions.length ? { '@type': 'FAQPage', mainEntity: questions } : null;
   }
 
   function injectStructuredData() {
@@ -204,7 +168,6 @@
     }
     const faq = faqNode();
     if (faq) graph.push(faq);
-
     const script = d.createElement('script');
     script.type = 'application/ld+json';
     script.dataset.lumiSchema = '1';
@@ -213,7 +176,7 @@
   }
 
   applyVisualUpgrade();
-  replaceIllustrationsWithPhotos();
+  configureLocalImages();
 
   fetch(contentUrl, { credentials: 'same-origin' })
     .then((response) => {
@@ -222,7 +185,7 @@
     })
     .then((raw) => {
       app.insertAdjacentHTML('beforeend', resolveInternalLinks(raw));
-      replaceIllustrationsWithPhotos();
+      configureLocalImages();
       applyAccessibilityFixes();
       injectStructuredData();
       app.dataset.content = 'loaded';
