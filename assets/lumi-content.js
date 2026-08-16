@@ -34,8 +34,6 @@
     'lobby.svg': '66.667% 100%',
     'trust-lobby.svg': '100% 100%'
   };
-  const primaryImageNames = new Set(['hero.svg', 'spa.svg', 'grooming.svg', 'hotel.svg', 'shop.svg']);
-  const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
   const atlasUrl = `${base}/assets/photos/lumi-atlas.webp`;
   const pagePath = paths[pageKey] || '/';
   const pageUrl = `${siteRoot}${pagePath}`;
@@ -46,9 +44,9 @@
   }
 
   function applyVisualUpgrade() {
-    if (d.querySelector('style[data-lumi-visual-v3]')) return;
+    if (d.querySelector('style[data-lumi-visual-v4]')) return;
     const style = d.createElement('style');
-    style.dataset.lumiVisualV3 = '1';
+    style.dataset.lumiVisualV4 = '1';
     style.textContent = `
       :root{--clay:#9f4728;--ink:#241814;--muted:#66554d;--shadow:0 28px 70px rgba(71,39,25,.14)}
       body{font-family:"Segoe UI Variable Text","Segoe UI",ui-sans-serif,system-ui,sans-serif;font-size:15px;letter-spacing:-.012em}
@@ -58,42 +56,45 @@
       .hero{padding-top:34px}.hero-grid{grid-template-columns:1.03fr .97fr;gap:34px}
       .hero-art{position:relative;border-radius:32px;overflow:hidden;background:#ead8ca;border:0;box-shadow:0 30px 70px rgba(61,36,27,.18)}
       .hero-art:after{content:"";position:absolute;inset:auto 0 0;height:28%;background:linear-gradient(180deg,transparent,rgba(31,18,13,.14));pointer-events:none}
-      .hero-art img{aspect-ratio:5/3;min-height:0;object-fit:cover;object-position:center;transform:scale(1.001)}
       .card,.panel,.book,.topic-card,.callout,.compare>div,.faq details{border-color:rgba(189,153,130,.35);box-shadow:0 16px 42px rgba(72,39,24,.07)}
-      .card img{aspect-ratio:16/11;object-fit:cover}.card h3,.product h4{letter-spacing:-.025em}
-      .page-hero .inner{grid-template-columns:1fr .9fr;gap:30px}.page-hero img{aspect-ratio:4/3;min-height:0;border:0;box-shadow:0 28px 70px rgba(61,36,27,.16)}
-      .panel img,.content-figure img{object-fit:cover;filter:saturate(.96) contrast(1.02)}
-      .content-figure{border:0}.content-figure img{aspect-ratio:16/11}
-      img[data-lumi-atlas]{display:block;width:100%;background-image:var(--lumi-atlas);background-size:400% 300%;background-repeat:no-repeat;background-position:var(--lumi-pos);background-color:#ead8ca}
+      .card h3,.product h4{letter-spacing:-.025em}
+      .page-hero .inner{grid-template-columns:1fr .9fr;gap:30px}
+      .lumi-photo{display:block;width:100%;background-image:var(--lumi-atlas);background-size:400% 300%;background-repeat:no-repeat;background-position:var(--lumi-pos);background-color:#ead8ca;filter:saturate(.98) contrast(1.02)}
+      .hero-art>.lumi-photo{aspect-ratio:5/3;min-height:0}
+      .card>.lumi-photo{aspect-ratio:16/11}
+      .page-hero .lumi-photo{aspect-ratio:4/3;min-height:0;border-radius:28px;box-shadow:0 28px 70px rgba(61,36,27,.16)}
+      .panel>.lumi-photo,.content-figure>.lumi-photo{aspect-ratio:16/11;border-radius:22px}
+      .content-figure{border:0}
       .eyebrow{background:#efe0d2;padding:8px 13px}.btn{padding:12px 18px}.btn.primary{box-shadow:0 10px 26px rgba(159,71,40,.22)}
       .proof div{background:rgba(255,255,255,.8);backdrop-filter:blur(8px)}
       .footer{background:#71351f}.footer a,.footer span,.footnote{opacity:1}
       @media(max-width:900px){.hero-grid,.page-hero .inner{grid-template-columns:1fr}.hero-copy{max-width:760px}.hero{padding-top:28px}}
-      @media(max-width:560px){body{font-size:14px}.display{font-size:44px}.hero-art{border-radius:26px}.page-hero img{border-radius:24px}}
+      @media(max-width:560px){body{font-size:14px}.display{font-size:44px}.hero-art{border-radius:26px}.page-hero .lumi-photo{border-radius:24px}}
     `;
     d.head.appendChild(style);
   }
 
-  function configureLocalImages() {
-    d.querySelectorAll('img').forEach((img) => {
-      const current = img.dataset.lumiOriginal || img.getAttribute('src') || '';
-      const name = current.split('/').pop();
+  function renderAtlasImages(root = d) {
+    root.querySelectorAll('img').forEach((img) => {
+      const src = img.getAttribute('src') || '';
+      const name = src.split('/').pop();
       const position = atlasMap[name];
-      if (position) {
-        img.dataset.lumiOriginal = current;
-        img.dataset.lumiAtlas = '1';
-        img.src = transparentPixel;
-        img.removeAttribute('srcset');
-        img.style.setProperty('--lumi-atlas', `url("${atlasUrl}")`);
-        img.style.setProperty('--lumi-pos', position);
-        img.decoding = 'async';
-        if (primaryImageNames.has(name) || img.closest('.page-hero')) {
-          img.loading = 'eager';
-          img.fetchPriority = name === 'hero.svg' ? 'high' : 'auto';
-        } else {
-          img.loading = 'lazy';
-        }
+      if (!position) return;
+
+      const photo = d.createElement('div');
+      photo.className = `lumi-photo${img.className ? ` ${img.className}` : ''}`;
+      photo.dataset.lumiAtlas = name;
+      photo.style.setProperty('--lumi-atlas', `url("${atlasUrl}")`);
+      photo.style.setProperty('--lumi-pos', position);
+
+      const alt = (img.getAttribute('alt') || '').trim();
+      if (alt) {
+        photo.setAttribute('role', 'img');
+        photo.setAttribute('aria-label', alt);
+      } else {
+        photo.setAttribute('aria-hidden', 'true');
       }
+      img.replaceWith(photo);
     });
   }
 
@@ -152,13 +153,13 @@
   }
 
   applyVisualUpgrade();
-  configureLocalImages();
+  renderAtlasImages();
 
   fetch(contentUrl, { credentials: 'same-origin' })
     .then((response) => { if (!response.ok) throw new Error(`CONTENT_${response.status}`); return response.text(); })
     .then((raw) => {
       app.insertAdjacentHTML('beforeend', resolveInternalLinks(raw));
-      configureLocalImages(); applyAccessibilityFixes(); injectStructuredData();
+      renderAtlasImages(app); applyAccessibilityFixes(); injectStructuredData();
       app.dataset.content = 'loaded'; d.documentElement.classList.add('longform-loaded', 'lumi-photo-upgrade');
     })
     .catch((error) => { console.error('LUMI_CONTENT_LOAD_FAILED', pageKey, error?.message || error); app.dataset.content = 'failed'; });
