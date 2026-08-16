@@ -8,9 +8,7 @@ on:
       - "admin/**"
       - "assets/api-*.js"
       - "assets/admin.*"
-      - "assets/booking-remote.*"
-      - "assets/booking.js"
-      - "assets/site.js"
+      - "assets/lumi-v2.*"
       - ".github/workflows/lumi-backend-ci.yml"
   pull_request:
     paths:
@@ -18,9 +16,8 @@ on:
       - "admin/**"
       - "assets/api-*.js"
       - "assets/admin.*"
-      - "assets/booking-remote.*"
-      - "assets/booking.js"
-      - "assets/site.js"
+      - "assets/lumi-v2.*"
+      - ".github/workflows/lumi-backend-ci.yml"
 
 permissions:
   contents: read
@@ -39,8 +36,6 @@ jobs:
           node --check backend/src/validation.js
           node --check assets/api-client.js
           node --check assets/admin.js
-          node --check assets/booking-remote.js
-          node --check assets/booking.js
-          node --check assets/site.js
+          node --check assets/lumi-v2.js
       - name: Unit tests
         run: node --test backend/test/*.test.mjs
