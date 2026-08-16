@@ -1,1 +1,15 @@
-noop
+decision: HOLD
+observed_at: 2026-08-16T23:27:00+07:00
+checks:
+  javascript_syntax: PASS
+  canonical_page_count: PASS
+  sitemap_page_count: PASS
+  local_business_schema: PASS
+  corrected_google_maps_coordinates: PASS
+  unverified_price_guard: PASS
+  unverified_24_7_guard: PASS
+  image_asset_count: PASS
+  backend_booking_adapter: IMPLEMENTED
+  deployed_runtime: HOLD
+  desktop_visual_compare: HOLD
+  mobile_visual_compare: HOLD

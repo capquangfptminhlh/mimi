@@ -1,13 +1,13 @@
-image_id,page_id,target_url,role,subject,prompt_or_brief,source_mode,required_width,required_height,format,alt_text,status
-IMG001,P001,/,hero,Lumi care journey,Original vector scene: pet paw path leading through care stations; no text,NEW_GENERATED,1600,1000,svg,Hành trình chăm sóc thú cưng tại Lumi,PLANNED
-IMG002,P001,/,og_social,Lumi Pet identity,Original vector social cover with paw/heart/house geometry; no embedded text,NEW_GENERATED,1200,630,svg,Lumi Pet Shop Bình Thạnh,PLANNED
-IMG003,P002,/spa-thu-cung-binh-thanh/,service,Spa bath care,Original vector illustration of gentle pet bathing; no text,NEW_GENERATED,1200,900,svg,Tắm và spa chó mèo tại Lumi,PLANNED
-IMG004,P003,/grooming-cho-meo-binh-thanh/,service,Grooming silhouette,Original vector illustration of groomer tools and pet silhouette; no text,NEW_GENERATED,1200,900,svg,Grooming và cắt tỉa lông chó mèo,PLANNED
-IMG005,P004,/pet-hotel-binh-thanh/,service,Pet hotel room,Original vector illustration of calm pet room with bed/bowl/toy; no text,NEW_GENERATED,1200,900,svg,Không gian lưu trú thú cưng,PLANNED
-IMG006,P005,/pet-shop-binh-thanh/,category,Pet essentials,Original vector arrangement of food bowl/toy/leash; no text,NEW_GENERATED,1200,900,svg,Thức ăn và phụ kiện thú cưng,PLANNED
-IMG007,P006,/bang-gia/,inline_primary,Quote not fake price,Original iconographic scale showing pet type/weight/service as quote factors,NEW_GENERATED,960,720,svg,Các yếu tố ảnh hưởng báo giá dịch vụ,PLANNED
-IMG008,P007,/dat-lich/,inline_primary,Booking request flow,Original 3-step vector flow request-review-confirm; no text in image,NEW_GENERATED,960,720,svg,Quy trình gửi yêu cầu đặt lịch,PLANNED
-IMG009,P008,/lien-he/,local_project_case_study,Neighborhood locator,Original simplified local locator illustration; not a fake map screenshot,NEW_GENERATED,960,720,svg,Vị trí Lumi Pet Shop tại Bình Thạnh,PLANNED
-IMG010,P009,/gioi-thieu/,trust_evidence,Care principles,Original vector composition safety/gentle/clear communication,NEW_GENERATED,1200,900,svg,Nguyên tắc chăm sóc tại Lumi,PLANNED
-IMG011,P010,/faq/,inline_primary,FAQ pet care,Original vector question bubble and paw marks; no text,NEW_GENERATED,960,720,svg,Câu hỏi thường gặp về chăm sóc thú cưng,PLANNED
-IMG012,P001,/,mobile_specific,Mobile care path,Simplified vertical care-path vector for small screens,NEW_GENERATED,750,1000,svg,Hành trình chăm sóc Lumi trên thiết bị di động,PLANNED
+image_id,page_id,target_url,role,asset,source_mode,alt_text,status
+IMG001,P001,/,hero,assets/images/hero.svg,NEW_GENERATED,Lumi Pet chó và mèo,PRODUCED
+IMG002,P001,/,service_spa,assets/images/spa.svg,NEW_GENERATED,Spa thú cưng tại Lumi,PRODUCED
+IMG003,P001,/,service_grooming,assets/images/grooming.svg,NEW_GENERATED,Grooming chó mèo tại Lumi,PRODUCED
+IMG004,P001,/,service_hotel,assets/images/hotel.svg,NEW_GENERATED,Pet Hotel tại Lumi,PRODUCED
+IMG005,P001,/,service_shop,assets/images/shop.svg,NEW_GENERATED,Pet Shop tại Lumi,PRODUCED
+IMG006,P009,/gioi-thieu/,entity_space,assets/images/lobby.svg,NEW_GENERATED,Không gian Lumi Pet,PRODUCED
+IMG007,P009,/gioi-thieu/,care_journey,assets/images/care-journey.svg,NEW_GENERATED,Hành trình chăm sóc Lumi Pet,PRODUCED
+IMG008,P002,/spa-thu-cung-binh-thanh/,service_detail,assets/images/spa-detail.svg,NEW_GENERATED,Tắm và Spa thú cưng,PRODUCED
+IMG009,P003,/grooming-cho-meo-binh-thanh/,service_detail,assets/images/grooming-detail.svg,NEW_GENERATED,Grooming chó mèo,PRODUCED
+IMG010,P004,/pet-hotel-binh-thanh/,service_detail,assets/images/hotel-detail.svg,NEW_GENERATED,Không gian Pet Hotel,PRODUCED
+IMG011,P005,/pet-shop-binh-thanh/,category_detail,assets/images/shop-detail.svg,NEW_GENERATED,Danh mục Pet Shop,PRODUCED
+IMG012,P008,/lien-he/,trust_local,assets/images/trust-lobby.svg,NEW_GENERATED,Không gian và liên hệ Lumi Pet,PRODUCED
