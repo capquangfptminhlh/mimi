@@ -9,6 +9,8 @@ on:
       - "assets/api-*.js"
       - "assets/admin.*"
       - "assets/lumi-v2.*"
+      - "assets/lumi-content.*"
+      - "content/**"
       - ".github/workflows/lumi-backend-ci.yml"
   pull_request:
     paths:
@@ -17,6 +19,8 @@ on:
       - "assets/api-*.js"
       - "assets/admin.*"
       - "assets/lumi-v2.*"
+      - "assets/lumi-content.*"
+      - "content/**"
       - ".github/workflows/lumi-backend-ci.yml"
 
 permissions:
@@ -37,5 +41,6 @@ jobs:
           node --check assets/api-client.js
           node --check assets/admin.js
           node --check assets/lumi-v2.js
+          node --check assets/lumi-content.js
       - name: Unit tests
         run: node --test backend/test/*.test.mjs
