@@ -10,30 +10,33 @@
 
   const siteRoot = 'https://capquangfptminhlh.github.io/mimi';
   const paths = {
-    home: '/',
-    spa: '/spa-thu-cung-binh-thanh/',
-    grooming: '/grooming-cho-meo-binh-thanh/',
-    hotel: '/pet-hotel-binh-thanh/',
-    shop: '/pet-shop-binh-thanh/',
-    price: '/bang-gia/',
-    booking: '/dat-lich/',
-    contact: '/lien-he/',
-    about: '/gioi-thieu/',
-    faq: '/faq/'
+    home: '/', spa: '/spa-thu-cung-binh-thanh/', grooming: '/grooming-cho-meo-binh-thanh/',
+    hotel: '/pet-hotel-binh-thanh/', shop: '/pet-shop-binh-thanh/', price: '/bang-gia/',
+    booking: '/dat-lich/', contact: '/lien-he/', about: '/gioi-thieu/', faq: '/faq/'
   };
   const names = {
-    home: 'Lumi Pet Shop',
-    spa: 'Spa thú cưng Bình Thạnh',
-    grooming: 'Grooming chó mèo Bình Thạnh',
-    hotel: 'Pet Hotel Bình Thạnh',
-    shop: 'Pet Shop Bình Thạnh',
-    price: 'Bảng giá Lumi Pet',
-    booking: 'Đặt lịch Lumi Pet',
-    contact: 'Liên hệ Lumi Pet',
-    about: 'Giới thiệu Lumi Pet',
+    home: 'Lumi Pet Shop', spa: 'Spa thú cưng Bình Thạnh', grooming: 'Grooming chó mèo Bình Thạnh',
+    hotel: 'Pet Hotel Bình Thạnh', shop: 'Pet Shop Bình Thạnh', price: 'Bảng giá Lumi Pet',
+    booking: 'Đặt lịch Lumi Pet', contact: 'Liên hệ Lumi Pet', about: 'Giới thiệu Lumi Pet',
     faq: 'Câu hỏi thường gặp Lumi Pet'
   };
+  const atlasMap = {
+    'hero.svg': '0% 0%',
+    'spa.svg': '33.333% 0%',
+    'grooming.svg': '66.667% 0%',
+    'hotel.svg': '100% 0%',
+    'shop.svg': '0% 50%',
+    'care-journey.svg': '33.333% 50%',
+    'spa-detail.svg': '66.667% 50%',
+    'grooming-detail.svg': '100% 50%',
+    'hotel-detail.svg': '0% 100%',
+    'shop-detail.svg': '33.333% 100%',
+    'lobby.svg': '66.667% 100%',
+    'trust-lobby.svg': '100% 100%'
+  };
   const primaryImageNames = new Set(['hero.svg', 'spa.svg', 'grooming.svg', 'hotel.svg', 'shop.svg']);
+  const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+  const atlasUrl = `${base}/assets/photos/lumi-atlas.webp`;
   const pagePath = paths[pageKey] || '/';
   const pageUrl = `${siteRoot}${pagePath}`;
   const contentUrl = `${base}/content/${pageKey}.html`;
@@ -61,6 +64,7 @@
       .page-hero .inner{grid-template-columns:1fr .9fr;gap:30px}.page-hero img{aspect-ratio:4/3;min-height:0;border:0;box-shadow:0 28px 70px rgba(61,36,27,.16)}
       .panel img,.content-figure img{object-fit:cover;filter:saturate(.96) contrast(1.02)}
       .content-figure{border:0}.content-figure img{aspect-ratio:16/11}
+      img[data-lumi-atlas]{display:block;width:100%;background-image:var(--lumi-atlas);background-size:400% 300%;background-repeat:no-repeat;background-position:var(--lumi-pos);background-color:#ead8ca}
       .eyebrow{background:#efe0d2;padding:8px 13px}.btn{padding:12px 18px}.btn.primary{box-shadow:0 10px 26px rgba(159,71,40,.22)}
       .proof div{background:rgba(255,255,255,.8);backdrop-filter:blur(8px)}
       .footer{background:#71351f}.footer a,.footer span,.footnote{opacity:1}
@@ -72,14 +76,23 @@
 
   function configureLocalImages() {
     d.querySelectorAll('img').forEach((img) => {
-      const src = img.getAttribute('src') || '';
-      const name = src.split('/').pop();
-      img.decoding = 'async';
-      if (primaryImageNames.has(name) || img.closest('.page-hero')) {
-        img.loading = 'eager';
-        img.fetchPriority = name === 'hero.svg' ? 'high' : 'auto';
-      } else {
-        img.loading = 'lazy';
+      const current = img.dataset.lumiOriginal || img.getAttribute('src') || '';
+      const name = current.split('/').pop();
+      const position = atlasMap[name];
+      if (position) {
+        img.dataset.lumiOriginal = current;
+        img.dataset.lumiAtlas = '1';
+        img.src = transparentPixel;
+        img.removeAttribute('srcset');
+        img.style.setProperty('--lumi-atlas', `url("${atlasUrl}")`);
+        img.style.setProperty('--lumi-pos', position);
+        img.decoding = 'async';
+        if (primaryImageNames.has(name) || img.closest('.page-hero')) {
+          img.loading = 'eager';
+          img.fetchPriority = name === 'hero.svg' ? 'high' : 'auto';
+        } else {
+          img.loading = 'lazy';
+        }
       }
     });
   }
@@ -96,47 +109,21 @@
       const label = field.querySelector('label');
       const control = field.querySelector('input, select, textarea');
       if (!label || !control) return;
-      if (!control.id) {
-        sequence += 1;
-        control.id = `lumi-${pageKey}-field-${sequence}`;
-      }
+      if (!control.id) { sequence += 1; control.id = `lumi-${pageKey}-field-${sequence}`; }
       label.htmlFor = control.id;
     });
   }
 
   function businessNode() {
     return {
-      '@type': 'PetStore',
-      '@id': `${siteRoot}/#business`,
-      name: 'Lumi Pet Shop',
-      url: `${siteRoot}/`,
-      telephone: '+84989979675',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '27 Võ Trường Toản',
-        addressLocality: 'Phường Gia Định',
-        addressRegion: 'TP.HCM',
-        addressCountry: 'VN'
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 10.8022901,
-        longitude: 106.6997529
-      }
+      '@type': 'PetStore', '@id': `${siteRoot}/#business`, name: 'Lumi Pet Shop', url: `${siteRoot}/`, telephone: '+84989979675',
+      address: { '@type': 'PostalAddress', streetAddress: '27 Võ Trường Toản', addressLocality: 'Phường Gia Định', addressRegion: 'TP.HCM', addressCountry: 'VN' },
+      geo: { '@type': 'GeoCoordinates', latitude: 10.8022901, longitude: 106.6997529 }
     };
   }
 
   function primaryNode() {
-    if (['spa', 'grooming', 'hotel'].includes(pageKey)) {
-      return {
-        '@type': 'Service',
-        '@id': `${pageUrl}#service`,
-        url: pageUrl,
-        name: names[pageKey],
-        provider: { '@id': `${siteRoot}/#business` },
-        areaServed: { '@type': 'AdministrativeArea', name: 'Bình Thạnh, TP.HCM' }
-      };
-    }
+    if (['spa', 'grooming', 'hotel'].includes(pageKey)) return { '@type': 'Service', '@id': `${pageUrl}#service`, url: pageUrl, name: names[pageKey], provider: { '@id': `${siteRoot}/#business` }, areaServed: { '@type': 'AdministrativeArea', name: 'Bình Thạnh, TP.HCM' } };
     if (pageKey === 'shop') return { '@type': 'CollectionPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
     if (pageKey === 'contact') return { '@type': 'ContactPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
     if (pageKey === 'about') return { '@type': 'AboutPage', '@id': `${pageUrl}#page`, url: pageUrl, name: names[pageKey] };
@@ -148,8 +135,7 @@
     const questions = [...app.querySelectorAll('.long-faq details')].map((details) => {
       const question = details.querySelector('summary')?.textContent?.trim();
       const answer = details.querySelector('p')?.textContent?.trim();
-      if (!question || !answer) return null;
-      return { '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } };
+      return question && answer ? { '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } } : null;
     }).filter(Boolean);
     return questions.length ? { '@type': 'FAQPage', mainEntity: questions } : null;
   }
@@ -157,20 +143,10 @@
   function injectStructuredData() {
     d.querySelectorAll('script[data-lumi-schema]').forEach((node) => node.remove());
     const graph = [businessNode(), primaryNode()];
-    if (pageKey !== 'home') {
-      graph.push({
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Lumi Pet', item: `${siteRoot}/` },
-          { '@type': 'ListItem', position: 2, name: names[pageKey] || names.home, item: pageUrl }
-        ]
-      });
-    }
-    const faq = faqNode();
-    if (faq) graph.push(faq);
+    if (pageKey !== 'home') graph.push({ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Lumi Pet', item: `${siteRoot}/` }, { '@type': 'ListItem', position: 2, name: names[pageKey] || names.home, item: pageUrl }] });
+    const faq = faqNode(); if (faq) graph.push(faq);
     const script = d.createElement('script');
-    script.type = 'application/ld+json';
-    script.dataset.lumiSchema = '1';
+    script.type = 'application/ld+json'; script.dataset.lumiSchema = '1';
     script.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
     d.head.appendChild(script);
   }
@@ -179,20 +155,11 @@
   configureLocalImages();
 
   fetch(contentUrl, { credentials: 'same-origin' })
-    .then((response) => {
-      if (!response.ok) throw new Error(`CONTENT_${response.status}`);
-      return response.text();
-    })
+    .then((response) => { if (!response.ok) throw new Error(`CONTENT_${response.status}`); return response.text(); })
     .then((raw) => {
       app.insertAdjacentHTML('beforeend', resolveInternalLinks(raw));
-      configureLocalImages();
-      applyAccessibilityFixes();
-      injectStructuredData();
-      app.dataset.content = 'loaded';
-      d.documentElement.classList.add('longform-loaded', 'lumi-photo-upgrade');
+      configureLocalImages(); applyAccessibilityFixes(); injectStructuredData();
+      app.dataset.content = 'loaded'; d.documentElement.classList.add('longform-loaded', 'lumi-photo-upgrade');
     })
-    .catch((error) => {
-      console.error('LUMI_CONTENT_LOAD_FAILED', pageKey, error?.message || error);
-      app.dataset.content = 'failed';
-    });
+    .catch((error) => { console.error('LUMI_CONTENT_LOAD_FAILED', pageKey, error?.message || error); app.dataset.content = 'failed'; });
 })();
