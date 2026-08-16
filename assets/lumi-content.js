@@ -35,7 +35,7 @@
     'trust-lobby.svg': '100% 100%'
   };
   const primaryImageNames = new Set(['hero.svg', 'spa.svg', 'grooming.svg', 'hotel.svg', 'shop.svg']);
-  const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+  const transparentPixel = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
   const atlasUrl = `${base}/assets/photos/lumi-atlas.webp`;
   const pagePath = paths[pageKey] || '/';
   const pageUrl = `${siteRoot}${pagePath}`;
