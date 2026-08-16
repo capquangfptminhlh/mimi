@@ -42,6 +42,27 @@
     return html.replace(/\$\{U\('([^']+)'\)\}/g, (_, path) => `${base}/${path}`);
   }
 
+  function applyAccessibilityFixes() {
+    if (!d.querySelector('style[data-lumi-a11y]')) {
+      const style = d.createElement('style');
+      style.dataset.lumiA11y = '1';
+      style.textContent = ':root{--clay:#9f4728}.footer{color:#fff}.footer a,.footer span,.footnote{opacity:1}';
+      d.head.appendChild(style);
+    }
+
+    let sequence = 0;
+    d.querySelectorAll('.field').forEach((field) => {
+      const label = field.querySelector('label');
+      const control = field.querySelector('input, select, textarea');
+      if (!label || !control) return;
+      if (!control.id) {
+        sequence += 1;
+        control.id = `lumi-${pageKey}-field-${sequence}`;
+      }
+      label.htmlFor = control.id;
+    });
+  }
+
   function businessNode() {
     return {
       '@type': 'PetStore',
@@ -136,9 +157,10 @@
     })
     .then((raw) => {
       app.insertAdjacentHTML('beforeend', resolveInternalLinks(raw));
+      applyAccessibilityFixes();
+      injectStructuredData();
       app.dataset.content = 'loaded';
       d.documentElement.classList.add('longform-loaded');
-      injectStructuredData();
     })
     .catch((error) => {
       console.error('LUMI_CONTENT_LOAD_FAILED', pageKey, error?.message || error);
