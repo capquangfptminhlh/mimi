@@ -1,0 +1,19 @@
+decision: PASS
+observed_at: 2026-08-16T23:18:00+07:00
+selected_candidate: A_Care_Journey
+criteria:
+  fresh_research: PASS
+  reference_decomposition: PASS
+  saturation_map: PASS
+  shortlisted_candidates_min_5: PASS
+  silhouette_test: PASS
+  structural_dna: PASS
+  design_history_comparison: PASS
+  future_leap: PASS
+  desktop_composition: PASS
+  mobile_composition: PASS
+  typography_architecture: PASS
+structural_similarity_vs_old_percent: 20
+changed_axes_vs_old: 8
+production_ui_unblocked: true
+visual_asset_generation_unblocked: true

@@ -1,0 +1,6 @@
+reference,entry_model,navigation_model,page_topology,information_flow,interaction_grammar,motion_grammar,typography_architecture,mobile_behavior,conversion_pattern,data_presentation
+Old Lumi site,split hero,top nav,hero then service card grid then table then booking,linear sections,anchors/forms,basic,System sans,stacked desktop,CTA buttons,table
+Pawie,hero/service sections,top nav,service/product blocks,service -> proof -> price -> booking,cards/forms,light,Sans/brand,stacked,booking,price cards/products
+Mật Pet Spa,tool-first,top nav,calculator-led,selector -> price -> booking,stepper/calculator,controlled,Sans,optimized single column,calculate then reserve,interactive estimate
+Kindred Pet Care,editorial service entry,brand nav,story-led service page,story -> service proof,scroll storytelling,illustrative,editorial,illustration-led,service CTA,service narrative
+Chosen mutation,care-journey entry,compact nav + persistent booking rail,journey stations around one continuous path,need -> process -> proof -> request,station switcher + native details,short state transitions,System serif+sans,vertical thumb journey with bottom action,request booking,verified fact/status chips

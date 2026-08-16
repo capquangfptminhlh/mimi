@@ -1,0 +1,6 @@
+direction,hypothesis,user_value,feasibility,performance_risk,accessibility_risk,validation_plan,fallback
+Care Journey,Let users choose pet need first then reveal only relevant care path,Faster comprehension and lower decision load,High,Low,Low,Measure booking CTA completion and service-page engagement,Show all semantic sections without JS
+Quote Clarity,Explain quote factors interactively without fabricating prices,Reduces price uncertainty while preserving truth,High,Low,Low,Measure quote-request completion,Static factor list
+Pet Stay Prep,Interactive pre-stay checklist for hotel intent,Reduces back-and-forth before boarding,High,Low,Low,Track checklist interactions and booking completion,Static checklist
+Context CTA,CTA wording changes by selected service context,More relevant next action,Medium,Low,Medium,Accessibility test live regions and conversion,Static 'Đặt lịch' CTA
+Local Proof Strip,Use verified entity/status chips near decision points,Builds trust without inflated claims,High,Low,Low,Track click-to-call/map events,Plain text facts

@@ -1,0 +1,8 @@
+pattern,saturation_or_history,risk,decision
+split hero left copy right image,Used by old Lumi and highly common,High,REJECT
+hero CTA icon strip stat strip card grid,Explicit Website OS anti-template pattern,High,REJECT
+generic 3-column service cards,Common pet/SMB pattern,High,REJECT
+generic bento service blocks,High current saturation,Medium,REJECT
+decorative 3D pet object,Decoration without task value,Medium,REJECT
+care journey with station-based navigation,Not present in old Lumi; supports service decision path,Low,USE
+booking rail integrated into journey,Direct conversion without modal interruption,Low,USE

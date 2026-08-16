@@ -1,0 +1,17 @@
+keyword,cluster_id,target_url,coverage_type,launch_status,content_section_or_page,evidence_ref,status
+spa thú cưng Bình Thạnh,SPA,/spa-thu-cung-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Hero + service process,SERP-001,PASS
+tắm chó mèo Bình Thạnh,SPA,/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Tắm & vệ sinh,SERP-004,PASS
+grooming chó mèo Bình Thạnh,GROOM,/grooming-cho-meo-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Hero + grooming flow,SERP-002,PASS
+cắt tỉa lông chó mèo Bình Thạnh,GROOM,/grooming-cho-meo-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Cắt tỉa & tạo kiểu,SERP-002,PASS
+pet hotel Bình Thạnh,HOTEL,/pet-hotel-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Hero + stay journey,SERP-005,PASS
+khách sạn thú cưng Bình Thạnh,HOTEL,/pet-hotel-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Lưu trú chó mèo,SERP-005,PASS
+gửi chó mèo qua đêm Bình Thạnh,HOTEL,/pet-hotel-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Chuẩn bị gửi bé,SERP-006,PASS
+pet shop Bình Thạnh,SHOP,/pet-shop-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Product groups,SERP-007,PASS
+bảng giá spa chó mèo,PRICE,/bang-gia/,PRIMARY_PAGE,BUILD_LAUNCH,Price status + quote flow,SERP-008,PASS
+bảng giá grooming chó mèo,PRICE,/bang-gia/,SECONDARY_SECTION,BUILD_LAUNCH,Grooming pricing status,SERP-008,PASS
+đặt lịch spa thú cưng Bình Thạnh,BOOK,/dat-lich/,PRIMARY_PAGE,BUILD_LAUNCH,Booking request form,SERP-009,PASS
+Lumi Pet Shop,HOME,/,PRIMARY_PAGE,BUILD_LAUNCH,Brand entity,GBP-001,PASS
+Lumi Pet địa chỉ,CONTACT,/lien-he/,PRIMARY_PAGE,BUILD_LAUNCH,Address/map/phone,GBP-001,PASS
+bao lâu nên tắm chó một lần,FAQ,/faq/,FAQ_AEO,BUILD_LAUNCH,FAQ answer,SERP-004,PASS
+có cần đặt lịch grooming trước không,FAQ,/faq/,FAQ_AEO,BUILD_LAUNCH,FAQ answer,SERP-009,PASS
+pet hotel cần chuẩn bị gì,FAQ,/faq/,FAQ_AEO,BUILD_LAUNCH,FAQ answer,SERP-005,PASS

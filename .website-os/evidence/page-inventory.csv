@@ -1,0 +1,12 @@
+page_id,target_url,page_type,primary_keyword,primary_intent,primary_entity,indexability,launch_status,content_source,image_set_id,schema_types,internal_link_parent,mobile_required,status
+P001,/,homepage,Lumi Pet Shop,NAVIGATIONAL,Lumi Pet Shop,index,BUILD_LAUNCH,GBP + verified first-party,LUMI-HOME,LocalBusiness|WebSite,,YES,READY
+P002,/spa-thu-cung-binh-thanh/,service,spa thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,Spa thú cưng,index,BUILD_LAUNCH,Verified service scope + SERP,LUMI-SPA,Service|BreadcrumbList,/,YES,READY
+P003,/grooming-cho-meo-binh-thanh/,service,grooming chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,Grooming,index,BUILD_LAUNCH,Verified service scope + SERP,LUMI-GROOM,Service|BreadcrumbList,/,YES,READY
+P004,/pet-hotel-binh-thanh/,service,pet hotel Bình Thạnh,LOCAL_TRANSACTIONAL,Pet Hotel,index,BUILD_LAUNCH,GBP boarding entity + SERP,LUMI-HOTEL,Service|BreadcrumbList,/,YES,READY
+P005,/pet-shop-binh-thanh/,category,pet shop Bình Thạnh,LOCAL_TRANSACTIONAL,Pet Shop,index,BUILD_LAUNCH,Existing first-party scope,LUMI-SHOP,CollectionPage|BreadcrumbList,/,YES,READY
+P006,/bang-gia/,pricing,bảng giá spa chó mèo,COMMERCIAL,Pricing,index,BUILD_LAUNCH,Verified price statuses only,LUMI-PRICE,WebPage|BreadcrumbList,/,YES,READY
+P007,/dat-lich/,booking,đặt lịch spa thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,Booking,index,BUILD_LAUNCH,Booking request UX,LUMI-BOOK,WebPage|BreadcrumbList,/,YES,READY
+P008,/lien-he/,contact,Lumi Pet địa chỉ,NAVIGATIONAL,Lumi Pet Shop,index,BUILD_LAUNCH,Google Business Profile,LUMI-CONTACT,ContactPage|LocalBusiness,/,YES,READY
+P009,/gioi-thieu/,entity,Lumi Pet Shop,INFORMATIONAL,Lumi Pet Shop,index,BUILD_LAUNCH,Verified entity facts,LUMI-ABOUT,AboutPage|Organization,/,YES,READY
+P010,/faq/,faq,grooming gồm những gì,INFORMATIONAL,Pet care FAQ,index,BUILD_LAUNCH,SERP questions + verified business answers,LUMI-FAQ,FAQPage|BreadcrumbList,/,YES,READY
+P011,/cam-nang/,hub,cẩm nang chăm thú cưng,INFORMATIONAL,Pet care,noindex,BUILD_POST_LAUNCH,Post-launch editorial,LUMI-GUIDE,CollectionPage,/,YES,HOLD

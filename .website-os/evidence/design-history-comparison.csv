@@ -1,0 +1,10 @@
+axis,old_lumi,chosen_care_journey,changed
+page_topology,split hero + section stack + card grid,continuous care path with stations,YES
+navigation_model,top nav anchors,compact top nav + journey rail + mobile bottom action,YES
+information_flow,brand -> cards -> price -> booking,need -> service process -> proof -> request,YES
+interaction_grammar,anchor jumps + forms,station switching + details + dedicated booking,YES
+entry_or_hero_model,left copy + right photo,full-width care-path orientation board,YES
+typography_architecture,single sans hierarchy,editorial system serif anchors + system sans UI,YES
+motion_model,basic/no formal system,short station transitions + progress; reduced-motion fallback,YES
+mobile_behavior,desktop sections stacked,thumb-first vertical journey + persistent safe-area CTA,YES
+similarity_percent,100,estimated 20,YES

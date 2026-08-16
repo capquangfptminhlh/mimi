@@ -1,0 +1,24 @@
+decision: PASS
+observed_at: 2026-08-16T23:10:00+07:00
+source_mode: live qualitative SERP + Google Business Profile + existing first-party repository facts
+metrics:
+  search_volume: UNKNOWN
+  keyword_difficulty: UNKNOWN
+  cpc: UNKNOWN
+  ranking_position: UNKNOWN
+  traffic_potential: UNKNOWN
+pass_basis:
+  fresh_serp_evidence: true
+  intent_classification_complete: true
+  cluster_mapping_complete: true
+  canonical_url_ownership_complete: true
+  high_risk_cannibalization_resolved: true
+  local_real_value_gate_applied: true
+  entity_topic_map_complete: true
+  priority_evidence_based: true
+  fabricated_metrics: false
+  content_types_intent_driven: true
+  full_scope_plan_pass: true
+unresolved_business_facts:
+  - service prices: HOLD
+  - 24/7 claim: HOLD because current Google hours show 07:00-21:00

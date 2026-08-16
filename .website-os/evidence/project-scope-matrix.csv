@@ -1,0 +1,12 @@
+scope_id,cluster_id,cluster_name,primary_intent,entity_name,target_url,page_type,launch_status,reason,evidence_ref
+S001,HOME,Lumi Pet Shop entity,NAVIGATIONAL,Lumi Pet Shop,/,homepage,BUILD_LAUNCH,Brand/entity hub,GBP-001
+S002,SPA,Spa & tắm chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,Spa thú cưng,/spa-thu-cung-binh-thanh/,service,BUILD_LAUNCH,Core service intent,SERP-001
+S003,GROOM,Grooming & cắt tỉa,LOCAL_TRANSACTIONAL,Grooming,/grooming-cho-meo-binh-thanh/,service,BUILD_LAUNCH,Distinct service intent,SERP-002
+S004,HOTEL,Pet Hotel & gửi qua đêm,LOCAL_TRANSACTIONAL,Pet Hotel,/pet-hotel-binh-thanh/,service,BUILD_LAUNCH,Distinct boarding intent,SERP-005
+S005,SHOP,Pet Shop Bình Thạnh,LOCAL_TRANSACTIONAL,Pet Shop,/pet-shop-binh-thanh/,category,BUILD_LAUNCH,Existing business scope,SERP-007
+S006,PRICE,Bảng giá,COMMERCIAL,Pricing,/bang-gia/,pricing,BUILD_LAUNCH,Commercial investigation; unverified prices stay HOLD,SERP-008
+S007,BOOK,Đặt lịch,LOCAL_TRANSACTIONAL,Booking,/dat-lich/,booking,BUILD_LAUNCH,Conversion action,SERP-009
+S008,CONTACT,Liên hệ,NAVIGATIONAL,Lumi Pet Shop,/lien-he/,contact,BUILD_LAUNCH,Maps/phone/directions,GBP-001
+S009,ABOUT,Giới thiệu,INFORMATIONAL,Lumi Pet Shop,/gioi-thieu/,entity,BUILD_LAUNCH,Trust/entity provenance,GBP-001
+S010,FAQ,Câu hỏi thường gặp,INFORMATIONAL,Pet care FAQs,/faq/,faq,BUILD_LAUNCH,AEO/support coverage,SERP-004
+S011,GUIDE,Cẩm nang,INFORMATIONAL,Pet care content,/cam-nang/,hub,BUILD_POST_LAUNCH,Editorial expansion after launch,K0-EDITORIAL

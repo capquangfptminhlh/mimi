@@ -1,0 +1,5 @@
+role,font_strategy,vietnamese_support,license_provenance,responsive_behavior,decision
+Display,Georgia/system serif,YES,OS/system font,Clamp scale; editorial anchors,USE
+UI/body,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif,YES,OS/browser system stack,Content-based scale and readable 1.6 line-height,USE
+Numbers/status,system-ui tabular-nums,YES,OS/browser system stack,Stable price/status alignment,USE
+Motion,Kinetic typography limited to opacity/translate,YES,N/A,Disabled/reduced under prefers-reduced-motion,USE

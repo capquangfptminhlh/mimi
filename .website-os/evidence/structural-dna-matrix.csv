@@ -1,0 +1,6 @@
+candidate,page_topology,navigation_model,information_flow,interaction_grammar,entry_or_hero_model,typography_architecture,motion_model,mobile_behavior,axes_changed_vs_old,similarity_estimate,status
+A_Care_Journey,continuous care path,compact nav+rail,need->process->proof->request,station switching,orientation board,serif anchors+sans UI,progress states,vertical thumb timeline,8,20%,SHORTLIST
+B_Service_Switchboard,full-screen service switchboard,command-like service nav,choose service->deep dive,focus switcher,service matrix,utility sans,fast panel swaps,full-screen thumb cards,7,28%,SHORTLIST
+C_Day_At_Lumi,time-based story,timeline nav,morning->care->pickup,time scrubber,time scene,editorial serif,scroll-linked but reducible,vertical day timeline,7,30%,SHORTLIST
+D_Pet_Passport,profile/passport modules,passport tabs,pet profile->needs->service,profile selector,pet passport entry,mixed mono/sans,stamp microstates,one-card-at-time,7,32%,SHORTLIST
+E_Neighborhood_Hub,local hub around physical shop,map/route nav,location->service->proof->visit,route/service toggles,locator board,condensed sans,route highlights,nearby action sheet,6,34%,SHORTLIST

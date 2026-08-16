@@ -1,0 +1,12 @@
+primary_intent,entity_name,target_url,canonical_owner,indexability,status
+NAVIGATIONAL,Lumi Pet Shop,/,YES,index,PASS
+LOCAL_TRANSACTIONAL,Spa thú cưng,/spa-thu-cung-binh-thanh/,YES,index,PASS
+LOCAL_TRANSACTIONAL,Grooming,/grooming-cho-meo-binh-thanh/,YES,index,PASS
+LOCAL_TRANSACTIONAL,Pet Hotel,/pet-hotel-binh-thanh/,YES,index,PASS
+LOCAL_TRANSACTIONAL,Pet Shop,/pet-shop-binh-thanh/,YES,index,PASS
+COMMERCIAL,Bảng giá,/bang-gia/,YES,index,PASS
+LOCAL_TRANSACTIONAL,Đặt lịch,/dat-lich/,YES,index,PASS
+NAVIGATIONAL,Liên hệ Lumi,/lien-he/,YES,index,PASS
+INFORMATIONAL,Giới thiệu Lumi,/gioi-thieu/,YES,index,PASS
+INFORMATIONAL,FAQ,/faq/,YES,index,PASS
+INFORMATIONAL,Cẩm nang,/cam-nang/,YES,index,BUILD_POST_LAUNCH

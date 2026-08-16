@@ -1,0 +1,22 @@
+decision: PASS
+observed_at: 2026-08-16T23:10:00+07:00
+scope: full replacement of capquangfptminhlh/mimi
+planned_launch_pages: 10
+post_launch_pages: 1
+planned_launch_images: 12
+rules:
+  one_intent_entity_one_owner: true
+  all_p0_p1_clusters_have_launch_decision: true
+  all_build_launch_pages_in_inventory: true
+  all_retained_launch_keywords_covered_or_held: true
+  all_launch_pages_have_mobile_requirement: true
+  all_required_images_planned: true
+  local_name_swap_pages_prohibited: true
+facts_on_hold:
+  - exact service pricing
+  - any 24/7 availability claim beyond verified Google hours
+  - unverified service features not supplied by first-party sources
+notes:
+  - Price page will exist at launch but will show verified pricing only; otherwise request-a-quote states.
+  - Existing site is not a design source of truth.
+  - Post-launch editorial starts only after release PASS.

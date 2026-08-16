@@ -1,0 +1,9 @@
+decision: PASS
+observed_at: 2026-08-16T23:18:00+07:00
+shortlisted_candidates: 5
+review_method: text-wireframe silhouette comparison without brand/color/photography
+result:
+  distinguishable_candidates: 5
+  old_split_hero_card_grid_reused: false
+selected_candidate: A_Care_Journey
+reason: strongest fit for explaining multiple care services while keeping booking and local trust evidence close to decision points

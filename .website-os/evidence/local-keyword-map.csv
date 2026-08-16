@@ -1,0 +1,7 @@
+keyword,location_level,target_url,real_local_value,evidence,status
+spa thú cưng Bình Thạnh,district,/spa-thu-cung-binh-thanh/,Physical shop at 27 Võ Trường Toản,Google Business Profile,PASS
+grooming chó mèo Bình Thạnh,district,/grooming-cho-meo-binh-thanh/,Physical shop + service scope,First-party repo + GBP location,PASS
+pet hotel Bình Thạnh,district,/pet-hotel-binh-thanh/,Physical boarding business category,Google Business Profile,PASS
+pet shop Bình Thạnh,district,/pet-shop-binh-thanh/,Physical shop + existing product scope,First-party repo + GBP location,PASS
+spa thú cưng Phường Gia Định,ward,HOLD,Insufficient distinct local-value evidence beyond same physical location,Needs local demand evidence,HOLD
+spa thú cưng Landmark 81,landmark,HOLD,No verified delivery/pickup/service-area proposition yet,Needs first-party service-area evidence,HOLD
