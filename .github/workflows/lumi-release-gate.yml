@@ -1,0 +1,131 @@
+name: Lumi Production Release Gate
+
+on:
+  workflow_run:
+    workflows: ["Deploy Lumi Pet to GitHub Pages"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  release-gate:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Static integrity, tests and secret scan
+        run: |
+          set -euo pipefail
+          test "$(grep -o '<url>' sitemap.xml | wc -l | tr -d ' ')" -eq 10
+          for p in index.html spa-thu-cung-binh-thanh/index.html grooming-cho-meo-binh-thanh/index.html pet-hotel-binh-thanh/index.html pet-shop-binh-thanh/index.html bang-gia/index.html dat-lich/index.html lien-he/index.html gioi-thieu/index.html faq/index.html; do test -s "$p"; done
+          node --check backend/src/index.js
+          node --check backend/src/validation.js
+          node --check assets/api-client.js
+          node --check assets/admin.js
+          node --check assets/lumi-v2.js
+          node --check assets/lumi-content.js
+          node --test backend/test/*.test.mjs
+          ! grep -RIE --exclude-dir=.git --exclude='*.md' --exclude='*.csv' '(-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----|ghp_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9_-]{24,})' .
+      - name: Install Chromium and Axe
+        run: |
+          mkdir -p /tmp/lumi-release && cd /tmp/lumi-release
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 @axe-core/playwright@4.10.2 >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null
+      - name: Validate production
+        env:
+          BASE_URL: https://capquangfptminhlh.github.io/mimi
+        run: |
+          cat > /tmp/lumi-release/release.mjs <<'EOF'
+          import fs from 'node:fs';
+          import { chromium } from 'playwright';
+          import AxeBuilder from '@axe-core/playwright';
+
+          const base=process.env.BASE_URL.replace(/\/$/,'');
+          const pages=[['home','/'],['spa','/spa-thu-cung-binh-thanh/'],['grooming','/grooming-cho-meo-binh-thanh/'],['hotel','/pet-hotel-binh-thanh/'],['shop','/pet-shop-binh-thanh/'],['price','/bang-gia/'],['booking','/dat-lich/'],['contact','/lien-he/'],['about','/gioi-thieu/'],['faq','/faq/']];
+          const modes=[['desktop',{width:1440,height:1000}],['mobile',{width:390,height:844}]];
+          fs.mkdirSync('release-evidence',{recursive:true});
+          const browser=await chromium.launch({headless:true});
+          const results=[];
+          let failed=false;
+
+          for(const [mode,viewport] of modes){
+            const context=await browser.newContext({viewport,deviceScaleFactor:1});
+            await context.addInitScript(()=>{
+              window.__perf={lcp:0,cls:0,interaction:0};
+              try{new PerformanceObserver(l=>{for(const e of l.getEntries())window.__perf.lcp=Math.max(window.__perf.lcp,e.startTime||0)}).observe({type:'largest-contentful-paint',buffered:true})}catch{}
+              try{new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.__perf.cls+=e.value||0}).observe({type:'layout-shift',buffered:true})}catch{}
+              try{new PerformanceObserver(l=>{for(const e of l.getEntries())if(e.interactionId)window.__perf.interaction=Math.max(window.__perf.interaction,e.duration||0)}).observe({type:'event',buffered:true,durationThreshold:16})}catch{}
+            });
+            for(const [key,path] of pages){
+              const p=await context.newPage(),errors=[];
+              p.on('pageerror',e=>errors.push(`pageerror:${e.message}`));
+              p.on('console',m=>{if(m.type()==='error')errors.push(`console:${m.text()}`)});
+              p.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)errors.push(`http:${r.status()}:${r.url()}`)});
+              const response=await p.goto(base+path,{waitUntil:'networkidle',timeout:30000});
+              await p.waitForFunction(()=>document.getElementById('app')?.dataset.content==='loaded',null,{timeout:15000});
+              const audit=await p.evaluate(()=>{
+                const schemas=[...document.querySelectorAll('script[type="application/ld+json"]')].map(n=>n.textContent||'');
+                return {title:document.title,description:document.querySelector('meta[name="description"]')?.content||'',canonical:document.querySelector('link[rel="canonical"]')?.href||'',h1:document.querySelectorAll('h1').length,h2:document.querySelectorAll('h2').length,schema:schemas.some(x=>x.includes('PetStore')),overflow:document.documentElement.scrollWidth-window.innerWidth,unresolved:document.body.innerHTML.includes("${U('"),unsafeBlank:[...document.querySelectorAll('a[target="_blank"]')].filter(a=>!(a.rel||'').split(/\s+/).includes('noopener')).length};
+              });
+              if(!response||response.status()>=400)errors.push(`navigation:${response?.status()||'none'}`);
+              if(!audit.title||!audit.description||!audit.canonical)errors.push('seo:missing-meta');
+              if(audit.canonical!==base+path)errors.push(`seo:canonical:${audit.canonical}`);
+              if(audit.h1!==1||audit.h2<1)errors.push(`seo:headings:${audit.h1}/${audit.h2}`);
+              if(!audit.schema)errors.push('seo:schema');
+              if(audit.overflow>2)errors.push(`responsive:overflow:${audit.overflow}`);
+              if(audit.unresolved)errors.push('content:unresolved-token');
+              if(audit.unsafeBlank)errors.push(`security:target-blank:${audit.unsafeBlank}`);
+
+              const axe=await new AxeBuilder({page:p}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+              const severe=axe.violations.filter(v=>['critical','serious'].includes(v.impact));
+              if(severe.length)errors.push(`a11y:${severe.map(v=>v.id).join(',')}`);
+
+              if(key==='hotel'){
+                const now=Date.now(),checkin=new Date(now+86400000).toISOString().slice(0,10),checkout=new Date(now+3*86400000).toISOString().slice(0,10);
+                await p.locator('[data-hotel] input[name="checkinDate"]').first().fill(checkin);
+                await p.locator('[data-hotel] input[name="checkoutDate"]').first().fill(checkout);
+                const nights=await p.locator('[data-hotel] [data-nights]').first().textContent();
+                if(!/2 đêm/.test(nights||''))errors.push(`hotel:nights:${nights}`);
+              }
+              if(key==='shop'){
+                await p.locator('[data-add]').first().click();
+                const drawer=p.locator('#drawer').first();
+                if(!(await drawer.evaluate(el=>el.classList.contains('open'))))errors.push('shop:drawer');
+                await p.locator('[data-cart-close]').first().click();
+              }
+              const faq=p.locator('.long-faq summary').first();
+              if(await faq.count())await faq.click({timeout:5000});
+              await p.waitForTimeout(200);
+              const perf=await p.evaluate(()=>({lcp:Number(window.__perf?.lcp||0),cls:Number(window.__perf?.cls||0),interaction:Number(window.__perf?.interaction||0)}));
+              if(perf.lcp>2500)errors.push(`perf:lcp:${perf.lcp.toFixed(0)}`);
+              if(perf.cls>0.1)errors.push(`perf:cls:${perf.cls.toFixed(3)}`);
+              if(perf.interaction>200)errors.push(`perf:interaction:${perf.interaction.toFixed(0)}`);
+              await p.screenshot({path:`release-evidence/${key}-${mode}.png`,fullPage:true});
+              results.push({key,path,mode,audit,performance:perf,a11y:axe.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.length})),errors});
+              if(errors.length)failed=true;
+              await p.close();
+            }
+            await context.close();
+          }
+          await browser.close();
+          fs.writeFileSync('release-evidence/release.json',JSON.stringify({base,results},null,2));
+          const report=results.map(r=>`${r.key}/${r.mode}: ${r.errors.length?'FAIL '+r.errors.join(' | '):'PASS'} | LCP ${r.performance.lcp.toFixed(0)} CLS ${r.performance.cls.toFixed(3)} INT ${r.performance.interaction.toFixed(0)}`).join('\n');
+          fs.writeFileSync('release-evidence/release.txt',report+'\n');
+          console.log(report);
+          if(failed)process.exit(1);
+          EOF
+          node /tmp/lumi-release/release.mjs
+      - name: Upload release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lumi-production-release-evidence
+          path: release-evidence/
+          retention-days: 30
