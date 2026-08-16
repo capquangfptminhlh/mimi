@@ -35,7 +35,7 @@ jobs:
             faq/index.html; do
             test -s "$path"
           done
-          test "$(grep -c '<url>' sitemap.xml)" -eq 10
+          test "$(grep -o '<url>' sitemap.xml | wc -l | tr -d ' ')" -eq 10
           node --check backend/src/index.js
           node --check backend/src/validation.js
           node --check assets/api-client.js
