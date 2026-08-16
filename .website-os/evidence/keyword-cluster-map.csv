@@ -1,0 +1,12 @@
+cluster_id,cluster_name,primary_intent,pillar_or_hub_url,coverage_status
+HOME,Lumi Pet Shop entity,NAVIGATIONAL,/,COVERED
+SPA,Spa & tắm chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,/spa-thu-cung-binh-thanh/,COVERED
+GROOM,Grooming & cắt tỉa chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,/grooming-cho-meo-binh-thanh/,COVERED
+HOTEL,Pet Hotel & gửi chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,/pet-hotel-binh-thanh/,COVERED
+SHOP,Pet Shop Bình Thạnh,LOCAL_TRANSACTIONAL,/pet-shop-binh-thanh/,COVERED
+PRICE,Bảng giá dịch vụ thú cưng,COMMERCIAL,/bang-gia/,COVERED
+BOOK,Đặt lịch chăm sóc thú cưng,LOCAL_TRANSACTIONAL,/dat-lich/,COVERED
+CONTACT,Liên hệ & chỉ đường Lumi,NAVIGATIONAL,/lien-he/,COVERED
+ABOUT,Giới thiệu Lumi,INFORMATIONAL,/gioi-thieu/,COVERED
+FAQ,Câu hỏi thường gặp,INFORMATIONAL,/faq/,COVERED
+GUIDE,Cẩm nang chăm thú cưng,INFORMATIONAL,/cam-nang/,POST_LAUNCH

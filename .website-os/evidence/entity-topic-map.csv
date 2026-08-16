@@ -1,0 +1,13 @@
+entity_type,entity_name,topic,source_of_truth,verification_status
+brand,Lumi Pet Shop,Business identity,Google Business Profile,VERIFIED
+location,27 Võ Trường Toản,Business address,Google Business Profile,VERIFIED
+phone,+84 989 979 675,Contact,Google Business Profile,VERIFIED
+service,Pet boarding service,Pet Hotel,Google Business Profile,VERIFIED
+service,Pet sitter,Pet care,Google Business Profile,VERIFIED
+service,Spa/Tắm chó mèo,Spa,Existing first-party repo + user business context,PARTIAL_VERIFIED
+service,Grooming/Cắt tỉa,Grooming,Existing first-party repo + user business context,PARTIAL_VERIFIED
+service,Thức ăn & phụ kiện,Pet Shop,Existing first-party repo,PARTIAL_VERIFIED
+hours,07:00-21:00,Opening hours,Google Business Profile,VERIFIED
+claim,24/7,Availability claim,Listing name conflicts with hours,HOLD
+price,Service prices,Pricing,No current first-party price list supplied,HOLD
+review,5.0 / 113 reviews,Reputation,Google Business Profile observed 2026-08-16,VERIFIED

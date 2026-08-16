@@ -1,0 +1,9 @@
+source_family,source_name,url,observed_at,pattern_observed,relevance,decision
+PRIMARY_PLATFORM,Framer Reduced Motion,https://www.framer.com/help/articles/reduced-motion-settings/,2026-08-16,Respect prefers-reduced-motion and disable heavy movement,High,USE
+PRIMARY_PLATFORM,Framer Responsive Breakpoints,https://www.framer.com/blog/responsive-breakpoints/,2026-08-16,Content-based breakpoints rather than device presets,High,USE
+PRIMARY_PLATFORM,Webflow Interactions,https://webflow.com/webflow-way/design-systems/interactions,2026-08-16,Short purposeful interactions; performance/accessibility review,High,USE
+CURATED,Awwwards Kindred Pet Care,https://www.awwwards.com/inspiration/service-page-kindred-pet-care-1,2026-08-16,Pet-care service storytelling and mobile illustration reference,Medium,USE
+CURATED,Awwwards Kireys Mobile Grooming,https://www.awwwards.com/sites/kireys-mobile-grooming,2026-08-16,Pet service content architecture reference,Medium,USE
+SAME_INDUSTRY,Pawie Pet House,https://pawiepethouse.com/,2026-08-16,Local service + hotel + products + booking + price presentation,High,USE_STRUCTURAL_GAP_ONLY
+SAME_INDUSTRY,Petworld Oasis,https://petworldoasis.vn/dich-vu-grooming-cho-cho-meo/,2026-08-16,Grooming service process and local intent coverage,High,USE_CONTENT_GAP_ONLY
+SAME_INDUSTRY,Mật Pet Spa,https://matpet.vn/spa,2026-08-16,Price-estimator interaction reduces uncertainty,High,ADAPT_AS_QUOTE_ESTIMATOR

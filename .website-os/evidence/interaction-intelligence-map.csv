@@ -1,0 +1,7 @@
+interaction,user_value,risk,decision
+sticky_mobile_booking,Fast thumb-reachable action,Can obscure content,USE with safe-area spacing
+service_journey_switcher,Understand service path without scanning grid,Can hide content from crawlers,USE with semantic HTML and progressive enhancement
+quote_factor_selector,Clarifies why price varies without inventing price,Can imply a quote if wording weak,USE as educational estimator only
+accordion_faq,Compact mobile answers,Hidden content if JS-only,USE native details/summary
+scroll_progress_care_path,Shows place in journey,Motion distraction,USE subtle + reduced-motion fallback
+modal_booking,Fast conversion,Focus trap/accessibility risk,REJECT; use dedicated booking page + inline CTA

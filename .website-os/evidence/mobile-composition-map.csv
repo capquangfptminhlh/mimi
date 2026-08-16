@@ -1,0 +1,9 @@
+area,desktop_composition,mobile_composition
+header,compact horizontal nav + booking action,brand + menu + bottom sticky booking action
+entry,wide care-path orientation board,vertical service need selector with one focused illustration
+journey,horizontal/diagonal station path,vertical station timeline
+service details,two-column text/proof inside active station,single-column semantic sections with details accordions
+trust,inline verified fact chips,swipe-free wrapped chips
+booking,dedicated page + desktop side rail,dedicated page + bottom thumb CTA
+contact,details + locator side-by-side,phone/address/map stacked with large tap targets
+motion,subtle progress/state transitions,less movement by default; disabled with reduced motion

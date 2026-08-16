@@ -1,0 +1,10 @@
+decision: PASS
+observed_at: 2026-08-16T23:18:00+07:00
+source_families: 3
+freshness_days: 0
+research_changed_structure: true
+selected_direction: care_journey
+notes:
+  - Current platform evidence reinforces reduced-motion and content-based responsive behavior.
+  - Same-industry research informed conversion/content gaps but was not copied as layout.
+  - Old Lumi split-hero/card-grid topology is explicitly rejected.

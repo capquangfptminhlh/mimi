@@ -1,0 +1,11 @@
+page_id,target_url,content_file,approx_words,faq_items,internal_linking,fact_guard,status
+P001,/,content/home.html,510,4,PASS,PASS,FULL_LONGFORM
+P002,/spa-thu-cung-binh-thanh/,content/spa.html,800,6,PASS,PASS,FULL_LONGFORM
+P003,/grooming-cho-meo-binh-thanh/,content/grooming.html,608,6,PASS,PASS,FULL_LONGFORM
+P004,/pet-hotel-binh-thanh/,content/hotel.html,762,7,PASS,PASS,FULL_LONGFORM
+P005,/pet-shop-binh-thanh/,content/shop.html,570,6,PASS,PASS,FULL_LONGFORM
+P006,/bang-gia/,content/price.html,445,5,PASS,PASS,FULL_LONGFORM
+P007,/dat-lich/,content/booking.html,472,6,PASS,PASS,FULL_LONGFORM
+P008,/lien-he/,content/contact.html,256,5,PASS,PASS,FULL_LONGFORM
+P009,/gioi-thieu/,content/about.html,477,5,PASS,PASS,FULL_LONGFORM
+P010,/faq/,content/faq.html,474,15,PASS,PASS,FULL_LONGFORM

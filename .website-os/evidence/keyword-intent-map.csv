@@ -1,0 +1,29 @@
+keyword,primary_intent,cluster_id,target_url
+spa thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,SPA,/spa-thu-cung-binh-thanh/
+tắm chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,SPA,/spa-thu-cung-binh-thanh/
+tắm chó Bình Thạnh,LOCAL_TRANSACTIONAL,SPA,/spa-thu-cung-binh-thanh/
+tắm mèo Bình Thạnh,LOCAL_TRANSACTIONAL,SPA,/spa-thu-cung-binh-thanh/
+grooming chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,GROOM,/grooming-cho-meo-binh-thanh/
+cắt tỉa lông chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,GROOM,/grooming-cho-meo-binh-thanh/
+cắt lông chó Bình Thạnh,LOCAL_TRANSACTIONAL,GROOM,/grooming-cho-meo-binh-thanh/
+cắt lông mèo Bình Thạnh,LOCAL_TRANSACTIONAL,GROOM,/grooming-cho-meo-binh-thanh/
+pet hotel Bình Thạnh,LOCAL_TRANSACTIONAL,HOTEL,/pet-hotel-binh-thanh/
+khách sạn thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,HOTEL,/pet-hotel-binh-thanh/
+gửi chó mèo qua đêm Bình Thạnh,LOCAL_TRANSACTIONAL,HOTEL,/pet-hotel-binh-thanh/
+trông giữ chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,HOTEL,/pet-hotel-binh-thanh/
+pet shop Bình Thạnh,LOCAL_TRANSACTIONAL,SHOP,/pet-shop-binh-thanh/
+thức ăn chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,SHOP,/pet-shop-binh-thanh/
+phụ kiện thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,SHOP,/pet-shop-binh-thanh/
+bảng giá spa chó mèo,COMMERCIAL,PRICE,/bang-gia/
+bảng giá grooming chó mèo,COMMERCIAL,PRICE,/bang-gia/
+giá pet hotel Bình Thạnh,COMMERCIAL,PRICE,/bang-gia/
+đặt lịch spa thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,BOOK,/dat-lich/
+đặt lịch grooming Bình Thạnh,LOCAL_TRANSACTIONAL,BOOK,/dat-lich/
+Lumi Pet Shop,NAVIGATIONAL,HOME,/
+Lumi Pet Bình Thạnh,NAVIGATIONAL,HOME,/
+Lumi Pet địa chỉ,NAVIGATIONAL,CONTACT,/lien-he/
+Lumi Pet số điện thoại,NAVIGATIONAL,CONTACT,/lien-he/
+bao lâu nên tắm chó một lần,INFORMATIONAL,FAQ,/faq/
+có cần đặt lịch grooming trước không,INFORMATIONAL,FAQ,/faq/
+pet hotel cần chuẩn bị gì,INFORMATIONAL,FAQ,/faq/
+grooming gồm những gì,INFORMATIONAL,FAQ,/faq/

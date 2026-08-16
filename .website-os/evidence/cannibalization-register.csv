@@ -1,0 +1,7 @@
+risk_level,primary_intent,entity_name,urls,resolution,status
+HIGH,LOCAL_TRANSACTIONAL,Spa/tắm,/spa-thu-cung-binh-thanh/ | potential /tam-cho-meo-binh-thanh/,Use one canonical SPA page; no separate tắm page at launch,RESOLVED
+HIGH,LOCAL_TRANSACTIONAL,Grooming/cắt tỉa,/grooming-cho-meo-binh-thanh/ | potential /cat-tia-long-cho-meo/,Use one canonical GROOM page; sections target variants,RESOLVED
+HIGH,LOCAL_TRANSACTIONAL,Pet Hotel/gửi qua đêm,/pet-hotel-binh-thanh/ | potential /khach-san-thu-cung/ | /gui-cho-meo/,Use one canonical HOTEL page; no synonym landing clones,RESOLVED
+MEDIUM,COMMERCIAL,Pricing,/bang-gia/ | service pages,Price page owns comparison intent; service pages link to it and may show verified snippets only,RESOLVED
+MEDIUM,NAVIGATIONAL,Brand/contact,/ | /lien-he/,Homepage owns brand; contact owns address/phone/directions queries,RESOLVED
+HIGH,LOCAL_TRANSACTIONAL,Location variants,potential district/ward pages,Do not create location-name swap pages; require real local value before any future local page,RESOLVED

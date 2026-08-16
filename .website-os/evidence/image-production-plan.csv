@@ -1,0 +1,13 @@
+image_id,page_id,target_url,role,asset,source_mode,alt_text,status
+IMG001,P001,/,hero,assets/images/hero.svg,NEW_GENERATED,Lumi Pet chó và mèo,PRODUCED
+IMG002,P001,/,service_spa,assets/images/spa.svg,NEW_GENERATED,Spa thú cưng tại Lumi,PRODUCED
+IMG003,P001,/,service_grooming,assets/images/grooming.svg,NEW_GENERATED,Grooming chó mèo tại Lumi,PRODUCED
+IMG004,P001,/,service_hotel,assets/images/hotel.svg,NEW_GENERATED,Pet Hotel tại Lumi,PRODUCED
+IMG005,P001,/,service_shop,assets/images/shop.svg,NEW_GENERATED,Pet Shop tại Lumi,PRODUCED
+IMG006,P009,/gioi-thieu/,entity_space,assets/images/lobby.svg,NEW_GENERATED,Không gian Lumi Pet,PRODUCED
+IMG007,P009,/gioi-thieu/,care_journey,assets/images/care-journey.svg,NEW_GENERATED,Hành trình chăm sóc Lumi Pet,PRODUCED
+IMG008,P002,/spa-thu-cung-binh-thanh/,service_detail,assets/images/spa-detail.svg,NEW_GENERATED,Tắm và Spa thú cưng,PRODUCED
+IMG009,P003,/grooming-cho-meo-binh-thanh/,service_detail,assets/images/grooming-detail.svg,NEW_GENERATED,Grooming chó mèo,PRODUCED
+IMG010,P004,/pet-hotel-binh-thanh/,service_detail,assets/images/hotel-detail.svg,NEW_GENERATED,Không gian Pet Hotel,PRODUCED
+IMG011,P005,/pet-shop-binh-thanh/,category_detail,assets/images/shop-detail.svg,NEW_GENERATED,Danh mục Pet Shop,PRODUCED
+IMG012,P008,/lien-he/,trust_local,assets/images/trust-lobby.svg,NEW_GENERATED,Không gian và liên hệ Lumi Pet,PRODUCED

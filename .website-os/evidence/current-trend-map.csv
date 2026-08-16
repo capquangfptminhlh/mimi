@@ -1,0 +1,8 @@
+signal,source_family,observation,project_decision
+purposeful_motion,PRIMARY_PLATFORM,Motion should support task perception and stay short,Use micro-motion only; no long cinematic blockers
+reduced_motion,PRIMARY_PLATFORM,System preference must reduce movement,Implement prefers-reduced-motion fallback
+content_breakpoints,PRIMARY_PLATFORM,Responsive composition should break where content fails,Use content-based breakpoints and separate mobile composition
+transparent_estimation,SAME_INDUSTRY,Price calculators reduce uncertainty,Use quote-factor explainer until verified Lumi prices exist
+service_storytelling,CURATED,Pet-care services benefit from human journey framing,Use care-journey topology instead of generic card grid
+local_proof,SAME_INDUSTRY,Local competitors repeat location/service proof,Use verified map/entity facts and transparent evidence
+booking_first,SAME_INDUSTRY,Appointment forms are common conversion devices,Make request-booking persistent but clearly unconfirmed until Lumi responds

@@ -1,0 +1,12 @@
+cluster_id,priority_score,priority_tier,reason,evidence_refs
+HOME,95,P0,Brand entity + local conversion hub,GBP-001
+SPA,93,P0,Core local transactional demand and core service,SERP-001|SERP-004
+GROOM,92,P0,Distinct local transactional SERP and service intent,SERP-002
+HOTEL,94,P0,Distinct boarding/overnight intent with dedicated SERP pages,SERP-005|SERP-006
+BOOK,90,P0,Direct conversion action; appointment forms common,SERP-009
+CONTACT,88,P0,Brand navigation and local directions,GBP-001
+PRICE,82,P1,Commercial investigation; competitors expose pricing structures,SERP-008
+SHOP,75,P1,Local product/category demand and existing business scope,SERP-007
+ABOUT,60,P2,Entity trust and provenance support,GBP-001
+FAQ,68,P2,AEO/support coverage and conversion objections,SERP-004|SERP-009
+GUIDE,55,P2,Post-launch authority expansion after K0/launch,POST-LAUNCH

@@ -1,0 +1,13 @@
+asset,format,status,desktop_use,mobile_use,embedded_text
+assets/images/hero.svg,svg,PRESENT,YES,YES,NO
+assets/images/spa.svg,svg,PRESENT,YES,YES,NO
+assets/images/grooming.svg,svg,PRESENT,YES,YES,NO
+assets/images/hotel.svg,svg,PRESENT,YES,YES,NO
+assets/images/shop.svg,svg,PRESENT,YES,YES,NO
+assets/images/lobby.svg,svg,PRESENT,YES,YES,NO
+assets/images/care-journey.svg,svg,PRESENT,YES,YES,NO
+assets/images/spa-detail.svg,svg,PRESENT,YES,YES,NO
+assets/images/grooming-detail.svg,svg,PRESENT,YES,YES,NO
+assets/images/hotel-detail.svg,svg,PRESENT,YES,YES,NO
+assets/images/shop-detail.svg,svg,PRESENT,YES,YES,NO
+assets/images/trust-lobby.svg,svg,PRESENT,YES,YES,NO
