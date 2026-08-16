@@ -1,0 +1,136 @@
+name: Lumi Browser QA
+
+on:
+  workflow_run:
+    workflows: ["Deploy Lumi Pet to GitHub Pages"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Install Playwright Chromium
+        run: |
+          mkdir -p /tmp/lumi-qa
+          cd /tmp/lumi-qa
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null 2>&1
+          npx playwright install --with-deps chromium
+      - name: Run deployed browser QA
+        env:
+          BASE_URL: https://capquangfptminhlh.github.io/mimi
+        run: |
+          cat > /tmp/lumi-qa/qa.mjs <<'EOF'
+          import fs from 'node:fs';
+          import { chromium } from 'playwright';
+
+          const base = process.env.BASE_URL.replace(/\/$/, '');
+          const pages = [
+            ['home', '/'],
+            ['spa', '/spa-thu-cung-binh-thanh/'],
+            ['grooming', '/grooming-cho-meo-binh-thanh/'],
+            ['hotel', '/pet-hotel-binh-thanh/'],
+            ['shop', '/pet-shop-binh-thanh/'],
+            ['price', '/bang-gia/'],
+            ['booking', '/dat-lich/'],
+            ['contact', '/lien-he/'],
+            ['about', '/gioi-thieu/'],
+            ['faq', '/faq/']
+          ];
+          const modes = [
+            ['desktop', { width: 1440, height: 1000 }],
+            ['mobile', { width: 390, height: 844 }]
+          ];
+          fs.mkdirSync('qa-artifacts', { recursive: true });
+          const browser = await chromium.launch({ headless: true });
+          const results = [];
+          let failed = false;
+
+          for (const [mode, viewport] of modes) {
+            const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
+            for (const [key, path] of pages) {
+              const page = await context.newPage();
+              const errors = [];
+              page.on('pageerror', (err) => errors.push(`pageerror:${err.message}`));
+              page.on('console', (msg) => { if (msg.type() === 'error') errors.push(`console:${msg.text()}`); });
+              page.on('response', (response) => {
+                if (response.url().startsWith(base) && response.status() >= 400) errors.push(`http:${response.status()}:${response.url()}`);
+              });
+              const response = await page.goto(`${base}${path}`, { waitUntil: 'networkidle', timeout: 30000 });
+              await page.waitForFunction(() => document.getElementById('app')?.dataset.content === 'loaded', null, { timeout: 15000 });
+              const audit = await page.evaluate(() => {
+                const canonical = document.querySelector('link[rel="canonical"]')?.href || '';
+                const schema = [...document.querySelectorAll('script[type="application/ld+json"]')].map((n) => n.textContent || '');
+                const unresolved = document.body.innerHTML.includes("${U('");
+                const overflow = document.documentElement.scrollWidth - window.innerWidth;
+                return {
+                  title: document.title,
+                  description: document.querySelector('meta[name="description"]')?.content || '',
+                  canonical,
+                  contentLoaded: document.getElementById('app')?.dataset.content === 'loaded',
+                  h1Count: document.querySelectorAll('h1').length,
+                  h2Count: document.querySelectorAll('h2').length,
+                  faqCount: document.querySelectorAll('.long-faq details').length,
+                  schemaCount: schema.length,
+                  hasBusinessSchema: schema.some((x) => x.includes('PetStore')),
+                  unresolved,
+                  overflow
+                };
+              });
+
+              if (!response || response.status() >= 400) errors.push(`navigation:${response?.status() || 'NO_RESPONSE'}`);
+              if (!audit.contentLoaded) errors.push('content:not-loaded');
+              if (!audit.title || !audit.description || !audit.canonical) errors.push('seo:missing-title-description-canonical');
+              if (audit.h1Count !== 1) errors.push(`seo:h1-count:${audit.h1Count}`);
+              if (audit.h2Count < 1) errors.push('content:no-h2');
+              if (audit.schemaCount < 1 || !audit.hasBusinessSchema) errors.push('seo:schema-missing');
+              if (audit.unresolved) errors.push('content:unresolved-link-token');
+              if (audit.overflow > 2) errors.push(`responsive:horizontal-overflow:${audit.overflow}`);
+
+              if (key === 'hotel') {
+                const today = new Date();
+                const inDate = new Date(today.getTime() + 86400000).toISOString().slice(0, 10);
+                const outDate = new Date(today.getTime() + 3 * 86400000).toISOString().slice(0, 10);
+                await page.locator('[data-hotel] input[name="checkinDate"]').first().fill(inDate);
+                await page.locator('[data-hotel] input[name="checkoutDate"]').first().fill(outDate);
+                const nights = await page.locator('[data-hotel] [data-nights]').first().textContent();
+                if (!/2 đêm/.test(nights || '')) errors.push(`hotel:nights:${nights}`);
+              }
+              if (key === 'shop') {
+                await page.locator('[data-add]').first().click();
+                if (!(await page.locator('#drawer').first().evaluate((el) => el.classList.contains('open')))) errors.push('shop:drawer-not-open');
+              }
+
+              await page.screenshot({ path: `qa-artifacts/${key}-${mode}.png`, fullPage: true });
+              results.push({ key, path, mode, audit, errors });
+              if (errors.length) failed = true;
+              await page.close();
+            }
+            await context.close();
+          }
+
+          await browser.close();
+          fs.writeFileSync('qa-artifacts/browser-qa.json', JSON.stringify({ base, results }, null, 2));
+          const compact = results.map((r) => `${r.key}/${r.mode}: ${r.errors.length ? 'FAIL ' + r.errors.join(' | ') : 'PASS'}`).join('\n');
+          fs.writeFileSync('qa-artifacts/browser-qa.txt', compact + '\n');
+          console.log(compact);
+          if (failed) process.exit(1);
+          EOF
+          node /tmp/lumi-qa/qa.mjs
+      - name: Upload browser QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lumi-browser-qa
+          path: qa-artifacts/
+          retention-days: 14
