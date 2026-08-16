@@ -48,6 +48,7 @@
     'lobby.svg': 'https://images.pexels.com/photos/16366333/pexels-photo-16366333.jpeg?auto=compress&cs=tinysrgb&w=1400',
     'trust-lobby.svg': 'https://images.pexels.com/photos/10954785/pexels-photo-10954785.jpeg?auto=compress&cs=tinysrgb&w=1400'
   };
+  const eagerPhotoKeys = new Set(['hero.svg', 'spa.svg', 'grooming.svg', 'hotel.svg', 'shop.svg']);
 
   const pagePath = paths[pageKey] || '/';
   const pageUrl = `${siteRoot}${pagePath}`;
@@ -87,16 +88,16 @@
 
   function replaceIllustrationsWithPhotos() {
     const images = [...d.querySelectorAll('img')];
-    images.forEach((img, index) => {
+    images.forEach((img) => {
       const current = img.getAttribute('src') || '';
       const key = Object.keys(photoMap).find((name) => current.endsWith(name));
       if (!key || img.dataset.photoUpgraded === '1') return;
       img.src = photoMap[key];
       img.dataset.photoUpgraded = '1';
       img.decoding = 'async';
-      if (index === 0 || key === 'hero.svg') {
+      if (eagerPhotoKeys.has(key) || img.closest('.page-hero')) {
         img.loading = 'eager';
-        img.fetchPriority = 'high';
+        img.fetchPriority = key === 'hero.svg' ? 'high' : 'auto';
       } else {
         img.loading = 'lazy';
       }
