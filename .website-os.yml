@@ -1,0 +1,19 @@
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_ref: main
+website_os_manifest: governance/website-os.manifest.yml
+website_os_entrypoint: AGENTS.md
+project_name: Lumi Pet Shop Website Replacement
+project_repo: capquangfptminhlh/mimi
+compliance_status: REQUIRED
+observed_at: 2026-08-16T22:58:00+07:00
+source_commit_sha: 271928de181040a5c4234a4d5386e362b8b7a0a1
+bootstrap_decision: PASS
+enforcement_target: auto
+evidence_dir: .website-os/evidence
+local_seo: true
+full_scope_launch_required: true
+all_new_production_images_required: true
+launch_scope_decision: HOLD
+launch_completeness_decision: HOLD
+post_launch_editorial_max_qualified_articles_per_day: 3
+ranking_guarantee: false
