@@ -1,0 +1,35 @@
+decision: USER_APPROVED_DESIGN_REVISION
+observed_at: 2026-08-23T00:34:00+07:00
+project: Lumi Pet Bình Thạnh
+repo: capquangfptminhlh/mimi
+branch: replace/website-os-v1
+supersedes_visual_direction: A_Care_Journey
+approved_direction: concept_2_pastel_bento
+approval_source: current ChatGPT conversation
+user_instruction: "thay đổi giao diện giống ảnh đó 100% - code đi"
+design_lock:
+  desktop: pastel bento homepage shown on left side of approved reference board
+  mobile: purpose-built mobile composition shown on right side of approved reference board
+  preserve:
+    - pastel mint/coral/lavender/yellow/blue palette
+    - rounded modular card geometry
+    - hero with pet artwork and primary booking CTA
+    - service bento cards
+    - quick booking widget
+    - trust strip
+    - pet shop card
+    - testimonial card
+    - promotion strip
+    - service navigation tiles
+    - compact contact footer
+    - mobile two-by-two service launcher
+    - mobile fixed bottom navigation
+    - hover/press/reveal motion with reduced-motion fallback
+factual_safety_exceptions:
+  - generated-demo addresses are not source of truth
+  - generated-demo phone numbers are not source of truth
+  - generated-demo prices are not source of truth
+  - generated-demo veterinary/24-7 claims are not source of truth
+  - existing verified Lumi contact details and explicit confirmation language remain authoritative
+implementation_rule: faithful visual implementation; factual safety and accessibility may override generated-demo copy
+status: APPROVED_FOR_IMPLEMENTATION
