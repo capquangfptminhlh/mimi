@@ -1,0 +1,2 @@
+image_id,page_id,path_or_url,role,width,height,format,sha256,new_for_project,alt_text,desktop_verified,mobile_verified,status
+IMG-HOME-EXISTING,PAGE-HOME,existing React runtime imagery,hero,UNKNOWN,UNKNOWN,MIXED,UNKNOWN,NO,Lumi Pet Spa & Hotel,NO,NO,HOLD_RUNTIME_QA

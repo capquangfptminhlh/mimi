@@ -1,0 +1,45 @@
+decision: HOLD
+observed_at: 2026-08-24T13:20:00+07:00
+release_candidate_commit: da7b0626375fbeb514bd099058aca18525121151
+checks:
+  booking_javascript_syntax:
+    configured_in_ci: true
+    observed_result: UNVERIFIED
+  typecheck:
+    command: npm run lint
+    configured_in_ci: true
+    observed_result: UNVERIFIED
+  build:
+    command: npm run build
+    configured_in_ci: true
+    observed_result: UNVERIFIED
+  static_launch_files:
+    configured_in_ci: true
+    expected:
+      - dist/robots.txt
+      - dist/sitemap.xml
+      - dist/dat-lich/index.html
+      - dist/dat-phong/index.html
+      - dist/spa-thu-cung-binh-thanh/index.html
+      - dist/grooming-cho-meo-binh-thanh/index.html
+      - dist/khach-san-thu-cung-binh-thanh/index.html
+      - dist/bang-gia-spa-thu-cung/index.html
+    observed_result: UNVERIFIED
+  security:
+    observed_result: UNVERIFIED
+  accessibility:
+    observed_result: UNVERIFIED
+  technical_seo:
+    source_review: PASS
+    runtime_result: UNVERIFIED
+  performance:
+    lcp: UNKNOWN
+    inp: UNKNOWN
+    cls: UNKNOWN
+    observed_result: UNVERIFIED
+  mobile:
+    observed_result: UNVERIFIED
+  visual:
+    observed_result: UNVERIFIED
+reason_for_hold: Available GitHub connector does not expose the push-triggered Pages workflow run/status for this commit and live browser verification is not available in-session.
+next_pass_condition: Observe successful CI/deploy plus HTTP, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
