@@ -35,9 +35,7 @@ jobs:
         run: npm ci
 
       - name: Validate booking JavaScript
-        run: |
-          node --check public/lumi-booking.js
-          node --check public/booking-bridge.js
+        run: node --check public/lumi-booking.js
 
       - name: Typecheck
         run: npm run lint
@@ -56,6 +54,20 @@ jobs:
           test -f dist/khach-san-thu-cung-binh-thanh/index.html
           test -f dist/bang-gia-spa-thu-cung/index.html
           grep -q 'rel="canonical"' dist/index.html
+
+      - name: Verify production homepage facts
+        run: |
+          grep -R -q '27 Võ Trường Toản' dist/assets
+          grep -R -q 'Spa từ 120.000đ' dist/assets
+          grep -R -q 'Hotel từ 100.000đ' dist/assets
+          if grep -q 'booking-bridge.js' dist/index.html; then
+            echo 'Legacy booking bridge must not ship in production.'
+            exit 1
+          fi
+          if grep -R -E -q 'Penthouse Hoàng Gia|Chủ Cửa Hàng|Đại siêu thị trực tuyến|Khai trương chi nhánh sang chảnh mới' dist/assets; then
+            echo 'Unverified legacy demo content detected in production bundle.'
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
