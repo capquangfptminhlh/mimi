@@ -1,4 +1,4 @@
-﻿name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -29,12 +29,33 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Validate booking JavaScript
+        run: |
+          node --check public/lumi-booking.js
+          node --check public/booking-bridge.js
+
+      - name: Typecheck
+        run: npm run lint
 
       - name: Build
         run: npm run build
+
+      - name: Verify SEO launch files
+        run: |
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          test -f dist/dat-lich/index.html
+          test -f dist/dat-phong/index.html
+          test -f dist/spa-thu-cung-binh-thanh/index.html
+          test -f dist/grooming-cho-meo-binh-thanh/index.html
+          test -f dist/khach-san-thu-cung-binh-thanh/index.html
+          test -f dist/bang-gia-spa-thu-cung/index.html
+          grep -q 'rel="canonical"' dist/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
