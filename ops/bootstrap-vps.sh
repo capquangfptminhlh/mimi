@@ -22,7 +22,7 @@ fi
 install -d -m 0755 "$DEPLOY_ROOT"
 install -d -m 0755 "$DEPLOY_ROOT/releases"
 chown -R "$DEPLOY_USER":www-data "$DEPLOY_ROOT"
-chmod -R g+rX "$DEPLOY_ROOT"
+chmod -R u+rwX,g+rX,o-rwx "$DEPLOY_ROOT"
 
 if [ ! -f "$NGINX_SOURCE" ]; then
   echo "Missing nginx config: $NGINX_SOURCE"
@@ -46,13 +46,14 @@ Deploy user : $DEPLOY_USER
 Nginx site  : $NGINX_TARGET
 
 NEXT:
-1. Add an SSH public key to /home/$DEPLOY_USER/.ssh/authorized_keys.
-2. Add GitHub repo secrets: VPS_HOST, VPS_USER=$DEPLOY_USER, VPS_SSH_KEY, optional VPS_PORT.
-3. Push/dispatch .github/workflows/deploy-vps.yml.
-4. Point lumipet.vn DNS A record to this VPS IP.
-5. After DNS resolves, run:
+1. Install/register a GitHub Actions self-hosted runner for capquangfptminhlh/mimi on this VPS.
+2. Run the GitHub runner service as $DEPLOY_USER (recommended).
+3. Confirm the runner appears Online in GitHub -> Settings -> Actions -> Runners.
+4. Push/dispatch .github/workflows/deploy-vps.yml; it uses runs-on: self-hosted.
+5. Point lumipet.vn DNS A record to this VPS IP.
+6. After DNS resolves, run:
    certbot --nginx -d lumipet.vn -d www.lumipet.vn --redirect
-6. In GitHub repo variables set VPS_LIVE_VERIFY=1 after HTTPS is live.
+7. In GitHub repo variables set VPS_LIVE_VERIFY=1 after HTTPS is live.
 
-The VPS receives only built dist/ releases; it does not need the GitHub source repository.
+No VPS SSH deployment secrets are required. The GitHub Actions job builds and deploys locally on this VPS and Nginx serves only /var/www/lumipet/current.
 EOF
