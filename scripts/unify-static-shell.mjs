@@ -2,6 +2,8 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const DIST = path.resolve('dist');
+const LEGACY_ORIGIN = 'https://capquangfptminhlh.github.io/mimi';
+const PRODUCTION_ORIGIN = 'https://lumipet.vn';
 
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -49,24 +51,39 @@ function headerMarkup(prefix, activeKey) {
   return `<header class="lumi-top lumi-unified-header" data-lumi-unified-header="true"><div class="lumi-top-inner"><a class="lumi-brand" href="${prefix}" aria-label="Lumi Pet - Trang chủ"><img class="lumi-brand-mark" src="${prefix}lumi-brand-mark.svg" alt="" aria-hidden="true"><span class="lumi-brand-copy"><strong>Lumi Pet</strong><small>Spa & Hotel 24/7</small></span></a><nav class="main-nav" aria-label="Điều hướng chính">${nav}</nav><div class="lumi-header-actions"><a class="lumi-header-action lumi-header-call lumi-desktop-action" href="tel:0989979675">${iconPhone}<span>Gọi ngay</span></a><a class="lumi-header-action lumi-header-zalo lumi-desktop-action" href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer">${iconMessage}<span>Zalo</span></a><a class="lumi-header-action lumi-header-book" href="${prefix}dat-lich/">${iconCalendar}<span>Đặt lịch</span></a><button type="button" class="lumi-mobile-toggle" aria-label="Mở menu" aria-expanded="false">☰</button></div></div><nav class="lumi-mobile-nav" aria-label="Điều hướng mobile">${nav}<div class="lumi-mobile-actions"><a class="call" href="tel:0989979675">Gọi</a><a class="zalo" href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer">Zalo</a><a class="book" href="${prefix}dat-lich/">Đặt lịch</a></div></nav></header>`;
 }
 
+function normalizeHead(html, prefix) {
+  let next = html.replaceAll(LEGACY_ORIGIN, PRODUCTION_ORIGIN);
+  const favicon = `<link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg"><link rel="shortcut icon" href="${prefix}favicon.svg">`;
+  if (!next.includes('rel="icon"')) next = next.replace('</head>', `<meta name="theme-color" content="#f97316">${favicon}</head>`);
+  else if (!next.includes('name="theme-color"')) next = next.replace('</head>', '<meta name="theme-color" content="#f97316"></head>');
+  return next;
+}
+
 const files = await walk(DIST);
 let updated = 0;
 
 for (const file of files) {
   const relative = path.relative(DIST, file);
-  if (relative.replaceAll(path.sep, '/') === 'index.html') continue; // React homepage owns its own header.
-
-  let html = await readFile(file, 'utf8');
-  if (!/<header\s+class="lumi-top"[\s\S]*?<\/header>/.test(html)) continue;
-
+  const normalizedRelative = relative.replaceAll(path.sep, '/');
   const prefix = prefixFor(relative);
-  const shellCss = `<link rel="stylesheet" href="${prefix}lumi-shell.css">`;
-  if (!html.includes('lumi-shell.css')) html = html.replace('</head>', `${shellCss}</head>`);
+  let html = normalizeHead(await readFile(file, 'utf8'), prefix);
 
-  html = html.replace(/<header\s+class="lumi-top"[\s\S]*?<\/header>/, headerMarkup(prefix, currentKey(relative)));
+  if (normalizedRelative !== 'index.html' && /<header\s+class="lumi-top"[\s\S]*?<\/header>/.test(html)) {
+    const shellCss = `<link rel="stylesheet" href="${prefix}lumi-shell.css">`;
+    if (!html.includes('lumi-shell.css')) html = html.replace('</head>', `${shellCss}</head>`);
+    html = html.replace(/<header\s+class="lumi-top"[\s\S]*?<\/header>/, headerMarkup(prefix, currentKey(relative)));
+  }
+
   await writeFile(file, html, 'utf8');
   updated += 1;
 }
 
+for (const name of ['sitemap.xml', 'robots.txt']) {
+  const file = path.join(DIST, name);
+  let content = await readFile(file, 'utf8');
+  content = content.replaceAll(LEGACY_ORIGIN, PRODUCTION_ORIGIN);
+  await writeFile(file, content, 'utf8');
+}
+
 if (updated === 0) throw new Error('Unified static shell did not update any page.');
-console.log(`Unified Lumi Pet header written to ${updated} static page(s).`);
+console.log(`Finalized Lumi Pet production shell for ${updated} page(s): unified header, favicon and lumipet.vn canonical origin.`);
