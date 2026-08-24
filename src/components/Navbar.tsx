@@ -18,7 +18,9 @@ interface NavbarProps {
 
 export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const base = import.meta.env.BASE_URL || '/';
+  const currentPath = window.location.pathname;
+  const projectIndex = currentPath.indexOf('/mimi/');
+  const base = projectIndex >= 0 ? currentPath.slice(0, projectIndex + 6) : '/';
   const route = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 
   const navItems = [
@@ -30,6 +32,10 @@ export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   ];
 
   const goHome = () => {
+    if (window.location.pathname !== base) {
+      window.location.href = base;
+      return;
+    }
     setActiveTab('home');
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
