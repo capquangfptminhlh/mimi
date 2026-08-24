@@ -4,8 +4,8 @@
  */
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { CalendarDays, Menu, X, Phone } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { CalendarDays, Menu, Phone, X } from 'lucide-react';
 import LumiPetLogo from './LumiPetLogo';
 
 interface NavbarProps {
@@ -16,101 +16,95 @@ interface NavbarProps {
   onTriggerBooking: () => void;
 }
 
-export default function Navbar({
-  activeTab,
-  setActiveTab,
-  onTriggerBooking,
-}: NavbarProps) {
+export default function Navbar({ activeTab, setActiveTab }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const base = import.meta.env.BASE_URL || '/';
+  const route = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 
   const navItems = [
-    { id: 'home', label: 'Trang Chủ' },
-    { id: 'pricing', label: 'Bảng Giá' },
-    { id: 'spa', label: 'Spa Thú Cưng' },
-    { id: 'hotel', label: 'Hotel Thú Cưng' },
-    { id: 'faq', label: 'Tra Cứu Lịch' },
+    { id: 'home', label: 'Trang chủ', href: base },
+    { id: 'spa', label: 'Spa', href: route('spa-thu-cung-binh-thanh/') },
+    { id: 'hotel', label: 'Hotel', href: route('khach-san-thu-cung-binh-thanh/') },
+    { id: 'pricing', label: 'Bảng giá', href: route('bang-gia-spa-thu-cung/') },
+    { id: 'contact', label: 'Liên hệ', href: route('lien-he/') },
   ];
 
-  const handleNavClick = (tabId: string) => {
-    setActiveTab(tabId);
+  const goHome = () => {
+    setActiveTab('home');
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-orange-100 shadow-xs">
+    <header className="sticky top-0 z-40 w-full border-b border-orange-100/90 bg-white/95 shadow-[0_3px_18px_rgba(70,45,24,0.035)] backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex h-[78px] items-center justify-between gap-4">
           <button
             type="button"
             className="flex items-center cursor-pointer group bg-transparent border-0 p-0"
-            onClick={() => handleNavClick('home')}
+            onClick={goHome}
             aria-label="Về trang chủ Lumi Pet"
           >
-            <LumiPetLogo size="md" className="transition-transform group-hover:scale-102" />
+            <LumiPetLogo size="md" className="transition-transform duration-200 group-hover:scale-[1.02]" />
           </button>
 
-          <nav className="hidden lg:flex xl:space-x-2 lg:space-x-1 space-x-0.5" aria-label="Điều hướng chính">
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Điều hướng chính">
             {navItems.map((item) => {
-              const isActive = activeTab === item.id;
-              return (
+              const isActive = item.id === 'home' && activeTab === 'home';
+              return item.id === 'home' ? (
                 <button
                   key={item.id}
                   id={`nav-tab-${item.id}`}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`relative xl:px-4 lg:px-2.5 px-2 py-2 rounded-xl text-xs lg:text-[14px] xl:text-[15px] font-bold transition-all duration-300 whitespace-nowrap ${
-                    isActive
-                      ? 'text-orange-500'
-                      : 'text-gray-600 hover:text-orange-400 hover:bg-orange-50/50'
-                  }`}
+                  onClick={goHome}
+                  className={`rounded-xl px-3.5 py-2.5 text-sm font-extrabold transition-all ${isActive ? 'bg-orange-50 text-orange-500' : 'text-slate-600 hover:bg-orange-50/70 hover:text-orange-500'}`}
                 >
                   {item.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[3px] bg-orange-500 rounded-full"
-                      transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                    />
-                  )}
                 </button>
+              ) : (
+                <a
+                  key={item.id}
+                  id={`nav-tab-${item.id}`}
+                  href={item.href}
+                  className="rounded-xl px-3.5 py-2.5 text-sm font-extrabold text-slate-600 transition-all hover:bg-orange-50/70 hover:text-orange-500"
+                >
+                  {item.label}
+                </a>
               );
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center xl:space-x-4 lg:space-x-2.5 space-x-2">
+          <div className="hidden lg:flex items-center gap-2.5">
             <a
               href="tel:0989979675"
-              className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-orange-100 hover:border-orange-200 text-gray-600 hover:text-orange-500 text-xs xl:text-sm font-bold transition-colors cursor-pointer whitespace-nowrap"
+              className="flex items-center gap-2 rounded-xl border border-orange-100 bg-white px-3.5 py-2.5 text-sm font-extrabold text-slate-700 shadow-sm transition-all hover:border-orange-200 hover:text-orange-500"
             >
-              <Phone className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
-              <span className="whitespace-nowrap">0989 979 675</span>
+              <Phone className="w-4 h-4 text-orange-500" />
+              <span>0989 979 675</span>
             </a>
-
-            <button
+            <a
               id="navbar-booking-btn"
-              onClick={onTriggerBooking}
-              className="flex items-center space-x-1.5 bg-teal-550 hover:bg-teal-600 text-white font-bold lg:px-4 xl:px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all cursor-pointer text-xs xl:text-sm whitespace-nowrap"
+              href={route('dat-lich/')}
+              className="flex items-center gap-2 rounded-full bg-teal-550 px-5 py-2.5 text-sm font-extrabold text-white shadow-md shadow-teal-100 transition-all hover:-translate-y-0.5 hover:bg-teal-600 hover:shadow-lg"
             >
-              <CalendarDays className="w-4 h-4 flex-shrink-0" />
-              <span className="whitespace-nowrap">Đặt Lịch Ngay</span>
-            </button>
+              <CalendarDays className="w-4 h-4" />
+              <span>Đặt lịch ngay</span>
+            </a>
           </div>
 
-          <div className="flex items-center space-x-2 md:space-x-3 lg:hidden">
-            <button
+          <div className="flex items-center gap-2 lg:hidden">
+            <a
               id="navbar-booking-mobile-btn"
-              onClick={onTriggerBooking}
-              className="sm:flex hidden items-center space-x-1 px-4 py-2 bg-teal-550 hover:bg-teal-600 text-white text-xs font-bold rounded-xl shadow-xs cursor-pointer whitespace-nowrap"
+              href={route('dat-lich/')}
+              className="hidden sm:flex items-center gap-1.5 rounded-xl bg-teal-550 px-4 py-2.5 text-xs font-extrabold text-white shadow-sm"
             >
               <CalendarDays className="w-3.5 h-3.5" />
-              <span className="whitespace-nowrap">Đặt Lịch</span>
-            </button>
-
+              Đặt lịch
+            </a>
             <button
               id="navbar-toggle-btn"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2.5 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-xl transition-colors"
-              aria-label="Mở menu"
+              className="grid h-11 w-11 place-items-center rounded-xl border border-orange-100 bg-white text-slate-700 shadow-sm transition-colors hover:bg-orange-50 hover:text-orange-500"
+              aria-label={isOpen ? 'Đóng menu' : 'Mở menu'}
               aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -125,47 +119,51 @@ export default function Navbar({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-orange-50 bg-white overflow-hidden shadow-inner"
+            className="lg:hidden overflow-hidden border-t border-orange-100 bg-white"
           >
-            <div className="px-4 py-4 space-y-1">
-              {navItems.map((item) => {
-                const isActive = activeTab === item.id;
-                return (
-                  <button
-                    key={item.id}
-                    id={`mobile-nav-tab-${item.id}`}
-                    onClick={() => handleNavClick(item.id)}
-                    className={`block w-full text-left px-4 py-3 rounded-xl text-base font-semibold transition-all ${
-                      isActive
-                        ? 'bg-amber-50/80 text-amber-600 border-l-4 border-amber-500 pl-3'
-                        : 'text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
+            <div className="px-4 py-4 space-y-1.5">
+              {navItems.map((item) => item.id === 'home' ? (
+                <button
+                  key={item.id}
+                  id={`mobile-nav-tab-${item.id}`}
+                  onClick={goHome}
+                  className="block w-full rounded-xl px-4 py-3 text-left text-base font-extrabold text-slate-700 transition-colors hover:bg-orange-50 hover:text-orange-500"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <a
+                  key={item.id}
+                  id={`mobile-nav-tab-${item.id}`}
+                  href={item.href}
+                  className="block w-full rounded-xl px-4 py-3 text-left text-base font-extrabold text-slate-700 transition-colors hover:bg-orange-50 hover:text-orange-500"
+                >
+                  {item.label}
+                </a>
+              ))}
 
-              <div className="pt-4 pb-2 border-t border-slate-100 flex flex-col space-y-3 px-4">
+              <div className="pt-4 mt-3 border-t border-orange-100 grid gap-3">
                 <a
                   href="tel:0989979675"
-                  className="flex items-center space-x-2 text-slate-600 hover:text-amber-600 text-sm font-medium"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-orange-100 bg-orange-50/60 px-4 py-3 text-sm font-extrabold text-slate-700"
                 >
-                  <Phone className="w-4 h-4 text-amber-500" />
-                  <span>Hotline: 0989 979 675</span>
+                  <Phone className="w-4 h-4 text-orange-500" />
+                  0989 979 675
                 </a>
-
-                <button
+                <a
                   id="mobile-nav-booking-btn"
-                  onClick={() => {
-                    onTriggerBooking();
-                    setIsOpen(false);
-                  }}
-                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md cursor-pointer text-sm"
+                  href={route('dat-lich/')}
+                  className="flex items-center justify-center gap-2 rounded-xl bg-teal-550 px-4 py-3 text-sm font-extrabold text-white shadow-md"
                 >
                   <CalendarDays className="w-4 h-4" />
-                  <span>ĐẶT LỊCH SPA / HOTEL</span>
-                </button>
+                  Đặt lịch Spa
+                </a>
+                <a
+                  href={route('dat-phong/')}
+                  className="flex items-center justify-center rounded-xl border border-orange-200 bg-white px-4 py-3 text-sm font-extrabold text-orange-600"
+                >
+                  Đặt phòng Hotel
+                </a>
               </div>
             </div>
           </motion.div>
