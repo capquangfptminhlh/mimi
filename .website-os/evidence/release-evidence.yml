@@ -1,22 +1,27 @@
 decision: HOLD
-observed_at: 2026-08-24T16:22:00+07:00
-release_candidate_commit: 2e7a3426a612f987088b1a92e3bd53025a4e8820
+observed_at: 2026-08-24T18:33:00+07:00
+release_candidate_commit: feb8b61e8c3be1bd135f509612672e6b9dfd493b
 source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
 release_status: HOLD_RUNTIME_QA
 recent_source_hardening:
-  - legacy monolithic demo App was replaced by a production homepage using verified first-party business and pricing facts
-  - homepage now links directly to canonical Spa, Hotel, pricing, booking, about and contact URLs
-  - obsolete booking-bridge.js was deleted and index.html no longer loads mutation/redirect bridge logic
-  - duplicate pre-React SEO quicklinks were removed because crawlable service links now exist in the production homepage
+  - production homepage uses verified first-party business and pricing facts
+  - homepage links directly to canonical Spa, Hotel, pricing, booking, about and contact URLs
   - booking notifications send to the configured Lumi Pet email through the public Spa and Hotel forms
   - booking status remains pending until shop confirmation
-  - public booking confirmation copy now describes the email confirmation flow instead of a removed local lookup UI
-  - unverified Facebook sameAs URL was removed; verified Instagram profile remains
-  - About and Contact pages were rewritten to remove internal SEO/QA wording from customer-facing copy
   - no centralized booking database is used
-  - CI now fails if legacy demo strings or booking-bridge.js appear in the production bundle
+  - mobile navigation is present on homepage and static service pages
+  - call and Zalo CTAs are available in header/mobile/floating contact UI
+  - internal navigation shows a centered animated paw transition before page change
+  - sections/cards use scroll reveal and interaction motion with reduced-motion fallback
+  - public imagery is locked by service intent: Spa uses a dog bathing/grooming image, Grooming uses a professional clipper grooming image, and Hotel uses a pet boarding/kennel image
+  - static service pages inject service-specific imagery through the shared lumi-ui.js layer
+  - customer-facing Spa copy no longer exposes internal poster/source wording
+  - CI fails if required shared UI, Zalo, paw transition, exact-topic imagery, or launch pages are missing
 checks:
   booking_javascript_syntax:
+    configured_in_ci: true
+    observed_result: UNVERIFIED
+  shared_ui_javascript_syntax:
     configured_in_ci: true
     observed_result: UNVERIFIED
   typecheck:
@@ -43,17 +48,34 @@ checks:
       - Spa từ 120.000đ
       - Hotel từ 100.000đ
     observed_result: UNVERIFIED
+  exact_topic_image_gate:
+    configured_in_ci: true
+    spa_image_id: 6131161
+    grooming_image_id: 6816844
+    hotel_image_id: 7635904
+    observed_result: UNVERIFIED
+  production_ui_gate:
+    configured_in_ci: true
+    expected:
+      - lumi-paw-loader
+      - lumi-contact-zalo
+      - lumi-hero-visual
+      - zalo.me/0989979675
+    observed_result: UNVERIFIED
   static_launch_files:
     configured_in_ci: true
     expected:
       - dist/robots.txt
       - dist/sitemap.xml
+      - dist/lumi-ui.js
       - dist/dat-lich/index.html
       - dist/dat-phong/index.html
       - dist/spa-thu-cung-binh-thanh/index.html
       - dist/grooming-cho-meo-binh-thanh/index.html
       - dist/khach-san-thu-cung-binh-thanh/index.html
       - dist/bang-gia-spa-thu-cung/index.html
+      - dist/gioi-thieu/index.html
+      - dist/lien-he/index.html
     observed_result: UNVERIFIED
   booking_email_delivery:
     source_configured: true
@@ -68,6 +90,7 @@ checks:
     runtime_result: UNVERIFIED
   accessibility:
     source_review: IMPROVED
+    reduced_motion_fallback: PRESENT
     observed_result: UNVERIFIED
   technical_seo:
     source_review: PASS
@@ -80,14 +103,18 @@ checks:
     observed_result: UNVERIFIED
   mobile:
     source_responsive_layout: PRESENT
+    mobile_navigation: PRESENT
+    call_zalo_cta: PRESENT
     observed_result: UNVERIFIED
   visual:
     source_design_system: WHITE_ORANGE_TEAL
+    service_specific_imagery: PRESENT
+    page_transition_motion: PRESENT
     observed_result: UNVERIFIED
 runtime_attempts:
   github_commit_statuses: EMPTY
   push_workflow_result: NOT_EXPOSED_BY_AVAILABLE_CONNECTOR
   live_http_from_web_fetch: CACHE_MISS
   live_http_from_container: DNS_RESOLUTION_FAILED
-reason_for_hold: Source production architecture is simplified and fail-closed CI gates are configured, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed.
+reason_for_hold: Source implementation and release gates are complete, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed from this session.
 next_pass_condition: Observe successful CI/deploy plus live HTTP, booking email delivery, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
