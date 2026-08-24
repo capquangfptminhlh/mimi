@@ -4,14 +4,14 @@ Target architecture:
 
 - GitHub repository: private source of truth.
 - GitHub Actions: build and QA on every push to `main`.
-- VPS: receives only `dist/` static production files.
+- Runner: GitHub Actions `self-hosted` runner installed directly on the production VPS.
 - Nginx: serves `/var/www/lumipet/current`.
 - Domain: `https://lumipet.vn`.
 - Deployments are atomic by release SHA and keep the 5 newest releases.
 
 ## One-time VPS setup
 
-On the VPS, from a checkout of the repository while it is still accessible:
+Run the VPS bootstrap once:
 
 ```bash
 sudo bash ops/bootstrap-vps.sh
@@ -19,16 +19,15 @@ sudo bash ops/bootstrap-vps.sh
 
 The script installs Nginx, rsync and Certbot, creates the `deploy` user, prepares `/var/www/lumipet`, and installs `ops/nginx/lumipet.vn.conf`.
 
-## GitHub repository secrets
+Then install a GitHub Actions self-hosted runner for repository `capquangfptminhlh/mimi` on this VPS and run the runner service as the `deploy` user (or another user that has write permission to `/var/www/lumipet`).
 
-Add in **Settings → Secrets and variables → Actions → Repository secrets**:
+The production workflow intentionally uses:
 
-- `VPS_HOST`: VPS public IP or hostname.
-- `VPS_USER`: usually `deploy`.
-- `VPS_SSH_KEY`: private SSH key whose public key is in `/home/deploy/.ssh/authorized_keys` on the VPS.
-- `VPS_PORT`: optional; defaults to `22`.
+```yaml
+runs-on: self-hosted
+```
 
-Do not put any private key, password or token in tracked repository files.
+No `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` or `VPS_PORT` repository secrets are required for deployment because the job already executes on the VPS itself.
 
 ## Automatic deploy
 
@@ -36,17 +35,32 @@ Workflow: `.github/workflows/deploy-vps.yml`
 
 Every push to `main`:
 
-1. installs dependencies;
-2. validates booking/UI/blog JavaScript;
-3. typechecks and builds;
-4. verifies production pages, content and release gates;
-5. creates `dist/release.json` containing the exact Git SHA;
-6. uploads `dist/` into `/var/www/lumipet/releases/<SHA>`;
-7. atomically switches `/var/www/lumipet/current` to that release;
-8. retains the five newest releases;
-9. verifies the release marker on the VPS.
+1. checks out the exact Git SHA on the self-hosted runner;
+2. installs dependencies;
+3. validates booking/UI/blog JavaScript;
+4. typechecks and builds;
+5. verifies production pages and content gates;
+6. creates `dist/release.json` containing the exact Git SHA;
+7. copies `dist/` locally into `/var/www/lumipet/releases/<SHA>`;
+8. verifies the release before activation;
+9. atomically switches `/var/www/lumipet/current` to the new release;
+10. verifies the active release;
+11. retains the five newest releases.
 
-If VPS secrets are not configured yet, build/QA still passes and the deploy step is safely skipped.
+Only built production files under `dist/` are activated by Nginx. The GitHub checkout remains inside the runner workspace and is not the public web root.
+
+## Runner permissions
+
+The runner account must be able to write to:
+
+```text
+/var/www/lumipet/releases
+/var/www/lumipet/current
+```
+
+Recommended runner account: `deploy`.
+
+If another account runs the GitHub runner, grant that account appropriate ownership/group access to `/var/www/lumipet` before enabling deployment. Do not solve permissions by making the web directory world-writable.
 
 ## DNS cutover
 
@@ -70,11 +84,16 @@ Then set repository variable `VPS_LIVE_VERIFY=1`. The deployment workflow will a
 - `https://lumipet.vn/bai-viet/`
 - `https://lumipet.vn/dat-lich/`
 
-## Final privacy cutover
+## Private repository
 
-Only after `lumipet.vn` is confirmed on the VPS:
+After `lumipet.vn` is confirmed on the VPS:
 
-1. update canonical URLs, sitemap and schema from GitHub Pages URLs to `https://lumipet.vn`;
-2. disable the old GitHub Pages deploy workflow;
+1. update canonical URLs, sitemap and schema to `https://lumipet.vn`;
+2. disable the old GitHub Pages deployment workflow;
 3. make the GitHub repository private;
-4. keep the ChatGPT/GitHub integration authorized for the private repository so future edits can still be pushed normally.
+4. keep the self-hosted runner registered to the private repository;
+5. keep the ChatGPT/GitHub integration authorized for this private repository so future edits can still be committed to `main`.
+
+## Working rule
+
+All production code changes are committed to the `main` branch. A successful push to `main` is the trigger for the self-hosted VPS deployment workflow.
