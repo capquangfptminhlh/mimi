@@ -1,6 +1,16 @@
 decision: HOLD
-observed_at: 2026-08-24T13:20:00+07:00
-release_candidate_commit: da7b0626375fbeb514bd099058aca18525121151
+observed_at: 2026-08-24T14:46:00+07:00
+release_candidate_commit: 4d0976a291c3d10ff305883671311e0939aa3c2d
+source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
+release_status: HOLD_RUNTIME_QA
+recent_source_hardening:
+  - booking notifications send to the configured Lumi Pet email through the public booking form flow
+  - booking status remains pending until shop confirmation
+  - Spa and Hotel CTAs route to canonical email-enabled booking pages
+  - homepage hero now uses only first-party business, hours and pricing facts
+  - demo Pet Shop and public Admin navigation were removed
+  - unverified legacy promotions, cabin marketing blocks and review blocks are fail-closed at runtime
+  - no centralized booking database is used
 checks:
   booking_javascript_syntax:
     configured_in_ci: true
@@ -25,8 +35,15 @@ checks:
       - dist/khach-san-thu-cung-binh-thanh/index.html
       - dist/bang-gia-spa-thu-cung/index.html
     observed_result: UNVERIFIED
+  booking_email_delivery:
+    source_configured: true
+    activation_or_delivery_observed: UNVERIFIED
   security:
-    observed_result: UNVERIFIED
+    source_review:
+      public_admin_navigation_removed: true
+      demo_shop_navigation_removed: true
+      booking_database_not_used: true
+    runtime_result: UNVERIFIED
   accessibility:
     observed_result: UNVERIFIED
   technical_seo:
@@ -41,5 +58,10 @@ checks:
     observed_result: UNVERIFIED
   visual:
     observed_result: UNVERIFIED
-reason_for_hold: Available GitHub connector does not expose the push-triggered Pages workflow run/status for this commit and live browser verification is not available in-session.
-next_pass_condition: Observe successful CI/deploy plus HTTP, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
+runtime_attempts:
+  github_commit_statuses: EMPTY
+  push_workflow_result: NOT_EXPOSED_BY_AVAILABLE_CONNECTOR
+  live_http_from_container: DNS_RESOLUTION_FAILED
+  live_http_from_web_fetch: CACHE_MISS
+reason_for_hold: Source hardening is complete, but successful GitHub Pages deployment, live HTTP routes, email delivery, mobile, accessibility and visual runtime checks have not yet been observed.
+next_pass_condition: Observe successful CI/deploy plus live HTTP, booking email delivery, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
