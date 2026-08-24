@@ -1,6 +1,6 @@
 decision: HOLD
-observed_at: 2026-08-24T18:33:00+07:00
-release_candidate_commit: feb8b61e8c3be1bd135f509612672e6b9dfd493b
+observed_at: 2026-08-24T18:52:00+07:00
+release_candidate_commit: cc4b1b8e26d5885eef504283eae3a1622b9dad96
 source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
 release_status: HOLD_RUNTIME_QA
 recent_source_hardening:
@@ -16,12 +16,20 @@ recent_source_hardening:
   - public imagery is locked by service intent: Spa uses a dog bathing/grooming image, Grooming uses a professional clipper grooming image, and Hotel uses a pet boarding/kennel image
   - static service pages inject service-specific imagery through the shared lumi-ui.js layer
   - customer-facing Spa copy no longer exposes internal poster/source wording
-  - CI fails if required shared UI, Zalo, paw transition, exact-topic imagery, or launch pages are missing
+  - SEO knowledge hub is available at /bai-viet/ with eight full-length launch articles
+  - every launch article has a unique canonical URL, Article schema, exact-topic hero image, table of contents, internal links and commercial CTA
+  - homepage and navigation surface the knowledge hub through the shared lumi-blog.js enhancement layer
+  - sitemap.xml includes the knowledge hub and all eight launch article URLs
+  - a 30-day content calendar is tracked with eight PUBLISHED topics and twenty-two QUEUED topics
+  - CI fails if required shared UI, Zalo, paw transition, exact-topic imagery, knowledge hub, article files, Article schema or sitemap entries are missing
 checks:
   booking_javascript_syntax:
     configured_in_ci: true
     observed_result: UNVERIFIED
   shared_ui_javascript_syntax:
+    configured_in_ci: true
+    observed_result: UNVERIFIED
+  blog_javascript_syntax:
     configured_in_ci: true
     observed_result: UNVERIFIED
   typecheck:
@@ -62,12 +70,33 @@ checks:
       - lumi-hero-visual
       - zalo.me/0989979675
     observed_result: UNVERIFIED
+  seo_content_hub:
+    source_status: PRESENT
+    hub_path: /bai-viet/
+    published_article_count: 8
+    queued_30_day_topics: 22
+    sitemap_entries_present: true
+    homepage_latest_articles_module: PRESENT
+    knowledge_navigation_link: PRESENT
+    observed_result: UNVERIFIED
+  seo_article_quality_gate:
+    configured_in_ci: true
+    required_per_article:
+      - unique canonical
+      - Article schema
+      - article hero
+      - exact-topic image
+      - commercial CTA
+      - shared lumi-ui.js
+    observed_result: UNVERIFIED
   static_launch_files:
     configured_in_ci: true
     expected:
       - dist/robots.txt
       - dist/sitemap.xml
       - dist/lumi-ui.js
+      - dist/lumi-blog.js
+      - dist/lumi-blog.css
       - dist/dat-lich/index.html
       - dist/dat-phong/index.html
       - dist/spa-thu-cung-binh-thanh/index.html
@@ -76,6 +105,15 @@ checks:
       - dist/bang-gia-spa-thu-cung/index.html
       - dist/gioi-thieu/index.html
       - dist/lien-he/index.html
+      - dist/bai-viet/index.html
+      - dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
+      - dist/bai-viet/khach-san-thu-cung-binh-thanh-gia-bao-nhieu/index.html
+      - dist/bai-viet/grooming-poodle-binh-thanh/index.html
+      - dist/bai-viet/bao-lau-nen-tam-cho-mot-lan/index.html
+      - dist/bai-viet/cham-soc-long-poodle-khong-bi-roi/index.html
+      - dist/bai-viet/meo-co-nen-tam-thuong-xuyen-khong/index.html
+      - dist/bai-viet/chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung/index.html
+      - dist/bai-viet/dau-hieu-cho-can-grooming/index.html
     observed_result: UNVERIFIED
   booking_email_delivery:
     source_configured: true
@@ -94,6 +132,7 @@ checks:
     observed_result: UNVERIFIED
   technical_seo:
     source_review: PASS
+    knowledge_hub_source_review: PASS
     runtime_result: UNVERIFIED
   performance:
     source_architecture: SIMPLIFIED_HOMEPAGE_BUNDLE
@@ -105,10 +144,12 @@ checks:
     source_responsive_layout: PRESENT
     mobile_navigation: PRESENT
     call_zalo_cta: PRESENT
+    article_responsive_layout: PRESENT
     observed_result: UNVERIFIED
   visual:
     source_design_system: WHITE_ORANGE_TEAL
     service_specific_imagery: PRESENT
+    article_exact_topic_imagery: PRESENT
     page_transition_motion: PRESENT
     observed_result: UNVERIFIED
 runtime_attempts:
@@ -116,5 +157,5 @@ runtime_attempts:
   push_workflow_result: NOT_EXPOSED_BY_AVAILABLE_CONNECTOR
   live_http_from_web_fetch: CACHE_MISS
   live_http_from_container: DNS_RESOLUTION_FAILED
-reason_for_hold: Source implementation and release gates are complete, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed from this session.
+reason_for_hold: Source implementation, SEO knowledge hub and release gates are complete, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed from this session.
 next_pass_condition: Observe successful CI/deploy plus live HTTP, booking email delivery, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
