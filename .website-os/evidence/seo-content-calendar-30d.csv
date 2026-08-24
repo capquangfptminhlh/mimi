@@ -1,0 +1,31 @@
+day,slug,primary_keyword,intent,cluster,target_page,status
+1,spa-cho-binh-thanh-gia-bao-nhieu,spa chó Bình Thạnh giá bao nhiêu,commercial_local,spa,/spa-thu-cung-binh-thanh/,PUBLISHED
+2,khach-san-thu-cung-binh-thanh-gia-bao-nhieu,khách sạn thú cưng Bình Thạnh giá bao nhiêu,commercial_local,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
+3,grooming-poodle-binh-thanh,grooming Poodle Bình Thạnh,commercial_local,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
+4,bao-lau-nen-tam-cho-mot-lan,bao lâu nên tắm chó một lần,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
+5,cham-soc-long-poodle-khong-bi-roi,cách chăm lông Poodle không bị rối,informational,poodle,/grooming-cho-meo-binh-thanh/,PUBLISHED
+6,meo-co-nen-tam-thuong-xuyen-khong,mèo có nên tắm thường xuyên không,informational,cat_care,/spa-thu-cung-binh-thanh/,PUBLISHED
+7,chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung,chuẩn bị gì trước khi gửi thú cưng khách sạn,informational,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
+8,dau-hieu-cho-can-grooming,dấu hiệu chó cần grooming,informational,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
+9,spa-meo-binh-thanh-gia-bao-nhieu,spa mèo Bình Thạnh giá bao nhiêu,commercial_local,spa,/spa-thu-cung-binh-thanh/,QUEUED
+10,tam-cao-long-cho-gia-bao-nhieu,tắm cạo lông chó giá bao nhiêu,commercial,spa,/bang-gia-spa-thu-cung/,QUEUED
+11,cat-tia-long-cho-gia-bao-nhieu,cắt tỉa lông chó giá bao nhiêu,commercial,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
+12,go-roi-long-cho-meo-khi-nao-can,go rối lông chó mèo khi nào cần,informational,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
+13,cach-chai-long-poodle-dung,cách chải lông Poodle đúng,informational,poodle,/grooming-cho-meo-binh-thanh/,QUEUED
+14,cach-ve-sinh-tai-cho-an-toan,cách vệ sinh tai chó an toàn,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
+15,khi-nao-can-cat-mong-cho,khi nào cần cắt móng chó,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
+16,khach-san-cho-meo-can-kiem-tra-gi,khách sạn chó mèo cần kiểm tra gì,commercial_research,hotel,/khach-san-thu-cung-binh-thanh/,QUEUED
+17,gui-cho-khach-san-5-ngay-gia-bao-nhieu,gửi chó khách sạn 5 ngày giá bao nhiêu,commercial,hotel,/dat-phong/,QUEUED
+18,gui-cho-khach-san-10-ngay-gia-bao-nhieu,gửi chó khách sạn 10 ngày giá bao nhiêu,commercial,hotel,/dat-phong/,QUEUED
+19,meo-di-khach-san-can-mang-gi,mèo đi khách sạn cần mang gì,informational,hotel,/khach-san-thu-cung-binh-thanh/,QUEUED
+20,cho-so-nguoi-la-khi-di-spa,cho sợ người lạ khi đi spa,informational,behavior,/spa-thu-cung-binh-thanh/,QUEUED
+21,cho-so-may-say-khi-grooming,cho sợ máy sấy khi grooming,informational,behavior,/grooming-cho-meo-binh-thanh/,QUEUED
+22,poodle-nen-de-long-dai-hay-cat-ngan,Poodle nên để lông dài hay cắt ngắn,informational,poodle,/grooming-cho-meo-binh-thanh/,QUEUED
+23,meo-long-dai-bi-roi-nen-lam-gi,mèo lông dài bị rối nên làm gì,informational,cat_care,/spa-thu-cung-binh-thanh/,QUEUED
+24,spa-thu-cung-binh-thanh-nen-chon-noi-nao,cách chọn spa thú cưng Bình Thạnh,commercial_research,spa,/spa-thu-cung-binh-thanh/,QUEUED
+25,khach-san-thu-cung-gan-vo-truong-toan,khách sạn thú cưng gần Võ Trường Toản,local,hotel,/khach-san-thu-cung-binh-thanh/,QUEUED
+26,grooming-cho-nho-binh-thanh,grooming chó nhỏ Bình Thạnh,commercial_local,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
+27,tam-cho-sau-khi-di-mua,tắm chó sau khi đi mưa,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
+28,cach-giu-long-cho-kho-va-thom,cách giữ lông chó khô sạch tại nhà,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
+29,nhung-vung-long-cho-de-bi-roi,những vùng lông chó dễ bị rối,informational,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
+30,checklist-dat-lich-spa-cho-meo,checklist trước khi đặt lịch spa chó mèo,commercial_research,spa,/dat-lich/,QUEUED
