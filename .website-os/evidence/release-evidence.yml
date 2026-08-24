@@ -1,17 +1,19 @@
 decision: HOLD
-observed_at: 2026-08-24T14:48:00+07:00
-release_candidate_commit: 1f484b8a5a90353df756f7cc1e8e4846e10bba6d
+observed_at: 2026-08-24T16:22:00+07:00
+release_candidate_commit: aab59e9354a66881424cf41b71f60268c647dce0
 source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
 release_status: HOLD_RUNTIME_QA
 recent_source_hardening:
-  - booking notifications send to the configured Lumi Pet email through the public booking form flow
+  - legacy monolithic demo App was replaced by a production homepage using verified first-party business and pricing facts
+  - homepage now links directly to canonical Spa, Hotel, pricing, booking, about and contact URLs
+  - obsolete booking-bridge.js was deleted and index.html no longer loads mutation/redirect bridge logic
+  - duplicate pre-React SEO quicklinks were removed because crawlable service links now exist in the production homepage
+  - booking notifications send to the configured Lumi Pet email through the public Spa and Hotel forms
   - booking status remains pending until shop confirmation
-  - Spa and Hotel CTAs route to canonical email-enabled booking pages
-  - homepage hero now uses only first-party business, hours and pricing facts
-  - demo Pet Shop and public Admin navigation were removed
-  - public FAQ was reduced to booking lookup because the old FAQ content was unverified demo data
-  - unverified legacy promotions, cabin marketing blocks, reviews, FAQ claims and footer service claims are fail-closed at runtime
+  - public booking confirmation copy now describes the email confirmation flow instead of a removed local lookup UI
+  - unverified Facebook sameAs URL was removed; verified Instagram profile remains
   - no centralized booking database is used
+  - CI now fails if legacy demo strings or booking-bridge.js appear in the production bundle
 checks:
   booking_javascript_syntax:
     configured_in_ci: true
@@ -23,6 +25,22 @@ checks:
   build:
     command: npm run build
     configured_in_ci: true
+    observed_result: UNVERIFIED
+  legacy_demo_bundle_gate:
+    configured_in_ci: true
+    blocked_strings:
+      - Penthouse Hoàng Gia
+      - Chủ Cửa Hàng
+      - Đại siêu thị trực tuyến
+      - Khai trương chi nhánh sang chảnh mới
+    booking_bridge_forbidden_in_dist_index: true
+    observed_result: UNVERIFIED
+  production_homepage_fact_gate:
+    configured_in_ci: true
+    expected_strings:
+      - 27 Võ Trường Toản
+      - Spa từ 120.000đ
+      - Hotel từ 100.000đ
     observed_result: UNVERIFIED
   static_launch_files:
     configured_in_ci: true
@@ -41,29 +59,33 @@ checks:
     activation_or_delivery_observed: UNVERIFIED
   security:
     source_review:
-      public_admin_navigation_removed: true
-      demo_shop_navigation_removed: true
+      public_admin_runtime_removed: true
+      demo_shop_runtime_removed: true
+      legacy_booking_bridge_removed: true
       booking_database_not_used: true
-      unverified_public_claims_fail_closed: true
+      unverified_facebook_sameas_removed: true
     runtime_result: UNVERIFIED
   accessibility:
+    source_review: IMPROVED
     observed_result: UNVERIFIED
   technical_seo:
     source_review: PASS
     runtime_result: UNVERIFIED
   performance:
+    source_architecture: SIMPLIFIED_HOMEPAGE_BUNDLE
     lcp: UNKNOWN
     inp: UNKNOWN
     cls: UNKNOWN
     observed_result: UNVERIFIED
   mobile:
+    source_responsive_layout: PRESENT
     observed_result: UNVERIFIED
   visual:
+    source_design_system: WHITE_ORANGE_TEAL
     observed_result: UNVERIFIED
 runtime_attempts:
   github_commit_statuses: EMPTY
   push_workflow_result: NOT_EXPOSED_BY_AVAILABLE_CONNECTOR
-  live_http_from_container: DNS_RESOLUTION_FAILED
   live_http_from_web_fetch: CACHE_MISS
-reason_for_hold: Source hardening is complete, but successful GitHub Pages deployment, live HTTP routes, email delivery, mobile, accessibility and visual runtime checks have not yet been observed.
+reason_for_hold: Source production architecture is now simplified and CI fail-closed gates are configured, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed.
 next_pass_condition: Observe successful CI/deploy plus live HTTP, booking email delivery, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
