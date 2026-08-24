@@ -189,4 +189,16 @@
     overlay.classList.remove('is-active');
     overlay.setAttribute('aria-hidden', 'true');
   });
+
+  const loadBlogEnhancements = () => {
+    if (document.querySelector('script[data-lumi-blog]')) return;
+    const uiScript = Array.from(document.scripts).find(item => item.src.includes('lumi-ui.js'));
+    if (!uiScript) return;
+    const blogScript = document.createElement('script');
+    blogScript.src = new URL('lumi-blog.js', uiScript.src).href;
+    blogScript.defer = true;
+    blogScript.dataset.lumiBlog = 'true';
+    document.body.appendChild(blogScript);
+  };
+  loadBlogEnhancements();
 })();
