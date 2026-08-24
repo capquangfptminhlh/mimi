@@ -1,0 +1,145 @@
+name: Deploy Lumi Pet to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: lumipet-production-vps
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '20'
+  DEPLOY_ROOT: '/var/www/lumipet'
+  PRODUCTION_ORIGIN: 'https://lumipet.vn'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact release SHA
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate production JavaScript
+        run: |
+          set -euo pipefail
+          node --check public/lumi-booking.js
+          node --check public/lumi-ui.js
+          node --check public/lumi-blog.js
+
+      - name: Typecheck and build
+        run: |
+          set -euo pipefail
+          npm run lint
+          npm run build
+
+      - name: Verify release files
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          test -f dist/lumi-ui.js
+          test -f dist/lumi-blog.js
+          test -f dist/bai-viet/index.html
+          test -f dist/dat-lich/index.html
+          test -f dist/dat-phong/index.html
+          grep -R -q '27 Võ Trường Toản' dist/assets
+          grep -R -q 'zalo.me/0989979675' dist
+          grep -q 'lumi-paw-loader' dist/lumi-ui.js
+          grep -q 'Article' dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
+
+      - name: Add release marker
+        run: |
+          printf '{"sha":"%s","built_at":"%s","status":"healthy"}\n' \
+            "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/release.json
+
+      - name: Require VPS deployment secrets
+        shell: bash
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$VPS_HOST" || { echo 'Missing VPS_HOST secret'; exit 1; }
+          test -n "$VPS_USER" || { echo 'Missing VPS_USER secret'; exit 1; }
+          test -n "$VPS_SSH_KEY" || { echo 'Missing VPS_SSH_KEY secret'; exit 1; }
+
+      - name: Configure SSH
+        shell: bash
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          PORT="${VPS_PORT:-22}"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/lumipet_deploy
+          chmod 600 ~/.ssh/lumipet_deploy
+          ssh-keyscan -p "$PORT" -H "$VPS_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload atomic release
+        shell: bash
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          set -euo pipefail
+          PORT="${VPS_PORT:-22}"
+          REMOTE_RELEASE="${DEPLOY_ROOT}/releases/${GITHUB_SHA}"
+          SSH="ssh -i ~/.ssh/lumipet_deploy -p ${PORT}"
+          $SSH "${VPS_USER}@${VPS_HOST}" "mkdir -p '${REMOTE_RELEASE}' '${DEPLOY_ROOT}/releases'"
+          rsync -az --delete -e "$SSH" dist/ "${VPS_USER}@${VPS_HOST}:${REMOTE_RELEASE}/"
+          $SSH "${VPS_USER}@${VPS_HOST}" "ln -sfn '${REMOTE_RELEASE}' '${DEPLOY_ROOT}/current' && find '${DEPLOY_ROOT}/releases' -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -nr | tail -n +6 | cut -d' ' -f2- | xargs -r rm -rf"
+
+      - name: Verify VPS release locally
+        shell: bash
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          set -euo pipefail
+          PORT="${VPS_PORT:-22}"
+          ssh -i ~/.ssh/lumipet_deploy -p "$PORT" "${VPS_USER}@${VPS_HOST}" \
+            "test -f '${DEPLOY_ROOT}/current/index.html' && test -f '${DEPLOY_ROOT}/current/release.json' && grep -Fq '${GITHUB_SHA}' '${DEPLOY_ROOT}/current/release.json'"
+
+      - name: Verify production after DNS cutover
+        if: ${{ vars.VPS_LIVE_VERIFY == '1' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp="$(mktemp)"
+          code="$(curl --silent --show-error --location --retry 10 --retry-delay 3 --retry-all-errors --connect-timeout 10 --max-time 60 -o "$tmp" -w '%{http_code}' "${PRODUCTION_ORIGIN}/release.json")"
+          test "$code" = '200'
+          grep -Fq "$GITHUB_SHA" "$tmp"
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/bai-viet/" >/dev/null
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/dat-lich/" >/dev/null
+
+      - name: Deployment summary
+        if: success()
+        run: |
+          echo "### Lumi Pet VPS release ready" >> "$GITHUB_STEP_SUMMARY"
+          echo "Commit: \`${GITHUB_SHA}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Atomic path: \`${DEPLOY_ROOT}/current\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Only built \`dist/\` is deployed; repository source remains in GitHub." >> "$GITHUB_STEP_SUMMARY"
