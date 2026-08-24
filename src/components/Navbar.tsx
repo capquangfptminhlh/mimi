@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, CalendarDays, Menu, X, Phone } from 'lucide-react';
+import { CalendarDays, Menu, X, Phone } from 'lucide-react';
 import LumiPetLogo from './LumiPetLogo';
 
 interface NavbarProps {
@@ -19,26 +19,21 @@ interface NavbarProps {
 export default function Navbar({
   activeTab,
   setActiveTab,
-  cartCount,
-  onOpenCart,
   onTriggerBooking,
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: 'Trang Chủ' },
-    { id: 'pricing', label: 'Bảng Giá Dịch Vụ' },
+    { id: 'pricing', label: 'Bảng Giá' },
     { id: 'spa', label: 'Spa Thú Cưng' },
     { id: 'hotel', label: 'Hotel Thú Cưng' },
-    { id: 'shop', label: 'Pet Shop' },
-    { id: 'faq', label: 'Hỏi Đáp / FAQ' },
-    { id: 'admin', label: '👑 Chủ Cửa Hàng' },
+    { id: 'faq', label: 'Hỏi Đáp / Tra Cứu' },
   ];
 
   const handleNavClick = (tabId: string) => {
     setActiveTab(tabId);
     setIsOpen(false);
-    // Smooth scroll to top when changing tab
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -46,17 +41,16 @@ export default function Navbar({
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-orange-100 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
-          {/* Logo */}
-          <div 
-            className="flex items-center cursor-pointer group"
+          <button
+            type="button"
+            className="flex items-center cursor-pointer group bg-transparent border-0 p-0"
             onClick={() => handleNavClick('home')}
+            aria-label="Về trang chủ Lumi Pet"
           >
             <LumiPetLogo size="md" className="transition-transform group-hover:scale-102" />
-          </div>
+          </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex xl:space-x-2 lg:space-x-1 space-x-0.5">
+          <nav className="hidden lg:flex xl:space-x-2 lg:space-x-1 space-x-0.5" aria-label="Điều hướng chính">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
               return (
@@ -65,8 +59,8 @@ export default function Navbar({
                   id={`nav-tab-${item.id}`}
                   onClick={() => handleNavClick(item.id)}
                   className={`relative xl:px-4 lg:px-2.5 px-2 py-2 rounded-xl text-xs lg:text-[14px] xl:text-[15px] font-bold transition-all duration-300 whitespace-nowrap ${
-                    isActive 
-                      ? 'text-orange-500' 
+                    isActive
+                      ? 'text-orange-500'
                       : 'text-gray-600 hover:text-orange-400 hover:bg-orange-50/50'
                   }`}
                 >
@@ -83,37 +77,15 @@ export default function Navbar({
             })}
           </nav>
 
-          {/* Action Area */}
           <div className="hidden lg:flex items-center xl:space-x-4 lg:space-x-2.5 space-x-2">
-            {/* Quick Contact */}
-            <a 
-              href="tel:0989979675" 
+            <a
+              href="tel:0989979675"
               className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-orange-100 hover:border-orange-200 text-gray-600 hover:text-orange-500 text-xs xl:text-sm font-bold transition-colors cursor-pointer whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
               <span className="whitespace-nowrap">0989 979 675</span>
             </a>
 
-            {/* Cart Icon */}
-            <button
-              id="navbar-cart-btn"
-              onClick={onOpenCart}
-              className="relative p-2 text-gray-600 hover:text-orange-500 hover:bg-orange-50 rounded-xl transition-all group flex-shrink-0"
-              aria-label="Shopping Cart"
-            >
-              <ShoppingCart className="w-5.5 h-5.5 transition-transform group-hover:scale-105" />
-              {cartCount > 0 && (
-                <motion.span 
-                  initial={{ scale: 0.6 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white shadow-sm ring-2 ring-white"
-                >
-                  {cartCount}
-                </motion.span>
-              )}
-            </button>
-
-            {/* Quick Reservation Button */}
             <button
               id="navbar-booking-btn"
               onClick={onTriggerBooking}
@@ -124,23 +96,7 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Tablet & Mobile Action Icons (Only Cart and Menubar) */}
           <div className="flex items-center space-x-2 md:space-x-3 lg:hidden">
-            {/* Cart Button */}
-            <button
-              id="navbar-cart-mobile-btn"
-              onClick={onOpenCart}
-              className="relative p-2.5 text-gray-650 hover:text-orange-500 hover:bg-orange-100/50 rounded-xl transition-all"
-            >
-              <ShoppingCart className="w-5.5 h-5.5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white ring-2 ring-white">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile Book Shortcut for Tablet/Mobile */}
             <button
               id="navbar-booking-mobile-btn"
               onClick={onTriggerBooking}
@@ -150,21 +106,19 @@ export default function Navbar({
               <span className="whitespace-nowrap">Đặt Lịch</span>
             </button>
 
-            {/* Mobile Toggle Hamburger Menu */}
             <button
               id="navbar-toggle-btn"
               onClick={() => setIsOpen(!isOpen)}
               className="p-2.5 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-xl transition-colors"
-              aria-label="Toggle Menu"
+              aria-label="Mở menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-
         </div>
       </div>
 
-      {/* Slide down Mobile Navigation Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -193,14 +147,14 @@ export default function Navbar({
               })}
 
               <div className="pt-4 pb-2 border-t border-slate-100 flex flex-col space-y-3 px-4">
-                <a 
-                  href="tel:0989979675" 
+                <a
+                  href="tel:0989979675"
                   className="flex items-center space-x-2 text-slate-600 hover:text-amber-600 text-sm font-medium"
                 >
                   <Phone className="w-4 h-4 text-amber-500" />
-                  <span>Tổng đài hỗ trợ: 0989 979 675</span>
+                  <span>Hotline: 0989 979 675</span>
                 </a>
-                
+
                 <button
                   id="mobile-nav-booking-btn"
                   onClick={() => {
@@ -210,7 +164,7 @@ export default function Navbar({
                   className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md cursor-pointer text-sm"
                 >
                   <CalendarDays className="w-4 h-4" />
-                  <span>ĐẶT LỊCH SPA / HOTEL NGAY</span>
+                  <span>ĐẶT LỊCH SPA / HOTEL</span>
                 </button>
               </div>
             </div>
