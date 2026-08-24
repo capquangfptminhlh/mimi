@@ -1,0 +1,6 @@
+risk_id,query_or_intent,url_a,url_b,risk_level,issue,resolution,status,evidence_ref
+CAN-001,spa thú cưng bình thạnh,/mimi/,/mimi/spa-thu-cung-binh-thanh/,HIGH,Homepage and spa page could target the same local transactional intent,Homepage owns brand/local hub; dedicated spa URL owns generic spa transactional intent,RESOLVED,K0 ownership map
+CAN-002,grooming chó bình thạnh,/mimi/spa-thu-cung-binh-thanh/,/mimi/grooming-cho-meo-binh-thanh/,MEDIUM,Grooming can overlap broad spa page,Grooming page owns haircut/cut-style intent; spa page links to it and focuses bath/spa intent,RESOLVED,K0 ownership map
+CAN-003,bảng giá spa thú cưng,/mimi/spa-thu-cung-binh-thanh/,/mimi/bang-gia-spa-thu-cung/,MEDIUM,Service page and pricing page may compete,Pricing page owns commercial price query; service page summarizes and links to canonical pricing,RESOLVED,SRC-PRICE-DOG;SRC-PRICE-CAT
+CAN-004,đặt lịch spa thú cưng,/mimi/spa-thu-cung-binh-thanh/,/mimi/dat-lich/,LOW,Service CTA and booking tool serve related intent,Booking URL owns action intent; service URL owns service research intent,RESOLVED,APP-BOOKING
+CAN-005,khách sạn thú cưng bình thạnh,/mimi/,/mimi/khach-san-thu-cung-binh-thanh/,HIGH,Homepage and hotel page could compete,Hotel page owns generic local hotel intent; homepage stays brand hub,RESOLVED,SERP-001;SRC-PRICE-HOTEL

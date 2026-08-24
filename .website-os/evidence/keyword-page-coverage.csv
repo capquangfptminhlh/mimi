@@ -1,0 +1,19 @@
+keyword,cluster_id,target_url,coverage_type,launch_status,content_section_or_page,evidence_ref,status
+lumi pet bình thạnh,BRAND,/mimi/,PRIMARY_PAGE,BUILD_LAUNCH,Homepage entity/local intro,SRC-NAP,COVERED
+spa thú cưng bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Spa service landing,SERP-001;SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
+spa chó mèo bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Dog/cat service + price answer,SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
+tắm chó bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Dog spa price section,SRC-PRICE-DOG,COVERED
+tắm mèo bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Cat spa price section,SRC-PRICE-CAT,COVERED
+grooming chó bình thạnh,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Grooming landing,SRC-PRICE-DOG,COVERED
+cắt tỉa lông chó bình thạnh,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Dog haircut tiers,SRC-PRICE-DOG,COVERED
+khách sạn thú cưng bình thạnh,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Hotel landing,SRC-PRICE-HOTEL,COVERED
+khách sạn chó mèo bình thạnh,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Hotel price/benefits,SRC-PRICE-HOTEL,COVERED
+bảng giá spa thú cưng,PRICE,/mimi/bang-gia-spa-thu-cung/,PRIMARY_PAGE,BUILD_LAUNCH,Dog/cat tables,SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
+spa thú cưng giá bao nhiêu,PRICE,/mimi/bang-gia-spa-thu-cung/,FAQ_AEO,BUILD_LAUNCH,Direct answer block,SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
+gửi thú cưng trên 5 ngày giảm bao nhiêu,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,FAQ_AEO,BUILD_LAUNCH,Long-stay discount answer,SRC-PRICE-HOTEL,COVERED
+đặt lịch spa thú cưng,BOOK_SPA,/mimi/dat-lich/,PRIMARY_PAGE,BUILD_LAUNCH,Booking form/calculator,SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
+đặt phòng thú cưng,BOOK_HOTEL,/mimi/dat-phong/,PRIMARY_PAGE,BUILD_LAUNCH,Hotel booking calculator,SRC-PRICE-HOTEL,COVERED
+lumi pet địa chỉ,CONTACT,/mimi/lien-he/,PRIMARY_PAGE,BUILD_LAUNCH,NAP block,SRC-NAP,COVERED
+lumi pet số điện thoại,CONTACT,/mimi/lien-he/,SECONDARY_SECTION,BUILD_LAUNCH,Phone/call action,SRC-NAP,COVERED
+spa thú cưng gần landmark,SPA,,HOLD,HOLD_EVIDENCE,No dedicated page until real local value evidence exists,SERP-003,HOLD
+spa thú cưng vinhomes,SPA,,HOLD,HOLD_EVIDENCE,No dedicated page until real local value evidence exists,SERP-003,HOLD

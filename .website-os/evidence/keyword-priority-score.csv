@@ -1,0 +1,10 @@
+cluster_id,target_url,business_value,intent_closeness,demand_evidence,serp_gap,authority_contribution,freshness_timing,data_confidence,priority_score,priority_tier,reason,evidence_refs
+SPA,/mimi/spa-thu-cung-binh-thanh/,25,20,14,12,8,5,4,88,P0,Core local service and direct booking path; competitors have dedicated local pages,SERP-001;SERP-002;SERP-004
+HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,25,20,14,12,8,5,5,89,P0,Core paid service with first-party tier pricing and local competitive coverage,SERP-001;SERP-004;SRC-PRICE-HOTEL
+PRICE,/mimi/bang-gia-spa-thu-cung/,23,19,12,14,7,5,5,85,P0,Strong commercial decision support with unique first-party price tables,SRC-PRICE-DOG;SRC-PRICE-CAT
+BOOK_SPA,/mimi/dat-lich/,25,20,10,12,4,5,5,81,P0,Highest conversion action and can reuse first-party pricing,APP-BOOKING;SRC-PRICE-DOG;SRC-PRICE-CAT
+BOOK_HOTEL,/mimi/dat-phong/,25,20,10,12,4,5,5,81,P0,Highest conversion action with exact hotel calculator,SRC-PRICE-HOTEL
+CONTACT,/mimi/lien-he/,20,18,9,8,5,5,5,70,P0,Local entity/NAP trust and brand navigation,SRC-NAP
+GROOMING,/mimi/grooming-cho-meo-binh-thanh/,20,18,11,10,7,4,4,74,P1,Distinct local grooming intent with first-party pricing,SERP-002;SERP-003;SRC-PRICE-DOG
+ABOUT,/mimi/gioi-thieu/,10,10,5,5,8,2,4,44,P2,Entity/trust support but lower direct conversion,first-party
+BRAND,/mimi/,25,20,10,10,10,5,5,85,P0,Primary brand/local hub,SERP-005

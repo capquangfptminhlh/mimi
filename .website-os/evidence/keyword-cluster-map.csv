@@ -1,0 +1,10 @@
+cluster_id,cluster_name,parent_cluster,pillar_or_hub_url,primary_entity,primary_intent,supporting_intents,money_page_or_supporting_content,internal_link_parent,internal_link_children,coverage_status
+BRAND,Lumi Pet local brand,,/mimi/,Lumi Pet,NAVIGATIONAL,LOCAL_TRANSACTIONAL,money,,SPA;HOTEL;PRICE;CONTACT,COVERED
+SPA,Spa thú cưng Bình Thạnh,BRAND,/mimi/spa-thu-cung-binh-thanh/,Spa thú cưng,LOCAL_TRANSACTIONAL,COMMERCIAL;INFORMATIONAL,money,/mimi/,PRICE;BOOK_SPA,COVERED
+GROOMING,Grooming chó mèo Bình Thạnh,SPA,/mimi/grooming-cho-meo-binh-thanh/,Grooming,LOCAL_TRANSACTIONAL,COMMERCIAL,money,/mimi/spa-thu-cung-binh-thanh/,PRICE;BOOK_SPA,COVERED
+HOTEL,Khách sạn thú cưng Bình Thạnh,BRAND,/mimi/khach-san-thu-cung-binh-thanh/,Khách sạn thú cưng,LOCAL_TRANSACTIONAL,COMMERCIAL;INFORMATIONAL,money,/mimi/,BOOK_HOTEL,COVERED
+PRICE,Bảng giá Spa chó mèo,SPA,/mimi/bang-gia-spa-thu-cung/,Lumi Pet pricing,COMMERCIAL,TRANSACTIONAL;INFORMATIONAL,money,/mimi/spa-thu-cung-binh-thanh/,BOOK_SPA,COVERED
+BOOK_SPA,Đặt lịch Spa,SPA,/mimi/dat-lich/,Spa booking,TRANSACTIONAL,LOCAL_TRANSACTIONAL,tool,/mimi/spa-thu-cung-binh-thanh/,,COVERED
+BOOK_HOTEL,Đặt phòng Hotel,HOTEL,/mimi/dat-phong/,Hotel booking,TRANSACTIONAL,LOCAL_TRANSACTIONAL,tool,/mimi/khach-san-thu-cung-binh-thanh/,,COVERED
+CONTACT,Liên hệ Lumi Pet,BRAND,/mimi/lien-he/,Lumi Pet NAP,NAVIGATIONAL,LOCAL_INFORMATIONAL,support,/mimi/,,COVERED
+ABOUT,Giới thiệu Lumi Pet,BRAND,/mimi/gioi-thieu/,Lumi Pet,INFORMATIONAL,NAVIGATIONAL,support,/mimi/,,COVERED

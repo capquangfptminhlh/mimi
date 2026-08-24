@@ -1,0 +1,34 @@
+decision: PASS
+observed_at: 2026-08-24T13:20:00+07:00
+project: Lumi Pet Spa & Hotel 24/7
+source_repo: capquangfptminhlh/mimi
+website_os_source_repo: capquangfptminhlh/seo-web
+website_os_source_sha: ef18d255150f3a77a7c7587feccf1ba7c419ad7b
+keyword_universe_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
+fresh_serp_research: true
+local_seo: true
+canonical_url_owner_required: true
+canonical_url_ownership_resolved: true
+high_risk_cannibalization_unresolved: 0
+fabricated_metrics: false
+metrics_not_available: UNKNOWN
+first_party_price_sources:
+  - SRC-PRICE-DOG
+  - SRC-PRICE-CAT
+  - SRC-PRICE-HOTEL
+first_party_nap_source: SRC-NAP
+geo_coordinates_status: HOLD_UNVERIFIED
+p0_clusters:
+  - BRAND
+  - SPA
+  - HOTEL
+  - PRICE
+  - BOOK_SPA
+  - BOOK_HOTEL
+  - CONTACT
+p1_clusters:
+  - GROOMING
+notes:
+  - No search volume, KD, CPC, ranking or traffic-potential values were fabricated.
+  - Local pages are limited to real service/value pages; location-name-swap pages are held.
+  - Current public canonical origin is GitHub Pages until a verified custom domain is configured.

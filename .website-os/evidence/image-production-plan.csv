@@ -1,0 +1,3 @@
+image_id,page_id,target_url,role,subject,prompt_or_brief,source_mode,required_width,required_height,format,alt_text,status
+IMG-HOME-EXISTING,PAGE-HOME,/mimi/,hero,Existing Lumi Pet application visuals,Retain existing production imagery for this SEO/function phase,EXISTING_REUSE,0,0,existing,Lumi Pet Spa & Hotel,RETAIN
+IMG-OG-HOLD,PAGE-HOME,/mimi/,og_social,Verified first-party Lumi Pet storefront/pet-care image,Add when a first-party licensed image is supplied; do not use an unrelated stock image as LocalBusiness identity,HOLD_EVIDENCE,1200,630,jpg,Lumi Pet Spa & Hotel Bình Thạnh,HOLD_EVIDENCE

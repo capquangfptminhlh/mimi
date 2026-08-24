@@ -1,0 +1,13 @@
+keyword,primary_intent,secondary_intent,cluster_id,target_url,rationale,evidence_ref,observed_at,status
+spa thú cưng bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cung-binh-thanh/,User wants a nearby provider and can convert directly,SERP-001;SERP-003,2026-08-24,VERIFIED
+spa chó mèo bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cung-binh-thanh/,Same search job as core spa query,SERP-001;SERP-003,2026-08-24,VERIFIED
+tắm chó bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cung-binh-thanh/,Service sub-intent within spa,SRC-PRICE-DOG,2026-08-24,VERIFIED
+tắm mèo bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cung-binh-thanh/,Service sub-intent with cat-specific price table,SRC-PRICE-CAT,2026-08-24,VERIFIED
+grooming chó bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,Distinct grooming/cut intent,SERP-002;SERP-003,2026-08-24,VERIFIED
+khách sạn thú cưng bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,Pet boarding conversion intent,SERP-001;SERP-002,2026-08-24,VERIFIED
+bảng giá spa thú cưng,COMMERCIAL,TRANSACTIONAL,PRICE,/mimi/bang-gia-spa-thu-cung/,Price comparison before booking,SRC-PRICE-DOG;SRC-PRICE-CAT,2026-08-24,VERIFIED
+đặt lịch spa thú cưng,TRANSACTIONAL,LOCAL_TRANSACTIONAL,BOOK_SPA,/mimi/dat-lich/,Direct appointment action,APP-BOOKING,2026-08-24,VERIFIED
+đặt phòng thú cưng,TRANSACTIONAL,LOCAL_TRANSACTIONAL,BOOK_HOTEL,/mimi/dat-phong/,Direct room reservation action,SRC-PRICE-HOTEL,2026-08-24,VERIFIED
+spa thú cưng giá bao nhiêu,INFORMATIONAL,COMMERCIAL,PRICE,/mimi/bang-gia-spa-thu-cung/,AEO question answered from first-party pricing,SRC-PRICE-DOG;SRC-PRICE-CAT,2026-08-24,VERIFIED
+gửi thú cưng trên 5 ngày giảm bao nhiêu,INFORMATIONAL,COMMERCIAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,AEO question answered by hotel discount policy,SRC-PRICE-HOTEL,2026-08-24,VERIFIED
+lumi pet địa chỉ,NAVIGATIONAL,LOCAL_INFORMATIONAL,CONTACT,/mimi/lien-he/,Brand NAP lookup,SRC-NAP,2026-08-24,VERIFIED

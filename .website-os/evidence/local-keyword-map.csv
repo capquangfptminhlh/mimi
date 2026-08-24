@@ -1,0 +1,6 @@
+location_id,location_name,query_pattern,cluster_id,target_url,local_value_source,indexability,status,notes
+LOC-001,Bình Thạnh,spa thú cưng bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,Real Lumi Pet location + local service availability + first-party prices,index,APPROVED,Single genuine local page; no ward/district doorway cloning
+LOC-002,Bình Thạnh,grooming chó bình thạnh,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,Real Lumi Pet location + grooming service + first-party price tiers,index,APPROVED,Distinct service intent
+LOC-003,Bình Thạnh,khách sạn thú cưng bình thạnh,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,Real Lumi Pet location + hotel operations + first-party prices/discounts,index,APPROVED,Distinct hotel intent
+LOC-HOLD-001,Landmark 81,spa thú cưng gần landmark,SPA,,No first-party evidence yet of a distinct service page/value proposition,HOLD,HOLD_EVIDENCE,Do not create a location-name-swap page merely because competitors do
+LOC-HOLD-002,Vinhomes Central Park,spa thú cưng vinhomes,SPA,,No first-party area-specific service/transport evidence yet,HOLD,HOLD_EVIDENCE,Potential post-launch only after real local value evidence

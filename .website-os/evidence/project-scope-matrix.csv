@@ -1,0 +1,12 @@
+scope_id,cluster_id,cluster_name,primary_intent,entity_name,target_url,page_type,launch_status,reason,evidence_ref
+SCOPE-001,BRAND,Lumi Pet local brand,NAVIGATIONAL,Lumi Pet,/mimi/,homepage,BUILD_LAUNCH,Primary brand/local hub,SERP-005;SRC-NAP
+SCOPE-002,SPA,Spa thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,Spa thú cưng,/mimi/spa-thu-cung-binh-thanh/,service,BUILD_LAUNCH,Core local service intent,SERP-001;SERP-002;SRC-PRICE-DOG;SRC-PRICE-CAT
+SCOPE-003,GROOMING,Grooming chó mèo Bình Thạnh,LOCAL_TRANSACTIONAL,Grooming,/mimi/grooming-cho-meo-binh-thanh/,service,BUILD_LAUNCH,Distinct grooming intent,SERP-002;SERP-003;SRC-PRICE-DOG
+SCOPE-004,HOTEL,Khách sạn thú cưng Bình Thạnh,LOCAL_TRANSACTIONAL,Khách sạn thú cưng,/mimi/khach-san-thu-cung-binh-thanh/,service,BUILD_LAUNCH,Core pet hotel intent,SERP-001;SERP-004;SRC-PRICE-HOTEL
+SCOPE-005,PRICE,Bảng giá Spa thú cưng,COMMERCIAL,Lumi Pet pricing,/mimi/bang-gia-spa-thu-cung/,pricing,BUILD_LAUNCH,First-party price tables answer commercial/AEO queries,SRC-PRICE-DOG;SRC-PRICE-CAT
+SCOPE-006,BOOK_SPA,Đặt lịch Spa,TRANSACTIONAL,Spa booking,/mimi/dat-lich/,tool,BUILD_LAUNCH,Direct conversion tool,SRC-PRICE-DOG;SRC-PRICE-CAT
+SCOPE-007,BOOK_HOTEL,Đặt phòng Hotel,TRANSACTIONAL,Hotel booking,/mimi/dat-phong/,tool,BUILD_LAUNCH,Direct conversion + price calculator,SRC-PRICE-HOTEL
+SCOPE-008,CONTACT,Liên hệ Lumi Pet,NAVIGATIONAL,Lumi Pet NAP,/mimi/lien-he/,contact,BUILD_LAUNCH,Local entity consistency and directions,SRC-NAP
+SCOPE-009,ABOUT,Giới thiệu Lumi Pet,INFORMATIONAL,Lumi Pet,/mimi/gioi-thieu/,about,BUILD_LAUNCH,Entity/trust support,first-party
+SCOPE-010,SPA,Landmark 81 local variation,LOCAL_TRANSACTIONAL,Spa thú cưng,,,HOLD_EVIDENCE,No distinct first-party local value yet,SERP-003
+SCOPE-011,SPA,Vinhomes local variation,LOCAL_TRANSACTIONAL,Spa thú cưng,,,HOLD_EVIDENCE,No distinct first-party local value yet,SERP-003

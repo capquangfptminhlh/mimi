@@ -1,0 +1,20 @@
+decision: PASS
+observed_at: 2026-08-24T13:20:00+07:00
+approved_launch_scope:
+  build_launch_pages: 9
+  build_post_launch_pages: 0
+  hold_evidence_targets: 2
+  required_new_images: 0
+  held_image_opportunities: 1
+p0_p1_clusters_with_explicit_decision: true
+all_retained_keywords_mapped_or_hold: true
+canonical_ownership_complete: true
+local_doorway_pages_prohibited: true
+first_party_business_fact_sources_identified: true
+geo_coordinates: HOLD_UNVERIFIED
+implementation_notes:
+  - Preserve the current React application as the brand/home experience.
+  - Add crawlable static service, pricing, contact and booking pages under public/ so Vite copies them to GitHub Pages.
+  - Booking pages write the existing `paws_perfect_bookings` localStorage shape for backward compatibility with booking-history lookup.
+  - Keep automated totals strictly to first-party fixed prices. Range-based surcharges remain shop-confirmed, not auto-added.
+  - Do not claim launch-complete until build/mobile/technical-SEO verification runs after implementation.

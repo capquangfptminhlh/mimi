@@ -1,0 +1,11 @@
+entity_type,entity_name,parent_entity,topic,subtopic,attribute_or_relation,source_of_truth,verification_status,target_url
+brand,Lumi Pet,,Lumi Pet,local pet care,operates spa and pet hotel,first-party site + owner supplied posters,VERIFIED,/mimi/
+location,27 Võ Trường Toản,Lumi Pet,Local SEO,address,located in Bình Thạnh TP.HCM,owner supplied posters,VERIFIED,/mimi/lien-he/
+contact,0989 979 675,Lumi Pet,Local SEO,phone,telephone,owner supplied posters,VERIFIED,/mimi/lien-he/
+service,Spa thú cưng,Lumi Pet,Spa,tắm vệ sinh,priced by pet type and weight,owner supplied posters,VERIFIED,/mimi/spa-thu-cung-binh-thanh/
+service,Grooming chó,Lumi Pet,Grooming,tắm cạo/cắt tỉa,priced by dog weight,owner supplied dog price poster,VERIFIED,/mimi/grooming-cho-meo-binh-thanh/
+service,Khách sạn thú cưng,Lumi Pet,Hotel,lưu trú,price per day by weight with long-stay discount,owner supplied hotel price poster,VERIFIED,/mimi/khach-san-thu-cung-binh-thanh/
+price_policy,Hotel long-stay discount,Khách sạn thú cưng,Hotel,discount,more than 5 days 5%; more than 10 days 8%,owner supplied hotel price poster,VERIFIED,/mimi/khach-san-thu-cung-binh-thanh/
+opening_hours,07:00–21:00,Lumi Pet,Local SEO,hours,all days,owner supplied posters,VERIFIED,/mimi/lien-he/
+social,@lumipet.spa,Lumi Pet,Entity,social profile,Instagram handle,owner supplied posters,VERIFIED,/mimi/lien-he/
+geo_coordinates,UNKNOWN,Lumi Pet,Local SEO,coordinates,do not publish until verified,none,HOLD,/mimi/lien-he/
