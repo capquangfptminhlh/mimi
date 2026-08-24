@@ -19,13 +19,15 @@ env:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 20
+
     steps:
       - name: Checkout exact release SHA
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+          clean: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -37,6 +39,7 @@ jobs:
         run: npm ci
 
       - name: Validate production JavaScript
+        shell: bash
         run: |
           set -euo pipefail
           node --check public/lumi-booking.js
@@ -44,12 +47,14 @@ jobs:
           node --check public/lumi-blog.js
 
       - name: Typecheck and build
+        shell: bash
         run: |
           set -euo pipefail
           npm run lint
           npm run build
 
       - name: Verify release files
+        shell: bash
         run: |
           set -euo pipefail
           test -f dist/index.html
@@ -66,92 +71,87 @@ jobs:
           grep -q 'Article' dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
 
       - name: Add release marker
+        shell: bash
         run: |
+          set -euo pipefail
           printf '{"sha":"%s","built_at":"%s","status":"healthy"}\n' \
             "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/release.json
 
-      - name: Detect VPS configuration
-        id: vps
+      - name: Verify self-hosted VPS runtime
         shell: bash
-        env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_USER: ${{ secrets.VPS_USER }}
-          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
-        run: |
-          if [ -n "$VPS_HOST" ] && [ -n "$VPS_USER" ] && [ -n "$VPS_SSH_KEY" ]; then
-            echo 'configured=true' >> "$GITHUB_OUTPUT"
-            echo 'VPS deployment is configured.'
-          else
-            echo 'configured=false' >> "$GITHUB_OUTPUT"
-            echo 'VPS secrets are not configured yet; build/QA passed and deployment is skipped.'
-          fi
-
-      - name: Configure SSH
-        if: steps.vps.outputs.configured == 'true'
-        shell: bash
-        env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
         run: |
           set -euo pipefail
-          PORT="${VPS_PORT:-22}"
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/lumipet_deploy
-          chmod 600 ~/.ssh/lumipet_deploy
-          ssh-keyscan -p "$PORT" -H "$VPS_HOST" >> ~/.ssh/known_hosts
+          command -v rsync >/dev/null
+          mkdir -p "${DEPLOY_ROOT}/releases"
+          test -w "${DEPLOY_ROOT}/releases"
+          echo "Self-hosted runner: $(hostname)"
+          echo "Deploy root: ${DEPLOY_ROOT}"
 
-      - name: Upload atomic release
-        if: steps.vps.outputs.configured == 'true'
+      - name: Install atomic release on VPS
         shell: bash
-        env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_USER: ${{ secrets.VPS_USER }}
         run: |
           set -euo pipefail
-          PORT="${VPS_PORT:-22}"
-          REMOTE_RELEASE="${DEPLOY_ROOT}/releases/${GITHUB_SHA}"
-          SSH="ssh -i ~/.ssh/lumipet_deploy -p ${PORT}"
-          $SSH "${VPS_USER}@${VPS_HOST}" "mkdir -p '${REMOTE_RELEASE}' '${DEPLOY_ROOT}/releases'"
-          rsync -az --delete -e "$SSH" dist/ "${VPS_USER}@${VPS_HOST}:${REMOTE_RELEASE}/"
-          $SSH "${VPS_USER}@${VPS_HOST}" "ln -sfn '${REMOTE_RELEASE}' '${DEPLOY_ROOT}/current' && find '${DEPLOY_ROOT}/releases' -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -nr | tail -n +6 | cut -d' ' -f2- | xargs -r rm -rf"
+          RELEASE_DIR="${DEPLOY_ROOT}/releases/${GITHUB_SHA}"
+          PREVIOUS_TARGET="$(readlink -f "${DEPLOY_ROOT}/current" 2>/dev/null || true)"
 
-      - name: Verify VPS release locally
-        if: steps.vps.outputs.configured == 'true'
+          rm -rf "$RELEASE_DIR"
+          mkdir -p "$RELEASE_DIR"
+          rsync -a --delete dist/ "$RELEASE_DIR/"
+
+          test -f "$RELEASE_DIR/index.html"
+          test -f "$RELEASE_DIR/release.json"
+          grep -Fq "$GITHUB_SHA" "$RELEASE_DIR/release.json"
+
+          ln -sfn "$RELEASE_DIR" "${DEPLOY_ROOT}/current"
+          CURRENT_TARGET="$(readlink -f "${DEPLOY_ROOT}/current")"
+          test "$CURRENT_TARGET" = "$RELEASE_DIR"
+
+          printf '%s\n' "$PREVIOUS_TARGET" > "${DEPLOY_ROOT}/previous-release.txt"
+          echo "Activated release: $CURRENT_TARGET"
+
+      - name: Verify active VPS release
         shell: bash
-        env:
-          VPS_HOST: ${{ secrets.VPS_HOST }}
-          VPS_PORT: ${{ secrets.VPS_PORT }}
-          VPS_USER: ${{ secrets.VPS_USER }}
         run: |
           set -euo pipefail
-          PORT="${VPS_PORT:-22}"
-          ssh -i ~/.ssh/lumipet_deploy -p "$PORT" "${VPS_USER}@${VPS_HOST}" \
-            "test -f '${DEPLOY_ROOT}/current/index.html' && test -f '${DEPLOY_ROOT}/current/release.json' && grep -Fq '${GITHUB_SHA}' '${DEPLOY_ROOT}/current/release.json'"
+          test -f "${DEPLOY_ROOT}/current/index.html"
+          test -f "${DEPLOY_ROOT}/current/release.json"
+          grep -Fq "$GITHUB_SHA" "${DEPLOY_ROOT}/current/release.json"
+          test -f "${DEPLOY_ROOT}/current/bai-viet/index.html"
+          test -f "${DEPLOY_ROOT}/current/dat-lich/index.html"
 
       - name: Verify production after DNS cutover
-        if: steps.vps.outputs.configured == 'true' && vars.VPS_LIVE_VERIFY == '1'
+        if: vars.VPS_LIVE_VERIFY == '1'
         shell: bash
         run: |
           set -euo pipefail
           tmp="$(mktemp)"
-          code="$(curl --silent --show-error --location --retry 10 --retry-delay 3 --retry-all-errors --connect-timeout 10 --max-time 60 -o "$tmp" -w '%{http_code}' "${PRODUCTION_ORIGIN}/release.json")"
+          code="$(curl --silent --show-error --location \
+            --retry 10 --retry-delay 3 --retry-all-errors \
+            --connect-timeout 10 --max-time 60 \
+            -o "$tmp" -w '%{http_code}' \
+            "${PRODUCTION_ORIGIN}/release.json")"
           test "$code" = '200'
           grep -Fq "$GITHUB_SHA" "$tmp"
           curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/bai-viet/" >/dev/null
           curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/dat-lich/" >/dev/null
 
+      - name: Keep five newest releases
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          find "${DEPLOY_ROOT}/releases" -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' \
+            | sort -nr \
+            | tail -n +6 \
+            | cut -d' ' -f2- \
+            | xargs -r rm -rf
+
       - name: Deployment summary
         if: success()
+        shell: bash
         run: |
-          echo "### Lumi Pet VPS pipeline" >> "$GITHUB_STEP_SUMMARY"
+          echo "### Lumi Pet deployed on self-hosted VPS runner" >> "$GITHUB_STEP_SUMMARY"
           echo "Commit: \`${GITHUB_SHA}\`" >> "$GITHUB_STEP_SUMMARY"
-          if [ '${{ steps.vps.outputs.configured }}' = 'true' ]; then
-            echo "VPS deployment: **completed**" >> "$GITHUB_STEP_SUMMARY"
-            echo "Atomic path: \`${DEPLOY_ROOT}/current\`" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "VPS deployment: **skipped until repository secrets are configured**" >> "$GITHUB_STEP_SUMMARY"
-          fi
-          echo "Only built \`dist/\` is deployed; repository source remains in GitHub." >> "$GITHUB_STEP_SUMMARY"
+          echo "Runner: \`$(hostname)\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Production path: \`${DEPLOY_ROOT}/current\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "Only built \`dist/\` is activated for Nginx." >> "$GITHUB_STEP_SUMMARY"
