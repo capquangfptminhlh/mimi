@@ -1,6 +1,6 @@
 decision: HOLD
-observed_at: 2026-08-24T14:46:00+07:00
-release_candidate_commit: 4d0976a291c3d10ff305883671311e0939aa3c2d
+observed_at: 2026-08-24T14:48:00+07:00
+release_candidate_commit: 1f484b8a5a90353df756f7cc1e8e4846e10bba6d
 source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
 release_status: HOLD_RUNTIME_QA
 recent_source_hardening:
@@ -9,7 +9,8 @@ recent_source_hardening:
   - Spa and Hotel CTAs route to canonical email-enabled booking pages
   - homepage hero now uses only first-party business, hours and pricing facts
   - demo Pet Shop and public Admin navigation were removed
-  - unverified legacy promotions, cabin marketing blocks and review blocks are fail-closed at runtime
+  - public FAQ was reduced to booking lookup because the old FAQ content was unverified demo data
+  - unverified legacy promotions, cabin marketing blocks, reviews, FAQ claims and footer service claims are fail-closed at runtime
   - no centralized booking database is used
 checks:
   booking_javascript_syntax:
@@ -43,6 +44,7 @@ checks:
       public_admin_navigation_removed: true
       demo_shop_navigation_removed: true
       booking_database_not_used: true
+      unverified_public_claims_fail_closed: true
     runtime_result: UNVERIFIED
   accessibility:
     observed_result: UNVERIFIED
