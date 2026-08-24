@@ -28,7 +28,7 @@ export default function Navbar({
     { id: 'pricing', label: 'Bảng Giá' },
     { id: 'spa', label: 'Spa Thú Cưng' },
     { id: 'hotel', label: 'Hotel Thú Cưng' },
-    { id: 'faq', label: 'Hỏi Đáp / Tra Cứu' },
+    { id: 'faq', label: 'Tra Cứu Lịch' },
   ];
 
   const handleNavClick = (tabId: string) => {
