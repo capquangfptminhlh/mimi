@@ -49,6 +49,8 @@ jobs:
 
       - name: Typecheck and build
         shell: bash
+        env:
+          VITE_RELEASE_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
           npm run lint
@@ -58,6 +60,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          SHORT_SHA="${GITHUB_SHA:0:12}"
           test -f dist/index.html
           test -f dist/robots.txt
           test -f dist/sitemap.xml
@@ -74,7 +77,9 @@ jobs:
           grep -q 'lumi-paw-loader' dist/lumi-ui.js
           grep -q 'Article' dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
           grep -q 'rel="icon"' dist/index.html
-          grep -q 'favicon.svg' dist/index.html
+          grep -q "favicon.svg?v=${SHORT_SHA}" dist/index.html
+          grep -q "lumi-ui.js?v=${SHORT_SHA}" dist/index.html
+          grep -q "name=\"lumi-release\" content=\"${SHORT_SHA}\"" dist/index.html
           grep -q 'https://lumipet.vn/' dist/index.html
           grep -q 'Sitemap: https://lumipet.vn/sitemap.xml' dist/robots.txt
           grep -q '<loc>https://lumipet.vn/' dist/sitemap.xml
@@ -87,6 +92,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          SHORT_SHA="${GITHUB_SHA:0:12}"
           pages=(
             dist/spa-thu-cung-binh-thanh/index.html
             dist/grooming-cho-meo-binh-thanh/index.html
@@ -101,8 +107,11 @@ jobs:
           for page in "${pages[@]}"; do
             test -f "$page"
             grep -q 'data-lumi-unified-header="true"' "$page"
-            grep -q 'lumi-brand-mark.svg' "$page"
-            grep -q 'favicon.svg' "$page"
+            grep -q "data-lumi-release=\"${SHORT_SHA}\"" "$page"
+            grep -q "lumi-brand-mark.svg?v=${SHORT_SHA}" "$page"
+            grep -q "lumi-shell.css?v=${SHORT_SHA}" "$page"
+            grep -q "lumi-ui.js?v=${SHORT_SHA}" "$page"
+            grep -q "favicon.svg?v=${SHORT_SHA}" "$page"
             grep -q 'name="theme-color" content="#f97316"' "$page"
             grep -q '>Giới thiệu<' "$page"
             grep -q '>Liên hệ<' "$page"
@@ -120,7 +129,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          printf '{"sha":"%s","built_at":"%s","status":"healthy"}\n' \
+          printf '{"sha":"%s","built_at":"%s","status":"healthy","ui_cache_busted":true}\n' \
             "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/release.json
 
       - name: Verify self-hosted VPS runtime
@@ -160,35 +169,41 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          SHORT_SHA="${GITHUB_SHA:0:12}"
           test -f "${DEPLOY_ROOT}/current/index.html"
           test -f "${DEPLOY_ROOT}/current/favicon.svg"
           test -f "${DEPLOY_ROOT}/current/release.json"
           grep -Fq "$GITHUB_SHA" "${DEPLOY_ROOT}/current/release.json"
           test -f "${DEPLOY_ROOT}/current/bai-viet/index.html"
           test -f "${DEPLOY_ROOT}/current/dat-lich/index.html"
-          grep -q 'data-lumi-unified-header="true"' "${DEPLOY_ROOT}/current/khach-san-thu-cung-binh-thanh/index.html"
-          grep -q 'favicon.svg' "${DEPLOY_ROOT}/current/khach-san-thu-cung-binh-thanh/index.html"
+          HOTEL="${DEPLOY_ROOT}/current/khach-san-thu-cung-binh-thanh/index.html"
+          grep -q 'data-lumi-unified-header="true"' "$HOTEL"
+          grep -q "data-lumi-release=\"${SHORT_SHA}\"" "$HOTEL"
+          grep -q "lumi-shell.css?v=${SHORT_SHA}" "$HOTEL"
+          grep -q "lumi-ui.js?v=${SHORT_SHA}" "$HOTEL"
 
       - name: Verify production after DNS cutover
         if: vars.VPS_LIVE_VERIFY == '1'
         shell: bash
         run: |
           set -euo pipefail
+          SHORT_SHA="${GITHUB_SHA:0:12}"
           tmp="$(mktemp)"
           code="$(curl --silent --show-error --location \
             --retry 10 --retry-delay 3 --retry-all-errors \
             --connect-timeout 10 --max-time 60 \
             -o "$tmp" -w '%{http_code}' \
-            "${PRODUCTION_ORIGIN}/release.json")"
+            "${PRODUCTION_ORIGIN}/release.json?check=${GITHUB_SHA}")"
           test "$code" = '200'
           grep -Fq "$GITHUB_SHA" "$tmp"
-          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/favicon.svg" >/dev/null
-          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/bai-viet/" >/dev/null
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/favicon.svg?v=${SHORT_SHA}" >/dev/null
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/bai-viet/?v=${SHORT_SHA}" >/dev/null
           hotel="$(mktemp)"
-          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/khach-san-thu-cung-binh-thanh/" -o "$hotel"
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/khach-san-thu-cung-binh-thanh/?v=${SHORT_SHA}" -o "$hotel"
           grep -q 'data-lumi-unified-header="true"' "$hotel"
-          grep -q 'lumi-brand-mark.svg' "$hotel"
-          grep -q 'favicon.svg' "$hotel"
+          grep -q "data-lumi-release=\"${SHORT_SHA}\"" "$hotel"
+          grep -q "lumi-shell.css?v=${SHORT_SHA}" "$hotel"
+          grep -q "lumi-ui.js?v=${SHORT_SHA}" "$hotel"
 
       - name: Keep five newest releases
         if: success()
@@ -209,4 +224,4 @@ jobs:
           echo "Commit: \`${GITHUB_SHA}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "Runner: \`$(hostname)\`" >> "$GITHUB_STEP_SUMMARY"
           echo "Production path: \`${DEPLOY_ROOT}/current\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "Favicon, unified header and lumipet.vn canonical origin are enforced in the production build." >> "$GITHUB_STEP_SUMMARY"
+          echo "Header/logo/menu are unified and fixed-name UI assets are cache-busted by release SHA." >> "$GITHUB_STEP_SUMMARY"
