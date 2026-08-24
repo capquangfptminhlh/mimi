@@ -61,6 +61,7 @@ jobs:
           test -f dist/index.html
           test -f dist/robots.txt
           test -f dist/sitemap.xml
+          test -f dist/favicon.svg
           test -f dist/lumi-ui.js
           test -f dist/lumi-blog.js
           test -f dist/lumi-shell.css
@@ -72,6 +73,15 @@ jobs:
           grep -R -q 'zalo.me/0989979675' dist
           grep -q 'lumi-paw-loader' dist/lumi-ui.js
           grep -q 'Article' dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
+          grep -q 'rel="icon"' dist/index.html
+          grep -q 'favicon.svg' dist/index.html
+          grep -q 'https://lumipet.vn/' dist/index.html
+          grep -q 'Sitemap: https://lumipet.vn/sitemap.xml' dist/robots.txt
+          grep -q '<loc>https://lumipet.vn/' dist/sitemap.xml
+          if grep -R -q 'capquangfptminhlh.github.io/mimi' dist; then
+            echo 'Legacy GitHub Pages canonical/origin detected in production build.'
+            exit 1
+          fi
 
       - name: Verify one canonical header on every static page
         shell: bash
@@ -92,6 +102,8 @@ jobs:
             test -f "$page"
             grep -q 'data-lumi-unified-header="true"' "$page"
             grep -q 'lumi-brand-mark.svg' "$page"
+            grep -q 'favicon.svg' "$page"
+            grep -q 'name="theme-color" content="#f97316"' "$page"
             grep -q '>Giới thiệu<' "$page"
             grep -q '>Liên hệ<' "$page"
             grep -q '>Kiến thức<' "$page"
@@ -133,6 +145,7 @@ jobs:
           rsync -a --delete dist/ "$RELEASE_DIR/"
 
           test -f "$RELEASE_DIR/index.html"
+          test -f "$RELEASE_DIR/favicon.svg"
           test -f "$RELEASE_DIR/release.json"
           grep -Fq "$GITHUB_SHA" "$RELEASE_DIR/release.json"
 
@@ -148,11 +161,13 @@ jobs:
         run: |
           set -euo pipefail
           test -f "${DEPLOY_ROOT}/current/index.html"
+          test -f "${DEPLOY_ROOT}/current/favicon.svg"
           test -f "${DEPLOY_ROOT}/current/release.json"
           grep -Fq "$GITHUB_SHA" "${DEPLOY_ROOT}/current/release.json"
           test -f "${DEPLOY_ROOT}/current/bai-viet/index.html"
           test -f "${DEPLOY_ROOT}/current/dat-lich/index.html"
           grep -q 'data-lumi-unified-header="true"' "${DEPLOY_ROOT}/current/khach-san-thu-cung-binh-thanh/index.html"
+          grep -q 'favicon.svg' "${DEPLOY_ROOT}/current/khach-san-thu-cung-binh-thanh/index.html"
 
       - name: Verify production after DNS cutover
         if: vars.VPS_LIVE_VERIFY == '1'
@@ -167,11 +182,13 @@ jobs:
             "${PRODUCTION_ORIGIN}/release.json")"
           test "$code" = '200'
           grep -Fq "$GITHUB_SHA" "$tmp"
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/favicon.svg" >/dev/null
           curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/bai-viet/" >/dev/null
           hotel="$(mktemp)"
           curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/khach-san-thu-cung-binh-thanh/" -o "$hotel"
           grep -q 'data-lumi-unified-header="true"' "$hotel"
           grep -q 'lumi-brand-mark.svg' "$hotel"
+          grep -q 'favicon.svg' "$hotel"
 
       - name: Keep five newest releases
         if: success()
@@ -192,4 +209,4 @@ jobs:
           echo "Commit: \`${GITHUB_SHA}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "Runner: \`$(hostname)\`" >> "$GITHUB_STEP_SUMMARY"
           echo "Production path: \`${DEPLOY_ROOT}/current\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "Static pages are hard-locked to the same Lumi Pet header/logo/menu as the homepage." >> "$GITHUB_STEP_SUMMARY"
+          echo "Favicon, unified header and lumipet.vn canonical origin are enforced in the production build." >> "$GITHUB_STEP_SUMMARY"
