@@ -1,6 +1,6 @@
 decision: HOLD
 observed_at: 2026-08-24T16:22:00+07:00
-release_candidate_commit: aab59e9354a66881424cf41b71f60268c647dce0
+release_candidate_commit: 2e7a3426a612f987088b1a92e3bd53025a4e8820
 source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
 release_status: HOLD_RUNTIME_QA
 recent_source_hardening:
@@ -12,6 +12,7 @@ recent_source_hardening:
   - booking status remains pending until shop confirmation
   - public booking confirmation copy now describes the email confirmation flow instead of a removed local lookup UI
   - unverified Facebook sameAs URL was removed; verified Instagram profile remains
+  - About and Contact pages were rewritten to remove internal SEO/QA wording from customer-facing copy
   - no centralized booking database is used
   - CI now fails if legacy demo strings or booking-bridge.js appear in the production bundle
 checks:
@@ -87,5 +88,6 @@ runtime_attempts:
   github_commit_statuses: EMPTY
   push_workflow_result: NOT_EXPOSED_BY_AVAILABLE_CONNECTOR
   live_http_from_web_fetch: CACHE_MISS
-reason_for_hold: Source production architecture is now simplified and CI fail-closed gates are configured, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed.
+  live_http_from_container: DNS_RESOLUTION_FAILED
+reason_for_hold: Source production architecture is simplified and fail-closed CI gates are configured, but successful GitHub Pages deployment, live HTTP routes, booking email delivery, mobile, accessibility and visual runtime checks have not yet been observed.
 next_pass_condition: Observe successful CI/deploy plus live HTTP, booking email delivery, mobile, accessibility, technical SEO and visual checks; then update this record and launch-completeness.yml to PASS.
