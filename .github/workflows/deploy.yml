@@ -78,6 +78,9 @@ jobs:
           grep -q 'lumi-paw-loader' dist/lumi-ui.js
           grep -q 'lumi-contact-zalo' dist/lumi-ui.js
           grep -q 'lumi-hero-visual' dist/lumi-ui.js
+          grep -q 'photos/6131161/pexels-photo-6131161.jpeg' dist/lumi-ui.js
+          grep -q 'photos/6816844/pexels-photo-6816844.jpeg' dist/lumi-ui.js
+          grep -q 'photos/7635904/pexels-photo-7635904.jpeg' dist/lumi-ui.js
           if grep -q 'booking-bridge.js' dist/index.html; then
             echo 'Legacy booking bridge must not ship in production.'
             exit 1
