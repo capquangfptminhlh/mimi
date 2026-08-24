@@ -93,7 +93,7 @@
   ];
 
   const hideUnverifiedLegacyContent = () => {
-    document.querySelectorAll('section').forEach(section => {
+    document.querySelectorAll('#root section').forEach(section => {
       const text = (section.textContent || '').toLowerCase();
       if (hiddenSectionPhrases.some(phrase => text.includes(phrase))) {
         section.style.display = 'none';
@@ -102,20 +102,28 @@
       }
     });
 
-    document.querySelectorAll('body > div, #root > div > div').forEach(el => {
-      const text = (el.textContent || '').toLowerCase();
+    document.querySelectorAll('#root span').forEach(span => {
+      const text = (span.textContent || '').toLowerCase();
       if (text.includes('khai trương chi nhánh sang chảnh mới')) {
-        el.style.display = 'none';
-        el.setAttribute('aria-hidden', 'true');
+        const ribbon = span.parentElement;
+        if (ribbon) {
+          ribbon.style.display = 'none';
+          ribbon.setAttribute('aria-hidden', 'true');
+          ribbon.dataset.lumiHiddenReason = 'unverified-promotion';
+        }
       }
     });
 
-    document.querySelectorAll('footer').forEach(footer => {
-      footer.querySelectorAll('div').forEach(block => {
-        const text = (block.textContent || '').toLowerCase();
+    document.querySelectorAll('#root footer').forEach(footer => {
+      footer.querySelectorAll('h4').forEach(heading => {
+        const text = (heading.textContent || '').toLowerCase();
         if (text.includes('danh mục pet shop')) {
-          block.style.display = 'none';
-          block.setAttribute('aria-hidden', 'true');
+          const column = heading.parentElement;
+          if (column) {
+            column.style.display = 'none';
+            column.setAttribute('aria-hidden', 'true');
+            column.dataset.lumiHiddenReason = 'unverified-shop-catalog';
+          }
         }
       });
 
