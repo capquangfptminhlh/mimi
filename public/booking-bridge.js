@@ -114,15 +114,27 @@
       }
     });
 
+    document.querySelectorAll('#root h3').forEach(heading => {
+      const text = (heading.textContent || '').trim().toLowerCase();
+      if (text === 'câu hỏi thường gặp faq') {
+        const faqCard = heading.parentElement;
+        if (faqCard) {
+          faqCard.style.display = 'none';
+          faqCard.setAttribute('aria-hidden', 'true');
+          faqCard.dataset.lumiHiddenReason = 'unverified-faq-content';
+        }
+      }
+    });
+
     document.querySelectorAll('#root footer').forEach(footer => {
       footer.querySelectorAll('h4').forEach(heading => {
         const text = (heading.textContent || '').toLowerCase();
-        if (text.includes('danh mục pet shop')) {
+        if (text.includes('danh mục pet shop') || text === 'các dịch vụ') {
           const column = heading.parentElement;
           if (column) {
             column.style.display = 'none';
             column.setAttribute('aria-hidden', 'true');
-            column.dataset.lumiHiddenReason = 'unverified-shop-catalog';
+            column.dataset.lumiHiddenReason = 'unverified-footer-content';
           }
         }
       });
