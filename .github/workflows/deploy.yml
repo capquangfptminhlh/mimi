@@ -38,6 +38,7 @@ jobs:
         run: |
           node --check public/lumi-booking.js
           node --check public/lumi-ui.js
+          node --check public/lumi-blog.js
 
       - name: Typecheck
         run: npm run lint
@@ -50,6 +51,8 @@ jobs:
           test -f dist/robots.txt
           test -f dist/sitemap.xml
           test -f dist/lumi-ui.js
+          test -f dist/lumi-blog.js
+          test -f dist/lumi-blog.css
           test -f dist/dat-lich/index.html
           test -f dist/dat-phong/index.html
           test -f dist/spa-thu-cung-binh-thanh/index.html
@@ -58,7 +61,37 @@ jobs:
           test -f dist/bang-gia-spa-thu-cung/index.html
           test -f dist/gioi-thieu/index.html
           test -f dist/lien-he/index.html
+          test -f dist/bai-viet/index.html
+          test -f dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
+          test -f dist/bai-viet/khach-san-thu-cung-binh-thanh-gia-bao-nhieu/index.html
+          test -f dist/bai-viet/grooming-poodle-binh-thanh/index.html
+          test -f dist/bai-viet/bao-lau-nen-tam-cho-mot-lan/index.html
+          test -f dist/bai-viet/cham-soc-long-poodle-khong-bi-roi/index.html
+          test -f dist/bai-viet/meo-co-nen-tam-thuong-xuyen-khong/index.html
+          test -f dist/bai-viet/chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung/index.html
+          test -f dist/bai-viet/dau-hieu-cho-can-grooming/index.html
           grep -q 'rel="canonical"' dist/index.html
+
+      - name: Verify SEO article quality gates
+        run: |
+          grep -q 'bai-viet/' dist/sitemap.xml
+          grep -q 'spa-cho-binh-thanh-gia-bao-nhieu' dist/sitemap.xml
+          grep -q 'khach-san-thu-cung-binh-thanh-gia-bao-nhieu' dist/sitemap.xml
+          grep -q 'grooming-poodle-binh-thanh' dist/sitemap.xml
+          grep -q 'bao-lau-nen-tam-cho-mot-lan' dist/sitemap.xml
+          grep -q 'cham-soc-long-poodle-khong-bi-roi' dist/sitemap.xml
+          grep -q 'meo-co-nen-tam-thuong-xuyen-khong' dist/sitemap.xml
+          grep -q 'chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung' dist/sitemap.xml
+          grep -q 'dau-hieu-cho-can-grooming' dist/sitemap.xml
+          for file in dist/bai-viet/*/index.html; do
+            grep -q '"@type":"Article"' "$file"
+            grep -q 'rel="canonical"' "$file"
+            grep -q 'article-hero' "$file"
+            grep -q 'blog-cta' "$file"
+            grep -q 'lumi-ui.js' "$file"
+          done
+          grep -q 'Kiến thức chăm sóc chó mèo' dist/bai-viet/index.html
+          grep -q 'lumi-blog.js' dist/lumi-ui.js
 
       - name: Verify production UI gates
         run: |
