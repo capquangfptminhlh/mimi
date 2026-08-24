@@ -6,10 +6,12 @@ if [ "${EUID}" -ne 0 ]; then
   exit 1
 fi
 
-REPO_URL="${REPO_URL:-https://github.com/capquangfptminhlh/mimi}"
+REPO_SLUG="${REPO_SLUG:-capquangfptminhlh/mimi}"
+REPO_URL="${REPO_URL:-https://github.com/${REPO_SLUG}}"
 DEPLOY_USER="${DEPLOY_USER:-deploy}"
 RUNNER_DIR="${RUNNER_DIR:-/home/${DEPLOY_USER}/actions-runner}"
 DEPLOY_ROOT="${DEPLOY_ROOT:-/var/www/lumipet}"
+SERVICE_FRAGMENT="${REPO_SLUG//\//-}"
 
 if ! id -u "$DEPLOY_USER" >/dev/null 2>&1; then
   useradd --create-home --shell /bin/bash "$DEPLOY_USER"
@@ -19,62 +21,115 @@ install -d -m 0755 "$DEPLOY_ROOT" "$DEPLOY_ROOT/releases"
 chown -R "$DEPLOY_USER":www-data "$DEPLOY_ROOT"
 chmod -R u+rwX,g+rX,o-rwx "$DEPLOY_ROOT"
 
-find_runner_service() {
+echo "=== Lumi Pet runner doctor ==="
+echo "Expected repo   : $REPO_URL"
+echo "Expected dir    : $RUNNER_DIR"
+echo "Expected labels : lumipet,production"
+echo
+
+echo "Detected GitHub runner services on this VPS:"
+mapfile -t ALL_RUNNER_SERVICES < <(
   systemctl list-unit-files --type=service --no-legend 2>/dev/null \
     | awk '{print $1}' \
-    | grep '^actions\.runner\..*\.service$' \
+    | grep '^actions\.runner\..*\.service$' || true
+)
+if [ "${#ALL_RUNNER_SERVICES[@]}" -eq 0 ]; then
+  echo "  (none)"
+else
+  for svc in "${ALL_RUNNER_SERVICES[@]}"; do
+    state="$(systemctl is-active "$svc" 2>/dev/null || true)"
+    echo "  $svc [$state]"
+  done
+fi
+
+echo
+
+find_lumipet_service() {
+  printf '%s\n' "${ALL_RUNNER_SERVICES[@]:-}" \
+    | grep -F "$SERVICE_FRAGMENT" \
     | head -n1 || true
 }
 
-restart_existing_runner() {
+runner_dir_matches_repo() {
+  [ -f "$RUNNER_DIR/.runner" ] || return 1
+  grep -Fq "$REPO_URL" "$RUNNER_DIR/.runner" 2>/dev/null
+}
+
+restart_lumipet_runner() {
   local service
-  service="$(find_runner_service)"
-  if [ -n "$service" ]; then
-    echo "Found runner service: $service"
-    systemctl daemon-reload
-    systemctl enable "$service" >/dev/null
-    systemctl restart "$service"
-    sleep 2
-    systemctl --no-pager --full status "$service" || true
-    if systemctl is-active --quiet "$service"; then
-      echo "RUNNER_OK service=$service"
-      return 0
-    fi
+  service="$(find_lumipet_service)"
+  if [ -z "$service" ]; then
+    return 1
   fi
+
+  echo "Found Lumi Pet runner service: $service"
+  systemctl daemon-reload
+  systemctl enable "$service" >/dev/null
+  systemctl restart "$service"
+  sleep 3
+  systemctl --no-pager --full status "$service" || true
+
+  if systemctl is-active --quiet "$service"; then
+    echo "RUNNER_OK service=$service repo=$REPO_URL"
+    return 0
+  fi
+
+  echo "Runner service exists but is not active. Recent log:"
+  journalctl -u "$service" -n 80 --no-pager || true
   return 1
 }
 
-if restart_existing_runner; then
-  echo "Runner service is active. Push to main or re-run Deploy Lumi Pet to VPS."
+# IMPORTANT: do not accept a runner belonging to another repository.
+if restart_lumipet_runner; then
+  sudo -u "$DEPLOY_USER" test -w "$DEPLOY_ROOT/releases"
+  echo "LUMIPET_RUNNER_READY"
   exit 0
 fi
 
-if [ -x "$RUNNER_DIR/run.sh" ] && [ -f "$RUNNER_DIR/.runner" ]; then
-  echo "Runner files are registered but systemd service is missing/inactive. Installing service..."
+# If the expected runner directory is already configured for this repo,
+# reinstall its systemd service instead of requiring a new registration token.
+if runner_dir_matches_repo && [ -x "$RUNNER_DIR/run.sh" ]; then
+  echo "Lumi Pet runner files are registered but its service is missing/inactive."
   cd "$RUNNER_DIR"
   if [ -x ./svc.sh ]; then
     ./svc.sh uninstall >/dev/null 2>&1 || true
     ./svc.sh install "$DEPLOY_USER"
     ./svc.sh start
-    sleep 2
-    if restart_existing_runner; then
+    sleep 3
+    mapfile -t ALL_RUNNER_SERVICES < <(
+      systemctl list-unit-files --type=service --no-legend 2>/dev/null \
+        | awk '{print $1}' \
+        | grep '^actions\.runner\..*\.service$' || true
+    )
+    if restart_lumipet_runner; then
+      sudo -u "$DEPLOY_USER" test -w "$DEPLOY_ROOT/releases"
+      echo "LUMIPET_RUNNER_READY"
       exit 0
     fi
   fi
 fi
 
+# A different project runner may be active on the same VPS. That is not enough.
+if [ "${#ALL_RUNNER_SERVICES[@]}" -gt 0 ]; then
+  echo "Other GitHub runner service(s) exist, but none belongs to ${REPO_SLUG}."
+  echo "They will NOT be treated as the Lumi Pet runner."
+fi
+
 if [ -z "${RUNNER_TOKEN:-}" ]; then
-  cat <<'EOF'
-RUNNER_NOT_REGISTERED
+  cat <<EOF
 
-No working GitHub Actions runner was found on this VPS.
+LUMIPET_RUNNER_NOT_REGISTERED
+
+The VPS does not currently have a working self-hosted runner for:
+  ${REPO_URL}
+
 Create a fresh repository runner token at:
-GitHub repo -> Settings -> Actions -> Runners -> New self-hosted runner
+  GitHub -> ${REPO_SLUG} -> Settings -> Actions -> Runners -> New self-hosted runner
 
-Then run this script again with:
+Then run:
   sudo RUNNER_TOKEN='PASTE_FRESH_TOKEN_HERE' bash ops/runner-doctor.sh
 
-The token is short-lived and must never be committed to GitHub.
+The token is short-lived. Do not commit or paste it into website source files.
 EOF
   exit 2
 fi
@@ -110,11 +165,19 @@ cd "$RUNNER_DIR"
 ./svc.sh start
 sleep 3
 
-if ! restart_existing_runner; then
-  echo "Runner service did not become active. Inspect: journalctl -u 'actions.runner.*' -n 200 --no-pager"
+mapfile -t ALL_RUNNER_SERVICES < <(
+  systemctl list-unit-files --type=service --no-legend 2>/dev/null \
+    | awk '{print $1}' \
+    | grep '^actions\.runner\..*\.service$' || true
+)
+
+if ! restart_lumipet_runner; then
+  echo "Lumi Pet runner service did not become active."
+  echo "Inspect all runner logs with:"
+  echo "  journalctl -u 'actions.runner.*' -n 200 --no-pager"
   exit 4
 fi
 
 sudo -u "$DEPLOY_USER" test -w "$DEPLOY_ROOT/releases"
-echo "RUNNER_READY repo=$REPO_URL user=$DEPLOY_USER deploy_root=$DEPLOY_ROOT"
-echo "Now push to main or use Actions -> Deploy Lumi Pet to VPS -> Run workflow."
+echo "LUMIPET_RUNNER_READY repo=$REPO_URL user=$DEPLOY_USER deploy_root=$DEPLOY_ROOT"
+echo "The next push to main will be picked up only by a runner labelled lumipet + production."
