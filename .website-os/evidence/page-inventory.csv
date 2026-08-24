@@ -1,10 +1,10 @@
 page_id,target_url,page_type,primary_keyword,primary_intent,primary_entity,indexability,launch_status,content_source,image_set_id,schema_types,internal_link_parent,mobile_required,status
-PAGE-HOME,/mimi/,homepage,lumi pet bình thạnh,NAVIGATIONAL,Lumi Pet,index,BUILD_LAUNCH,existing React app + first-party NAP,EXISTING,LocalBusiness;WebSite,,YES,PLANNED
-PAGE-SPA,/mimi/spa-thu-cung-binh-thanh/,service,spa thú cưng bình thạnh,LOCAL_TRANSACTIONAL,Spa thú cưng,index,BUILD_LAUNCH,first-party dog/cat price posters + current app,NONE,Service;Offer;/mimi/,YES,PLANNED
-PAGE-GROOM,/mimi/grooming-cho-meo-binh-thanh/,service,grooming chó bình thạnh,LOCAL_TRANSACTIONAL,Grooming,index,BUILD_LAUNCH,first-party dog grooming price poster,NONE,Service;Offer,/mimi/spa-thu-cung-binh-thanh/,YES,PLANNED
-PAGE-HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,service,khách sạn thú cưng bình thạnh,LOCAL_TRANSACTIONAL,Khách sạn thú cưng,index,BUILD_LAUNCH,first-party hotel price poster,NONE,Service;Offer,/mimi/,YES,PLANNED
-PAGE-PRICE,/mimi/bang-gia-spa-thu-cung/,pricing,bảng giá spa thú cưng,COMMERCIAL,Lumi Pet pricing,index,BUILD_LAUNCH,first-party dog/cat price posters,NONE,Service;OfferCatalog,/mimi/spa-thu-cung-binh-thanh/,YES,PLANNED
-PAGE-BOOK-SPA,/mimi/dat-lich/,tool,đặt lịch spa thú cưng,TRANSACTIONAL,Spa booking,index,BUILD_LAUNCH,first-party prices + booking logic,NONE,WebPage;/mimi/spa-thu-cung-binh-thanh/,YES,PLANNED
-PAGE-BOOK-HOTEL,/mimi/dat-phong/,tool,đặt phòng thú cưng,TRANSACTIONAL,Hotel booking,index,BUILD_LAUNCH,first-party hotel prices + booking logic,NONE,WebPage,/mimi/khach-san-thu-cung-binh-thanh/,YES,PLANNED
-PAGE-CONTACT,/mimi/lien-he/,contact,lumi pet địa chỉ,NAVIGATIONAL,Lumi Pet NAP,index,BUILD_LAUNCH,first-party supplied posters,NONE,LocalBusiness;ContactPage,/mimi/,YES,PLANNED
-PAGE-ABOUT,/mimi/gioi-thieu/,about,lumi pet,INFORMATIONAL,Lumi Pet,index,BUILD_LAUNCH,first-party existing site,NONE,AboutPage;Organization,/mimi/,YES,PLANNED
+PAGE-HOME,/mimi/,homepage,lumi pet bình thạnh,NAVIGATIONAL,Lumi Pet,index,BUILD_LAUNCH,existing React app + first-party NAP,EXISTING,LocalBusiness;WebSite,,YES,IMPLEMENTED_SOURCE
+PAGE-SPA,/mimi/spa-thu-cung-binh-thanh/,service,spa thú cưng bình thạnh,LOCAL_TRANSACTIONAL,Spa thú cưng,index,BUILD_LAUNCH,first-party dog/cat price posters + current app,NONE,Service;Offer,/mimi/,YES,IMPLEMENTED_SOURCE
+PAGE-GROOM,/mimi/grooming-cho-meo-binh-thanh/,service,grooming chó bình thạnh,LOCAL_TRANSACTIONAL,Grooming,index,BUILD_LAUNCH,first-party dog grooming price poster,NONE,Service;Offer,/mimi/spa-thu-cung-binh-thanh/,YES,IMPLEMENTED_SOURCE
+PAGE-HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,service,khách sạn thú cưng bình thạnh,LOCAL_TRANSACTIONAL,Khách sạn thú cưng,index,BUILD_LAUNCH,first-party hotel price poster,NONE,Service;Offer,/mimi/,YES,IMPLEMENTED_SOURCE
+PAGE-PRICE,/mimi/bang-gia-spa-thu-cung/,pricing,bảng giá spa thú cưng,COMMERCIAL,Lumi Pet pricing,index,BUILD_LAUNCH,first-party dog/cat price posters,NONE,Service;OfferCatalog,/mimi/spa-thu-cung-binh-thanh/,YES,IMPLEMENTED_SOURCE
+PAGE-BOOK-SPA,/mimi/dat-lich/,tool,đặt lịch spa thú cưng,TRANSACTIONAL,Spa booking,index,BUILD_LAUNCH,first-party prices + booking logic,NONE,WebPage,/mimi/spa-thu-cung-binh-thanh/,YES,IMPLEMENTED_SOURCE
+PAGE-BOOK-HOTEL,/mimi/dat-phong/,tool,đặt phòng thú cưng,TRANSACTIONAL,Hotel booking,index,BUILD_LAUNCH,first-party hotel prices + booking logic,NONE,WebPage,/mimi/khach-san-thu-cung-binh-thanh/,YES,IMPLEMENTED_SOURCE
+PAGE-CONTACT,/mimi/lien-he/,contact,lumi pet địa chỉ,NAVIGATIONAL,Lumi Pet NAP,index,BUILD_LAUNCH,first-party supplied posters,NONE,LocalBusiness;ContactPage,/mimi/,YES,IMPLEMENTED_SOURCE
+PAGE-ABOUT,/mimi/gioi-thieu/,about,lumi pet,INFORMATIONAL,Lumi Pet,index,BUILD_LAUNCH,first-party existing site,NONE,AboutPage;Organization,/mimi/,YES,IMPLEMENTED_SOURCE
