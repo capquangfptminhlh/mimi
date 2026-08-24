@@ -45,6 +45,7 @@ jobs:
           node --check public/lumi-booking.js
           node --check public/lumi-ui.js
           node --check public/lumi-blog.js
+          node --check scripts/unify-static-shell.mjs
 
       - name: Typecheck and build
         shell: bash
@@ -62,6 +63,8 @@ jobs:
           test -f dist/sitemap.xml
           test -f dist/lumi-ui.js
           test -f dist/lumi-blog.js
+          test -f dist/lumi-shell.css
+          test -f dist/lumi-brand-mark.svg
           test -f dist/bai-viet/index.html
           test -f dist/dat-lich/index.html
           test -f dist/dat-phong/index.html
@@ -69,6 +72,37 @@ jobs:
           grep -R -q 'zalo.me/0989979675' dist
           grep -q 'lumi-paw-loader' dist/lumi-ui.js
           grep -q 'Article' dist/bai-viet/spa-cho-binh-thanh-gia-bao-nhieu/index.html
+
+      - name: Verify one canonical header on every static page
+        shell: bash
+        run: |
+          set -euo pipefail
+          pages=(
+            dist/spa-thu-cung-binh-thanh/index.html
+            dist/grooming-cho-meo-binh-thanh/index.html
+            dist/khach-san-thu-cung-binh-thanh/index.html
+            dist/bang-gia-spa-thu-cung/index.html
+            dist/dat-lich/index.html
+            dist/dat-phong/index.html
+            dist/gioi-thieu/index.html
+            dist/lien-he/index.html
+            dist/bai-viet/index.html
+          )
+          for page in "${pages[@]}"; do
+            test -f "$page"
+            grep -q 'data-lumi-unified-header="true"' "$page"
+            grep -q 'lumi-brand-mark.svg' "$page"
+            grep -q '>Giới thiệu<' "$page"
+            grep -q '>Liên hệ<' "$page"
+            grep -q '>Kiến thức<' "$page"
+            grep -q '>Gọi ngay<' "$page"
+            grep -q '>Zalo<' "$page"
+            grep -q '>Đặt lịch<' "$page"
+            if grep -q 'class="brand-mark"' "$page"; then
+              echo "Legacy page-specific logo detected: $page"
+              exit 1
+            fi
+          done
 
       - name: Add release marker
         shell: bash
@@ -118,6 +152,7 @@ jobs:
           grep -Fq "$GITHUB_SHA" "${DEPLOY_ROOT}/current/release.json"
           test -f "${DEPLOY_ROOT}/current/bai-viet/index.html"
           test -f "${DEPLOY_ROOT}/current/dat-lich/index.html"
+          grep -q 'data-lumi-unified-header="true"' "${DEPLOY_ROOT}/current/khach-san-thu-cung-binh-thanh/index.html"
 
       - name: Verify production after DNS cutover
         if: vars.VPS_LIVE_VERIFY == '1'
@@ -133,7 +168,10 @@ jobs:
           test "$code" = '200'
           grep -Fq "$GITHUB_SHA" "$tmp"
           curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/bai-viet/" >/dev/null
-          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/dat-lich/" >/dev/null
+          hotel="$(mktemp)"
+          curl --fail --silent --show-error --location "${PRODUCTION_ORIGIN}/khach-san-thu-cung-binh-thanh/" -o "$hotel"
+          grep -q 'data-lumi-unified-header="true"' "$hotel"
+          grep -q 'lumi-brand-mark.svg' "$hotel"
 
       - name: Keep five newest releases
         if: success()
@@ -154,4 +192,4 @@ jobs:
           echo "Commit: \`${GITHUB_SHA}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "Runner: \`$(hostname)\`" >> "$GITHUB_STEP_SUMMARY"
           echo "Production path: \`${DEPLOY_ROOT}/current\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "Only built \`dist/\` is activated for Nginx." >> "$GITHUB_STEP_SUMMARY"
+          echo "Static pages are hard-locked to the same Lumi Pet header/logo/menu as the homepage." >> "$GITHUB_STEP_SUMMARY"
