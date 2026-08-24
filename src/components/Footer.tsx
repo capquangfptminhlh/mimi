@@ -12,11 +12,22 @@ interface FooterProps {
 }
 
 export default function Footer({ setActiveTab }: FooterProps) {
-  const base = import.meta.env.BASE_URL || '/';
+  const currentPath = window.location.pathname;
+  const projectIndex = currentPath.indexOf('/mimi/');
+  const base = projectIndex >= 0 ? currentPath.slice(0, projectIndex + 6) : '/';
   const route = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const goHome = () => {
+    if (window.location.pathname !== base) {
+      window.location.href = base;
+      return;
+    }
+    setActiveTab('home');
+    scrollToTop();
   };
 
   return (
@@ -29,10 +40,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
           <div className="lg:col-span-5">
             <button
               type="button"
-              onClick={() => {
-                setActiveTab('home');
-                scrollToTop();
-              }}
+              onClick={goHome}
               className="bg-transparent border-0 p-0 cursor-pointer"
               aria-label="Về trang chủ Lumi Pet"
             >
