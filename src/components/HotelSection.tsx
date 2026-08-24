@@ -5,155 +5,115 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Rating } from 'react'; // we don't have react-rating, we can use simple Star symbols
-import { Star, Shield, Play, HelpCircle, Footprints, Video, Utensils, CheckCircle } from 'lucide-react';
-import { HotelRoom } from '../types';
-import { HOTEL_ROOMS } from '../data';
-import { formatVND } from './ShopSection';
+import { CalendarDays, Check, Hotel, Phone } from 'lucide-react';
 
 interface HotelSectionProps {
   onBookRoom: (roomName: string, roomId: string) => void;
 }
 
-export default function HotelSection({ onBookRoom }: HotelSectionProps) {
+const hotelTiers = [
+  ['Dưới 3kg', '100.000đ'],
+  ['3 – 6kg', '120.000đ'],
+  ['6 – 9kg', '160.000đ'],
+  ['9 – 12kg', '200.000đ'],
+  ['12 – 15kg', '250.000đ'],
+];
+
+export default function HotelSection({ onBookRoom: _onBookRoom }: HotelSectionProps) {
+  const currentPath = window.location.pathname;
+  const projectIndex = currentPath.indexOf('/mimi/');
+  const base = projectIndex >= 0 ? currentPath.slice(0, projectIndex + 6) : '/';
+  const bookingUrl = `${base}dat-phong/`.replace(/\/+/g, '/');
+
   return (
-    <section className="py-12 bg-slate-50/40">
+    <section className="py-14 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center space-x-1.5 bg-amber-50 text-amber-800 border border-amber-100 rounded-full py-1 px-3 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Dịch Vụ Lưu Trú Đẳng Cấp 5 Sao</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight font-display">
-            Khách Sạn Thú Cưng <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Hotel Resort 24/7</span>
-          </h2>
-          <p className="text-slate-500 text-sm sm:text-base mt-2.5 leading-relaxed font-sans">
-            Hệ thống phòng lưu trú khép kín, cách âm giảm tiếng sủa lo âu, thông khí Fresh Air áp suất dương đảm bảo không mùi, luôn duy trì rèm sưởi giữ ấm về đêm cho chó mèo.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            className="lg:col-span-5 rounded-[32px] border border-orange-100 bg-gradient-to-br from-orange-50/80 via-white to-teal-50/50 p-7 md:p-9 shadow-sm"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-100 bg-white px-3 py-1.5 text-xs font-black uppercase tracking-wider text-orange-600 shadow-sm">
+              <Hotel className="w-4 h-4" />
+              Hotel thú cưng
+            </div>
+            <h2 className="mt-5 text-3xl md:text-4xl font-black tracking-tight text-slate-900 font-display">
+              Lưu trú rõ giá theo cân nặng
+            </h2>
+            <p className="mt-4 text-sm md:text-base leading-7 text-slate-600">
+              Lumi Pet nhận lưu trú chó mèo tại Bình Thạnh. Mỗi bé có khu vực riêng, máy lạnh 24/24, bữa ăn theo menu và video tương tác hằng ngày.
+            </p>
 
-        {/* Room grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {HOTEL_ROOMS.map((room) => (
-            <motion.div
-              key={room.id}
-              id={`hotel-room-${room.id}`}
-              className="bg-white rounded-3xl border border-orange-100/50 hover:border-amber-400 p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group"
-            >
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              {[
+                'Phòng/chuồng riêng từng bé',
+                'Vệ sinh khu lưu trú',
+                'Máy lạnh 24/24',
+                'Video tương tác hằng ngày',
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 rounded-2xl border border-orange-100 bg-white px-4 py-3 text-sm font-bold text-slate-700 shadow-sm">
+                  <span className="grid h-7 w-7 place-items-center rounded-lg bg-teal-50 text-teal-600"><Check className="w-4 h-4" /></span>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
+              <a
+                id="hotel-section-book-btn"
+                href={bookingUrl}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-6 py-3.5 text-sm font-black text-white shadow-lg shadow-orange-100 transition-all hover:-translate-y-0.5 hover:bg-orange-600"
+              >
+                <CalendarDays className="w-4 h-4" />
+                Đặt phòng Hotel
+              </a>
+              <a
+                href="tel:0989979675"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-orange-200 bg-white px-6 py-3.5 text-sm font-black text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-orange-300 hover:text-orange-500"
+              >
+                <Phone className="w-4 h-4 text-orange-500" />
+                0989 979 675
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ delay: 0.08 }}
+            className="lg:col-span-7 rounded-[32px] border border-orange-100 bg-white p-6 md:p-8 shadow-sm"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
               <div>
-                {/* Room Image with overlay tags */}
-                <div className="relative h-56 rounded-2xl overflow-hidden bg-slate-100">
-                  <img
-                    src={room.image}
-                    alt={room.name}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
-                  />
-                  
-                  {/* Rating Tag */}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs text-amber-500 border border-amber-50 px-2.5 py-1 rounded-full text-xs font-bold flex items-center space-x-1 shadow-xs">
-                    <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                    <span>{room.rating.toFixed(1)}</span>
-                  </div>
-
-                  {/* Size Capacity Badge */}
-                  <div className="absolute bottom-3 left-3 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1.5 rounded-lg text-xs font-semibold">
-                    🔑 {room.capacity}
-                  </div>
-                </div>
-
-                {/* Info Header */}
-                <div className="mt-5">
-                  <h3 className="text-xl font-bold text-slate-850 group-hover:text-amber-600 transition-colors">
-                    {room.name}
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-2 leading-relaxed min-h-12 font-sans">
-                    {room.description}
-                  </p>
-                </div>
-
-                {/* Amenities checklist */}
-                <div className="mt-6 space-y-2.5 border-t border-orange-50/50 pt-5">
-                  <span className="block text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                    Chính sách chăm sóc kèm theo:
-                  </span>
-                  {room.amenities.map((amenity, index) => (
-                    <div key={index} className="flex items-start space-x-2 text-slate-600 text-xs">
-                      <CheckCircle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-                      <span className="leading-snug">{amenity}</span>
-                    </div>
-                  ))}
-                </div>
+                <div className="text-xs font-black uppercase tracking-[0.14em] text-orange-500">Bảng giá Hotel</div>
+                <h3 className="mt-2 text-2xl md:text-3xl font-black text-slate-900">Giá lưu trú / ngày</h3>
               </div>
-
-              {/* Price / Booking Action Footer */}
-              <div className="mt-8 pt-5 border-t border-orange-50 flex items-center justify-between gap-4">
-                <div>
-                  <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">
-                    Giá lưu trú / Đêm
-                  </span>
-                  <span className="text-xl font-black text-slate-800">
-                    {formatVND(room.pricePerNight)}
-                  </span>
-                </div>
-
-                <button
-                  onClick={() => onBookRoom(room.name, room.id)}
-                  id={`book-room-btn-${room.id}`}
-                  className="px-5 py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold text-xs rounded-xl shadow-xs cursor-pointer active:scale-98 transition-all"
-                >
-                  Đặt phòng ngay
-                </button>
+              <div className="rounded-2xl bg-teal-50 px-4 py-3 text-xs font-bold leading-5 text-teal-800">
+                Trên 5 ngày: giảm 5%<br />Trên 10 ngày: giảm 8%
               </div>
+            </div>
 
-            </motion.div>
-          ))}
+            <div className="mt-6 overflow-hidden rounded-2xl border border-orange-100">
+              <div className="grid grid-cols-2 bg-orange-50 px-4 py-3 text-xs font-black uppercase tracking-wider text-orange-800">
+                <span>Cân nặng</span>
+                <span className="text-right">Giá / ngày</span>
+              </div>
+              {hotelTiers.map(([weight, price]) => (
+                <div key={weight} className="grid grid-cols-2 border-t border-orange-50 px-4 py-3.5 text-sm text-slate-600 first:border-t-0">
+                  <span className="font-bold text-slate-700">{weight}</span>
+                  <strong className="text-right text-slate-900">{price}</strong>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-orange-100 bg-[#fffaf3] p-4 text-sm leading-6 text-slate-600">
+              Bé trên 15kg cần Lumi Pet báo giá trực tiếp. Shop có thể từ chối nhận lưu trú nếu bé chưa tiêm phòng, có bệnh nền hoặc khó hợp tác; vui lòng báo trước tình trạng sức khỏe của bé.
+            </div>
+          </motion.div>
         </div>
-
-        {/* Feature quick badges for Hotel */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-6 bg-white border border-orange-100 p-8 rounded-3xl text-center md:text-left shadow-xs">
-          <div className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-3.5">
-            <div className="p-3 bg-amber-550/10 text-amber-600 rounded-2xl flex-shrink-0">
-              <Video className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-800 font-display">Live Webcam HD</h4>
-              <p className="text-xs text-slate-500 mt-1">Gửi link livestream chuẩn HD 24/7 để bạn ngắm boss, yên tâm tận hưởng chuyến đi xa.</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-3.5">
-            <div className="p-3 bg-rose-550/10 text-rose-600 rounded-2xl flex-shrink-0">
-              <Utensils className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-800 font-display">Menu Ẩm Thực Tươi</h4>
-              <p className="text-xs text-slate-500 mt-1">Chuẩn bị thực đơn nêm nếm hấp chín tươi sạch (Ức gà hấp xé, súp cua đồng) theo nhu cầu riêng khách gửi.</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-3.5">
-            <div className="p-3 bg-indigo-550/10 text-indigo-600 rounded-2xl flex-shrink-0">
-              <Footprints className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-800 font-display">Bảo Mẫu Vui Chơi</h4>
-              <p className="text-xs text-slate-500 mt-1">Được dạo chơi, chạy nhảy trong sảnh điều hòa máy mát lạnh cùng bảo mẫu vuốt ve hàng tiếng mỗi ngày.</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center md:items-start space-y-3 md:space-y-0 md:space-x-3.5">
-            <div className="p-3 bg-emerald-550/10 text-emerald-600 rounded-2xl flex-shrink-0">
-              <Shield className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-800 font-display">Bảo Mẫu Giám Sát Sức Khỏe</h4>
-              <p className="text-xs text-slate-500 mt-1">Theo dõi sát sao thể trạng, kiểm tra da tai mắt mũi miệng mỗi sáng để kịp thời cập nhật cho ba mẹ.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );
