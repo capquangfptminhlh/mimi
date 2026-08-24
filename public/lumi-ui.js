@@ -1,6 +1,11 @@
 (() => {
   const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const ZALO_URL = 'https://zalo.me/0989979675';
+  const TOPIC_IMAGES = {
+    spa: 'https://images.pexels.com/photos/6131161/pexels-photo-6131161.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    grooming: 'https://images.pexels.com/photos/6816844/pexels-photo-6816844.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    hotel: 'https://images.pexels.com/photos/7635904/pexels-photo-7635904.jpeg?auto=compress&cs=tinysrgb&w=1400'
+  };
 
   const style = document.createElement('style');
   style.textContent = `
@@ -75,30 +80,63 @@
     header.appendChild(mobile);
   };
 
+  const imageForPath = () => {
+    const path = location.pathname.toLowerCase();
+    if (path.includes('hotel') || path.includes('khach-san') || path.includes('dat-phong')) {
+      return { src: TOPIC_IMAGES.hotel, alt: 'Chó trong khu lưu trú pet boarding, ảnh minh hoạ đúng chủ đề khách sạn thú cưng' };
+    }
+    if (path.includes('groom')) {
+      return { src: TOPIC_IMAGES.grooming, alt: 'Chó đang được groomer cắt tỉa bằng tông đơ tại salon thú cưng' };
+    }
+    if (path.includes('spa') || path.includes('dat-lich') || path.includes('bang-gia')) {
+      return { src: TOPIC_IMAGES.spa, alt: 'Chó đang được tắm và chăm sóc tại khu grooming thú cưng' };
+    }
+    return { src: TOPIC_IMAGES.grooming, alt: 'Groomer đang chăm sóc chó tại salon thú cưng' };
+  };
+
   const addHeroVisual = () => {
     const side = document.querySelector('.hero-side');
     if (!side || side.querySelector('.lumi-hero-visual')) return;
-    const path = location.pathname.toLowerCase();
-    let src = 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=1000&auto=format&fit=crop&q=82';
-    let alt = 'Ảnh minh hoạ thú cưng tại dịch vụ Lumi Pet';
-    if (path.includes('hotel') || path.includes('khach-san') || path.includes('dat-phong')) {
-      src = 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1000&auto=format&fit=crop&q=82';
-      alt = 'Ảnh minh hoạ khu lưu trú thú cưng';
-    } else if (path.includes('groom') || path.includes('spa') || path.includes('dat-lich')) {
-      src = 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=1000&auto=format&fit=crop&q=82';
-      alt = 'Ảnh minh hoạ chăm sóc và grooming thú cưng';
-    } else if (path.includes('lien-he') || path.includes('gioi-thieu')) {
-      src = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1000&auto=format&fit=crop&q=82';
-      alt = 'Ảnh minh hoạ thú cưng';
-    }
+    const { src, alt } = imageForPath();
     const figure = document.createElement('figure');
     figure.className = 'lumi-hero-visual';
-    figure.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"><figcaption>Ảnh minh hoạ</figcaption>`;
+    figure.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"><figcaption>Ảnh minh hoạ đúng dịch vụ</figcaption>`;
     side.appendChild(figure);
+  };
+
+  const syncHomepageImages = () => {
+    const images = Array.from(document.querySelectorAll('#root img'));
+    if (!images.length) return false;
+    let changed = 0;
+    images.forEach(img => {
+      const alt = (img.getAttribute('alt') || '').toLowerCase();
+      let target = null;
+      if (alt.includes('khách sạn') || alt.includes('lưu trú') || alt.includes('hotel')) target = TOPIC_IMAGES.hotel;
+      else if (alt.includes('spa') || alt.includes('grooming') || alt.includes('thú cưng')) {
+        target = alt.includes('spa') && !alt.includes('grooming') ? TOPIC_IMAGES.spa : TOPIC_IMAGES.grooming;
+      }
+      if (target && img.src !== target) {
+        img.src = target;
+        img.removeAttribute('srcset');
+        img.setAttribute('referrerpolicy', 'no-referrer');
+        changed += 1;
+      }
+    });
+    return changed > 0;
   };
 
   enhanceStaticNav();
   addHeroVisual();
+  syncHomepageImages();
+  window.setTimeout(syncHomepageImages, 80);
+  window.setTimeout(syncHomepageImages, 300);
+  window.setTimeout(syncHomepageImages, 900);
+
+  if (document.querySelector('#root')) {
+    const rootObserver = new MutationObserver(() => syncHomepageImages());
+    rootObserver.observe(document.querySelector('#root'), { childList: true, subtree: true });
+    window.setTimeout(() => rootObserver.disconnect(), 5000);
+  }
 
   let revealObserver;
   const prepareReveals = () => {
