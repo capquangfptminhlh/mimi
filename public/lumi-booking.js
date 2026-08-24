@@ -1,6 +1,6 @@
 (() => {
   const STORAGE_KEY = 'paws_perfect_bookings';
-  const BOOKING_EMAIL = 'capquangfpt.minhlh@gmail.com';
+  const BOOKING_EMAIL = 'petlumi063@gmail.com';
   const EMAIL_ENDPOINT = `https://formsubmit.co/ajax/${BOOKING_EMAIL}`;
   const money = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
 
