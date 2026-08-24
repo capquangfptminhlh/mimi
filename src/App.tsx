@@ -9,7 +9,6 @@ import {
   MapPin,
   Menu,
   MessageCircle,
-  PawPrint,
   Phone,
   Scissors,
   Sparkles,
@@ -61,9 +60,7 @@ function App() {
       <header className="sticky top-0 z-50 border-b border-orange-100/80 bg-white/95 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
           <a href="./" className="flex min-w-0 items-center gap-3" aria-label="Lumi Pet - Trang chủ">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-orange-500 text-white shadow-lg shadow-orange-200 transition hover:rotate-6 hover:scale-105">
-              <PawPrint className="h-6 w-6" />
-            </span>
+            <img src="./lumi-brand-mark.svg" alt="" aria-hidden="true" className="h-11 w-11 shrink-0 rounded-2xl shadow-lg shadow-orange-200 transition hover:rotate-6 hover:scale-105" />
             <span className="min-w-0 leading-tight">
               <strong className="block truncate text-xl font-extrabold tracking-tight text-slate-900">Lumi Pet</strong>
               <small className="block truncate text-[10px] font-extrabold uppercase tracking-[0.16em] text-orange-500">Spa & Hotel 24/7</small>
@@ -212,99 +209,131 @@ function App() {
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             <a href="./spa-thu-cung-binh-thanh/" className="group overflow-hidden rounded-[28px] border border-orange-100 bg-orange-50/40 transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-100 sm:rounded-[32px]">
-              <div className="overflow-hidden"><img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=1200&auto=format&fit=crop&q=84" alt="Ảnh minh hoạ Spa và grooming thú cưng" loading="lazy" className="h-56 w-full object-cover transition duration-700 group-hover:scale-105" /></div>
-              <div className="p-7 sm:p-9">
-                <div className="flex items-start justify-between gap-5"><span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-500 text-white"><Scissors className="h-7 w-7" /></span><ArrowRight className="h-6 w-6 text-orange-400 transition group-hover:translate-x-1" /></div>
-                <h3 className="mt-7 text-2xl font-black text-slate-950">Spa & Grooming</h3>
-                <p className="mt-3 text-sm font-medium leading-6 text-slate-600">Tắm vệ sinh, tắm + cạo, tắm + cắt tỉa cho chó; tắm vệ sinh và tắm + cạo cho mèo.</p>
-                <div className="mt-6 inline-flex rounded-full bg-white px-4 py-2 text-sm font-extrabold text-orange-600 shadow-sm">Từ 120.000đ</div>
+              <div className="overflow-hidden"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1400&auto=format&fit=crop&q=86" alt="Spa và grooming thú cưng" className="h-56 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-64" loading="lazy" /></div>
+              <div className="p-7 sm:p-8">
+                <div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-orange-500 text-white"><Scissors className="h-5 w-5" /></span><span className="text-xs font-black uppercase tracking-[0.14em] text-orange-500">Spa & Grooming</span></div>
+                <h3 className="mt-5 text-3xl font-black text-slate-950">Tắm, cạo và cắt tỉa theo cân nặng</h3>
+                <p className="mt-3 font-medium leading-7 text-slate-600">Chó tắm vệ sinh từ 120.000đ, mèo từ 150.000đ. Giá grooming tách rõ giữa tắm + cạo và tắm + cắt tỉa.</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-orange-600">Xem dịch vụ Spa <ArrowRight className="h-4 w-4" /></span>
               </div>
             </a>
-            <a href="./khach-san-thu-cung-binh-thanh/" className="group overflow-hidden rounded-[28px] border border-teal-100 bg-teal-50/50 transition hover:-translate-y-1 hover:border-teal-300 hover:shadow-xl hover:shadow-teal-100 sm:rounded-[32px]">
-              <div className="overflow-hidden"><img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1200&auto=format&fit=crop&q=84" alt="Ảnh minh hoạ khách sạn thú cưng" loading="lazy" className="h-56 w-full object-cover transition duration-700 group-hover:scale-105" /></div>
-              <div className="p-7 sm:p-9">
-                <div className="flex items-start justify-between gap-5"><span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-600 text-white"><Hotel className="h-7 w-7" /></span><ArrowRight className="h-6 w-6 text-teal-500 transition group-hover:translate-x-1" /></div>
-                <h3 className="mt-7 text-2xl font-black text-slate-950">Khách sạn thú cưng</h3>
-                <p className="mt-3 text-sm font-medium leading-6 text-slate-600">Khu lưu trú riêng, vệ sinh sạch sẽ, máy lạnh 24/24, bữa ăn theo menu và video tương tác mỗi ngày.</p>
-                <div className="mt-6 inline-flex rounded-full bg-white px-4 py-2 text-sm font-extrabold text-teal-700 shadow-sm">Từ 100.000đ/ngày</div>
+
+            <a href="./khach-san-thu-cung-binh-thanh/" className="group overflow-hidden rounded-[28px] border border-teal-100 bg-teal-50/40 transition hover:-translate-y-1 hover:border-teal-300 hover:shadow-xl hover:shadow-teal-100 sm:rounded-[32px]">
+              <div className="overflow-hidden"><img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?w=1400&auto=format&fit=crop&q=86" alt="Khách sạn lưu trú thú cưng" className="h-56 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-64" loading="lazy" /></div>
+              <div className="p-7 sm:p-8">
+                <div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-600 text-white"><Hotel className="h-5 w-5" /></span><span className="text-xs font-black uppercase tracking-[0.14em] text-teal-700">Pet Hotel</span></div>
+                <h3 className="mt-5 text-3xl font-black text-slate-950">Lưu trú chó mèo từ 100.000đ/ngày</h3>
+                <p className="mt-3 font-medium leading-7 text-slate-600">Phòng theo cân nặng, máy lạnh 24/24, bữa ăn theo menu, tương tác và video mỗi ngày. Lưu trú dài ngày có ưu đãi.</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-teal-700">Xem Pet Hotel <ArrowRight className="h-4 w-4" /></span>
               </div>
             </a>
           </div>
         </section>
 
-        <section className="border-y border-orange-100 bg-[#fffaf3]">
+        <section className="border-y border-orange-100 bg-orange-50/55">
           <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
               <div className="max-w-3xl">
                 <span className="text-xs font-black uppercase tracking-[0.16em] text-orange-500">Bảng giá chó</span>
-                <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Giá Spa theo cân nặng</h2>
-                <p className="mt-3 text-sm font-medium leading-6 text-slate-600">Giá dịch vụ cơ bản; phụ thu nếu có sẽ được shop xác nhận trước khi làm.</p>
+                <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Biết giá trước khi gửi yêu cầu</h2>
+                <p className="mt-3 font-medium leading-7 text-slate-600">Giá cơ bản theo cân nặng. Phụ thu dạng khoảng chỉ được xác nhận sau khi nhân viên xem tình trạng thực tế của bé.</p>
               </div>
-              <a href="./bang-gia-spa-thu-cung/" className="inline-flex items-center gap-2 text-sm font-extrabold text-orange-600">Xem bảng giá đầy đủ <ArrowRight className="h-4 w-4" /></a>
+              <a href="./bang-gia-spa-thu-cung/" className="inline-flex items-center gap-2 text-sm font-extrabold text-orange-600">Bảng giá đầy đủ <ArrowRight className="h-4 w-4" /></a>
             </div>
-            <div className="mt-8 overflow-x-auto rounded-[24px] border border-orange-100 bg-white shadow-sm">
-              <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-                <thead className="bg-orange-50 text-slate-900"><tr><th className="p-4">Cân nặng</th><th className="p-4">Tắm vệ sinh</th><th className="p-4">Tắm + cạo</th><th className="p-4">Tắm + cắt tỉa</th></tr></thead>
-                <tbody>{dogPrices.map(row => <tr key={row[0]} className="border-t border-orange-100">{row.map((cell, index) => <td key={`${row[0]}-${index}`} className={`p-4 ${index === 0 ? 'font-extrabold text-slate-900' : 'font-bold text-slate-600'}`}>{cell}</td>)}</tr>)}</tbody>
+
+            <div className="mt-9 overflow-x-auto rounded-[28px] border border-orange-100 bg-white shadow-sm">
+              <table className="w-full min-w-[760px] text-left">
+                <thead className="bg-orange-50 text-xs font-black uppercase tracking-wide text-orange-800">
+                  <tr><th className="px-6 py-4">Cân nặng</th><th className="px-6 py-4">Tắm vệ sinh</th><th className="px-6 py-4">Tắm + cạo</th><th className="px-6 py-4">Tắm + cắt tỉa</th></tr>
+                </thead>
+                <tbody className="divide-y divide-orange-50">
+                  {dogPrices.map(row => (
+                    <tr key={row[0]} className="transition hover:bg-orange-50/50">
+                      {row.map((cell, index) => <td key={cell} className={`px-6 py-4 text-sm ${index === 0 ? 'font-extrabold text-slate-900' : 'font-bold text-slate-600'}`}>{cell}</td>)}
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
+            <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-semibold leading-6 text-amber-900">
+              Bảng giá có dòng 12–18kg nhưng phần lưu ý gốc đồng thời ghi “trên 15kg liên hệ shop báo giá”. Với bé trên 15kg, nên xác nhận trực tiếp với Lumi Pet trước khi làm dịch vụ.
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <section className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-8">
           <div className="lg:col-span-5">
-            <span className="text-xs font-black uppercase tracking-[0.16em] text-teal-600">Quy trình Spa</span>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Combo chăm sóc 10 bước</h2>
-            <p className="mt-4 text-sm font-medium leading-6 text-slate-600">Quy trình chăm sóc cơ bản để khách biết trước các bước thực hiện.</p>
-            <a href="./dat-lich/" className="mt-7 inline-flex items-center gap-2 rounded-2xl bg-teal-600 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-teal-100">Đặt lịch Spa <ArrowRight className="h-4 w-4" /></a>
+            <span className="text-xs font-black uppercase tracking-[0.16em] text-orange-500">Combo chăm sóc</span>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">10 bước Spa được trình bày rõ</h2>
+            <p className="mt-4 font-medium leading-7 text-slate-600">Từ kiểm tra lông da tới tắm xả, sấy chải và serum dưỡng lông. Khách có thể biết trước những bước chính của combo.</p>
+            <a href="./spa-thu-cung-binh-thanh/" className="mt-6 inline-flex items-center gap-2 font-extrabold text-orange-600">Chi tiết Spa <ArrowRight className="h-4 w-4" /></a>
           </div>
-          <ol className="grid gap-3 sm:grid-cols-2 lg:col-span-7">
-            {spaSteps.map((step, index) => <li key={step} className="flex gap-3 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"><span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-xs font-black text-orange-600">{index + 1}</span><span className="pt-1 text-sm font-bold text-slate-700">{step}</span></li>)}
-          </ol>
+          <div className="grid gap-3 sm:grid-cols-2 lg:col-span-7">
+            {spaSteps.map((step, index) => (
+              <div key={step} className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-orange-200">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-xs font-black text-orange-700">{index + 1}</span>
+                <span className="pt-1 text-sm font-extrabold text-slate-700">{step}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
-        <section className="border-y border-teal-100 bg-teal-50/50">
-          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <section className="bg-slate-950 text-white">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-8">
             <div className="lg:col-span-5">
-              <span className="text-xs font-black uppercase tracking-[0.16em] text-teal-600">Pet Hotel</span>
-              <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Giá lưu trú theo cân nặng</h2>
-              <div className="mt-6 grid gap-3">
-                {hotelPrices.map(([weight, price]) => <div key={weight} className="flex items-center justify-between gap-4 rounded-2xl border border-teal-100 bg-white p-4 transition hover:-translate-y-0.5 hover:shadow-md"><strong className="text-sm text-slate-900">{weight}</strong><span className="text-sm font-black text-teal-700">{price}</span></div>)}
+              <span className="text-xs font-black uppercase tracking-[0.16em] text-teal-300">Khách sạn thú cưng</span>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Giá lưu trú tính được trước khi gửi</h2>
+              <p className="mt-4 font-medium leading-7 text-slate-300">Trên 5 ngày giảm 5%, trên 10 ngày giảm 8%. Bé trên 15kg liên hệ shop để báo giá.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="./dat-phong/" className="inline-flex items-center gap-2 rounded-2xl bg-teal-500 px-5 py-3 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-teal-400"><CalendarDays className="h-5 w-5" /> Tính giá & book phòng</a>
+                <a href="tel:0989979675" className="inline-flex items-center gap-2 rounded-2xl border border-slate-700 px-5 py-3 font-extrabold text-slate-200 transition hover:border-slate-500 hover:bg-slate-900"><Phone className="h-5 w-5" /> Gọi shop</a>
               </div>
             </div>
-            <div className="rounded-[28px] border border-teal-100 bg-white p-7 shadow-sm sm:rounded-[32px] sm:p-9 lg:col-span-7">
-              <h3 className="text-2xl font-black text-slate-950">Lưu trú dài ngày</h3>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl bg-orange-50 p-5"><strong className="block text-2xl font-black text-orange-600">5%</strong><span className="mt-1 block text-sm font-bold text-slate-600">Giảm khi ở trên 5 ngày</span></div>
-                <div className="rounded-2xl bg-teal-50 p-5"><strong className="block text-2xl font-black text-teal-700">8%</strong><span className="mt-1 block text-sm font-bold text-slate-600">Giảm khi ở trên 10 ngày</span></div>
+            <div className="lg:col-span-7">
+              <div className="overflow-hidden rounded-[28px] border border-slate-800">
+                {hotelPrices.map(([weight, price]) => (
+                  <div key={weight} className="flex items-center justify-between border-b border-slate-800 bg-slate-900/80 px-5 py-4 last:border-b-0">
+                    <span className="font-bold text-slate-300">{weight}</span><strong className="text-teal-300">{price}</strong>
+                  </div>
+                ))}
               </div>
-              <ul className="mt-7 grid gap-3 text-sm font-semibold text-slate-600 sm:grid-cols-2">
-                {['Khu lưu trú riêng', 'Vệ sinh sạch sẽ', 'Máy lạnh 24/24', 'Bữa ăn theo menu', 'Video tương tác mỗi ngày', 'Trên 15kg liên hệ báo giá'].map(item => <li key={item} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-600" />{item}</li>)}
-              </ul>
-              <a href="./dat-phong/" className="mt-8 inline-flex items-center gap-2 rounded-2xl bg-orange-500 px-6 py-3.5 text-sm font-extrabold text-white shadow-lg shadow-orange-100">Book phòng Hotel <ArrowRight className="h-4 w-4" /></a>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {['Không gian riêng mỗi bé', 'Máy lạnh mát mẻ 24/24', 'Bữa ăn theo menu', 'Quay video tương tác mỗi ngày'].map(item => (
+                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-slate-900 p-4 text-sm font-bold text-slate-200"><Check className="h-5 w-5 text-teal-300" />{item}</div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="rounded-[30px] bg-slate-950 px-6 py-10 text-white sm:rounded-[36px] sm:px-10 lg:flex lg:items-center lg:justify-between lg:gap-10 lg:px-12">
-            <div><span className="text-xs font-black uppercase tracking-[0.16em] text-orange-300">Lumi Pet Bình Thạnh</span><h2 className="mt-3 text-3xl font-black sm:text-4xl">Chọn dịch vụ, xem giá rồi gửi lịch ngay</h2><p className="mt-4 max-w-2xl text-sm font-medium leading-6 text-slate-300">Shop sẽ nhận thông tin booking và liên hệ lại để xác nhận.</p></div>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:shrink-0"><a href="./dat-lich/" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-6 py-3.5 text-sm font-extrabold text-white">Đặt lịch Spa</a><a href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0068ff] px-6 py-3.5 text-sm font-extrabold text-white">Nhắn Zalo</a></div>
+          <div className="rounded-[32px] border border-orange-100 bg-gradient-to-r from-orange-50 to-teal-50 p-7 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+              <div className="lg:col-span-8">
+                <span className="text-xs font-black uppercase tracking-[0.16em] text-orange-500">Lumi Pet Bình Thạnh</span>
+                <h2 className="mt-3 text-3xl font-black text-slate-950">Chọn dịch vụ, xem giá và gửi yêu cầu trong vài bước</h2>
+                <p className="mt-3 max-w-3xl font-medium leading-7 text-slate-600">Yêu cầu đặt lịch/đặt phòng được ghi nhận ở trạng thái chờ xác nhận. Shop sẽ liên hệ lại với khách trước khi chốt dịch vụ.</p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:col-span-4 lg:flex-col">
+                <a href="./dat-lich/" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-orange-500 px-6 py-4 font-extrabold text-white shadow-lg shadow-orange-100 transition hover:-translate-y-0.5 hover:bg-orange-600"><Scissors className="h-5 w-5" /> Đặt lịch Spa</a>
+                <a href="./dat-phong/" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-teal-600 px-6 py-4 font-extrabold text-white shadow-lg shadow-teal-100 transition hover:-translate-y-0.5 hover:bg-teal-700"><Hotel className="h-5 w-5" /> Book phòng Hotel</a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-orange-100 bg-[#fffaf3] pb-24 sm:pb-0">
+      <footer className="border-t border-orange-100 bg-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-3 lg:px-8">
-          <div><div className="flex items-center gap-3"><span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-orange-500 text-white"><PawPrint className="h-5 w-5" /></span><div><strong className="block text-lg font-black text-slate-950">Lumi Pet</strong><span className="text-xs font-bold text-slate-500">Spa & Hotel 24/7</span></div></div><p className="mt-4 text-sm font-medium leading-6 text-slate-600">27 Võ Trường Toản, Bình Thạnh, TP.HCM</p></div>
-          <div><strong className="text-sm font-black text-slate-950">Liên hệ</strong><div className="mt-4 space-y-2 text-sm font-bold text-slate-600"><a className="block hover:text-orange-600" href="tel:0989979675">0989 979 675</a><a className="block text-[#0068ff]" href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer">Nhắn Zalo</a><span className="block">07:00 – 21:00 mỗi ngày</span><a className="inline-flex items-center gap-2 hover:text-orange-600" href="https://www.instagram.com/lumipet.spa/" rel="noreferrer"><Instagram className="h-4 w-4" /> @lumipet.spa</a></div></div>
-          <div><strong className="text-sm font-black text-slate-950">Dịch vụ</strong><div className="mt-4 grid gap-2 text-sm font-bold text-slate-600"><a href="./spa-thu-cung-binh-thanh/" className="hover:text-orange-600">Spa & Grooming</a><a href="./khach-san-thu-cung-binh-thanh/" className="hover:text-orange-600">Khách sạn thú cưng</a><a href="./bang-gia-spa-thu-cung/" className="hover:text-orange-600">Bảng giá</a></div></div>
+          <div><strong className="text-xl font-black text-slate-950">Lumi Pet Shop</strong><p className="mt-2 text-sm font-semibold leading-6 text-slate-500">Spa & Hotel 24/7<br />27 Võ Trường Toản, Bình Thạnh, TP.HCM</p></div>
+          <div><strong className="text-sm font-black uppercase tracking-wider text-slate-900">Liên hệ</strong><div className="mt-3 grid gap-2 text-sm font-bold text-slate-600"><a href="tel:0989979675" className="hover:text-orange-600">0989 979 675</a><span>07:00 – 21:00 · Tất cả các ngày</span><a href="https://www.instagram.com/lumipet.spa/" className="inline-flex items-center gap-2 hover:text-orange-600"><Instagram className="h-4 w-4" /> @lumipet.spa</a></div></div>
+          <div><strong className="text-sm font-black uppercase tracking-wider text-slate-900">Truy cập nhanh</strong><div className="mt-3 grid gap-2 text-sm font-bold text-slate-600"><a href="./bang-gia-spa-thu-cung/" className="hover:text-orange-600">Bảng giá Spa</a><a href="./dat-lich/" className="hover:text-orange-600">Đặt lịch Spa</a><a href="./dat-phong/" className="hover:text-orange-600">Đặt phòng Hotel</a><a href="./lien-he/" className="hover:text-orange-600">Liên hệ Lumi Pet</a></div></div>
         </div>
       </footer>
 
-      <div className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-2 gap-2 rounded-2xl border border-orange-100 bg-white/95 p-2 shadow-2xl backdrop-blur-xl sm:hidden">
-        <a href="tel:0989979675" className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-3 py-3 text-sm font-extrabold text-white"><Phone className="h-4 w-4" /> Gọi ngay</a>
-        <a href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0068ff] px-3 py-3 text-sm font-extrabold text-white"><MessageCircle className="h-4 w-4" /> Zalo</a>
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-orange-100 bg-white/95 p-2 shadow-[0_-8px_24px_rgba(15,23,42,.08)] backdrop-blur-lg sm:hidden">
+        <a href="./dat-lich/" className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-3 py-3 text-sm font-extrabold text-white"><Scissors className="h-4 w-4" /> Spa</a>
+        <a href="./dat-phong/" className="inline-flex items-center justify-center gap-2 rounded-xl bg-teal-600 px-3 py-3 text-sm font-extrabold text-white"><Hotel className="h-4 w-4" /> Hotel</a>
       </div>
     </div>
   );
