@@ -22,8 +22,11 @@
     'navbar-booking-btn',
     'navbar-booking-mobile-btn',
     'mobile-nav-booking-btn',
-    'estimator-spa-book-btn'
+    'estimator-spa-book-btn',
+    'hero-book-spa-btn'
   ]);
+
+  const hotelIds = new Set(['hero-book-hotel-btn']);
 
   document.addEventListener('click', e => {
     const el = e.target.closest('button,a');
@@ -57,22 +60,89 @@
     }
 
     if (
+      hotelIds.has(id) ||
       text === 'đặt phòng' ||
       text.includes('đặt phòng ngay') ||
       text.includes('book phòng') ||
       text.includes('đặt hotel') ||
       text.includes('đặt cabin') ||
       text.includes('giữ phòng') ||
-      text.includes('giữ cabin')
+      text.includes('giữ cabin') ||
+      text.includes('xem tất cả các phòng kính') ||
+      text.includes('tính giá trực tuyến') ||
+      text.includes('tính thử chi phí số đêm')
     ) {
       e.preventDefault();
       e.stopPropagation();
       go('dat-phong/');
+      return;
+    }
+
+    if (text.includes('bảng giá spa')) {
+      e.preventDefault();
+      e.stopPropagation();
+      go('bang-gia-spa-thu-cung/');
     }
   }, true);
+
+  const hiddenSectionPhrases = [
+    'tại sao ba mẹ chọn lumi pet',
+    'khám phá những cabin nghỉ dưỡng tốt nhất',
+    'trải nghiệm trị liệu trẻ hoá',
+    'phản hồi từ khách hàng'
+  ];
+
+  const hideUnverifiedLegacyContent = () => {
+    document.querySelectorAll('section').forEach(section => {
+      const text = (section.textContent || '').toLowerCase();
+      if (hiddenSectionPhrases.some(phrase => text.includes(phrase))) {
+        section.style.display = 'none';
+        section.setAttribute('aria-hidden', 'true');
+        section.dataset.lumiHiddenReason = 'unverified-legacy-content';
+      }
+    });
+
+    document.querySelectorAll('body > div, #root > div > div').forEach(el => {
+      const text = (el.textContent || '').toLowerCase();
+      if (text.includes('khai trương chi nhánh sang chảnh mới')) {
+        el.style.display = 'none';
+        el.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.querySelectorAll('footer').forEach(footer => {
+      footer.querySelectorAll('div').forEach(block => {
+        const text = (block.textContent || '').toLowerCase();
+        if (text.includes('danh mục pet shop')) {
+          block.style.display = 'none';
+          block.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      footer.querySelectorAll('p').forEach(p => {
+        const text = (p.textContent || '').toLowerCase();
+        if (text.includes('hàng đầu việt nam')) {
+          p.textContent = 'Lumi Pet Shop – Spa & Hotel 24/7 tại 27 Võ Trường Toản, Bình Thạnh, TP.HCM.';
+        }
+      });
+    });
+  };
 
   const links = document.createElement('div');
   links.className = 'booking-shortcuts';
   links.innerHTML = `<a class="spa" href="${base}dat-lich/">Đặt lịch Spa</a><a class="hotel" href="${base}dat-phong/">Book phòng</a>`;
-  document.addEventListener('DOMContentLoaded', () => document.body.appendChild(links));
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.appendChild(links);
+    hideUnverifiedLegacyContent();
+
+    const root = document.getElementById('root');
+    if (root) {
+      const observer = new MutationObserver(hideUnverifiedLegacyContent);
+      observer.observe(root, { childList: true, subtree: true });
+    }
+
+    window.setTimeout(hideUnverifiedLegacyContent, 250);
+    window.setTimeout(hideUnverifiedLegacyContent, 1000);
+  });
 })();
