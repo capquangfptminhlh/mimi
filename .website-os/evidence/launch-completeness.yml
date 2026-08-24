@@ -1,5 +1,5 @@
 decision: HOLD
-observed_at: 2026-08-24T13:20:00+07:00
+observed_at: 2026-08-24T16:22:00+07:00
 planned_launch_pages: 9
 implemented_launch_pages_source: 9
 implemented_launch_pages_runtime_verified: 0
@@ -9,6 +9,10 @@ implemented_required_images_runtime_verified: 0
 missing_launch_pages_source: 0
 missing_images_source: 0
 known_placeholders_source: 0
+legacy_demo_runtime_imports_source: 0
+legacy_booking_bridge_source: REMOVED
+production_homepage_source: REPLACED_WITH_VERIFIED_FACTS_ONLY
+ci_legacy_demo_bundle_gate: CONFIGURED
 broken_internal_links_runtime: UNVERIFIED
 mobile_unverified_pages: 9
 seo_unverified_pages_runtime: 9
@@ -17,12 +21,14 @@ facts_unverified:
   - current ward naming for 27 Vo Truong Toan
 runtime_blockers:
   - GitHub Pages push-run result is not exposed by the available connector in this session
-  - live HTTP 200 checks not yet observed
+  - live HTTP 200 checks not yet observed because github.io DNS resolution is unavailable in the execution environment
+  - booking email activation/delivery has not yet been observed
   - desktop/mobile browser verification not yet observed
   - accessibility and Core Web Vitals not yet measured
 source_implementation_status: COMPLETE_FOR_APPROVED_LAUNCH_SCOPE
 release_status: HOLD_RUNTIME_QA
 notes:
   - Source contains all nine BUILD_LAUNCH pages plus robots.txt and sitemap.xml.
-  - Workflow validates booking JavaScript syntax, TypeScript, Vite build and expected dist files before deployment.
-  - Do not claim launch-complete until runtime/mobile/SEO verification is recorded.
+  - Homepage now links directly to canonical Spa, Hotel, pricing, booking, about and contact pages.
+  - Workflow validates booking JavaScript syntax, TypeScript, Vite build, expected dist files, required homepage facts and absence of legacy demo strings.
+  - Do not claim launch-complete until CI/deploy, live HTTP, email delivery and browser QA are observed.
