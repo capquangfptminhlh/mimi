@@ -50,8 +50,8 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 8% 0%, rgba(249, 115, 22, 0.07), transparent 28rem),
-    radial-gradient(circle at 95% 18%, rgba(20, 184, 166, 0.06), transparent 30rem),
+    radial-gradient(circle at 8% 0%, rgba(249, 115, 22, 0.05), transparent 28rem),
+    radial-gradient(circle at 95% 18%, rgba(20, 184, 166, 0.045), transparent 30rem),
     var(--lumi-bg);
   color: var(--lumi-text);
   font-family: var(--font-sans);
@@ -120,126 +120,266 @@ textarea:focus-visible {
   scroll-margin-top: 92px;
 }
 
-/* Commercial hero polish — keeps the existing content but gives it a stronger visual hierarchy. */
+/* Premium editorial hero v2 */
 #root main > section:first-child {
   isolation: isolate;
-  min-height: min(760px, calc(100svh - 80px));
+  min-height: calc(100svh - 80px);
+  background:
+    linear-gradient(90deg, #fffaf4 0%, #fffdf9 49%, #f4fbf9 100%) !important;
+  border-bottom-color: #f6eadf !important;
+}
+
+#root main > section:first-child > div[class*="blur-3xl"] {
+  display: none;
 }
 
 #root main > section:first-child::before {
   content: "";
   position: absolute;
   z-index: -1;
-  width: 360px;
-  height: 360px;
-  right: 8%;
-  top: 12%;
-  border-radius: 46% 54% 63% 37% / 45% 42% 58% 55%;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.13), rgba(20, 184, 166, 0.08));
-  filter: blur(1px);
-  transform: rotate(12deg);
+  top: -170px;
+  right: -120px;
+  width: 690px;
+  height: 690px;
+  border-radius: 44% 56% 58% 42% / 42% 39% 61% 58%;
+  background: linear-gradient(145deg, #ffd9bd 0%, #ffe9d8 48%, #dff6ef 100%);
+  transform: rotate(-9deg);
 }
 
 #root main > section:first-child::after {
   content: "";
   position: absolute;
   z-index: -1;
-  width: 190px;
-  height: 190px;
-  left: 4%;
-  bottom: 8%;
+  left: 4vw;
+  bottom: 7vh;
+  width: 120px;
+  height: 120px;
   border-radius: 999px;
-  border: 1px solid rgba(249, 115, 22, 0.11);
+  border: 1px solid rgba(249, 115, 22, 0.12);
   box-shadow:
-    0 0 0 24px rgba(249, 115, 22, 0.025),
-    0 0 0 48px rgba(20, 184, 166, 0.018);
+    0 0 0 22px rgba(249, 115, 22, 0.028),
+    0 0 0 44px rgba(20, 184, 166, 0.018);
+}
+
+#root main > section:first-child > div[class*="max-w-7xl"] {
+  min-height: calc(100svh - 80px);
+  align-items: center;
+  gap: clamp(34px, 5vw, 74px);
+  padding-top: clamp(52px, 8vh, 96px) !important;
+  padding-bottom: clamp(54px, 8vh, 96px) !important;
+}
+
+#root main > section:first-child .lg\:col-span-7 {
+  position: relative;
+  z-index: 3;
+}
+
+#root main > section:first-child .lg\:col-span-7 > div:first-child {
+  margin-bottom: 22px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  color: #d95f0b;
+  letter-spacing: 0.2em;
 }
 
 #root main > section:first-child h1 {
+  max-width: 760px;
+  font-family: "Plus Jakarta Sans", var(--font-sans);
+  font-size: clamp(3.1rem, 5.3vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
   text-wrap: balance;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 #root main > section:first-child h1 span {
-  position: relative;
-  display: inline-block;
+  display: block;
+  margin-top: 0.16em;
+  color: #f36f1b !important;
+  letter-spacing: -0.06em;
 }
 
-#root main > section:first-child h1 span::after {
-  content: "";
-  position: absolute;
-  left: 2%;
-  right: 2%;
-  bottom: -0.12em;
-  height: 0.22em;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(249, 115, 22, 0.22), rgba(20, 184, 166, 0.12));
-  transform: rotate(-1deg);
-  z-index: -1;
+#root main > section:first-child .lg\:col-span-7 > p {
+  max-width: 620px;
+  margin-top: 28px;
+  color: #5d6674;
+  font-family: "Plus Jakarta Sans", var(--font-sans);
+  font-size: clamp(1rem, 1.45vw, 1.17rem);
+  line-height: 1.75;
 }
 
 #root main > section:first-child a[href="./dat-lich/"],
 #root main > section:first-child a[href="./dat-phong/"] {
+  min-height: 56px;
+  border-radius: 999px;
+  padding-inline: 26px;
+  font-family: "Plus Jakarta Sans", var(--font-sans);
+  box-shadow: none;
+}
+
+#root main > section:first-child a[href="./dat-lich/"] {
+  background: #f97316;
+  box-shadow: 0 16px 30px rgba(249, 115, 22, 0.22);
+}
+
+#root main > section:first-child a[href="./dat-phong/"] {
+  border: 1px solid #dcebe7;
+  color: #0f766e;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+#root main > section:first-child .mt-4.flex.flex-wrap {
+  margin-top: 18px;
+  gap: 12px;
+}
+
+#root main > section:first-child .mt-4.flex.flex-wrap a {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 10px;
+  color: #56606e;
+}
+
+#root main > section:first-child .mt-4.flex.flex-wrap a[href*="zalo.me"] {
+  color: #0068ff;
+}
+
+#root main > section:first-child .mt-9.grid {
   position: relative;
+  margin-top: 36px;
+  max-width: 700px;
+  gap: 0;
   overflow: hidden;
+  border: 1px solid rgba(231, 215, 200, 0.9);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 50px rgba(97, 72, 45, 0.07);
+  backdrop-filter: blur(16px);
 }
 
-#root main > section:first-child a[href="./dat-lich/"]::before,
-#root main > section:first-child a[href="./dat-phong/"]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 24%, rgba(255, 255, 255, 0.28) 46%, transparent 66%);
-  transform: translateX(-130%);
-  transition: transform 0.55s ease;
+#root main > section:first-child .mt-9.grid > div {
+  min-height: 104px;
+  border: 0;
+  border-right: 1px solid rgba(231, 215, 200, 0.78);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 20px;
 }
 
-#root main > section:first-child a[href="./dat-lich/"]:hover::before,
-#root main > section:first-child a[href="./dat-phong/"]:hover::before {
-  transform: translateX(130%);
+#root main > section:first-child .mt-9.grid > div:last-child {
+  border-right: 0;
 }
 
-#root main > section:first-child .lg\:col-span-5 > div {
-  transform: perspective(1100px) rotateY(-1.8deg) rotateX(0.8deg);
-  transform-origin: center;
-  box-shadow:
-    0 35px 80px rgba(249, 115, 22, 0.13),
-    0 18px 40px rgba(15, 118, 110, 0.08);
-  animation: lumi-hero-float 6s ease-in-out infinite;
+#root main > section:first-child .mt-9.grid svg {
+  margin-bottom: 10px;
 }
 
-#root main > section:first-child .lg\:col-span-5 > div::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  pointer-events: none;
-  border-radius: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.66);
+#root main > section:first-child .lg\:col-span-5 {
+  position: relative;
   z-index: 2;
 }
 
+#root main > section:first-child .lg\:col-span-5::before {
+  content: "SPA  •  GROOMING  •  PET HOTEL";
+  position: absolute;
+  z-index: 5;
+  top: -26px;
+  right: 18px;
+  padding: 11px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #25313d;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  box-shadow: 0 12px 34px rgba(58, 49, 37, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+#root main > section:first-child .lg\:col-span-5 > div {
+  overflow: visible;
+  border: 0;
+  border-radius: 52px 52px 52px 12px;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+#root main > section:first-child .lg\:col-span-5 > div > div:first-child {
+  height: clamp(440px, 58vh, 620px);
+  overflow: hidden;
+  border-radius: 52px 52px 52px 12px;
+  background: #eadfd6;
+  box-shadow:
+    0 38px 90px rgba(75, 52, 30, 0.16),
+    0 8px 24px rgba(15, 118, 110, 0.08);
+}
+
 #root main > section:first-child .lg\:col-span-5 img {
-  filter: saturate(1.04) contrast(1.02);
+  width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.96) contrast(1.03);
 }
 
-#root main > section:first-child .sm\:grid-cols-3 > div {
-  backdrop-filter: blur(14px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+#root main > section:first-child .lg\:col-span-5 > div > div:first-child::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 38%;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(13, 23, 30, 0.28));
 }
 
-#root main > section:first-child .sm\:grid-cols-3 > div:hover {
-  transform: translateY(-4px);
-  border-color: rgba(249, 115, 22, 0.25);
-  box-shadow: 0 16px 32px rgba(103, 65, 31, 0.08);
+#root main > section:first-child .lg\:col-span-5 span[class*="absolute"][class*="bottom-3"] {
+  display: none;
 }
 
-@keyframes lumi-hero-float {
-  0%, 100% {
-    transform: perspective(1100px) rotateY(-1.8deg) rotateX(0.8deg) translateY(0);
-  }
-  50% {
-    transform: perspective(1100px) rotateY(-0.7deg) rotateX(0.3deg) translateY(-7px);
-  }
+#root main > section:first-child .lg\:col-span-5 > div > div:last-child {
+  position: absolute;
+  z-index: 6;
+  left: -38px;
+  right: 28px;
+  bottom: 26px;
+  padding: 22px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 48px rgba(35, 40, 45, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+#root main > section:first-child .lg\:col-span-5 h2 {
+  display: none;
+}
+
+#root main > section:first-child .lg\:col-span-5 .mt-5 {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 12px;
+  margin-top: 0;
+}
+
+#root main > section:first-child .lg\:col-span-5 .mt-5 > * {
+  margin: 0;
+  border-radius: 18px;
+  background: #fff8f1;
+  padding: 15px 16px;
+}
+
+#root main > section:first-child .lg\:col-span-5 .mt-5 > a {
+  background: #effaf7;
+}
+
+#root main > section:first-child .lg\:col-span-5 .mt-5 strong {
+  font-family: "Plus Jakarta Sans", var(--font-sans);
 }
 
 .booking-shortcuts {
@@ -278,9 +418,81 @@ textarea:focus-visible {
     min-height: auto;
   }
 
-  #root main > section:first-child .lg\:col-span-5 > div {
-    transform: none;
-    animation-duration: 7s;
+  #root main > section:first-child::before {
+    width: 480px;
+    height: 480px;
+    right: -210px;
+    top: 120px;
+  }
+
+  #root main > section:first-child > div[class*="max-w-7xl"] {
+    min-height: auto;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 {
+    margin-top: 8px;
+  }
+
+  #root main > section:first-child .lg\:col-span-5::before {
+    top: -18px;
+    right: 20px;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 > div > div:first-child {
+    height: min(72vw, 520px);
+    min-height: 360px;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 > div > div:last-child {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 639px) {
+  #root main > section:first-child h1 {
+    font-size: clamp(2.65rem, 13vw, 4rem);
+    line-height: 1;
+  }
+
+  #root main > section:first-child .mt-9.grid {
+    grid-template-columns: 1fr;
+    border-radius: 20px;
+  }
+
+  #root main > section:first-child .mt-9.grid > div {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(231, 215, 200, 0.78);
+    padding: 16px 18px;
+  }
+
+  #root main > section:first-child .mt-9.grid > div:last-child {
+    border-bottom: 0;
+  }
+
+  #root main > section:first-child .lg\:col-span-5::before {
+    left: 16px;
+    right: auto;
+    font-size: 9px;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 > div > div:first-child {
+    min-height: 390px;
+    border-radius: 34px 34px 34px 10px;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 > div > div:last-child {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: -52px 14px 0;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 .mt-5 {
+    grid-template-columns: 1fr;
   }
 }
 
