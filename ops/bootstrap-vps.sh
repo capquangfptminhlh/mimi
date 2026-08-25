@@ -8,8 +8,12 @@ fi
 
 DEPLOY_USER="${DEPLOY_USER:-deploy}"
 DEPLOY_ROOT="/var/www/lumipet"
-NGINX_SOURCE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/nginx/lumipet.vn.conf"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+NGINX_SOURCE="$SCRIPT_DIR/nginx/lumipet.vn.conf"
 NGINX_TARGET="/etc/nginx/sites-available/lumipet.vn"
+NGINX_ENABLED="/etc/nginx/sites-enabled/00-lumipet.vn"
+CERT="/etc/letsencrypt/live/lumipet.vn/fullchain.pem"
+KEY="/etc/letsencrypt/live/lumipet.vn/privkey.pem"
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
@@ -19,8 +23,7 @@ if ! id -u "$DEPLOY_USER" >/dev/null 2>&1; then
   useradd --create-home --shell /bin/bash "$DEPLOY_USER"
 fi
 
-install -d -m 0755 "$DEPLOY_ROOT"
-install -d -m 0755 "$DEPLOY_ROOT/releases"
+install -d -m 0755 "$DEPLOY_ROOT" "$DEPLOY_ROOT/releases" /var/www/html
 chown -R "$DEPLOY_USER":www-data "$DEPLOY_ROOT"
 chmod -R u+rwX,g+rX,o-rwx "$DEPLOY_ROOT"
 
@@ -29,8 +32,32 @@ if [ ! -f "$NGINX_SOURCE" ]; then
   exit 1
 fi
 
-install -m 0644 "$NGINX_SOURCE" "$NGINX_TARGET"
-ln -sfn "$NGINX_TARGET" /etc/nginx/sites-enabled/lumipet.vn
+if [ -f "$CERT" ] && [ -f "$KEY" ]; then
+  install -m 0644 "$NGINX_SOURCE" "$NGINX_TARGET"
+else
+  cat > "$NGINX_TARGET" <<'NGINX'
+server {
+    listen 80;
+    listen [::]:80;
+    server_name lumipet.vn www.lumipet.vn;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/html;
+        try_files $uri =404;
+    }
+
+    location / {
+        root /var/www/lumipet/current;
+        try_files $uri $uri/ =404;
+    }
+}
+NGINX
+  echo "SSL certificate not present yet; installed HTTP-only bootstrap vhost."
+fi
+
+# The 00- prefix makes the explicit Lumi Pet vhost load before unrelated sites.
+ln -sfn "$NGINX_TARGET" "$NGINX_ENABLED"
+rm -f /etc/nginx/sites-enabled/lumipet.vn
 rm -f /etc/nginx/sites-enabled/default
 
 nginx -t
@@ -44,16 +71,20 @@ Lumi Pet VPS bootstrap complete.
 Deploy root : $DEPLOY_ROOT
 Deploy user : $DEPLOY_USER
 Nginx site  : $NGINX_TARGET
+Load order  : $NGINX_ENABLED
 
-NEXT:
-1. Install/register a GitHub Actions self-hosted runner for capquangfptminhlh/mimi on this VPS.
-2. Run the GitHub runner service as $DEPLOY_USER (recommended).
-3. Confirm the runner appears Online in GitHub -> Settings -> Actions -> Runners.
-4. Push/dispatch .github/workflows/deploy-vps.yml; it uses runs-on: self-hosted.
-5. Point lumipet.vn DNS A record to this VPS IP.
-6. After DNS resolves, run:
-   certbot --nginx -d lumipet.vn -d www.lumipet.vn --redirect
-7. In GitHub repo variables set VPS_LIVE_VERIFY=1 after HTTPS is live.
-
-No VPS SSH deployment secrets are required. The GitHub Actions job builds and deploys locally on this VPS and Nginx serves only /var/www/lumipet/current.
+The site is isolated from AutoTax and other VPS websites by an explicit
+lumipet.vn virtual host and a dedicated /var/www/lumipet root.
 EOF
+
+if [ ! -f "$CERT" ] || [ ! -f "$KEY" ]; then
+  cat <<'EOF'
+
+NEXT FOR HTTPS:
+1. Confirm DNS A records for lumipet.vn and www.lumipet.vn point to this VPS.
+2. Run:
+   sudo certbot --nginx -d lumipet.vn -d www.lumipet.vn
+3. Then apply the hardened HTTPS vhost:
+   sudo bash ops/fix-nginx-vhost.sh
+EOF
+fi
