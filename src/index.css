@@ -120,6 +120,128 @@ textarea:focus-visible {
   scroll-margin-top: 92px;
 }
 
+/* Commercial hero polish — keeps the existing content but gives it a stronger visual hierarchy. */
+#root main > section:first-child {
+  isolation: isolate;
+  min-height: min(760px, calc(100svh - 80px));
+}
+
+#root main > section:first-child::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  right: 8%;
+  top: 12%;
+  border-radius: 46% 54% 63% 37% / 45% 42% 58% 55%;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.13), rgba(20, 184, 166, 0.08));
+  filter: blur(1px);
+  transform: rotate(12deg);
+}
+
+#root main > section:first-child::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 190px;
+  height: 190px;
+  left: 4%;
+  bottom: 8%;
+  border-radius: 999px;
+  border: 1px solid rgba(249, 115, 22, 0.11);
+  box-shadow:
+    0 0 0 24px rgba(249, 115, 22, 0.025),
+    0 0 0 48px rgba(20, 184, 166, 0.018);
+}
+
+#root main > section:first-child h1 {
+  text-wrap: balance;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+#root main > section:first-child h1 span {
+  position: relative;
+  display: inline-block;
+}
+
+#root main > section:first-child h1 span::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -0.12em;
+  height: 0.22em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.22), rgba(20, 184, 166, 0.12));
+  transform: rotate(-1deg);
+  z-index: -1;
+}
+
+#root main > section:first-child a[href="./dat-lich/"],
+#root main > section:first-child a[href="./dat-phong/"] {
+  position: relative;
+  overflow: hidden;
+}
+
+#root main > section:first-child a[href="./dat-lich/"]::before,
+#root main > section:first-child a[href="./dat-phong/"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 24%, rgba(255, 255, 255, 0.28) 46%, transparent 66%);
+  transform: translateX(-130%);
+  transition: transform 0.55s ease;
+}
+
+#root main > section:first-child a[href="./dat-lich/"]:hover::before,
+#root main > section:first-child a[href="./dat-phong/"]:hover::before {
+  transform: translateX(130%);
+}
+
+#root main > section:first-child .lg\:col-span-5 > div {
+  transform: perspective(1100px) rotateY(-1.8deg) rotateX(0.8deg);
+  transform-origin: center;
+  box-shadow:
+    0 35px 80px rgba(249, 115, 22, 0.13),
+    0 18px 40px rgba(15, 118, 110, 0.08);
+  animation: lumi-hero-float 6s ease-in-out infinite;
+}
+
+#root main > section:first-child .lg\:col-span-5 > div::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  z-index: 2;
+}
+
+#root main > section:first-child .lg\:col-span-5 img {
+  filter: saturate(1.04) contrast(1.02);
+}
+
+#root main > section:first-child .sm\:grid-cols-3 > div {
+  backdrop-filter: blur(14px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+#root main > section:first-child .sm\:grid-cols-3 > div:hover {
+  transform: translateY(-4px);
+  border-color: rgba(249, 115, 22, 0.25);
+  box-shadow: 0 16px 32px rgba(103, 65, 31, 0.08);
+}
+
+@keyframes lumi-hero-float {
+  0%, 100% {
+    transform: perspective(1100px) rotateY(-1.8deg) rotateX(0.8deg) translateY(0);
+  }
+  50% {
+    transform: perspective(1100px) rotateY(-0.7deg) rotateX(0.3deg) translateY(-7px);
+  }
+}
+
 .booking-shortcuts {
   font-family: var(--font-sans);
 }
@@ -149,6 +271,17 @@ textarea:focus-visible {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #fb923c;
+}
+
+@media (max-width: 1023px) {
+  #root main > section:first-child {
+    min-height: auto;
+  }
+
+  #root main > section:first-child .lg\:col-span-5 > div {
+    transform: none;
+    animation-duration: 7s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
