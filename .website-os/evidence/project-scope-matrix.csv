@@ -10,3 +10,4 @@ SCOPE-008,CONTACT,Liên hệ Lumi Pet,NAVIGATIONAL,Lumi Pet NAP,/mimi/lien-he/,c
 SCOPE-009,ABOUT,Giới thiệu Lumi Pet,INFORMATIONAL,Lumi Pet,/mimi/gioi-thieu/,about,BUILD_LAUNCH,Entity/trust support,first-party
 SCOPE-010,SPA,Landmark 81 local variation,LOCAL_TRANSACTIONAL,Spa thú cưng,,,HOLD_EVIDENCE,No distinct first-party local value yet,SERP-003
 SCOPE-011,SPA,Vinhomes local variation,LOCAL_TRANSACTIONAL,Spa thú cưng,,,HOLD_EVIDENCE,No distinct first-party local value yet,SERP-003
+SCOPE-012,BEHAVIOR,Chó sợ người lạ khi đi Spa,INFORMATIONAL,Dog behavior,/bai-viet/cho-so-nguoi-la-khi-di-spa/,article,PUBLISHED,Distinct problem-solution intent supporting Spa conversion,CONTENT-CALENDAR-20
