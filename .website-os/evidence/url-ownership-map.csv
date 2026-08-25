@@ -3,6 +3,7 @@ lumi pet / lumi pet bình thạnh,NAVIGATIONAL,BRAND,/mimi/,homepage,lumi pet b�
 spa thú cưng + bình thạnh,LOCAL_TRANSACTIONAL,SPA,/mimi/spa-thu-cung-binh-thanh/,service,spa thú cưng bình thạnh,spa chó mèo bình thạnh; tắm chó bình thạnh; tắm mèo bình thạnh,YES,index,BUILD_LAUNCH
 grooming / cắt tỉa + bình thạnh,LOCAL_TRANSACTIONAL,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,service,grooming chó bình thạnh,cắt tỉa lông chó bình thạnh,YES,index,BUILD_LAUNCH
 khách sạn / gửi chó mèo + bình thạnh,LOCAL_TRANSACTIONAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,service,khách sạn thú cưng bình thạnh,khách sạn chó mèo bình thạnh; gửi chó mèo bình thạnh,YES,index,BUILD_LAUNCH
+khách sạn chó mèo cần kiểm tra gì,COMMERCIAL_RESEARCH,HOTEL,/bai-viet/khach-san-cho-meo-can-kiem-tra-gi/,article,khách sạn chó mèo cần kiểm tra gì,checklist pet hotel; kiểm tra khách sạn thú cưng,YES,index,PUBLISHED
 bảng giá spa / giá tắm chó mèo,COMMERCIAL,PRICE,/mimi/bang-gia-spa-thu-cung/,pricing,bảng giá spa thú cưng,giá tắm chó; giá tắm mèo; spa thú cưng giá bao nhiêu,YES,index,BUILD_LAUNCH
 đặt lịch spa / book spa,TRANSACTIONAL,BOOK_SPA,/mimi/dat-lich/,tool,đặt lịch spa thú cưng,book spa chó mèo,YES,index,BUILD_LAUNCH
 đặt phòng / book hotel thú cưng,TRANSACTIONAL,BOOK_HOTEL,/mimi/dat-phong/,tool,đặt phòng thú cưng,book khách sạn thú cưng,YES,index,BUILD_LAUNCH
