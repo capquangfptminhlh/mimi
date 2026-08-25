@@ -1,0 +1,77 @@
+name: Lumi Pet VPS Domain Isolation Guard
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: lumipet-vhost-guard
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  isolate-domain:
+    runs-on: [self-hosted, lumipet, production]
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          clean: true
+
+      - name: Apply hardened Lumi Pet vhost when sudo is available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if sudo -n true 2>/dev/null; then
+            sudo -n bash ops/fix-nginx-vhost.sh
+          else
+            echo 'Runner has no passwordless sudo; validating the vhost already installed on VPS.'
+          fi
+
+      - name: Verify local HTTPS routes to Lumi Pet only
+        shell: bash
+        run: |
+          set -euo pipefail
+          headers="$(mktemp)"
+          body="$(mktemp)"
+          curl -kfsS --resolve 'lumipet.vn:443:127.0.0.1' \
+            -D "$headers" "https://lumipet.vn/?local-vhost=${GITHUB_SHA}" -o "$body"
+          grep -Eiq '^X-Lumi-Site:[[:space:]]*lumipet' "$headers"
+          grep -Fqi 'Lumi Pet' "$body"
+          if grep -Eqi 'AutoTax|AutoTaxPOS|autotaxpos\.com' "$body"; then
+            echo 'FAIL: local lumipet.vn returned AutoTax content.'
+            exit 1
+          fi
+
+      - name: Verify public domain isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          headers="$(mktemp)"
+          body="$(mktemp)"
+          curl --fail --silent --show-error --location \
+            --retry 10 --retry-delay 3 --retry-all-errors \
+            --connect-timeout 10 --max-time 60 \
+            -D "$headers" "https://lumipet.vn/?public-vhost=${GITHUB_SHA}" -o "$body"
+          grep -Eiq '^X-Lumi-Site:[[:space:]]*lumipet' "$headers"
+          grep -Fqi 'Lumi Pet' "$body"
+          if grep -Eqi 'AutoTax|AutoTaxPOS|autotaxpos\.com' "$body"; then
+            echo 'FAIL: public lumipet.vn returned AutoTax content.'
+            exit 1
+          fi
+
+      - name: Isolation summary
+        if: success()
+        shell: bash
+        run: |
+          echo '### Lumi Pet VPS domain isolation PASS' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Domain: `lumipet.vn`' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Required marker: `X-Lumi-Site: lumipet`' >> "$GITHUB_STEP_SUMMARY"
+          echo '- Web root: `/var/www/lumipet/current`' >> "$GITHUB_STEP_SUMMARY"
+          echo '- AutoTax content on Lumi Pet domain: hard FAIL' >> "$GITHUB_STEP_SUMMARY"
