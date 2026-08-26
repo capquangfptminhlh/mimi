@@ -7,14 +7,14 @@ on:
 
 concurrency:
   group: lumipet-vhost-guard
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
   isolate-domain:
-    runs-on: [self-hosted, lumipet, production]
+    runs-on: self-hosted
     timeout-minutes: 10
 
     steps:
