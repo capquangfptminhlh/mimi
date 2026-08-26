@@ -90,10 +90,19 @@ for (const file of files) {
   const prefix = prefixFor(relative);
   let html = normalizeHead(await readFile(file, 'utf8'), prefix);
 
-  if (normalizedRelative !== 'index.html' && /<header\s+class="lumi-top"[\s\S]*?<\/header>/.test(html)) {
+  if (normalizedRelative !== 'index.html') {
     const shellCss = `<link rel="stylesheet" href="${assetHref(prefix, 'lumi-shell.css')}">`;
     if (!html.includes('lumi-shell.css')) html = html.replace('</head>', `${shellCss}</head>`);
-    html = html.replace(/<header\s+class="lumi-top"[\s\S]*?<\/header>/, headerMarkup(prefix, currentKey(relative)));
+
+    const canonicalHeader = headerMarkup(prefix, currentKey(relative));
+    if (/<header\s+class="lumi-top(?:\s[^"]*)?"[\s\S]*?<\/header>/.test(html)) {
+      html = html.replace(/<header\s+class="lumi-top(?:\s[^"]*)?"[\s\S]*?<\/header>/, canonicalHeader);
+    } else if (!html.includes('data-lumi-unified-header="true"')) {
+      if (!/<body(?:\s[^>]*)?>/i.test(html)) {
+        throw new Error(`Static shell cannot inject header because ${normalizedRelative} has no <body> tag.`);
+      }
+      html = html.replace(/<body(?:\s[^>]*)?>/i, (bodyTag) => `${bodyTag}${canonicalHeader}`);
+    }
   }
 
   html = cacheBustFixedAssets(html);
