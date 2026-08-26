@@ -8,7 +8,7 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 7,chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung,chuẩn bị gì trước khi gửi thú cưng khách sạn,informational,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
 8,dau-hieu-cho-can-grooming,dấu hiệu chó cần grooming,informational,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
 9,spa-meo-binh-thanh-gia-bao-nhieu,spa mèo Bình Thạnh giá bao nhiêu,commercial_local,spa,/spa-thu-cung-binh-thanh/,PUBLISHED
-10,tam-cao-long-cho-gia-bao-nhieu,tắm cạo lông chó giá bao nhiêu,commercial,spa,/bang-gia-spa-thu-cung/,QUEUED
+10,tam-cao-long-cho-gia-bao-nhieu,tắm cạo lông chó giá bao nhiêu,commercial,spa,/bang-gia-spa-thu-cung/,PUBLISHED
 11,cat-tia-long-cho-gia-bao-nhieu,cắt tỉa lông chó giá bao nhiêu,commercial,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
 12,go-roi-long-cho-meo-khi-nao-can,gỡ rối lông chó mèo khi nào cần,informational,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
 13,cach-chai-long-poodle-dung,cách chải lông Poodle đúng,informational,poodle,/grooming-cho-meo-binh-thanh/,QUEUED

@@ -5,6 +5,7 @@ grooming / cắt tỉa + bình thạnh,LOCAL_TRANSACTIONAL,GROOMING,/mimi/groomi
 khách sạn / gửi chó mèo + bình thạnh,LOCAL_TRANSACTIONAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,service,khách sạn thú cưng bình thạnh,khách sạn chó mèo bình thạnh; gửi chó mèo bình thạnh,YES,index,BUILD_LAUNCH
 khách sạn chó mèo cần kiểm tra gì,COMMERCIAL_RESEARCH,HOTEL,/bai-viet/khach-san-cho-meo-can-kiem-tra-gi/,article,khách sạn chó mèo cần kiểm tra gì,checklist pet hotel; kiểm tra khách sạn thú cưng,YES,index,PUBLISHED
 chó sợ người lạ khi đi spa,INFORMATIONAL,BEHAVIOR,/bai-viet/cho-so-nguoi-la-khi-di-spa/,article,chó sợ người lạ khi đi spa,chó nhút nhát đi spa; chó stress khi grooming,YES,index,PUBLISHED
+tắm cạo lông chó giá bao nhiêu,COMMERCIAL,SPA,/bai-viet/tam-cao-long-cho-gia-bao-nhieu/,article,tắm cạo lông chó giá bao nhiêu,giá tắm cạo chó; tắm và cạo lông chó,YES,index,PUBLISHED
 bảng giá spa / giá tắm chó mèo,COMMERCIAL,PRICE,/mimi/bang-gia-spa-thu-cung/,pricing,bảng giá spa thú cưng,giá tắm chó; giá tắm mèo; spa thú cưng giá bao nhiêu,YES,index,BUILD_LAUNCH
 đặt lịch spa / book spa,TRANSACTIONAL,BOOK_SPA,/mimi/dat-lich/,tool,đặt lịch spa thú cưng,book spa chó mèo,YES,index,BUILD_LAUNCH
 đặt phòng / book hotel thú cưng,TRANSACTIONAL,BOOK_HOTEL,/mimi/dat-phong/,tool,đặt phòng thú cưng,book khách sạn thú cưng,YES,index,BUILD_LAUNCH
