@@ -75,6 +75,12 @@ function normalizeHead(html, prefix) {
   return cacheBustFixedAssets(next);
 }
 
+function requireBuiltMarker(html, relative, marker, label) {
+  if (!html.includes(marker)) {
+    throw new Error(`Static shell QA failed: ${relative} is missing ${label}: ${marker}`);
+  }
+}
+
 const files = await walk(DIST);
 let updated = 0;
 
@@ -93,6 +99,42 @@ for (const file of files) {
   html = cacheBustFixedAssets(html);
   await writeFile(file, html, 'utf8');
   updated += 1;
+}
+
+const coreStaticPages = [
+  'spa-thu-cung-binh-thanh/index.html',
+  'grooming-cho-meo-binh-thanh/index.html',
+  'khach-san-thu-cung-binh-thanh/index.html',
+  'bang-gia-spa-thu-cung/index.html',
+  'dat-lich/index.html',
+  'dat-phong/index.html',
+  'gioi-thieu/index.html',
+  'lien-he/index.html',
+  'bai-viet/index.html',
+];
+
+for (const relative of coreStaticPages) {
+  const file = path.join(DIST, relative);
+  const html = await readFile(file, 'utf8');
+  const markers = [
+    ['data-lumi-unified-header="true"', 'unified header marker'],
+    [`data-lumi-release="${RELEASE}"`, 'release marker'],
+    [`lumi-brand-mark.svg?v=${RELEASE}`, 'cache-busted brand mark'],
+    [`lumi-shell.css?v=${RELEASE}`, 'cache-busted shell stylesheet'],
+    [`lumi-ui.js?v=${RELEASE}`, 'cache-busted UI script'],
+    [`favicon.svg?v=${RELEASE}`, 'cache-busted favicon'],
+    ['name="theme-color" content="#f97316"', 'theme color'],
+    ['>Giới thiệu<', 'Giới thiệu navigation'],
+    ['>Liên hệ<', 'Liên hệ navigation'],
+    ['>Kiến thức<', 'Kiến thức navigation'],
+    ['>Gọi ngay<', 'Gọi ngay action'],
+    ['>Zalo<', 'Zalo action'],
+    ['>Đặt lịch<', 'Đặt lịch action'],
+  ];
+  for (const [marker, label] of markers) requireBuiltMarker(html, relative, marker, label);
+  if (html.includes('class="brand-mark"')) {
+    throw new Error(`Static shell QA failed: ${relative} still contains legacy class=\"brand-mark\".`);
+  }
 }
 
 for (const name of ['sitemap.xml', 'robots.txt']) {
