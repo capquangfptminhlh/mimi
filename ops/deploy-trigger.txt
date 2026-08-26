@@ -1,0 +1,4 @@
+Lumi Pet VPS deploy trigger
+
+Triggered after confirming the self-hosted runner service is connected to GitHub and listening for jobs.
+Timestamp: 2026-08-26T12:10:00+07:00
