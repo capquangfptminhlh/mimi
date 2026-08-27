@@ -8,6 +8,7 @@ gửi chó khách sạn 5 ngày giá bao nhiêu,COMMERCIAL,HOTEL,/bai-viet/gui-c
 chó sợ người lạ khi đi spa,INFORMATIONAL,BEHAVIOR,/bai-viet/cho-so-nguoi-la-khi-di-spa/,article,chó sợ người lạ khi đi spa,chó nhút nhát đi spa; chó stress khi grooming,YES,index,PUBLISHED
 chó sợ máy sấy khi grooming,INFORMATIONAL,BEHAVIOR,/bai-viet/cho-so-may-say-khi-grooming/,article,chó sợ máy sấy khi grooming,chó sợ tiếng máy sấy; chó stress khi sấy lông,YES,index,PUBLISHED
 tắm cạo lông chó giá bao nhiêu,COMMERCIAL,SPA,/bai-viet/tam-cao-long-cho-gia-bao-nhieu/,article,tắm cạo lông chó giá bao nhiêu,giá tắm cạo chó; tắm và cạo lông chó,YES,index,PUBLISHED
+cắt tỉa lông chó giá bao nhiêu,COMMERCIAL,GROOMING,/bai-viet/cat-tia-long-cho-gia-bao-nhieu/,article,cắt tỉa lông chó giá bao nhiêu,giá cắt tỉa chó; tắm và cắt tỉa lông chó,YES,index,PUBLISHED
 bảng giá spa / giá tắm chó mèo,COMMERCIAL,PRICE,/mimi/bang-gia-spa-thu-cung/,pricing,bảng giá spa thú cưng,giá tắm chó; giá tắm mèo; spa thú cưng giá bao nhiêu,YES,index,BUILD_LAUNCH
 đặt lịch spa / book spa,TRANSACTIONAL,BOOK_SPA,/mimi/dat-lich/,tool,đặt lịch spa thú cưng,book spa chó mèo,YES,index,BUILD_LAUNCH
 đặt phòng / book hotel thú cưng,TRANSACTIONAL,BOOK_HOTEL,/mimi/dat-phong/,tool,đặt phòng thú cưng,book khách sạn thú cưng,YES,index,BUILD_LAUNCH
