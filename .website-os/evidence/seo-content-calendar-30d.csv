@@ -24,7 +24,7 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 23,meo-long-dai-bi-roi-nen-lam-gi,mèo lông dài bị rối nên làm gì,informational,cat_care,/spa-thu-cung-binh-thanh/,QUEUED
 24,spa-thu-cung-binh-thanh-nen-chon-noi-nao,cách chọn spa thú cưng Bình Thạnh,commercial_research,spa,/spa-thu-cung-binh-thanh/,QUEUED
 25,khach-san-thu-cung-gan-vo-truong-toan,khách sạn thú cưng gần Võ Trường Toản,local,hotel,/khach-san-thu-cung-binh-thanh/,QUEUED
-26,grooming-cho-nho-binh-thanh,grooming chó nhỏ Bình Thạnh,commercial_local,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
+26,grooming-cho-nho-binh-thanh,grooming chó nhỏ Bình Thạnh,commercial_local,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
 27,tam-cho-sau-khi-di-mua,tắm chó sau khi đi mưa,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
 28,cach-giu-long-cho-kho-va-thom,cách giữ lông chó khô sạch tại nhà,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
 29,nhung-vung-long-cho-de-bi-roi,những vùng lông chó dễ bị rối,informational,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
