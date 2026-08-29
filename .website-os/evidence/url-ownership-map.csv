@@ -1,6 +1,7 @@
 keyword_or_query_pattern,primary_intent,cluster_id,target_url,url_type,primary_keyword,secondary_keywords,canonical_owner,indexability,status
 lumi pet / lumi pet bình thạnh,NAVIGATIONAL,BRAND,/mimi/,homepage,lumi pet bình thạnh,lumi pet; spa hotel thú cưng,YES,index,KEEP
 spa thú cưng + bình thạnh,LOCAL_TRANSACTIONAL,SPA,/mimi/spa-thu-cung-binh-thanh/,service,spa thú cưng bình thạnh,spa chó mèo bình thạnh; tắm chó bình thạnh; tắm mèo bình thạnh,YES,index,BUILD_LAUNCH
+cách chọn spa thú cưng + bình thạnh,COMMERCIAL_RESEARCH,SPA,/bai-viet/spa-thu-cung-binh-thanh-nen-chon-noi-nao/,article,cách chọn spa thú cưng Bình Thạnh,tiêu chí chọn spa thú cưng; chọn spa chó mèo Bình Thạnh,YES,index,PUBLISHED
 grooming / cắt tỉa + bình thạnh,LOCAL_TRANSACTIONAL,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,service,grooming chó bình thạnh,cắt tỉa lông chó bình thạnh,YES,index,BUILD_LAUNCH
 grooming chó nhỏ + bình thạnh,COMMERCIAL_LOCAL,GROOMING,/bai-viet/grooming-cho-nho-binh-thanh/,article,grooming chó nhỏ Bình Thạnh,grooming chó nhỏ; cắt tỉa chó nhỏ Bình Thạnh,YES,index,PUBLISHED
 khách sạn / gửi chó mèo + bình thạnh,LOCAL_TRANSACTIONAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,service,khách sạn thú cưng bình thạnh,khách sạn chó mèo bình thạnh; gửi chó mèo bình thạnh,YES,index,BUILD_LAUNCH

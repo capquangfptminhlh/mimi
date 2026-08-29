@@ -1,6 +1,7 @@
 keyword,cluster_id,target_url,coverage_type,launch_status,content_section_or_page,evidence_ref,status
 lumi pet bình thạnh,BRAND,/mimi/,PRIMARY_PAGE,BUILD_LAUNCH,Homepage entity/local intro,SRC-NAP,COVERED
 spa thú cưng bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,PRIMARY_PAGE,BUILD_LAUNCH,Spa service landing,SERP-001;SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
+cách chọn spa thú cưng Bình Thạnh,SPA,/bai-viet/spa-thu-cung-binh-thanh-nen-chon-noi-nao/,ARTICLE,PUBLISHED,Eight-point local Spa evaluation checklist covering service scope pricing handoff behavior and booking,CONTENT-CALENDAR-24,COVERED
 spa chó mèo bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Dog/cat service + price answer,SRC-PRICE-DOG;SRC-PRICE-CAT,COVERED
 tắm chó bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Dog spa price section,SRC-PRICE-DOG,COVERED
 tắm mèo bình thạnh,SPA,/mimi/spa-thu-cung-binh-thanh/,SECONDARY_SECTION,BUILD_LAUNCH,Cat spa price section,SRC-PRICE-CAT,COVERED
