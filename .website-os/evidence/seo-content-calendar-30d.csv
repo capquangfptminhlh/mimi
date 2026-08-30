@@ -26,6 +26,6 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 25,khach-san-thu-cung-gan-vo-truong-toan,khách sạn thú cưng gần Võ Trường Toản,local,hotel,/khach-san-thu-cung-binh-thanh/,QUEUED
 26,grooming-cho-nho-binh-thanh,grooming chó nhỏ Bình Thạnh,commercial_local,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
 27,tam-cho-sau-khi-di-mua,tắm chó sau khi đi mưa,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
-28,cach-giu-long-cho-kho-va-thom,cách giữ lông chó khô sạch tại nhà,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
+28,cach-giu-long-cho-kho-va-thom,cách giữ lông chó khô sạch tại nhà,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
 29,nhung-vung-long-cho-de-bi-roi,những vùng lông chó dễ bị rối,informational,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
 30,checklist-dat-lich-spa-cho-meo,checklist trước khi đặt lịch spa chó mèo,commercial_research,spa,/dat-lich/,PUBLISHED
