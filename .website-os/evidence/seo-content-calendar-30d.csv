@@ -28,4 +28,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 27,tam-cho-sau-khi-di-mua,tắm chó sau khi đi mưa,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
 28,cach-giu-long-cho-kho-va-thom,cách giữ lông chó khô sạch tại nhà,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
 29,nhung-vung-long-cho-de-bi-roi,những vùng lông chó dễ bị rối,informational,grooming,/grooming-cho-meo-binh-thanh/,QUEUED
-30,checklist-dat-lich-spa-cho-meo,checklist trước khi đặt lịch spa chó mèo,commercial_research,spa,/dat-lich/,QUEUED
+30,checklist-dat-lich-spa-cho-meo,checklist trước khi đặt lịch spa chó mèo,commercial_research,spa,/dat-lich/,PUBLISHED
