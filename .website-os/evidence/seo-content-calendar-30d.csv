@@ -12,7 +12,7 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 11,cat-tia-long-cho-gia-bao-nhieu,cắt tỉa lông chó giá bao nhiêu,commercial,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
 12,go-roi-long-cho-meo-khi-nao-can,gỡ rối lông chó mèo khi nào cần,informational,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
 13,cach-chai-long-poodle-dung,cách chải lông Poodle đúng,informational,poodle,/grooming-cho-meo-binh-thanh/,PUBLISHED
-14,cach-ve-sinh-tai-cho-an-toan,cách vệ sinh tai chó an toàn,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
+14,cach-ve-sinh-tai-cho-an-toan,cách vệ sinh tai chó an toàn,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
 15,khi-nao-can-cat-mong-cho,khi nào cần cắt móng chó,informational,dog_care,/spa-thu-cung-binh-thanh/,QUEUED
 16,khach-san-cho-meo-can-kiem-tra-gi,khách sạn chó mèo cần kiểm tra gì,commercial_research,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
 17,gui-cho-khach-san-5-ngay-gia-bao-nhieu,gửi chó khách sạn 5 ngày giá bao nhiêu,commercial,hotel,/dat-phong/,PUBLISHED
