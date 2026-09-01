@@ -23,6 +23,7 @@ những vùng lông chó dễ bị rối,INFORMATIONAL,GROOMING,/bai-viet/nhung-
 tắm cạo lông chó giá bao nhiêu,COMMERCIAL,SPA,/bai-viet/tam-cao-long-cho-gia-bao-nhieu/,article,tắm cạo lông chó giá bao nhiêu,giá tắm cạo chó; tắm và cạo lông chó,YES,index,PUBLISHED
 cắt tỉa lông chó giá bao nhiêu,COMMERCIAL,GROOMING,/bai-viet/cat-tia-long-cho-gia-bao-nhieu/,article,cắt tỉa lông chó giá bao nhiêu,giá cắt tỉa chó; tắm và cắt tỉa lông chó,YES,index,PUBLISHED
 gỡ rối lông chó mèo khi nào cần,INFORMATIONAL,GROOMING,/bai-viet/go-roi-long-cho-meo-khi-nao-can/,article,gỡ rối lông chó mèo khi nào cần,rối lông chó mèo; khi nào cần gỡ rối lông,YES,index,PUBLISHED
+tắm chó trước hay sau khi cắt tỉa,INFORMATIONAL_COMPARISON,GROOMING,/bai-viet/tam-cho-truoc-hay-sau-khi-cat-tia/,article,tắm chó trước hay sau khi cắt tỉa,thứ tự grooming chó; tắm trước hay cắt lông trước; quy trình tắm sấy cắt tỉa,YES,index,PUBLISHED
 bảng giá spa / giá tắm chó mèo,COMMERCIAL,PRICE,/mimi/bang-gia-spa-thu-cung/,pricing,bảng giá spa thú cưng,giá tắm chó; giá tắm mèo; spa thú cưng giá bao nhiêu,YES,index,BUILD_LAUNCH
 đặt lịch spa / book spa,TRANSACTIONAL,BOOK_SPA,/mimi/dat-lich/,tool,đặt lịch spa thú cưng,book spa chó mèo,YES,index,BUILD_LAUNCH
 đặt phòng / book hotel thú cưng,TRANSACTIONAL,BOOK_HOTEL,/mimi/dat-phong/,tool,đặt phòng thú cưng,book khách sạn thú cưng,YES,index,BUILD_LAUNCH
