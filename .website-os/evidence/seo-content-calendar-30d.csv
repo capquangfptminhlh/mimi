@@ -30,3 +30,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 29,nhung-vung-long-cho-de-bi-roi,những vùng lông chó dễ bị rối,informational,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
 30,checklist-dat-lich-spa-cho-meo,checklist trước khi đặt lịch spa chó mèo,commercial_research,spa,/dat-lich/,PUBLISHED
 31,tam-cho-truoc-hay-sau-khi-cat-tia,tắm chó trước hay sau khi cắt tỉa,informational_comparison,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
+32,cho-di-khach-san-bo-an,chó đi khách sạn bỏ ăn,informational,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
