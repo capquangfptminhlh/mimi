@@ -4,6 +4,7 @@ spa chó mèo bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cun
 tắm chó bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cung-binh-thanh/,Service sub-intent within spa,SRC-PRICE-DOG,2026-08-24,VERIFIED
 tắm mèo bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,SPA,/mimi/spa-thu-cung-binh-thanh/,Service sub-intent with cat-specific price table,SRC-PRICE-CAT,2026-08-24,VERIFIED
 grooming chó bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,GROOMING,/mimi/grooming-cho-meo-binh-thanh/,Distinct grooming/cut intent,SERP-002;SERP-003,2026-08-24,VERIFIED
+grooming chó gồm những gì,COMMERCIAL_RESEARCH,INFORMATIONAL,GROOMING,/bai-viet/grooming-cho-gom-nhung-gi/,Service-scope and package-selection research before booking distinct from local transactional and price ownership,CONTENT-CALENDAR-34;SRC-PRICE-DOG;LIVE-LUMIPET-SPA-2026-09-02,2026-09-02,VERIFIED
 khách sạn thú cưng bình thạnh,LOCAL_TRANSACTIONAL,COMMERCIAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,Pet boarding conversion intent,SERP-001;SERP-002,2026-08-24,VERIFIED
 chó đi khách sạn bỏ ăn,INFORMATIONAL,COMMERCIAL_RESEARCH,HOTEL,/bai-viet/cho-di-khach-san-bo-an/,Boarding-specific appetite and stress question distinct from local Hotel booking intent,CONTENT-CALENDAR-32,2026-09-01,VERIFIED
 bảng giá spa thú cưng,COMMERCIAL,TRANSACTIONAL,PRICE,/mimi/bang-gia-spa-thu-cung/,Price comparison before booking,SRC-PRICE-DOG;SRC-PRICE-CAT,2026-08-24,VERIFIED
