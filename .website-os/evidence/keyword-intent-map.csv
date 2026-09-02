@@ -14,3 +14,4 @@ bảng giá spa thú cưng,COMMERCIAL,TRANSACTIONAL,PRICE,/mimi/bang-gia-spa-thu
 spa thú cưng giá bao nhiêu,INFORMATIONAL,COMMERCIAL,PRICE,/mimi/bang-gia-spa-thu-cung/,AEO question answered from first-party pricing,SRC-PRICE-DOG;SRC-PRICE-CAT,2026-08-24,VERIFIED
 gửi thú cưng trên 5 ngày giảm bao nhiêu,INFORMATIONAL,COMMERCIAL,HOTEL,/mimi/khach-san-thu-cung-binh-thanh/,AEO question answered by hotel discount policy,SRC-PRICE-HOTEL,2026-08-24,VERIFIED
 lumi pet địa chỉ,NAVIGATIONAL,LOCAL_INFORMATIONAL,CONTACT,/mimi/lien-he/,Brand NAP lookup,SRC-NAP,2026-08-24,VERIFIED
+chó bị ngứa sau khi tắm,INFORMATIONAL,COMMERCIAL_RESEARCH,DOG_CARE,/bai-viet/cho-bi-ngua-sau-khi-tam/,Post-bath itching triage and prevention intent is distinct from post-bath odor bathing-frequency rain-care and local Spa transactional owners,PETMD-RASH-2026-09-02;PETMD-ITCH-2026-09-02;PETMD-CONTACT-2026-09-02,2026-09-02,VERIFIED
