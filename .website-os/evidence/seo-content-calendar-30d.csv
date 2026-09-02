@@ -33,3 +33,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 32,cho-di-khach-san-bo-an,chó đi khách sạn bỏ ăn,informational,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
 33,cho-van-hoi-sau-khi-tam,chó vẫn hôi sau khi tắm,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
 34,grooming-cho-gom-nhung-gi,grooming chó gồm những gì,commercial_research,grooming,/grooming-cho-meo-binh-thanh/,PUBLISHED
+35,poodle-bao-lau-nen-grooming-mot-lan,Poodle bao lâu nên grooming một lần,informational,poodle,/grooming-cho-meo-binh-thanh/,PUBLISHED
