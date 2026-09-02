@@ -72,6 +72,14 @@ function normalizeHead(html, prefix) {
   if (!next.includes('rel="icon"')) next = next.replace('</head>', `<meta name="theme-color" content="#f97316">${favicon}</head>`);
   else if (!next.includes('name="theme-color"')) next = next.replace('</head>', '<meta name="theme-color" content="#f97316"></head>');
 
+  // Every static page must load the shared UI runtime. This makes post-launch
+  // editorial pages resilient even when their source HTML omits the script.
+  if (!next.includes('lumi-ui.js')) {
+    const uiScript = `<script src="${assetHref(prefix, 'lumi-ui.js')}" defer></script>`;
+    if (!next.includes('</body>')) throw new Error('Static shell cannot inject lumi-ui.js because </body> is missing.');
+    next = next.replace('</body>', `${uiScript}</body>`);
+  }
+
   return cacheBustFixedAssets(next);
 }
 
