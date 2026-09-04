@@ -40,3 +40,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 39,cho-run-sau-khi-tam,chó run sau khi tắm,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
 40,cho-5kg-di-spa-gia-bao-nhieu,chó 5kg đi spa giá bao nhiêu,commercial,spa,/bai-viet/cho-5kg-di-spa-gia-bao-nhieu/,PUBLISHED
 41,poodle-di-khach-san-can-chuan-bi-gi,Poodle đi khách sạn cần chuẩn bị gì,informational,hotel,/bai-viet/poodle-di-khach-san-can-chuan-bi-gi/,PUBLISHED
+42,cho-bi-roi-long-sau-khi-tam,chó bị rối lông sau khi tắm,informational,grooming,/bai-viet/cho-bi-roi-long-sau-khi-tam/,PUBLISHED
