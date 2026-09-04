@@ -72,8 +72,6 @@ function normalizeHead(html, prefix) {
   if (!next.includes('rel="icon"')) next = next.replace('</head>', `<meta name="theme-color" content="#f97316">${favicon}</head>`);
   else if (!next.includes('name="theme-color"')) next = next.replace('</head>', '<meta name="theme-color" content="#f97316"></head>');
 
-  // Every static page must load the shared UI runtime. This makes post-launch
-  // editorial pages resilient even when their source HTML omits the script.
   if (!next.includes('lumi-ui.js')) {
     const uiScript = `<script src="${assetHref(prefix, 'lumi-ui.js')}" defer></script>`;
     if (!next.includes('</body>')) throw new Error('Static shell cannot inject lumi-ui.js because </body> is missing.');
@@ -81,6 +79,16 @@ function normalizeHead(html, prefix) {
   }
 
   return cacheBustFixedAssets(next);
+}
+
+function ensureArticleCta(html, prefix, relative) {
+  const normalized = relative.replaceAll(path.sep, '/');
+  if (!/^bai-viet\/[^/]+\/index\.html$/.test(normalized) || html.includes('blog-cta')) return html;
+  if (!html.includes('</article>')) {
+    throw new Error(`Static shell cannot inject article CTA because ${normalized} has no </article> tag.`);
+  }
+  const cta = `<section class="blog-cta" data-lumi-auto-cta="true"><h2>Cần tư vấn dịch vụ phù hợp cho thú cưng?</h2><p>Gửi cân nặng, tình trạng lông và nhu cầu chăm sóc để Lumi Pet tư vấn trước khi bạn chốt lịch.</p><div class="blog-cta-actions"><a class="btn" href="${prefix}dat-lich/">Đặt lịch</a><a class="btn btn-secondary" href="tel:0989979675">Gọi Lumi Pet</a><a class="btn btn-secondary" href="https://zalo.me/0989979675">Nhắn Zalo</a></div></section>`;
+  return html.replace('</article>', `${cta}</article>`);
 }
 
 function requireBuiltMarker(html, relative, marker, label) {
@@ -97,6 +105,7 @@ for (const file of files) {
   const normalizedRelative = relative.replaceAll(path.sep, '/');
   const prefix = prefixFor(relative);
   let html = normalizeHead(await readFile(file, 'utf8'), prefix);
+  html = ensureArticleCta(html, prefix, relative);
 
   if (normalizedRelative !== 'index.html') {
     const shellCss = `<link rel="stylesheet" href="${assetHref(prefix, 'lumi-shell.css')}">`;
