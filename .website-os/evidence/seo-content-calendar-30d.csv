@@ -38,3 +38,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 37,nen-tam-ve-sinh-hay-tam-cao-cho-cho,nên tắm vệ sinh hay tắm cạo cho chó,commercial_research,spa,/spa-thu-cung-binh-thanh/,PUBLISHED
 38,meo-di-khach-san-bo-an,mèo đi khách sạn bỏ ăn,informational,hotel,/khach-san-thu-cung-binh-thanh/,PUBLISHED
 39,cho-run-sau-khi-tam,chó run sau khi tắm,informational,dog_care,/spa-thu-cung-binh-thanh/,PUBLISHED
+40,cho-5kg-di-spa-gia-bao-nhieu,chó 5kg đi spa giá bao nhiêu,commercial,spa,/bai-viet/cho-5kg-di-spa-gia-bao-nhieu/,PUBLISHED
