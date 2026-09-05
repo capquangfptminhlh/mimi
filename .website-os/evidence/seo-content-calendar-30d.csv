@@ -42,3 +42,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 41,poodle-di-khach-san-can-chuan-bi-gi,Poodle đi khách sạn cần chuẩn bị gì,informational,hotel,/bai-viet/poodle-di-khach-san-can-chuan-bi-gi/,PUBLISHED
 42,cho-bi-roi-long-sau-khi-tam,chó bị rối lông sau khi tắm,informational,grooming,/bai-viet/cho-bi-roi-long-sau-khi-tam/,PUBLISHED
 43,cho-long-dai-di-spa-nen-chon-goi-nao,chó lông dài đi Spa nên chọn gói nào,commercial_research,grooming,/bai-viet/cho-long-dai-di-spa-nen-chon-goi-nao/,PUBLISHED
+44,khach-san-thu-cung-phong-rieng-hay-phong-chung,khách sạn thú cưng phòng riêng hay phòng chung,commercial_research_comparison,hotel,/bai-viet/khach-san-thu-cung-phong-rieng-hay-phong-chung/,PUBLISHED
