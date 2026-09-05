@@ -43,3 +43,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 42,cho-bi-roi-long-sau-khi-tam,chó bị rối lông sau khi tắm,informational,grooming,/bai-viet/cho-bi-roi-long-sau-khi-tam/,PUBLISHED
 43,cho-long-dai-di-spa-nen-chon-goi-nao,chó lông dài đi Spa nên chọn gói nào,commercial_research,grooming,/bai-viet/cho-long-dai-di-spa-nen-chon-goi-nao/,PUBLISHED
 44,khach-san-thu-cung-phong-rieng-hay-phong-chung,khách sạn thú cưng phòng riêng hay phòng chung,commercial_research_comparison,hotel,/bai-viet/khach-san-thu-cung-phong-rieng-hay-phong-chung/,PUBLISHED
+45,tam-cho-o-nha-hay-di-spa,tắm chó ở nhà hay đi Spa,commercial_research_comparison,spa,/bai-viet/tam-cho-o-nha-hay-di-spa/,PUBLISHED
