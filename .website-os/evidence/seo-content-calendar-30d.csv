@@ -48,3 +48,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 47,cho-lan-dau-di-khach-san-bao-lau-thi-quen,chó lần đầu đi khách sạn bao lâu thì quen,informational,hotel,/bai-viet/cho-lan-dau-di-khach-san-bao-lau-thi-quen/,PUBLISHED
 48,cho-met-sau-khi-di-spa,chó mệt sau khi đi Spa,informational,dog_care,/bai-viet/cho-met-sau-khi-di-spa/,PUBLISHED
 49,meo-5kg-di-spa-gia-bao-nhieu,mèo 5kg đi spa giá bao nhiêu,commercial,spa,/bai-viet/meo-5kg-di-spa-gia-bao-nhieu/,PUBLISHED
+50,meo-lan-dau-di-khach-san-can-luu-y-gi,mèo lần đầu đi khách sạn cần lưu ý gì,informational,hotel,/bai-viet/meo-lan-dau-di-khach-san-can-luu-y-gi/,PUBLISHED
