@@ -1,0 +1,48 @@
+run_id: SEO-2026-09-08-1900
+slot: '19:00'
+date: '2026-09-08'
+article_url: /bai-viet/cho-bi-gau-sau-khi-tam/
+primary_keyword: chó bị gàu sau khi tắm
+priority: P1
+cluster: DOG_CARE
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-bi-gau-sau-khi-tam/
+selection_reason: >-
+  Problem/solution and AEO fit for the 19:00 slot. The remaining queued local Hotel candidate
+  shares the primary local-transactional intent already owned by the Hotel landing, so no new local doorway URL was created.
+cannibalization_check:
+  status: RESOLVED
+  distinct_from:
+    - /bai-viet/cho-bi-ngua-sau-khi-tam/
+    - /bai-viet/cho-van-hoi-sau-khi-tam/
+    - /bai-viet/cho-run-sau-khi-tam/
+    - /bai-viet/cho-bi-roi-long-sau-khi-tam/
+    - /bai-viet/cho-met-sau-khi-di-spa/
+  ownership_note: >-
+    This URL owns visible white flakes/dry flaky skin after bathing, product/rinse/frequency checks,
+    alternate dermatologic causes and escalation. Existing URLs retain itch, odor, shivering, matting
+    and post-grooming fatigue intents.
+sources:
+  - id: PETMD-HUMAN-SHAMPOO-2026-09-08
+    url: https://www.petmd.com/dog/general-health/can-you-use-human-shampoos-on-dogs
+    use: dog-specific shampoo, pH/skin differences, flaking/dryness and residual-product irritation
+  - id: PETMD-DOG-DANDRUFF-2026-09-08
+    url: https://www.petmd.com/dog/symptoms/dandruff-dogs
+    use: dandruff presentation, alternate causes, avoid human anti-dandruff products, veterinary escalation
+  - id: PETMD-DRY-SKIN-2026-09-08
+    url: https://www.petmd.com/dog/symptoms/dry-flaky-skin-dogs
+    use: excessive bathing as a contributor to dry skin and need for veterinary guidance
+  - id: PETMD-BATH-FREQUENCY-2026-09-08
+    url: https://www.petmd.com/dog/general-health/how-often-should-you-bathe-your-dog
+    use: bathing frequency varies; wrong products can worsen unhealthy skin
+image:
+  id: PEXELS-DOG-SKIN-CHECK-2026-09-08
+  source_url: https://www.pexels.com/photo/a-man-doing-an-examination-on-a-dog-7469224/
+  asset_url: https://images.pexels.com/photos/7469224/pexels-photo-7469224.jpeg?auto=compress&cs=tinysrgb&w=1400
+  license_note: Pexels page marked free to use; image is illustrative and is not a Lumi Pet customer or clinician.
+claims_policy:
+  search_volume: not_claimed
+  keyword_difficulty: not_claimed
+  ranking: not_claimed
+  unverified_business_facts: not_added
