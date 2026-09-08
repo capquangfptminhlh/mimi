@@ -50,3 +50,5 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 49,meo-5kg-di-spa-gia-bao-nhieu,mèo 5kg đi spa giá bao nhiêu,commercial,spa,/bai-viet/meo-5kg-di-spa-gia-bao-nhieu/,PUBLISHED
 50,meo-lan-dau-di-khach-san-can-luu-y-gi,mèo lần đầu đi khách sạn cần lưu ý gì,informational,hotel,/bai-viet/meo-lan-dau-di-khach-san-can-luu-y-gi/,PUBLISHED
 51,meo-so-may-say-khi-grooming,mèo sợ máy sấy khi grooming,informational,behavior,/bai-viet/meo-so-may-say-khi-grooming/,PUBLISHED
+52,cho-con-may-thang-tuoi-di-spa-duoc,chó con mấy tháng tuổi đi Spa được,informational_commercial_research,spa,/bai-viet/cho-con-may-thang-tuoi-di-spa-duoc/,PUBLISHED
+53,cho-di-khach-san-co-can-tiem-phong-khong,chó đi khách sạn có cần tiêm phòng không,commercial_research,hotel,/bai-viet/cho-di-khach-san-co-can-tiem-phong-khong/,PUBLISHED

@@ -1,0 +1,44 @@
+run_id: SEO-2026-09-08-1300
+slot: '13:00'
+date: '2026-09-08'
+article:
+  url: /bai-viet/cho-di-khach-san-co-can-tiem-phong-khong/
+  primary_keyword: chó đi khách sạn có cần tiêm phòng không
+  priority: P1
+  cluster: HOTEL
+  primary_intent: COMMERCIAL_RESEARCH
+  secondary_intent: INFORMATIONAL
+  canonical_owner: /bai-viet/cho-di-khach-san-co-can-tiem-phong-khong/
+intent_review:
+  distinct_from:
+    - /bai-viet/chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung/
+    - /bai-viet/khach-san-cho-meo-can-kiem-tra-gi/
+    - /bai-viet/cho-lan-dau-di-khach-san-bao-lau-thi-quen/
+    - /bai-viet/cho-di-khach-san-bo-an/
+  rationale: New article owns vaccination and health-eligibility before boarding; generic preparation, facility evaluation, acclimation, appetite, and local Hotel transaction keep their existing owners.
+  cannibalization_status: RESOLVED
+first_party_facts:
+  source: src/data.ts
+  verified_rule: Lumi Pet requires pets to be fully vaccinated with at least 2 vaccine shots, dewormed periodically, and free of transmissible disease and fleas/ticks/lice before Hotel stay.
+  guardrail: First-party source does not name required vaccine products, proof format, or a fixed pre-boarding interval; article explicitly does not invent these details.
+external_sources:
+  - id: AKC-BOARDING-VACCINE-2026-09-08
+    url: https://www.akc.org/expert-advice/travel/dog-boarding-tips/
+    role: General boarding guidance that facilities may request vaccination records.
+  - id: AKC-BORDETELLA-2026-09-08
+    url: https://www.akc.org/expert-advice/health/bordetella-vaccine-dogs/
+    role: Bordetella is non-core and lifestyle/risk based; some boarding/daycare/grooming facilities may require it.
+  - id: VCA-BOARDING-VACCINE-2026-09-08
+    url: https://vcahospitals.com/andersons-corner/services/pet-boarding/dog-boarding
+    role: Example veterinary boarding policy requiring written proof and advance vaccination; used only as external context, never as Lumi Pet policy.
+image:
+  source_page: https://www.pexels.com/photo/a-veterinarian-vaccinating-a-dog-7469213/
+  image_url: https://images.pexels.com/photos/7469213/pexels-photo-7469213.jpeg?auto=compress&dpr=1&h=750&w=1260
+  source_status: Pexels page observed Free to use on 2026-09-08
+  subject_match: Veterinarian preparing to vaccinate a dog; directly matches pre-boarding vaccination topic.
+  attribution_guardrail: Caption states image is illustrative and not a Lumi Pet customer or veterinarian.
+same_day_articles_reviewed:
+  - /bai-viet/cho-con-may-thang-tuoi-di-spa-duoc/
+repair_from_previous_slot:
+  note: The 08:00 article source existed at parent SHA but hub, sitemap, calendar and keyword maps were not synchronized. This run synchronizes that existing article while creating exactly one new article URL for the 13:00 slot.
+metrics_guardrail: No search volume, KD, CPC, ranking, traffic, or unverified business claim was introduced.
