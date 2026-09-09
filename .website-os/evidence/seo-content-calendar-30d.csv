@@ -53,3 +53,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 52,cho-con-may-thang-tuoi-di-spa-duoc,chó con mấy tháng tuổi đi Spa được,informational_commercial_research,spa,/bai-viet/cho-con-may-thang-tuoi-di-spa-duoc/,PUBLISHED
 53,cho-di-khach-san-co-can-tiem-phong-khong,chó đi khách sạn có cần tiêm phòng không,commercial_research,hotel,/bai-viet/cho-di-khach-san-co-can-tiem-phong-khong/,PUBLISHED
 54,cho-bi-gau-sau-khi-tam,chó bị gàu sau khi tắm,informational,dog_care,/bai-viet/cho-bi-gau-sau-khi-tam/,PUBLISHED
+55,cho-mang-thai-co-di-spa-duoc-khong,chó mang thai có đi Spa được không,commercial_research,spa,/bai-viet/cho-mang-thai-co-di-spa-duoc-khong/,PUBLISHED
