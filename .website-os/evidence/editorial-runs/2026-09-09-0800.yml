@@ -1,0 +1,84 @@
+run_date: 2026-09-09
+slot: '08:00'
+timezone: Asia/Ho_Chi_Minh
+article_count_created: 1
+article_url: /bai-viet/cho-mang-thai-co-di-spa-duoc-khong/
+primary_keyword: chó mang thai có đi Spa được không
+priority_tier: P1
+cluster: SPA
+primary_intent: COMMERCIAL_RESEARCH
+secondary_intent: INFORMATIONAL
+canonical_owner: /bai-viet/cho-mang-thai-co-di-spa-duoc-khong/
+selection_reason: >-
+  Core P0/P1 local Spa, Grooming, price and booking intents are already assigned to canonical service,
+  pricing and booking owners. The remaining queued landmark Hotel candidate shares local-transactional
+  intent with the Hotel landing and lacks distinct first-party local value, so no doorway URL was created.
+  This pregnancy-specific Spa pre-booking safety query is a distinct P1 commercial-research job that
+  supports conversion without replacing generic booking, price, puppy or senior owners.
+prewrite_checks:
+  keyword_universe: checked
+  url_ownership: checked
+  keyword_page_coverage: checked
+  content_calendar: checked
+  sitemap: checked
+  today_published_articles: none before this run
+cannibalization_check:
+  status: RESOLVED
+  nearest_owner: /bai-viet/checklist-dat-lich-spa-cho-meo/
+  distinction: >-
+    Pregnancy page owns pregnancy stage, health, stress, handling, product caution and late-pregnancy
+    exposure decisions; generic checklist keeps all-pet booking-information intent; Spa landing remains
+    the local transactional owner.
+content_requirements:
+  full_length_vietnamese: true
+  answer_first: true
+  toc: true
+  title_meta_hierarchy: true
+  canonical: https://lumipet.vn/bai-viet/cho-mang-thai-co-di-spa-duoc-khong/
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  exact_topic_image: true
+  image_alt: true
+  internal_service_links: true
+  call_zalo_booking_cta: true
+  related_articles: true
+claims_policy:
+  search_volume_claimed: false
+  keyword_difficulty_claimed: false
+  ranking_claimed: false
+  unverified_business_policy_claimed: false
+sources:
+  - id: VCA-GROOMING-2026-09-09
+    publisher: VCA Animal Hospitals
+    title: Grooming and Coat Care for Your Dog
+    purpose: dog-safe shampoo, warm-water grooming guidance
+  - id: PETMD-DOG-PREGNANCY-2026-09-09
+    publisher: PetMD
+    title: Dog Pregnancy - Signs Your Dog Is Pregnant and What You Can Do To Help
+    purpose: gestation and pregnancy care context
+  - id: PETMD-WHELPING-2026-09-09
+    publisher: PetMD
+    title: Whelping - A Guide To Help Your Dog Through Labor
+    purpose: late-pregnancy exposure and warning-sign context
+  - id: AKC-DOG-PREGNANCY-2026-09-09
+    publisher: American Kennel Club
+    title: Dog Pregnancy - Signs Care and Preparing for Puppies
+    purpose: late-pregnancy exercise and veterinary-care context
+image:
+  source: Pexels
+  asset: photo 19145895 - Groomer Washing Dog
+  license_page_verified_free_to_use: true
+  disclosure: image is illustrative; it is not presented as a Lumi Pet customer and the pictured dog is not claimed to be pregnant
+maps_updated:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+  - .website-os/evidence/image-production-plan.csv
+status: SOURCE_COMMITTED_AWAITING_QA
