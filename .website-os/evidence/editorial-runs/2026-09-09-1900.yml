@@ -1,0 +1,74 @@
+run_date: 2026-09-09
+slot: '19:00'
+timezone: Asia/Ho_Chi_Minh
+article_count_created: 1
+article_url: /bai-viet/meo-bi-gau-sau-khi-tam/
+primary_keyword: mèo bị gàu sau khi tắm
+priority_tier: P1
+cluster: CAT_CARE
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/meo-bi-gau-sau-khi-tam/
+selection_reason: >-
+  The remaining queued landmark Hotel candidate shares local-transactional intent already owned by the Hotel landing,
+  so no doorway URL was created. This feline post-bath dandruff query is a distinct P1 problem-solution and AEO job:
+  it focuses on visible flakes, feline bathing frequency, cat-safe products, drying, alternate causes and veterinary red flags.
+prewrite_checks:
+  keyword_universe: checked
+  url_ownership: checked
+  keyword_page_coverage: checked
+  content_calendar: checked
+  sitemap: checked
+  today_published_articles:
+    - /bai-viet/cho-mang-thai-co-di-spa-duoc-khong/
+    - /bai-viet/corgi-di-khach-san-can-chuan-bi-gi/
+cannibalization_check:
+  status: RESOLVED
+  nearest_owner: /bai-viet/cho-bi-gau-sau-khi-tam/
+  distinction: >-
+    The new page owns feline post-bath flakes and cat-specific bathing/grooming decisions. The dog page remains canine-specific;
+    cat dryer-fear remains behavior-focused and the long-haired-cat page remains matting-focused.
+content_requirements:
+  full_length_vietnamese: true
+  answer_first: true
+  toc: true
+  title_meta_hierarchy: true
+  canonical: https://lumipet.vn/bai-viet/meo-bi-gau-sau-khi-tam/
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  exact_topic_image: true
+  image_alt: true
+  internal_service_links: true
+  call_zalo_booking_cta: true
+  related_articles: true
+claims_policy:
+  search_volume_claimed: false
+  keyword_difficulty_claimed: false
+  ranking_claimed: false
+  unverified_business_policy_claimed: false
+sources:
+  - id: PETMD-CAT-BATH-2026-09-09
+    publisher: PetMD
+    title: How To Bathe a Cat
+    purpose: feline bathing frequency, cat-safe shampoo and drying guidance
+  - id: PETMD-CAT-DANDRUFF-2026-09-09
+    publisher: PetMD
+    title: Dandruff in Cats
+    purpose: causes, grooming limitations and veterinary red flags
+image:
+  source: Pexels
+  asset: photo 7224653 - Close-Up Shot of a Person Bathing a Gray Cat
+  license_page_verified_free_to_use: true
+  disclosure: image is illustrative and is not presented as a Lumi Pet customer
+maps_updated:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+  - .website-os/evidence/image-production-plan.csv
+status: SOURCE_STAGED_AWAITING_QA
