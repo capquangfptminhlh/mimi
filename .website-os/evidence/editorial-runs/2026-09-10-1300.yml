@@ -1,0 +1,58 @@
+date: 2026-09-10
+slot: "13:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: /bai-viet/pomeranian-di-khach-san-can-chuan-bi-gi/
+primary_keyword: "Pomeranian đi khách sạn cần chuẩn bị gì"
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/pomeranian-di-khach-san-can-chuan-bi-gi/
+prewrite:
+  keyword_universe: read
+  url_ownership_map: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  articles_published_today: read
+  published_today_before_run: 1
+selection:
+  reason: "Slot 13:00 prioritizes Pet Hotel and breed-specific topical authority. Core P0 local Hotel and booking intents already have canonical service/tool owners. Pomeranian preparation adds breed-specific handoff value around health, food, behavior and double-coat care without creating another local doorway."
+  rejected_candidate: "khách sạn thú cưng gần Võ Trường Toản"
+  rejected_reason: "Primary local-transactional Hotel intent is already owned by /khach-san-thu-cung-binh-thanh/; creating another landmark URL would risk cannibalization."
+cannibalization:
+  result: RESOLVED
+  notes: "Generic pre-stay checklist retains all-species preparation ownership. Poodle and Corgi articles retain their breed-specific owners. The new URL owns only Pomeranian-specific preparation and double-coat handoff intent."
+source_truth:
+  first_party:
+    - "Lumi Pet Hotel page: separate space per pet, AC 24/24, meals according to menu, daily interaction video."
+    - "Lumi Pet Hotel page: owner should disclose health status; shop may refuse unvaccinated pets; underlying disease must be disclosed."
+    - "Lumi Pet contact: 27 Võ Trường Toản, Bình Thạnh, TP.HCM; 0989 979 675; 07:00-21:00."
+  expert:
+    - id: AKC-POMERANIAN-COAT-2026-09-10
+      url: https://www.akc.org/expert-advice/dog-breeds/pomeranian-right-for-you/
+      claim: "Pomeranian has a profuse double coat requiring frequent brushing; professional grooming can help maintain it."
+    - id: AKC-DOUBLE-COAT-2026-09-10
+      url: https://www.akc.org/expert-advice/health/how-to-groom-a-double-coated-dog/
+      claim: "Regular brushing and careful double-coat maintenance are preferred; routine shaving solely for shedding/cooling is not recommended."
+  prohibited_claims: "No fabricated search volume, KD, CPC, ranking, traffic, vaccine list, mandatory timing window, or unverified Lumi Pet policy was added."
+image:
+  source_page: https://www.pexels.com/photo/a-pomeranian-standing-by-a-dog-bowl-indoors-8473442/
+  asset: https://images.pexels.com/photos/8473442/pexels-photo-8473442.jpeg?auto=compress&cs=tinysrgb&w=1400
+  license_note: "Pexels page states Free to use."
+  subject: "Pomeranian standing beside a food bowl indoors"
+  alt: "Chó Pomeranian đứng cạnh bát ăn trong nhà, minh họa việc giữ khẩu phần quen thuộc khi chuẩn bị đi Pet Hotel"
+  disclosure: "Illustrative stock image; not a Lumi Pet customer or facility image."
+updated:
+  - public/bai-viet/pomeranian-di-khach-san-can-chuan-bi-gi/index.html
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+  - .website-os/evidence/image-production-plan.csv
+status: SOURCE_COMMITTED
