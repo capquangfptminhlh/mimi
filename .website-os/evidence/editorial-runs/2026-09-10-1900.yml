@@ -1,0 +1,58 @@
+date: 2026-09-10
+slot: "19:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: /bai-viet/cho-lac-dau-sau-khi-tam/
+primary_keyword: "chó lắc đầu sau khi tắm"
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-lac-dau-sau-khi-tam/
+prewrite:
+  keyword_universe: read
+  url_ownership_map: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  articles_published_today: read
+  published_today_before_run: 2
+selection:
+  reason: "Slot 19:00 prioritizes problem/solution, local long-tail and AEO. Core P0/P1 local-money intents already have canonical service owners. This ear-specific post-bath question creates a distinct problem/solution search job without duplicating generic ear-cleaning or post-bath odor intent."
+  rejected_candidate: "khách sạn thú cưng gần Võ Trường Toản"
+  rejected_reason: "Primary local-transactional Hotel intent is already owned by /khach-san-thu-cung-binh-thanh/; creating another landmark URL would risk cannibalization and doorway-style duplication."
+cannibalization:
+  result: RESOLVED
+  notes: "New URL owns post-bath head-shaking triage and ear symptom escalation. /bai-viet/cach-ve-sinh-tai-cho-an-toan/ retains general ear-hygiene technique; /bai-viet/cho-van-hoi-sau-khi-tam/ retains post-bath odor troubleshooting; Spa landing retains local transactional ownership."
+source_truth:
+  expert:
+    - id: PETMD-DOG-HEAD-SHAKE-2026-09-10
+      url: https://www.petmd.com/dog/symptoms/dog-shaking-head
+      claim: "Occasional head shaking can expel water, while repeated or persistent shaking can indicate ongoing ear irritation; common causes include infection, allergies and foreign material."
+    - id: PETMD-DOG-EAR-CLEANING-2026-09-10
+      url: https://www.petmd.com/dog/general-health/how-to-keep-dog-ears-clean
+      claim: "Use veterinarian-approved dog ear cleaners when appropriate; avoid alcohol, hydrogen peroxide and essential oils; do not insert cotton swabs into the ear canal; stop home cleaning when the ear is painful, red or inflamed."
+    - id: PETMD-DOG-SHAKE-WATER-2026-09-10
+      url: https://www.petmd.com/dog/behavior/why-do-dogs-shake
+      claim: "Full-body shaking after a bath can be a normal drying behavior; localized head shaking may relate to ear discomfort."
+  prohibited_claims: "No fabricated search volume, KD, CPC, ranking, traffic metric, diagnosis, treatment promise, or unverified Lumi Pet health policy was added."
+image:
+  source_page: https://www.pexels.com/photo/wet-dog-getting-professional-grooming-19145882/
+  asset: https://images.pexels.com/photos/19145882/pexels-photo-19145882.jpeg?auto=compress&cs=tinysrgb&w=1400
+  license_note: "Pexels page states Free to use."
+  subject: "Wet dog receiving professional grooming"
+  alt: "Chó ướt đang được chăm sóc trong buổi grooming, minh họa tình huống cần giữ tai khô và theo dõi lắc đầu sau khi tắm"
+  disclosure: "Illustrative stock image; not a Lumi Pet customer or facility image."
+updated:
+  - public/bai-viet/cho-lac-dau-sau-khi-tam/index.html
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+  - .website-os/evidence/image-production-plan.csv
+  - .website-os/evidence/serp-evidence.csv
+status: SOURCE_PREPARED
