@@ -1,0 +1,50 @@
+date: 2026-09-10
+slot: "08:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: /bai-viet/go-roi-long-cho-gia-bao-nhieu/
+primary_keyword: "gỡ rối lông chó giá bao nhiêu"
+priority: P1
+cluster: GROOMING
+intent: COMMERCIAL
+secondary_intent: TRANSACTIONAL
+canonical_owner: /bai-viet/go-roi-long-cho-gia-bao-nhieu/
+prewrite:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  published_today_before_run: 0
+selection:
+  reason: "Slot 08:00 prioritizes price/booking/Grooming. Core local-money intents already have canonical service owners; this focused dematting-price intent is distinct from the informational when-to-dematt article and broad all-service pricing page."
+  rejected_candidate: "khách sạn thú cưng gần Võ Trường Toản"
+  rejected_reason: "Local Hotel transactional intent is already owned by the Hotel landing; no distinct first-party local value justified a doorway URL."
+cannibalization:
+  result: RESOLVED
+  notes: "New article owns commercial surcharge/pre-approval intent. /bai-viet/go-roi-long-cho-meo-khi-nao-can/ retains severity/timing/action intent; /bang-gia-spa-thu-cung/ retains broad pricing-table intent."
+source_truth:
+  - id: SRC-PRICE-DOG
+    fact: "Gỡ rối lông: phụ thu 50.000–500.000đ; nhân viên báo trước."
+serp:
+  evidence_id: SERP-DEMATTING-PRICE-2026-09-10
+  observed_at: 2026-09-10
+  note: "SERP checked qualitatively for dematting-price intent; no search volume, KD, rank, CPC or traffic metric recorded or claimed."
+image:
+  source: Pexels
+  source_page: "https://www.pexels.com/photo/close-up-photo-of-a-dog-being-groomed-6816850/"
+  asset: "https://images.pexels.com/photos/6816850/pexels-photo-6816850.jpeg?auto=compress&cs=tinysrgb&w=1400"
+  subject: "Dog being combed during professional grooming"
+  alt: "Chó lông dài đang được groomer chải lông tại salon, minh họa bước kiểm tra và gỡ rối trước grooming"
+  disclosure: "Illustrative image; not a Lumi Pet customer."
+updated:
+  - public/bai-viet/go-roi-long-cho-gia-bao-nhieu/index.html
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+status: SOURCE_COMMITTED
