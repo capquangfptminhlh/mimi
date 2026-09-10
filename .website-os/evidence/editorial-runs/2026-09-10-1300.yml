@@ -55,4 +55,5 @@ updated:
   - .website-os/evidence/project-scope-matrix.csv
   - .website-os/evidence/cannibalization-register.csv
   - .website-os/evidence/image-production-plan.csv
+  - .website-os/evidence/serp-evidence.csv
 status: SOURCE_COMMITTED
