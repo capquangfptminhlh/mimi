@@ -1,0 +1,39 @@
+date: 2026-09-11
+slot: "08:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: /bai-viet/cho-10kg-di-spa-gia-bao-nhieu/
+primary_keyword: "chó 10kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL
+secondary_intent: TRANSACTIONAL
+canonical_owner: /bai-viet/cho-10kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Core P0 local Spa, pricing and booking intents already have canonical service/pricing/booking owners.
+  The remaining queued landmark Hotel candidate overlaps the Hotel landing. This fixed-weight 10kg price
+  scenario is a distinct conversion-support job using verified first-party 9–12kg price tiers.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: checked
+  keyword_page_coverage: checked
+  content_calendar: read
+  sitemap: checked
+  published_today: none_before_this_run
+cannibalization_check:
+  status: RESOLVED
+  note: >-
+    Generic Spa pricing remains owned by /bang-gia-spa-thu-cung/. The new article answers only the
+    fixed-weight 10kg scenario and links back to the canonical pricing/service pages.
+verified_business_facts:
+  source: AGENTS.md + current first-party pricing implementation
+  dog_9_12kg:
+    tam_ve_sinh: 270000
+    tam_cao: 360000
+    tam_cat_tia: 450000
+claims_not_made:
+  - search volume
+  - keyword difficulty
+  - ranking
+  - unverified availability
+status: SOURCE_COMMITTED
+sync_status: PENDING_AGGREGATE_MAP_SYNC
