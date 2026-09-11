@@ -1,0 +1,44 @@
+run_date: 2026-09-11
+slot: '19:00'
+article_url: /bai-viet/cho-do-mat-sau-khi-tam/
+primary_keyword: chó đỏ mắt sau khi tắm
+priority: P1
+cluster: DOG_CARE
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-do-mat-sau-khi-tam/
+selection_reason: >-
+  Slot 19:00 prioritizes problem/solution and AEO. Two earlier 2026-09-11 articles already cover a fixed-weight Spa price scenario and breed-specific Hotel preparation. The queued Võ Trường Toản Hotel candidate remains mapped to the Hotel landing because its local transactional intent overlaps the existing canonical service owner. This article owns a distinct eye-specific post-bath problem-solution intent and does not replace post-bath itching, dandruff, head-shaking or generic Spa ownership.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: checked_for_known_gap
+  published_today:
+    - /bai-viet/cho-10kg-di-spa-gia-bao-nhieu/
+    - /bai-viet/shih-tzu-di-khach-san-can-chuan-bi-gi/
+source_evidence:
+  - id: PETMD-RED-EYES-2026-09-11
+    url: https://www.petmd.com/dog/symptoms/red-eyes-in-dogs
+    use: red-eye causes, warning signs and need for veterinary assessment
+  - id: PETMD-CONJUNCTIVITIS-2026-09-11
+    url: https://www.petmd.com/dog/condition/eyes/conjunctivitis-in-dogs
+    use: current veterinary overview of conjunctivitis signs and causes
+  - id: PEXELS-DOG-BATH-6131165
+    url: https://www.pexels.com/photo/close-up-photo-of-bathing-of-dog-6131165/
+    use: topic-matched free-to-use illustration; not represented as a Lumi Pet customer
+claims_policy:
+  search_volume: not_claimed
+  keyword_difficulty: not_claimed
+  ranking: not_claimed
+  unverified_business_facts: not_claimed
+maps_status:
+  content_calendar: updated_day_63
+  keyword_universe: pending_safe_aggregate_sync
+  keyword_page_coverage: pending_safe_aggregate_sync
+  url_ownership: pending_safe_aggregate_sync
+  sitemap: pending_safe_aggregate_sync
+  knowledge_hub: pending_safe_aggregate_sync
+qa_status: pending_ci
+release_status: RELEASE_UNOBSERVED
