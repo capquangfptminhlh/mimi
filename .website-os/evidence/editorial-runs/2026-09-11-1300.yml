@@ -1,0 +1,38 @@
+date: 2026-09-11
+slot: "13:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: /bai-viet/shih-tzu-di-khach-san-can-chuan-bi-gi/
+primary_keyword: "Shih Tzu đi khách sạn cần chuẩn bị gì"
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL_COMMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/shih-tzu-di-khach-san-can-chuan-bi-gi/
+selection_reason: "13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Candidate local Hotel gần Võ Trường Toản tiếp tục không tạo URL riêng vì primary local-transactional intent đã thuộc landing Hotel. Shih Tzu có intent breed-specific khác checklist Hotel chung, Poodle, Corgi và Pomeranian."
+same_day_review:
+  - /bai-viet/cho-10kg-di-spa-gia-bao-nhieu/
+source_checks:
+  - "First-party Hotel page: health disclosure, vaccination condition, private space, air conditioning 24/24, meal menu, daily interaction video."
+  - "AKC Shih Tzu breed/grooming guidance: long coat, regular/daily brushing, facial hair/eye-area maintenance, companion temperament."
+  - "Pexels photo 20167768: Shih Tzu indoors; free to use; illustration only, not Lumi Pet customer."
+anti_cannibalization:
+  local_hotel_candidate: /bai-viet/khach-san-thu-cung-gan-vo-truong-toan/
+  decision: DO_NOT_CREATE_LOCAL_DOORWAY
+  owner: /khach-san-thu-cung-binh-thanh/
+  status: RESOLVED
+claims_policy:
+  search_volume: NOT_CLAIMED
+  keyword_difficulty: NOT_CLAIMED
+  ranking: NOT_CLAIMED
+  unverified_business_facts: NOT_CLAIMED
+publication:
+  article_created: true
+  exact_new_article_count: 1
+  content_calendar_synced: true
+  sitemap_synced: false
+  keyword_maps_synced: false
+  url_ownership_synced: false
+  reason_pending: "GitHub contents connector exposes large aggregate files as truncated single-line payloads; replacing them without complete content would risk destructive overwrite."
+qa:
+  local_gate_run: NOT_AVAILABLE_IN_CONNECTOR
+  workflow_status: PENDING_OBSERVATION
+release_status: SOURCE_COMMITTED_RELEASE_UNOBSERVED
