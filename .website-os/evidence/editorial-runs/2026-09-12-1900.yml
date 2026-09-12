@@ -1,0 +1,53 @@
+run_date: 2026-09-12
+slot: '19:00'
+article_url: /bai-viet/cho-hat-hoi-sau-khi-tam/
+primary_keyword: chó hắt hơi sau khi tắm
+priority: P1
+cluster: DOG_CARE
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-hat-hoi-sau-khi-tam/
+selection_reason: >-
+  Slot 19:00 prioritizes problem/solution and AEO. The two earlier articles today cover a fixed-weight Spa price scenario and French Bulldog Hotel preparation. The queued Võ Trường Toản Hotel candidate remains mapped to the Hotel landing because its local transactional intent overlaps the existing service owner. This article owns a distinct nasal/respiratory post-bath problem-solution intent and does not replace red-eye, itching, dandruff, shivering, head-shaking or generic Spa ownership.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  today_published_articles:
+    - /bai-viet/cho-15kg-di-spa-gia-bao-nhieu/
+    - /bai-viet/french-bulldog-di-khach-san-can-chuan-bi-gi/
+cannibalization_check:
+  status: RESOLVED
+  nearest_owners:
+    - /bai-viet/cho-do-mat-sau-khi-tam/
+    - /bai-viet/cho-lac-dau-sau-khi-tam/
+    - /bai-viet/cho-bi-ngua-sau-khi-tam/
+    - /bai-viet/cho-run-sau-khi-tam/
+  distinction: nasal sneezing and respiratory warning-sign intent after bathing.
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+sources:
+  - https://www.petmd.com/dog/general-health/reverse-sneezing-in-dogs
+  - https://www.petmd.com/dog/symptoms/why-my-dog-sneezing-a-lot
+  - https://www.petmd.com/dog/symptom/rhinitis-sinus-infections-in-dogs
+  - https://www.akc.org/expert-advice/health/why-do-dogs-sneeze/
+image:
+  source: Pexels
+  page: https://www.pexels.com/photo/a-dog-being-groomed-6131165/
+  exact_topic: dog being bathed/groomed; illustrative context for avoiding water/product near nose
+files_expected_to_sync:
+  - public/bai-viet/cho-hat-hoi-sau-khi-tam/index.html
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+status: SOURCE_COMMITTED
