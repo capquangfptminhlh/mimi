@@ -1,0 +1,52 @@
+run_date: 2026-09-12
+slot: '13:00'
+article_url: /bai-viet/french-bulldog-di-khach-san-can-chuan-bi-gi/
+primary_keyword: French Bulldog đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/french-bulldog-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 13:00 prioritizes Pet Hotel, breed-specific and topical authority. The 08:00 article today owns a fixed-weight Spa price scenario. Core P0 Hotel transactional intent remains owned by the Hotel landing, and the queued Võ Trường Toản candidate overlaps that owner. This French Bulldog article owns a distinct breed-specific preparation job focused on brachycephalic breathing/heat considerations, feeding, behavior and boarding handoff.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  today_published_articles:
+    - /bai-viet/cho-15kg-di-spa-gia-bao-nhieu/
+cannibalization_check:
+  status: RESOLVED
+  nearest_owners:
+    - /bai-viet/chuan-bi-truoc-khi-gui-cho-meo-khach-san-thu-cung/
+    - /bai-viet/corgi-di-khach-san-can-chuan-bi-gi/
+    - /bai-viet/pomeranian-di-khach-san-can-chuan-bi-gi/
+    - /bai-viet/shih-tzu-di-khach-san-can-chuan-bi-gi/
+  distinction: French Bulldog-specific breathing, heat tolerance, exercise and boarding handoff intent.
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+sources:
+  - https://www.akc.org/expert-advice/dog-breeds/french-bulldog-right-for-you/
+  - https://www.akc.org/expert-advice/health/why-do-dogs-pant/
+  - https://www.akc.org/expert-advice/travel/dog-boarding-tips/
+image:
+  source: Pexels
+  page: https://www.pexels.com/photo/close-up-shot-of-a-french-bulldog-9826799/
+  license_observed: Free to use
+  exact_topic: French Bulldog resting indoors
+files_expected_to_sync:
+  - public/bai-viet/french-bulldog-di-khach-san-can-chuan-bi-gi/index.html
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+status: SOURCE_COMMITTED
