@@ -1,0 +1,69 @@
+run_id: 2026-09-12-0800
+slot: "08:00"
+date: 2026-09-12
+timezone: Asia/Ho_Chi_Minh
+article_count_this_run: 1
+published_before_run_today: 0
+selected:
+  keyword: "chó 15kg đi Spa giá bao nhiêu"
+  priority: P1
+  cluster: SPA
+  primary_intent: COMMERCIAL
+  secondary_intent: TRANSACTIONAL
+  url: /bai-viet/cho-15kg-di-spa-gia-bao-nhieu/
+  canonical_owner: /bai-viet/cho-15kg-di-spa-gia-bao-nhieu/
+selection_rationale: >-
+  Slot 08:00 prioritizes pricing and booking support. Core P0 local Spa and broad pricing intents
+  already have canonical owners. The queued Võ Trường Toản Hotel candidate overlaps the Hotel
+  local-transactional landing and is not promoted to a new URL. The 15kg fixed-weight pricing
+  scenario is a distinct conversion-support job backed by the verified 12–18kg first-party tier.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  today_articles: "none before this run"
+  prior_day_articles:
+    - /bai-viet/cho-10kg-di-spa-gia-bao-nhieu/
+    - /bai-viet/shih-tzu-di-khach-san-can-chuan-bi-gi/
+    - /bai-viet/cho-do-mat-sau-khi-tam/
+source_truth:
+  - id: SRC-PRICE-DOG
+    fact: "Dog Spa 12–18kg: tắm vệ sinh 350.000đ; tắm + cạo 460.000đ; tắm + cắt tỉa 550.000đ."
+  - id: GOVERNANCE-NO-FABRICATION
+    fact: "No search volume, KD, ranking, review, availability or unverified business fact is claimed."
+intent_boundary:
+  broad_price_owner: /bang-gia-spa-thu-cung/
+  fixed_weight_owner: /bai-viet/cho-15kg-di-spa-gia-bao-nhieu/
+  notes: >-
+    Broad all-weight pricing remains with the pricing landing. This article owns the 15kg scenario,
+    package-selection explanation and booking preparation only.
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical_lumipet_vn: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  relevant_image_and_alt: true
+  internal_service_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+maps_updated:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/editorial-runs/2026-09-12-0800.yml
+backlog_repaired:
+  - "Knowledge Hub now includes day 61-63 articles."
+  - "Sitemap now includes day 61-63 articles."
+  - "Coverage, ownership and scope maps now include day 61-63 articles."
+qa_status: PENDING_CI
+deploy_status: RELEASE_UNOBSERVED
