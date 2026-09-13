@@ -1,0 +1,64 @@
+run_date: 2026-09-13
+slot: "08:00"
+timezone: Asia/Ho_Chi_Minh
+article_count_before_run_today: 0
+article_count_created_this_run: 1
+selection:
+  primary_keyword: "chó 8kg đi Spa giá bao nhiêu"
+  priority: P1
+  cluster: SPA
+  primary_intent: COMMERCIAL
+  secondary_intent: TRANSACTIONAL
+  url: /bai-viet/cho-8kg-di-spa-gia-bao-nhieu/
+  canonical_owner: /bai-viet/cho-8kg-di-spa-gia-bao-nhieu/
+prewrite_checks:
+  keyword_universe: read
+  url_ownership_map: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  articles_published_today: read
+cannibalization:
+  status: RESOLVED
+  rationale: "Generic all-weight Spa pricing remains owned by /bang-gia-spa-thu-cung/. Existing 5kg, 10kg and 15kg articles retain their fixed-weight scenarios. The new 8kg page answers the distinct 6–9kg fixed-weight price and package-choice scenario."
+business_truth:
+  source: SRC-PRICE-DOG
+  weight_band: "6–9kg"
+  bath_hygiene: "220.000đ"
+  bath_shave: "300.000đ"
+  bath_trim: "380.000đ"
+  fabricated_search_metrics: false
+content_requirements:
+  answer_first: true
+  title_meta_h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+sync:
+  knowledge_hub: updated
+  sitemap: updated
+  content_calendar: updated
+  url_ownership_map: updated
+  keyword_page_coverage: updated
+  keyword_intent_map: updated
+  project_scope_matrix: updated
+  keyword_universe: "read; legacy aggregate remains stale after day 60 because connector cannot safely append without complete replacement payload"
+  prior_backlog_reconciled:
+    - /bai-viet/french-bulldog-di-khach-san-can-chuan-bi-gi/
+    - /bai-viet/cho-hat-hoi-sau-khi-tam/
+qa:
+  local_lint: not_available_in_connector_runtime
+  local_build: not_available_in_connector_runtime
+  github_actions_exact_sha: pending
+release:
+  source_committed: true
+  production_release_observed: false
+notes:
+  - "Do not claim search volume, KD, rank or traffic metrics."
+  - "Do not claim public production LIVE until the exact final SHA is observed in production deployment evidence."
