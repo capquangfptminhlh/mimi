@@ -67,3 +67,4 @@ day,slug,primary_keyword,intent,cluster,target_page,status
 66,cho-hat-hoi-sau-khi-tam,chó hắt hơi sau khi tắm,informational_commercial_research,dog_care,/bai-viet/cho-hat-hoi-sau-khi-tam/,PUBLISHED
 67,cho-8kg-di-spa-gia-bao-nhieu,chó 8kg đi Spa giá bao nhiêu,commercial_transactional,spa,/bai-viet/cho-8kg-di-spa-gia-bao-nhieu/,PUBLISHED
 68,golden-retriever-di-khach-san-can-chuan-bi-gi,Golden Retriever đi khách sạn cần chuẩn bị gì,informational_commercial_research,hotel,/bai-viet/golden-retriever-di-khach-san-can-chuan-bi-gi/,PUBLISHED
+69,cho-so-cat-mong-khi-grooming,chó sợ cắt móng khi grooming,informational_commercial_research,behavior,/bai-viet/cho-so-cat-mong-khi-grooming/,PUBLISHED
