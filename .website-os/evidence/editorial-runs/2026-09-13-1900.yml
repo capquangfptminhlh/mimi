@@ -1,0 +1,64 @@
+run_date: 2026-09-13
+slot: "19:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: /bai-viet/cho-so-cat-mong-khi-grooming/
+primary_keyword: chó sợ cắt móng khi grooming
+priority: P1
+cluster: BEHAVIOR
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-so-cat-mong-khi-grooming/
+selection_reason: >-
+  Slot 19:00 prioritizes problem/solution and AEO. The two earlier 2026-09-13 articles already cover
+  a fixed-weight Spa price scenario and breed-specific Pet Hotel preparation. The remaining queued
+  Võ Trường Toản Hotel candidate overlaps the Hotel landing's local transactional intent, so no doorway
+  URL was created. Nail-trim fear is a distinct behavior/cooperative-care job from the existing article
+  about when a dog's nails need trimming and from the existing dryer-fear article.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  same_day_articles:
+    - /bai-viet/cho-8kg-di-spa-gia-bao-nhieu/
+    - /bai-viet/golden-retriever-di-khach-san-can-chuan-bi-gi/
+source_evidence:
+  - id: VCA-NAIL-STRESS-2025
+    url: https://vcahospitals.com/westlake-village/know-your-pet/taking-the-stress-out-of-nail-trimming-for-dogs
+    use: fear signs; gradual handling; avoid forcing fearful dogs; seek professional help for severe fear
+  - id: VCA-DESENSITIZATION-2023
+    url: https://vcahospitals.com/chancellor/know-your-pet/introduction-to-desensitization-and-counterconditioning
+    use: gradual exposure paired with preferred rewards
+  - id: AKC-NAIL-CARE
+    url: https://www.akc.org/expert-advice/family-dog/dog-nail-care-routine/
+    use: tool options and trust-building approach
+image_evidence:
+  provider: Pexels
+  page: https://www.pexels.com/photo/dog-groomer-trimming-dogs-nails-19145872/
+  asset: https://images.pexels.com/photos/19145872/pexels-photo-19145872.jpeg
+  license_note: Pexels page states Free to use
+  topic_match: close-up dog paw nail trimming by groomer
+content_requirements:
+  answer_first: true
+  canonical: https://lumipet.vn/bai-viet/cho-so-cat-mong-khi-grooming/
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  exact_topic_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  no_claimed_search_volume_or_kd: true
+files_expected:
+  - public/bai-viet/cho-so-cat-mong-khi-grooming/index.html
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+status: SOURCE_COMMITTED_QA_PENDING
