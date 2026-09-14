@@ -1,0 +1,41 @@
+run_date: 2026-09-14
+slot: '19:00'
+article_url: https://lumipet.vn/bai-viet/cho-non-sau-khi-di-spa/
+primary_keyword: chó nôn sau khi đi Spa
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_COMMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-non-sau-khi-di-spa/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Intent nôn sau Spa khác bài chó mệt sau Spa và các bài triệu chứng sau tắm; repository search không có canonical owner riêng cho query này. Candidate local Hotel gần Võ Trường Toản vẫn giữ QUEUED vì primary local transactional intent thuộc Hotel landing.
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/cho-hat-hoi-sau-khi-tam/index.html
+same_day_articles_checked:
+  - /bai-viet/cho-7kg-di-spa-gia-bao-nhieu/
+  - /bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/
+medical_evidence:
+  - https://www.petmd.com/dog/symptoms/vomiting-in-dogs
+  - https://www.petmd.com/dog/symptoms/dog-regurgitation
+claims_policy: >-
+  Không quy kết Spa là nguyên nhân gây nôn. Không bịa search volume, KD, ranking hoặc dữ kiện doanh nghiệp. Nội dung y khoa dùng ngôn ngữ thận trọng và chỉ dẫn escalation thú y.
+article_features:
+  - answer-first
+  - title/meta description
+  - H1/H2/H3
+  - table of contents
+  - canonical
+  - Article schema
+  - BreadcrumbList schema
+  - FAQPage schema
+  - topic-matched grooming image and alt text
+  - internal service links
+  - Call/Zalo/booking CTA
+  - related articles
+aggregate_sync_status: PENDING
+qa_status: PENDING
+release_status: UNOBSERVED
