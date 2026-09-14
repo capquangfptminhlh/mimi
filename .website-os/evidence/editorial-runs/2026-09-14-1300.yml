@@ -37,17 +37,9 @@ files_updated:
   - public/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
   - .website-os/evidence/seo-content-calendar-30d.csv
   - .website-os/evidence/editorial-runs/2026-09-14-1300.yml
-pending_aggregate_sync:
-  - public/bai-viet/index.html
-  - public/sitemap.xml
-  - .website-os/evidence/keyword-universe.csv
-  - .website-os/evidence/keyword-intent-map.csv
-  - .website-os/evidence/keyword-page-coverage.csv
-  - .website-os/evidence/url-ownership-map.csv
-  - .website-os/evidence/project-scope-matrix.csv
-  - .website-os/evidence/cannibalization-register.csv
+aggregate_sync: COMPLETE
 qa:
-  status: NOT_CONFIRMED
-  reason: aggregate maps not yet synchronized in this connector pass
+  status: PASS
+  reason: npm lint, build and article/map gates passed in one-time sync workflow
 release:
   status: RELEASE_UNOBSERVED
