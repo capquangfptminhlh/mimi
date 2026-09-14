@@ -1,0 +1,38 @@
+run_date: 2026-09-14
+slot: "08:00"
+article_url: /bai-viet/cho-7kg-di-spa-gia-bao-nhieu/
+primary_keyword: "chó 7kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-7kg-di-spa-gia-bao-nhieu/
+selection_notes:
+  - "08:00 ưu tiên price/booking/Spa; fixed-weight 7kg là intent scenario riêng, không thay thế broad pricing owner."
+  - "Broad bảng giá remains owned by /bang-gia-spa-thu-cung/."
+  - "Candidate khách sạn thú cưng gần Võ Trường Toản vẫn không tạo URL mới vì local transactional intent thuộc Hotel landing."
+verified_first_party_facts:
+  - "7kg thuộc nhóm 6–9kg."
+  - "Tắm vệ sinh: 220.000đ."
+  - "Tắm + cạo: 300.000đ."
+  - "Tắm + cắt tỉa: 380.000đ."
+  - "Gỡ rối: 50.000–500.000đ; tạo kiểu đặc biệt: 50.000–100.000đ; sữa tắm chuyên dụng: 50.000–100.000đ; bé dữ/khó hợp tác: 50.000–100.000đ khi áp dụng."
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/bai-viet/index.html
+  - public/bang-gia-spa-thu-cung/index.html
+  - public/sitemap.xml
+published_files:
+  - public/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/index.html
+pending_aggregate_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+status: SOURCE_COMMITTED_AGGREGATE_SYNC_PENDING
