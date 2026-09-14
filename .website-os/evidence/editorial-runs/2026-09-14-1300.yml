@@ -1,0 +1,53 @@
+run_date: 2026-09-14
+slot: '13:00'
+article:
+  slug: labrador-retriever-di-khach-san-can-chuan-bi-gi
+  url: https://lumipet.vn/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/
+  primary_keyword: Labrador Retriever đi khách sạn cần chuẩn bị gì
+  priority: P1
+  cluster: HOTEL
+  intent: INFORMATIONAL_COMMMERCIAL_RESEARCH
+  canonical_owner: /bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/
+selection:
+  slot_policy: Pet Hotel / breed-specific / topical authority
+  local_candidate_held: /bai-viet/khach-san-thu-cung-gan-vo-truong-toan/
+  hold_reason: same local transactional intent family as /khach-san-thu-cung-binh-thanh/; no new local URL created
+  overlap_checked:
+    - Poodle đi khách sạn cần chuẩn bị gì
+    - Corgi đi khách sạn cần chuẩn bị gì
+    - Pomeranian đi khách sạn cần chuẩn bị gì
+    - Shih Tzu đi khách sạn cần chuẩn bị gì
+    - French Bulldog đi khách sạn cần chuẩn bị gì
+    - Golden Retriever đi khách sạn cần chuẩn bị gì
+facts:
+  first_party_hotel_page: public/khach-san-thu-cung-binh-thanh/index.html
+  verified_claims:
+    - Lumi Pet requires health disclosure before boarding
+    - unvaccinated pets may be refused
+    - underlying conditions require prior discussion
+    - private space per pet, air conditioning 24/24, menu meals, daily interaction video
+    - pets over 15kg require shop quote
+  external_sources:
+    - https://www.akc.org/expert-advice/dog-breeds/labrador-retriever-right-for-you/
+    - https://www.akc.org/expert-advice/health/how-to-groom-a-labrador-retriever/
+  image:
+    source: https://www.pexels.com/photo/calm-labrador-retriever-in-indoor-setting-36679054/
+    license_page_observation: Free to use
+files_updated:
+  - public/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/editorial-runs/2026-09-14-1300.yml
+pending_aggregate_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+qa:
+  status: NOT_CONFIRMED
+  reason: aggregate maps not yet synchronized in this connector pass
+release:
+  status: RELEASE_UNOBSERVED
