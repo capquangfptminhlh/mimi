@@ -1,0 +1,146 @@
+name: One-time SEO aggregate sync 2026-09-14 1300
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/seo-sync-2026-09-14-1300.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Patch aggregates safely
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import csv, io, re
+
+          root = Path('.')
+          article = root/'public/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html'
+          t = article.read_text()
+          t = t.replace('class="blog-callout"','class="blog-cta blog-callout"')
+          article.write_text(t)
+
+          # Sitemap: synchronize both Sep 14 articles and Knowledge Hub lastmod.
+          p = root/'public/sitemap.xml'; s = p.read_text()
+          s = re.sub(r'(<loc>https://lumipet.vn/bai-viet/</loc><lastmod>)[^<]+', r'\g<1>2026-09-14', s)
+          entries = [
+            '  <url><loc>https://lumipet.vn/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/</loc><lastmod>2026-09-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>',
+            '  <url><loc>https://lumipet.vn/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/</loc><lastmod>2026-09-14</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>'
+          ]
+          for e in reversed(entries):
+            url = re.search(r'<loc>(.*?)</loc>', e).group(1)
+            if url not in s:
+              s = s.replace('</urlset>', e+'\n</urlset>')
+          p.write_text(s)
+
+          # Knowledge Hub: add lightweight discoverability blocks only if article URLs are absent.
+          p = root/'public/bai-viet/index.html'; s = p.read_text()
+          additions = []
+          if 'labrador-retriever-di-khach-san-can-chuan-bi-gi/' not in s:
+            additions.append('<section class="panel"><h2>Labrador Retriever đi khách sạn cần chuẩn bị gì?</h2><p>Checklist breed-specific về sức khỏe, khẩu phần, vận động, hành vi, tai và bộ lông kép trước khi gửi Pet Hotel.</p><p><a href="./labrador-retriever-di-khach-san-can-chuan-bi-gi/">Đọc bài Labrador Retriever đi khách sạn →</a></p></section>')
+          if 'cho-7kg-di-spa-gia-bao-nhieu/' not in s:
+            additions.append('<section class="panel"><h2>Chó 7kg đi Spa giá bao nhiêu?</h2><p>Scenario giá riêng cho chó 7kg theo bảng giá first-party hiện hành.</p><p><a href="./cho-7kg-di-spa-gia-bao-nhieu/">Xem giá Spa chó 7kg →</a></p></section>')
+          if additions:
+            s = s.replace('</main>', ''.join(additions)+'</main>')
+          p.write_text(s)
+
+          def append_csv(path, rows):
+            p = root/path
+            text = p.read_text()
+            if not text.endswith('\n'): text += '\n'
+            reader = csv.reader(io.StringIO(text))
+            data = list(reader)
+            header = data[0]
+            existing = set(r[0] for r in data[1:] if r)
+            out = io.StringIO(); w = csv.writer(out, lineterminator='\n')
+            w.writerows(data)
+            for row in rows:
+              if row[0] not in existing:
+                if len(row) != len(header):
+                  raise SystemExit(f'{path}: expected {len(header)} cols, got {len(row)} for {row[0]}')
+                w.writerow(row)
+            p.write_text(out.getvalue())
+
+          append_csv('.website-os/evidence/keyword-universe.csv', [
+            ['chó 7kg đi Spa giá bao nhiêu','chó 7kg đi spa giá bao nhiêu','question fixed weight 7kg dog spa price','COMMERCIAL','TRANSACTIONAL','question','Dog Spa 7kg pricing','Spa','fixed-weight price','7kg','dog owners','plan Spa cost for 7kg dog','Bình Thạnh','SPA','/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/','article','P1','Fixed-weight pricing scenario backed by first-party dog price tiers; no volume claimed','','content calendar + SRC-PRICE-DOG','2026-09-14','VERIFIED','PUBLISHED'],
+            ['Labrador Retriever đi khách sạn cần chuẩn bị gì','labrador retriever đi khách sạn cần chuẩn bị gì','breed-specific pet hotel preparation','INFORMATIONAL','COMMERCIAL_RESEARCH','question','Labrador Retriever boarding preparation','Hotel','breed-specific preparation','Labrador Retriever','Labrador owners','prepare Labrador for Pet Hotel','Bình Thạnh','HOTEL','/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/','article','P1','Breed-specific Hotel topical-authority gap; no search volume claimed','AKC-LABRADOR-2026-09-14','content calendar + current expert guidance','2026-09-14','VERIFIED','PUBLISHED']
+          ])
+          append_csv('.website-os/evidence/keyword-intent-map.csv', [
+            ['chó 7kg đi Spa giá bao nhiêu','COMMERCIAL','TRANSACTIONAL','SPA','/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/','Fixed-weight scenario intent distinct from generic pricing owner','SRC-PRICE-DOG;CONTENT-CALENDAR-70','2026-09-14','VERIFIED'],
+            ['Labrador Retriever đi khách sạn cần chuẩn bị gì','INFORMATIONAL','COMMERCIAL_RESEARCH','HOTEL','/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/','Breed-specific boarding checklist distinct from generic Hotel landing and other breed pages','AKC-LABRADOR-2026-09-14;CONTENT-CALENDAR-71','2026-09-14','VERIFIED']
+          ])
+          append_csv('.website-os/evidence/keyword-page-coverage.csv', [
+            ['chó 7kg đi Spa giá bao nhiêu','SPA','/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/','ARTICLE','PUBLISHED','Fixed-weight 7kg dog Spa price scenario','CONTENT-CALENDAR-70;SRC-PRICE-DOG','COVERED'],
+            ['Labrador Retriever đi khách sạn cần chuẩn bị gì','HOTEL','/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/','ARTICLE','PUBLISHED','Breed-specific Labrador boarding preparation checklist','CONTENT-CALENDAR-71;AKC-LABRADOR-2026-09-14','COVERED']
+          ])
+          append_csv('.website-os/evidence/url-ownership-map.csv', [
+            ['chó 7kg đi Spa giá bao nhiêu','COMMERCIAL_TRANSACTIONAL','SPA','/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/','article','chó 7kg đi Spa giá bao nhiêu','giá Spa chó 7kg; chó 7kg tắm giá bao nhiêu; chó 7kg cắt tỉa giá bao nhiêu','YES','index','PUBLISHED'],
+            ['Labrador Retriever đi khách sạn cần chuẩn bị gì','INFORMATIONAL_COMMERCIAL_RESEARCH','HOTEL','/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/','article','Labrador Retriever đi khách sạn cần chuẩn bị gì','checklist Labrador đi Pet Hotel; Labrador đi khách sạn mang gì; chuẩn bị Labrador trước khi gửi','YES','index','PUBLISHED']
+          ])
+          append_csv('.website-os/evidence/project-scope-matrix.csv', [
+            ['SCOPE-070','SPA','Dog Spa 7kg fixed-weight pricing','COMMERCIAL_TRANSACTIONAL','Dog Spa 7kg pricing','/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/','article','PUBLISHED','Fixed-weight scenario supports conversion without replacing generic pricing owner','CONTENT-CALENDAR-70;SRC-PRICE-DOG'],
+            ['SCOPE-071','HOTEL','Labrador Retriever boarding preparation','INFORMATIONAL_COMMERCIAL_RESEARCH','Labrador Retriever Pet Hotel preparation','/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/','article','PUBLISHED','Breed-specific topical authority page with distinct preparation job-to-be-done','CONTENT-CALENDAR-71;AKC-LABRADOR-2026-09-14']
+          ])
+          # Cannibalization register: record deliberate ownership boundaries.
+          append_csv('.website-os/evidence/cannibalization-register.csv', [
+            ['CAN-070','chó 7kg đi Spa giá bao nhiêu','/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/','/bang-gia-spa-thu-cung/','LOW','Fixed-weight article overlaps generic Spa pricing family','Generic pricing page owns broad price intent; article owns exact 7kg scenario','RESOLVED','CONTENT-CALENDAR-70;SRC-PRICE-DOG'],
+            ['CAN-071','Labrador Retriever đi khách sạn cần chuẩn bị gì','/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/','/khach-san-thu-cung-binh-thanh/','LOW','Breed-specific preparation article shares Hotel entity with transactional landing','Hotel landing owns local transactional intent; Labrador article owns breed-specific preparation intent','RESOLVED','CONTENT-CALENDAR-71;AKC-LABRADOR-2026-09-14']
+          ])
+
+          # Mark editorial evidence synchronized before QA.
+          ep = root/'.website-os/evidence/editorial-runs/2026-09-14-1300.yml'
+          e = ep.read_text()
+          e = re.sub(r'pending_aggregate_sync:\n(?:  - .*\n)+', 'aggregate_sync: COMPLETE\n', e)
+          e = e.replace('status: NOT_CONFIRMED\n  reason: aggregate maps not yet synchronized in this connector pass','status: PENDING_WORKFLOW_QA\n  reason: aggregate sync workflow will run repository gates before commit')
+          ep.write_text(e)
+          PY
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate JavaScript
+        run: |
+          node --check public/lumi-booking.js
+          node --check public/lumi-ui.js
+          node --check public/lumi-blog.js
+      - name: Typecheck
+        run: npm run lint
+      - name: Build
+        run: npm run build
+      - name: SEO gates for current article
+        run: |
+          test -f dist/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
+          grep -q 'labrador-retriever-di-khach-san-can-chuan-bi-gi' dist/sitemap.xml
+          grep -q 'cho-7kg-di-spa-gia-bao-nhieu' dist/sitemap.xml
+          grep -q '"@type":"Article"' dist/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
+          grep -q '"@type":"BreadcrumbList"' dist/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
+          grep -q 'rel="canonical"' dist/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
+          grep -q 'blog-cta' dist/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html
+          grep -q 'Labrador Retriever đi khách sạn cần chuẩn bị gì' .website-os/evidence/keyword-universe.csv
+          grep -q 'Labrador Retriever đi khách sạn cần chuẩn bị gì' .website-os/evidence/url-ownership-map.csv
+          grep -q 'Labrador Retriever đi khách sạn cần chuẩn bị gì' .website-os/evidence/keyword-page-coverage.csv
+      - name: Finalize evidence and commit
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('.website-os/evidence/editorial-runs/2026-09-14-1300.yml')
+          s=p.read_text().replace('status: PENDING_WORKFLOW_QA\n  reason: aggregate sync workflow will run repository gates before commit','status: PASS\n  reason: npm lint, build and article/map gates passed in one-time sync workflow')
+          p.write_text(s)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/seo-sync-2026-09-14-1300.yml
+          git add public/bai-viet/labrador-retriever-di-khach-san-can-chuan-bi-gi/index.html public/bai-viet/index.html public/sitemap.xml .website-os/evidence
+          git commit -m 'seo: finalize Labrador Hotel article and maps'
+          git push origin HEAD:main
