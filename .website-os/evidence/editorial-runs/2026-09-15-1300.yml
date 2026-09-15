@@ -1,0 +1,30 @@
+run_date: 2026-09-15
+slot: "13:00"
+article_url: /bai-viet/beagle-di-khach-san-can-chuan-bi-gi/
+primary_keyword: "Beagle đi khách sạn cần chuẩn bị gì"
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL + COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/beagle-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository search không thấy canonical owner riêng cho query Beagle. Intent là checklist riêng theo giống, khác checklist Hotel chung và khác các bài Poodle, Corgi, Pomeranian, Shih Tzu, French Bulldog, Golden Retriever và Labrador Retriever. Candidate local Hotel gần Võ Trường Toản tiếp tục không tạo URL riêng vì primary local transactional intent đã thuộc landing Hotel.
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/cho-6kg-di-spa-gia-bao-nhieu/index.html
+sources:
+  - type: first_party
+    ref: /khach-san-thu-cung-binh-thanh/
+    use: service rules, booking and pricing boundaries only
+  - type: image
+    ref: https://www.pexels.com/photo/close-up-shot-of-tricolor-beagle-8593215/
+    note: Pexels marks image free to use; illustrative, not a Lumi Pet customer
+claims_policy: "No search volume, KD, ranking or unverified Lumi Pet facts claimed. Breed-specific statements kept to established scent-hound behavior and practical boarding preparation."
+files_changed:
+  - public/bai-viet/beagle-di-khach-san-can-chuan-bi-gi/index.html
+aggregate_sync_status: PENDING
+qa_status: PENDING
+release_status: RELEASE_UNOBSERVED
