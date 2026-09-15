@@ -1,0 +1,36 @@
+run_date: 2026-09-15
+slot: "19:00"
+article_url: /bai-viet/cho-tieu-chay-sau-khi-di-spa/
+primary_keyword: "chó tiêu chảy sau khi đi Spa"
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL + COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-tieu-chay-sau-khi-di-spa/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Query tiêu chảy sau Spa có job-to-be-done riêng về triệu chứng đường tiêu hóa dưới, khác bài chó nôn sau Spa và chó mệt sau Spa. Repository search không thấy canonical owner riêng cho query này. Candidate local Hotel gần Võ Trường Toản tiếp tục không tạo URL riêng vì primary local transactional intent đã thuộc landing Hotel.
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/cho-6kg-di-spa-gia-bao-nhieu/index.html
+  - public/bai-viet/beagle-di-khach-san-can-chuan-bi-gi/index.html
+  - public/bai-viet/cho-non-sau-khi-di-spa/index.html
+  - public/bai-viet/cho-met-sau-khi-di-spa/index.html
+sources:
+  - type: veterinary_reference
+    ref: https://www.petmd.com/dog/symptoms/dog-diarrhea
+    use: diarrhea red flags, dehydration and escalation guidance
+  - type: veterinary_reference
+    ref: https://www.petmd.com/dog/general-health/imodium-dogs-it-good-idea
+    use: avoid unsupervised loperamide/Imodium
+  - type: image
+    ref: https://images.pexels.com/photos/6131165/pexels-photo-6131165.jpeg
+    note: illustrative grooming context; not a Lumi Pet customer
+claims_policy: "No search volume, KD, ranking or unverified Lumi Pet facts claimed. Timing after Spa is not presented as proof of causation."
+files_changed:
+  - public/bai-viet/cho-tieu-chay-sau-khi-di-spa/index.html
+aggregate_sync_status: PENDING
+qa_status: PENDING
+release_status: RELEASE_UNOBSERVED
