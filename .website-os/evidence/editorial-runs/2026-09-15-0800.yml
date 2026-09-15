@@ -1,0 +1,30 @@
+run_date: 2026-09-15
+slot: "08:00"
+article_url: /bai-viet/cho-6kg-di-spa-gia-bao-nhieu/
+primary_keyword: "chó 6kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-6kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Slot 08:00 ưu tiên giá và booking Spa. Query 6kg là fixed-weight scenario khác với bảng giá tổng; điểm hữu ích riêng là làm rõ đúng 6kg thuộc nhóm 3–6kg theo bảng giá first-party. Repository search không thấy canonical owner riêng cho query này. Broad pricing tiếp tục thuộc /bang-gia-spa-thu-cung/.
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - public/bai-viet/cho-7kg-di-spa-gia-bao-nhieu/index.html
+  - public/bai-viet/cho-5kg-di-spa-gia-bao-nhieu/index.html
+facts_used:
+  - "Dog 3–6kg: tắm vệ sinh 170.000đ; tắm + cạo 240.000đ; tắm + cắt tỉa 320.000đ."
+  - "Phụ thu công bố: gỡ rối 50.000–500.000đ; tạo kiểu đặc biệt 50.000–100.000đ; sữa tắm chuyên dụng 50.000–100.000đ; bé dữ/khó hợp tác 50.000–100.000đ khi áp dụng."
+no_claims:
+  - search_volume
+  - keyword_difficulty
+  - ranking
+  - unverified_business_facts
+files_created:
+  - public/bai-viet/cho-6kg-di-spa-gia-bao-nhieu/index.html
+aggregate_sync_status: PENDING
+qa_status: NOT_RUN
+release_status: RELEASE_UNOBSERVED
