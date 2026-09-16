@@ -1,0 +1,25 @@
+run_date: 2026-09-16
+slot: '13:00'
+article_url: /bai-viet/husky-di-khach-san-can-chuan-bi-gi/
+primary_keyword: Husky đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL + COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/husky-di-khach-san-can-chuan-bi-gi/
+status: PUBLISHED
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository search không thấy canonical owner riêng cho query Husky. Intent là checklist theo giống với điểm riêng về năng lượng, bản năng chạy/escape risk và bộ lông kép; khác checklist Hotel chung và các bài breed-specific đã xuất bản. Candidate local Hotel gần Võ Trường Toản không tạo URL mới vì primary local transactional intent đã thuộc landing Hotel.
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - articles published on 2026-09-16
+expert_sources:
+  - https://www.akc.org/expert-advice/dog-breeds/siberian-husky-right-for-you/
+  - https://www.akc.org/expert-advice/training/how-to-train-a-siberian-husky/
+claims_policy: no fabricated search volume, KD, rankings, business rules, or fixed Husky price
+aggregate_sync: pending
+qa: pending
+release: unobserved
