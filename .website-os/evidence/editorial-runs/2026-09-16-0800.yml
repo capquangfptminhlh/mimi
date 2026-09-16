@@ -1,0 +1,38 @@
+run_date: 2026-09-16
+slot: "08:00"
+article_url: /bai-viet/cho-4kg-di-spa-gia-bao-nhieu/
+primary_keyword: "chó 4kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-4kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Slot 08:00 ưu tiên money keyword và giá Spa. Query 4kg là fixed-weight scenario có câu trả lời trực tiếp theo hạng 3–6kg; repository search không thấy canonical owner riêng cho query này. Broad pricing vẫn thuộc /bang-gia-spa-thu-cung/. Không tạo URL cho candidate Hotel gần Võ Trường Toản vì primary local transactional intent đã thuộc Hotel landing.
+source_files_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/
+verified_first_party_facts:
+  weight_tier: "3–6kg"
+  bath_price: "170.000đ"
+  bath_shave_price: "240.000đ"
+  bath_trim_price: "320.000đ"
+article_checks:
+  answer_first: true
+  title_meta: true
+  headings: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  relevant_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync: pending
+qa_build: pending
+release_status: RELEASE_UNOBSERVED
