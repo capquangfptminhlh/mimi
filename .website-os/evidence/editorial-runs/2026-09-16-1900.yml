@@ -1,0 +1,40 @@
+run_date: 2026-09-16
+slot: '19:00'
+status: SOURCE_COMMITTED
+article_url: https://lumipet.vn/bai-viet/grooming-cho-mat-bao-lau/
+primary_keyword: grooming chó mất bao lâu
+priority: P1
+cluster: GROOMING
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/grooming-cho-mat-bao-lau/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution, AEO/FAQ và comparison/planning. Query hỏi thời lượng có job-to-be-done riêng: người dùng cần lập kế hoạch giờ gửi/đón và hiểu yếu tố làm thời gian thay đổi. Repository search không thấy canonical owner riêng cho query này. Bài tránh bịa thời lượng cố định của Lumi Pet và chuyển câu trả lời sang các yếu tố có thể xác minh theo tình trạng thực tế.
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - articles published on 2026-09-16
+same_day_articles_observed:
+  - /bai-viet/cho-4kg-di-spa-gia-bao-nhieu/
+  - /bai-viet/husky-di-khach-san-can-chuan-bi-gi/
+cannibalization_notes: >-
+  Broad Grooming service remains owned by /grooming-cho-meo-binh-thanh/. This article owns only the duration/planning question. Existing 'grooming chó gồm những gì' owns service-scope intent; 'dấu hiệu chó cần grooming' owns need-recognition intent. No new URL was created for queued local Hotel near Võ Trường Toản because its transactional intent belongs to the Hotel landing page.
+files_committed:
+  - public/bai-viet/grooming-cho-mat-bao-lau/index.html
+  - .website-os/evidence/editorial-runs/2026-09-16-1900.yml
+pending_aggregate_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/project-scope-matrix.csv
+  - .website-os/evidence/cannibalization-register.csv
+qa_status: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
+notes: >-
+  Aggregate files are large and connector reads are truncated; they were not overwritten from incomplete content. No claim of LIVE is made until production is observed serving the exact final SHA.
