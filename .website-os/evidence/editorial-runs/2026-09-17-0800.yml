@@ -1,0 +1,35 @@
+run_date: 2026-09-17
+slot: '08:00'
+article_url: /bai-viet/cho-3kg-di-spa-gia-bao-nhieu/
+primary_keyword: chó 3kg đi Spa giá bao nhiêu
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-3kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Slot 08:00 ưu tiên money keyword và giá Spa. Query đúng 3kg có câu trả lời cụ thể theo hạng 3–6kg và làm rõ mốc biên 3kg; repository search không thấy canonical owner riêng cho query này. Broad pricing vẫn thuộc /bang-gia-spa-thu-cung/. Candidate local Hotel gần Võ Trường Toản không tạo URL mới vì primary local transactional intent đã thuộc landing Hotel.
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - recent published articles and editorial evidence
+first_party_price_basis:
+  weight_tier: 3–6kg
+  bath_hygiene: 170000
+  bath_shave: 240000
+  bath_trim: 320000
+claims_policy: no fabricated search volume, KD, ranking, or unverified business facts
+article_requirements:
+  answer_first: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image_and_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+aggregate_sync: pending
+qa_build: pending
+release_status: RELEASE_UNOBSERVED
