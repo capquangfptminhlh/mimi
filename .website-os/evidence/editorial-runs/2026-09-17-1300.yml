@@ -1,0 +1,34 @@
+run_date: 2026-09-17
+slot: '13:00'
+article_url: /bai-viet/dachshund-di-khach-san-can-chuan-bi-gi/
+primary_keyword: Dachshund đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/dachshund-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository search không thấy canonical owner cho Dachshund. Intent đi sâu vào bàn giao tiền sử lưng, giới hạn nhảy/cầu thang, vận động và hành vi của Dachshund, khác checklist Hotel chung và các breed-specific owner hiện có. Candidate local Hotel gần Võ Trường Toản không tạo URL riêng vì primary local transactional intent đã thuộc landing Hotel.
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/ and published articles for 2026-09-17
+published_today_before_this_run:
+  - /bai-viet/cho-3kg-di-spa-gia-bao-nhieu/
+expert_basis:
+  - American Kennel Club: Dachshund exercise, training and back-support guidance
+claims_policy: no fabricated search volume, KD, ranking, business price, or unverified business facts
+article_requirements:
+  answer_first: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image_and_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+aggregate_sync: pending
+qa_build: pending
+release_status: RELEASE_UNOBSERVED
