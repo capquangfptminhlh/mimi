@@ -1,0 +1,32 @@
+run_date: 2026-09-18
+slot: '19:00'
+timezone: Asia/Ho_Chi_Minh
+article_url: https://lumipet.vn/bai-viet/cho-tho-gap-sau-khi-di-spa/
+primary_keyword: chó thở gấp sau khi đi Spa
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/cho-tho-gap-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - published articles for 2026-09-18
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Repository search không thấy canonical owner riêng cho query thở gấp sau Spa. Intent tập trung vào panting/respiratory triage, khác bài chó mệt, khát nước, tiêu chảy, ngứa và đỏ mắt sau Spa/tắm. Không tạo local Hotel URL gần Võ Trường Toản vì primary transactional intent đã thuộc Hotel landing.
+claims_policy: >-
+  Không khai báo search volume, KD hoặc ranking. Không quy kết Spa là nguyên nhân. Nội dung y khoa giới hạn ở hướng dẫn quan sát và ngưỡng liên hệ bác sĩ thú y.
+external_evidence:
+  - VCA: panting can occur with heat/stress; excessive panting with weakness/vomiting/diarrhea can signal overheating.
+  - Merck Veterinary Manual: difficulty or shallow breathing and blue/white gums require immediate veterinary attention.
+files_updated:
+  - public/bai-viet/cho-tho-gap-sau-khi-di-spa/index.html
+  - .website-os/evidence/editorial-runs/2026-09-18-1900.yml
+aggregate_sync: PENDING
+aggregate_sync_reason: >-
+  Connector response for large aggregate files is truncated; unsafe to replace complete index/sitemap/keyword maps/calendar from partial content.
+qa: NOT_CONFIRMED
+release: UNOBSERVED
