@@ -1,0 +1,47 @@
+run_date: 2026-09-18
+slot: '13:00'
+article:
+  title: 'Samoyed đi khách sạn cần chuẩn bị gì? Checklist trước khi gửi'
+  primary_keyword: 'Samoyed đi khách sạn cần chuẩn bị gì'
+  priority: P1
+  cluster: HOTEL
+  primary_intent: INFORMATIONAL
+  secondary_intent: COMMERCIAL_RESEARCH
+  url: /bai-viet/samoyed-di-khach-san-can-chuan-bi-gi/
+  canonical_owner: /bai-viet/samoyed-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository search không thấy canonical owner cho Samoyed. Intent là checklist theo giống, đi sâu vào nhu cầu vận động, xu hướng cần tương tác gần với con người và bộ lông kép dày; khác checklist Hotel chung và các owner Husky, Beagle, Dachshund, Poodle, Corgi, Pomeranian, Shih Tzu, French Bulldog, Golden Retriever và Labrador.
+preflight:
+  keyword_universe: reviewed
+  url_ownership_map: reviewed
+  keyword_page_coverage: reviewed
+  content_calendar: reviewed
+  sitemap: reviewed_via_repository
+  same_day_articles: reviewed
+  same_day_existing:
+    - /bai-viet/cho-2kg-di-spa-gia-bao-nhieu/
+  cannibalization_search: 'No existing Samoyed owner found'
+  broad_hotel_owner: /khach-san-thu-cung-binh-thanh/
+  local_candidate_note: 'khách sạn thú cưng gần Võ Trường Toản remains QUEUED; do not split local transactional intent without differentiated evidence'
+content_checks:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+  no_volume_kd_rank_claims: true
+  no_unverified_business_claims: true
+external_guidance:
+  - 'American Kennel Club: Samoyed is energetic, needs sufficient exercise, thrives on close human contact.'
+  - 'American Kennel Club: Samoyed has a dense double coat, sheds often, and requires frequent brushing.'
+source_commit: a7d44ed2dc866ec6cf3aaefe3cb01794a3039894
+aggregate_sync: pending
+qa_build: not_confirmed
+release: unobserved
