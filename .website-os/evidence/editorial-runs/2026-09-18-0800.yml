@@ -1,0 +1,37 @@
+run_date: 2026-09-18
+slot: "08:00"
+timezone: Asia/Ho_Chi_Minh
+article:
+  title: "Chó 2kg đi Spa giá bao nhiêu? Tắm, cạo, cắt tỉa"
+  primary_keyword: "chó 2kg đi Spa giá bao nhiêu"
+  priority: P1
+  cluster: SPA
+  primary_intent: COMMERCIAL
+  secondary_intent: TRANSACTIONAL
+  url: /bai-viet/cho-2kg-di-spa-gia-bao-nhieu/
+  canonical_owner: /bai-viet/cho-2kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Slot 08:00 ưu tiên price/booking/Spa. Fixed-weight pricing là pattern đã được roadmap dùng cho 3kg, 4kg, 5kg, 6kg, 7kg, 8kg, 10kg và 15kg; 2kg chưa có owner.
+  Dữ liệu first-party xác nhận chó dưới 3kg có giá cơ bản 120000/180000/260000 VND cho tắm vệ sinh/tắm+cạo/tắm+cắt tỉa.
+prewrite_checks:
+  keyword_universe: read
+  url_ownership: read
+  keyword_page_coverage: read
+  content_calendar: read
+  sitemap: read
+  same_day_articles: none_found_before_this_run
+cannibalization:
+  decision: CREATE_NEW_URL
+  rationale: fixed-weight 2kg scenario is a specific booking-support intent; broad price intent remains owned by /bang-gia-spa-thu-cung/
+claims_policy:
+  fabricated_volume_or_kd: false
+  fabricated_rankings: false
+  fabricated_business_facts: false
+first_party_evidence:
+  - public/bang-gia-spa-thu-cung/index.html
+assets:
+  - public/assets/blog/cho-2kg-di-spa-gia-bao-nhieu.svg
+  - public/bai-viet/cho-2kg-di-spa-gia-bao-nhieu/index.html
+aggregate_sync_status: PARTIAL_PENDING
+qa_status: PENDING
+release_status: RELEASE_UNOBSERVED
