@@ -1,0 +1,53 @@
+run_date: 2026-09-19
+slot: '19:00'
+article_url: /bai-viet/cho-bo-an-sau-khi-di-spa/
+primary_keyword: chó bỏ ăn sau khi đi Spa
+priority: P1
+cluster: DOG_CARE
+primary_intent: INFORMATIONAL
+secondary_intent: PROBLEM_SOLUTION_AEO
+canonical_owner: /bai-viet/cho-bo-an-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/
+articles_today:
+  - /bai-viet/spa-cho-binh-thanh-co-nen-dat-lich-truoc/
+  - /bai-viet/chihuahua-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Repository search không thấy canonical owner cho "chó bỏ ăn sau khi đi Spa". Intent tập trung appetite triage sau Spa, khác các owner hiện có về mệt, thở gấp, tiêu chảy, khát nước, ngứa và bỏ ăn khi đi Hotel. Candidate "cạo lông chó mùa nóng" không được tạo URL mới vì primary intent đã được owner "nên tắm vệ sinh hay tắm cạo cho chó" bao phủ trực tiếp, gồm trường hợp cạo cho mát.
+external_fact_check:
+  source: VCA Animal Hospitals
+  url: https://vcahospitals.com/urgent-care/health-concerns/loss-of-appetite
+  checked: 2026-09-19
+  used_for: appetite-change triage and urgent-care threshold context
+content_checks:
+  answer_first: true
+  title_meta: true
+  headings: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  matching_image: https://images.pexels.com/photos/6568949/pexels-photo-6568949.jpeg
+  image_alt: true
+  internal_service_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+  fabricated_volume_kd_rank: false
+  fabricated_business_facts: false
+pending_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+qa_status: NOT_RUN_CONNECTOR_LIMITATION
+release_status: RELEASE_UNOBSERVED
