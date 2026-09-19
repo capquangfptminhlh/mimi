@@ -1,0 +1,45 @@
+run_date: 2026-09-19
+slot: '08:00'
+article_url: /bai-viet/spa-cho-binh-thanh-co-nen-dat-lich-truoc/
+primary_keyword: spa chó Bình Thạnh có nên đặt lịch trước
+priority: P1
+cluster: SPA
+primary_intent: LOCAL_TRANSACTIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/spa-cho-binh-thanh-co-nen-dat-lich-truoc/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/
+selection_reason: >-
+  Slot 08:00 ưu tiên local money keyword, booking và Spa/Grooming. Không tạo bài chó 1kg vì cùng nhóm dưới 3kg và gần như cùng primary pricing intent với owner chó 2kg, có nguy cơ cannibalization. Candidate này giải quyết booking-planning local intent: có nên đặt trước, cần gửi gì và cách xác nhận slot; không khẳng định Lumi Pet bắt buộc đặt trước hoặc bịa availability.
+content_checks:
+  answer_first: true
+  title_meta: true
+  headings: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  matching_image: public/assets/blog/spa-cho-binh-thanh-dat-lich-truoc.svg
+  image_alt: true
+  internal_service_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+  fabricated_volume_kd_rank: false
+  fabricated_business_facts: false
+pending_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+qa_status: NOT_RUN_CONNECTOR_LIMITATION
+release_status: RELEASE_UNOBSERVED
