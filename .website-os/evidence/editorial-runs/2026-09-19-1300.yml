@@ -1,0 +1,52 @@
+run_date: 2026-09-19
+slot: '13:00'
+article_url: /bai-viet/chihuahua-di-khach-san-can-chuan-bi-gi/
+primary_keyword: Chihuahua đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+primary_intent: INFORMATIONAL
+secondary_intent: COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/chihuahua-di-khach-san-can-chuan-bi-gi/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/
+articles_today:
+  - /bai-viet/spa-cho-binh-thanh-co-nen-dat-lich-truoc/
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository search không thấy canonical owner cho Chihuahua. Intent là checklist riêng theo giống, tập trung vóc dáng rất nhỏ, hành vi cảnh giác/vocal, khả năng chịu lạnh, coat dài/ngắn và bàn giao an toàn; khác checklist Hotel chung và các breed owners đã xuất bản. Không tạo URL cho candidate local Võ Trường Toản vì local transactional intent thuộc Hotel landing.
+external_fact_check:
+  source: American Kennel Club
+  url: https://www.akc.org/expert-advice/dog-breeds/chihuahua-right-for-you/
+  checked: 2026-09-19
+  used_for: temperament, coat varieties, grooming, exercise context
+content_checks:
+  answer_first: true
+  title_meta: true
+  headings: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  matching_image: https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg
+  image_alt: true
+  internal_service_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+  fabricated_volume_kd_rank: false
+  fabricated_business_facts: false
+pending_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/keyword-intent-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+qa_status: NOT_RUN_CONNECTOR_LIMITATION
+release_status: RELEASE_UNOBSERVED
