@@ -1,0 +1,64 @@
+run_date: 2026-09-20
+slot: '19:00'
+article_url: /bai-viet/cho-liem-chan-sau-khi-di-spa/
+primary_keyword: chó liếm chân sau khi đi Spa
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_PROBLEM_SOLUTION_AEO
+canonical_owner: /bai-viet/cho-liem-chan-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+same_day_articles_found:
+  - /bai-viet/cho-9kg-di-spa-gia-bao-nhieu/
+  - /bai-viet/maltese-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Query tập trung hành vi liếm bàn chân, kiểm tra kẽ ngón, móng, đệm chân và dấu hiệu đau/khập khiễng. Repository chưa có canonical owner riêng cho intent này. Bài ngứa sau tắm bao phủ pruritus toàn thân/kích ứng da, còn bài sợ cắt móng bao phủ hành vi trước/trong grooming; owner mới xử lý triage bàn chân sau grooming nên primary intent đủ khác.
+external_evidence:
+  - source: PetMD
+    url: https://www.petmd.com/dog/general-health/excessive-licking-chewing-and-grooming-dogs
+    verified_at: 2026-09-20
+    used_for: excessive licking causes and warning signs
+  - source: PetMD
+    url: https://www.petmd.com/dog/conditions/skin/pododermatitis-dogs
+    verified_at: 2026-09-20
+    used_for: paw inflammation symptoms and differential causes
+  - source: PetMD
+    url: https://www.petmd.com/dog/care/first-aid-broken-nails-dogs
+    verified_at: 2026-09-20
+    used_for: broken nail signs including pain bleeding limping paw licking
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+article_checks:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync:
+  bai_viet_index: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  sitemap: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_universe: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_page_coverage: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  url_ownership: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  content_calendar: PENDING_CONNECTOR_FULL_FILE_LIMIT
+qa:
+  lint: NOT_RUN
+  build: NOT_RUN
+  gate: NOT_CONFIRMED
+release: RELEASE_UNOBSERVED
