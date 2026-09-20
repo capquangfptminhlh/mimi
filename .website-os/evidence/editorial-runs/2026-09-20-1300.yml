@@ -1,0 +1,55 @@
+run_date: 2026-09-20
+slot: '13:00'
+article_url: /bai-viet/maltese-di-khach-san-can-chuan-bi-gi/
+primary_keyword: Maltese đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/maltese-di-khach-san-can-chuan-bi-gi/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+same_day_articles_found:
+  - /bai-viet/cho-9kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository đã có các owner breed-specific cho Poodle, Corgi, Pomeranian, Shih Tzu, French Bulldog, Golden Retriever, Labrador Retriever, Husky, Beagle, Dachshund, Samoyed và Chihuahua; chưa có canonical owner Maltese. Maltese có góc nội dung riêng về coat dài cần chăm đều và hành vi gắn bó với người, nên intent đủ khác ở cấp breed-specific support article mà không thay thế landing Hotel.
+external_evidence:
+  - source: American Kennel Club
+    url: https://www.akc.org/expert-advice/dog-breeds/maltese-right-for-you/
+    verified_at: 2026-09-20
+    used_for: Maltese small companion breed; long silky coat; daily gentle brushing/combing; people-oriented temperament; some may struggle when left alone for long periods
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+article_checks:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync:
+  bai_viet_index: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  sitemap: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_universe: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_page_coverage: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  url_ownership: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  content_calendar: PENDING_CONNECTOR_FULL_FILE_LIMIT
+qa:
+  lint: NOT_RUN
+  build: NOT_RUN
+  gate: NOT_CONFIRMED
+release: RELEASE_UNOBSERVED
