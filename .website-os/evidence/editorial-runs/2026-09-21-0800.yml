@@ -1,0 +1,56 @@
+run_date: 2026-09-21
+slot: '08:00'
+article_url: /bai-viet/cho-12kg-di-spa-gia-bao-nhieu/
+primary_keyword: chó 12kg đi Spa giá bao nhiêu
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-12kg-di-spa-gia-bao-nhieu/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+same_day_articles_found: []
+selection_reason: >-
+  Slot 08:00 ưu tiên money keyword và giá Spa. Query đúng 12kg có giá trị riêng vì 12kg là ranh trên của tier 9–12kg trong logic booking first-party; tierFor dùng weight <= max từ tier thứ hai, nên đúng 12kg vẫn nhận tier 9–12kg còn lớn hơn 12kg chuyển sang 12–18kg. Repository search không thấy canonical owner riêng cho query 12kg. Broad all-weight pricing tiếp tục thuộc /bang-gia-spa-thu-cung/.
+verified_first_party:
+  source: public/lumi-booking.js
+  tier_logic: 'i === 0 ? weight < max : weight <= max'
+  dog_9_12kg:
+    bath: 270000
+    bath_shave: 360000
+    bath_groom: 450000
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+article_checks:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync:
+  bai_viet_index: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  sitemap: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_universe: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_page_coverage: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  url_ownership: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  content_calendar: PENDING_CONNECTOR_FULL_FILE_LIMIT
+qa:
+  lint: NOT_RUN
+  build: NOT_RUN
+  gate: NOT_CONFIRMED
+release: RELEASE_UNOBSERVED
