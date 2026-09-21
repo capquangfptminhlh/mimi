@@ -1,0 +1,59 @@
+run_date: 2026-09-21
+slot: '13:00'
+article_url: /bai-viet/yorkshire-terrier-di-khach-san-can-chuan-bi-gi/
+primary_keyword: Yorkshire Terrier đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/yorkshire-terrier-di-khach-san-can-chuan-bi-gi/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+same_day_articles_found:
+  - /bai-viet/cho-12kg-di-spa-gia-bao-nhieu/
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository có chuỗi Hotel breed-specific cho Poodle, Corgi, Pomeranian, Shih Tzu, French Bulldog, Golden Retriever, Labrador Retriever, Dachshund, Beagle, Husky, Samoyed, Chihuahua và Maltese nhưng chưa có canonical owner Yorkshire Terrier. Query có intent breed-specific riêng về chuẩn bị lưu trú, khác bài Spa 12kg cùng ngày và khác generic Hotel checklist.
+expert_source:
+  source: American Kennel Club
+  urls:
+    - https://www.akc.org/expert-advice/health/how-to-groom-a-yorkshire-terrier/
+    - https://www.akc.org/expert-advice/dog-breeds/yorkshire-terrier-right-for-you/
+  verified_points:
+    - Yorkie has hair-like silky coat requiring regular brushing to prevent tangles/mats
+    - pet trim and long/show coat have different maintenance needs
+    - breed is small, affectionate and energetic; individual behavior still varies
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+article_checks:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_contact_booking: true
+  related_articles: true
+aggregate_sync:
+  bai_viet_index: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  sitemap: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_universe: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_page_coverage: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  url_ownership: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  content_calendar: PENDING_CONNECTOR_FULL_FILE_LIMIT
+qa:
+  lint: NOT_RUN
+  build: NOT_RUN
+  gate: NOT_CONFIRMED
+release: RELEASE_UNOBSERVED
