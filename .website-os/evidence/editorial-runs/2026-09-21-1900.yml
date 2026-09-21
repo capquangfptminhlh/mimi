@@ -1,0 +1,61 @@
+run_date: 2026-09-21
+slot: '19:00'
+article_url: /bai-viet/cho-sung-mat-sau-khi-di-spa/
+primary_keyword: chó sưng mặt sau khi đi Spa
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_PROBLEM_SOLUTION_AEO
+canonical_owner: /bai-viet/cho-sung-mat-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+same_day_articles_found:
+  - /bai-viet/cho-12kg-di-spa-gia-bao-nhieu/
+  - /bai-viet/yorkshire-terrier-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Candidate có intent riêng về facial swelling/allergic-reaction triage, khác các owner hiện hữu về ngứa sau tắm, đỏ mắt, thở gấp, nôn, tiêu chảy, bỏ ăn và liếm chân. Repository search không thấy canonical owner cho query này. Nội dung không quy kết Spa là nguyên nhân và ưu tiên ngưỡng cấp cứu thú y.
+expert_sources:
+  - VCA Animal Hospitals: Hives (Urticaria) in Dogs
+  - VCA Animal Hospitals: First Aid for Insect Stings in Dogs
+  - Merck Veterinary Manual: Disorders Involving Anaphylactic Reactions in Dogs
+  - Merck Veterinary Manual: Hives and Rashes (Urticaria) in Dogs
+verified_points:
+  - facial/lip/muzzle swelling can occur with allergic reactions or hives
+  - severe head/neck swelling and breathing difficulty require emergency veterinary care
+  - shampoo is one possible trigger for hives but timing alone does not establish causation
+  - anaphylaxis in dogs may include GI and systemic signs, not only respiratory signs
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+article_checks:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  alt_text: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync:
+  bai_viet_index: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  sitemap: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_universe: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  keyword_page_coverage: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  url_ownership: PENDING_CONNECTOR_FULL_FILE_LIMIT
+  content_calendar: PENDING_CONNECTOR_FULL_FILE_LIMIT
+qa:
+  lint: NOT_RUN
+  build: NOT_RUN
+  gate: NOT_CONFIRMED
+release: RELEASE_UNOBSERVED
