@@ -1,0 +1,52 @@
+run_date: 2026-09-22
+slot: '08:00'
+article_url: /bai-viet/cho-11kg-di-spa-gia-bao-nhieu/
+primary_keyword: chó 11kg đi Spa giá bao nhiêu
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-11kg-di-spa-gia-bao-nhieu/
+status: SOURCE_COMMITTED
+selection_reason: >-
+  Slot 08:00 ưu tiên money keyword và giá Spa. Repository search không thấy canonical owner riêng cho query 11kg. 11kg nằm trong hạng 9–12kg và có direct answer theo dữ liệu giá first-party; broad pricing vẫn thuộc /bang-gia-spa-thu-cung/. Bài được tách theo exact-weight decision query và liên kết về pricing/service/booking owner.
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - editorial runs và published article gần nhất để tránh trùng intent
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: https://lumipet.vn/bai-viet/cho-11kg-di-spa-gia-bao-nhieu/
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+verified_business_facts:
+  weight_tier: 9-12kg
+  bath_price_vnd: 270000
+  bath_shave_price_vnd: 360000
+  bath_trim_price_vnd: 450000
+claims_not_made:
+  - search volume
+  - keyword difficulty
+  - ranking
+  - unverified business policies
+pending_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+qa_status: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
+article_commit: be30e28d213f41300106be5abeadf9911df5349f
