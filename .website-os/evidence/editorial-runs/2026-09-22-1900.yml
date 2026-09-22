@@ -1,0 +1,53 @@
+run_date: 2026-09-22
+slot: '19:00'
+article_url: /bai-viet/cho-khap-khieng-sau-khi-di-spa/
+primary_keyword: chó khập khiễng sau khi đi Spa
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_PROBLEM_SOLUTION_AEO
+canonical_owner: /bai-viet/cho-khap-khieng-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Hai bài đã xuất bản trong ngày là exact-weight Spa pricing lúc 08:00 và Schnauzer Hotel lúc 13:00, khác primary intent. Repository search cho thấy khập khiễng mới chỉ là dấu hiệu phụ trong bài liếm chân/cắt móng, chưa có canonical owner giải quyết intent đánh giá lameness sau Spa. Bài mới tập trung khả năng chịu lực, bàn chân, móng, ngưỡng urgent/emergency và không quy kết Spa là nguyên nhân.
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - .website-os/evidence/editorial-runs/2026-09-22-0800.yml
+  - .website-os/evidence/editorial-runs/2026-09-22-1300.yml
+  - repository tree and overlapping articles
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: https://lumipet.vn/bai-viet/cho-khap-khieng-sau-khi-di-spa/
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+medical_safety:
+  - no causal claim that Spa caused limping
+  - no diagnosis
+  - no human pain medication advice
+  - urgent veterinary thresholds based on current VCA/AKC guidance checked 2026-09-22
+claims_not_made:
+  - search volume
+  - keyword difficulty
+  - ranking
+  - unverified business policy
+pending_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+qa_status: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
