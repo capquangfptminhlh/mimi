@@ -1,0 +1,47 @@
+run_date: 2026-09-22
+slot: '13:00'
+article_url: /bai-viet/schnauzer-di-khach-san-can-chuan-bi-gi/
+primary_keyword: Schnauzer đi khách sạn cần chuẩn bị gì
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/schnauzer-di-khach-san-can-chuan-bi-gi/
+status: SOURCE_COMMITTED
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel, breed-specific và topical authority. Repository search không thấy Schnauzer hay canonical owner cho query này. Bài 08:00 cùng ngày là exact-weight Spa pricing nên khác cluster và primary intent. Candidate mở rộng chuỗi Hotel breed-specific mà không chiếm intent của checklist Hotel tổng quát.
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - .website-os/evidence/editorial-runs/2026-09-22-0800.yml
+  - published Hotel breed-specific articles / repository tree
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: https://lumipet.vn/bai-viet/schnauzer-di-khach-san-can-chuan-bi-gi/
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+claims_not_made:
+  - search volume
+  - keyword difficulty
+  - ranking
+  - unverified Hotel availability or acceptance policy
+pending_sync:
+  - public/bai-viet/index.html
+  - public/sitemap.xml
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+qa_status: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
