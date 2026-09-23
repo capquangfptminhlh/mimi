@@ -1,0 +1,45 @@
+run_date: 2026-09-23
+slot: "08:00"
+article_url: /bai-viet/cho-13kg-di-spa-gia-bao-nhieu/
+primary_keyword: "chó 13kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-13kg-di-spa-gia-bao-nhieu/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/index.html
+  - same-day editorial runs (none before 08:00)
+selection_reason: >-
+  Slot 08:00 ưu tiên money keyword và giá Spa. Repository search không thấy canonical owner riêng cho query đúng 13kg. Query có câu trả lời trực tiếp theo bảng giá first-party: 13kg thuộc nhóm 12–18kg. Broad pricing vẫn thuộc /bang-gia-spa-thu-cung/; bài exact-weight phục vụ nhu cầu tra cứu/booking cụ thể và liên kết về pricing/service/booking owners.
+verified_price_basis:
+  weight_band: 12-18kg
+  bath: 350000
+  bath_shave: 460000
+  bath_trim: 550000
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync: PENDING
+qa_build_gate: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
+notes:
+  - Không claim search volume, KD hoặc ranking.
+  - Không claim production LIVE nếu chưa quan sát release đúng SHA.
+  - Aggregate maps/index/sitemap cần đồng bộ trước khi có thể xác nhận editorial gate PASS.
