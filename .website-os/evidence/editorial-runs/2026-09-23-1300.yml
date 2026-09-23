@@ -1,0 +1,41 @@
+run_date: 2026-09-23
+slot: "13:00"
+article_url: /bai-viet/german-shepherd-di-khach-san-can-chuan-bi-gi/
+primary_keyword: "German Shepherd đi khách sạn cần chuẩn bị gì"
+priority: P1
+cluster: HOTEL
+intent: INFORMATIONAL_COMMERCIAL_RESEARCH
+canonical_owner: /bai-viet/german-shepherd-di-khach-san-can-chuan-bi-gi/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/index.html
+  - .website-os/evidence/editorial-runs/2026-09-23-0800.yml
+selection_reason: >-
+  Slot 13:00 ưu tiên Pet Hotel và breed-specific topical authority. Repository search xác nhận chưa có German Shepherd owner; bài 08:00 cùng ngày là exact-weight Spa pricing nên không trùng cluster hay primary intent. Candidate phục vụ breed-specific boarding checklist và liên kết về Hotel/booking owners.
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync: PENDING
+qa_build_gate: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
+notes:
+  - Không claim search volume, KD hoặc ranking.
+  - Không claim room availability hoặc policy chưa xác minh.
+  - Aggregate maps/index/sitemap cần đồng bộ trước khi xác nhận editorial gate PASS.
+  - Không claim production LIVE nếu chưa quan sát release đúng SHA.
