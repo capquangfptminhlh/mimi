@@ -1,0 +1,46 @@
+run_date: 2026-09-23
+slot: "19:00"
+article_url: /bai-viet/cho-chay-dai-sau-khi-di-spa/
+primary_keyword: "chó chảy dãi sau khi đi Spa"
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_PROBLEM_SOLUTION_AEO
+canonical_owner: /bai-viet/cho-chay-dai-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - same-day editorial runs 2026-09-23-0800 and 2026-09-23-1300
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Hai bài cùng ngày là exact-weight Spa pricing và German Shepherd Hotel nên khác primary intent. Repository search không thấy canonical owner riêng cho query chảy dãi sau Spa; các bài nôn, thở gấp, sưng mặt và khát nước chỉ giao nhau ở triệu chứng phụ, còn bài này sở hữu intent hypersalivation/drooling và triage theo hô hấp, miệng, buồn nôn, say xe, dị ứng/dị vật.
+medical_sources:
+  - VCA Animal Hospitals: Dealing with Drooling
+  - Merck Veterinary Manual: Motion Sickness in Dogs
+  - Merck Veterinary Manual: Salivary Disorders in Small Animals
+  - VCA Animal Hospitals: Anaphylaxis in Dogs
+  - VCA Animal Hospitals: Emergencies in Dogs
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+aggregate_sync: PENDING
+qa_build_gate: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
+notes:
+  - Không claim search volume, KD hoặc ranking.
+  - Không quy kết Spa là nguyên nhân của triệu chứng.
+  - Aggregate maps/index/sitemap chưa thể thay thế an toàn vì connector trả nội dung file aggregate lớn bị truncate; không giả báo PASS.
+  - Không claim production LIVE nếu chưa quan sát release đúng SHA.
