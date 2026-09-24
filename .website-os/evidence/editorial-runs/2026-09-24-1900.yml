@@ -1,0 +1,55 @@
+run_date: 2026-09-24
+slot: "19:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: https://lumipet.vn/bai-viet/cho-ho-sau-khi-di-spa/
+primary_keyword: "chó ho sau khi đi Spa"
+priority: P1
+cluster: DOG_CARE
+intent: INFORMATIONAL_PROBLEM_SOLUTION_AEO
+canonical_owner: /bai-viet/cho-ho-sau-khi-di-spa/
+status: SOURCE_COMMITTED
+preflight_read:
+  - .website-os/evidence/keyword-universe.csv
+  - .website-os/evidence/url-ownership-map.csv
+  - .website-os/evidence/keyword-page-coverage.csv
+  - .website-os/evidence/seo-content-calendar-30d.csv
+  - public/sitemap.xml
+  - public/bai-viet/index.html
+  - .website-os/evidence/editorial-runs/2026-09-24-0800.yml
+  - .website-os/evidence/editorial-runs/2026-09-24-1300.yml
+same_day_articles:
+  - /bai-viet/cho-14kg-di-spa-gia-bao-nhieu/
+  - /bai-viet/akita-di-khach-san-can-chuan-bi-gi/
+selection_reason: >-
+  Slot 19:00 ưu tiên problem/solution và AEO. Repository search không thấy canonical owner cho intent ho sau Spa. Candidate khác primary intent với bài hắt hơi sau tắm, thở gấp sau Spa, chảy dãi sau Spa và các bài cùng ngày. Không quy kết Spa là nguyên nhân; nội dung tập trung triage triệu chứng ho và dấu hiệu hô hấp cần thú y.
+medical_sources:
+  - VCA Animal Hospitals Urgent Care: Runny Nose, Coughing or Sneezing
+  - Merck Veterinary Manual: When to See a Veterinarian
+  - Merck Veterinary Manual: Laryngitis in Dogs
+  - VCA Animal Hospitals: Reverse Sneeze in Dogs
+article_requirements:
+  answer_first: true
+  title_meta: true
+  h1_h2_h3: true
+  toc: true
+  canonical: true
+  article_schema: true
+  breadcrumb_schema: true
+  faq_schema: true
+  topical_image: true
+  image_alt: true
+  internal_links: true
+  cta_call_zalo_booking: true
+  related_articles: true
+claims_policy:
+  search_volume_claimed: false
+  kd_claimed: false
+  ranking_claimed: false
+  unverified_business_claims: false
+aggregate_sync: PENDING
+qa_build_gate: NOT_CONFIRMED
+release_status: RELEASE_UNOBSERVED
+notes:
+  - Article and topical SVG committed to main.
+  - Aggregate maps/index/sitemap require full-file safe synchronization before editorial gate can be marked PASS.
+  - Do not claim production LIVE unless release for final SHA is observed.
