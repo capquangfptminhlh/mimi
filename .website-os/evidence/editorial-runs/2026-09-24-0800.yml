@@ -1,0 +1,40 @@
+run_date: 2026-09-24
+slot: "08:00"
+timezone: Asia/Ho_Chi_Minh
+article_url: https://lumipet.vn/bai-viet/cho-14kg-di-spa-gia-bao-nhieu/
+primary_keyword: "chó 14kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-14kg-di-spa-gia-bao-nhieu/
+selection_reason: "08:00 ưu tiên money/price/booking; 14kg chưa có owner riêng trong default-branch tree, trong khi bảng giá first-party xác định 14kg thuộc hạng 12–18kg. Không có bài nào khác ngày 2026-09-24 trước lượt này."
+preflight:
+  keyword_universe: READ
+  url_ownership: READ
+  keyword_page_coverage: READ
+  content_calendar: READ
+  sitemap: READ
+  published_today: READ_NONE_BEFORE_SLOT
+cannibalization_check: "Exact-weight query 14kg chưa có URL owner; bài giữ intent fixed-weight pricing và liên kết về bảng giá tổng."
+verified_business_facts:
+  weight_tier: "12–18kg"
+  bath_hygiene: "350.000đ"
+  bath_shave: "460.000đ"
+  bath_trim: "550.000đ"
+image: /assets/blog/cho-14kg-di-spa-gia-bao-nhieu.svg
+article_requirements:
+  answer_first: PASS
+  title_meta: PASS
+  headings: PASS
+  canonical: PASS
+  article_schema: PASS
+  breadcrumb_schema: PASS
+  faq_schema: PASS
+  topical_image_alt: PASS
+  internal_links: PASS
+  cta_call_zalo_booking: PASS
+  related_articles: PASS
+aggregate_sync: PENDING
+qa_build_gate: NOT_CONFIRMED
+release: UNOBSERVED
+notes: "Không bịa search volume, KD, ranking hoặc dữ kiện doanh nghiệp. Aggregate files require safe full-file mutation and were not marked synced without verification."
