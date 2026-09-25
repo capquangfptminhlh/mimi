@@ -1,6 +1,6 @@
 run_date: 2026-09-25
 slot: "08:00"
-status: PREWRITE_COMPLETE
+status: BLOCKED_BEFORE_ARTICLE_COMMIT
 primary_keyword: "chó 16kg đi Spa giá bao nhiêu"
 priority: P1
 cluster: SPA
@@ -8,4 +8,8 @@ intent: COMMERCIAL_TRANSACTIONAL
 canonical_owner: /bai-viet/cho-16kg-di-spa-gia-bao-nhieu/
 preflight: KEYWORD_UNIVERSE_URL_OWNERSHIP_COVERAGE_CALENDAR_SITEMAP_READ
 published_today_before_slot: NONE
+article_commit: NOT_CREATED
+aggregate_sync: NOT_STARTED
+qa_build_gate: NOT_RUN
 release: UNOBSERVED
+blocker: "Repository write for public article path was rejected by tool safety checks; do not claim SOURCE_COMMITTED or LIVE."
