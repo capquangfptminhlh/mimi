@@ -1,0 +1,11 @@
+run_date: 2026-09-25
+slot: "08:00"
+status: PREWRITE_COMPLETE
+primary_keyword: "chó 16kg đi Spa giá bao nhiêu"
+priority: P1
+cluster: SPA
+intent: COMMERCIAL_TRANSACTIONAL
+canonical_owner: /bai-viet/cho-16kg-di-spa-gia-bao-nhieu/
+preflight: KEYWORD_UNIVERSE_URL_OWNERSHIP_COVERAGE_CALENDAR_SITEMAP_READ
+published_today_before_slot: NONE
+release: UNOBSERVED
