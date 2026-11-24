@@ -72,7 +72,7 @@ function renderHomepagePrerender(prefix) {
 </div>
 <div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
 <h3>🏨 3. Khách Sạn Thú Cưng (Pet Hotel 24/7)</h3>
-<p>Phòng kính riêng tư sạch sẽ khử trùng tia cực tím, điều hòa 24/24 mát mẻ, thực đơn tươi 3 bữa/ngày, sân chơi vận động và cam kết quay video gửi Zalo sau 15 phút nhận bé kèm báo cáo mỗi ngày.</p>
+<p>Phòng kính riêng tư sạch sẽ khử trùng tia cực tím, điều hòa 24/24 mát mẻ, thực đơn tươi 3 bữa/ngày, sân chơi vận động và quay video tương tác gửi Zalo mỗi ngày.</p>
 <p><strong>Giá tham khảo:</strong> Từ 100.000đ/ngày. Giảm 5% khi gửi trên 5 ngày, giảm 8% trên 10 ngày.</p>
 <p><a href="${prefix}khach-san-thu-cung-binh-thanh/">Chi tiết dịch vụ Khách sạn →</a></p>
 </div>
@@ -98,7 +98,7 @@ function renderHomepagePrerender(prefix) {
 <details><summary>Lumi Pet ở đâu và giờ hoạt động thế nào?</summary><p>Lumi Pet toạ lạc tại 27 Võ Trường Toản, Phường 2, Quận Bình Thạnh, TP. Hồ Chí Minh. Giờ mở cửa dịch vụ Spa & Shop: 07:00 – 21:00 hàng ngày (kể cả thứ Bảy, Chủ nhật). Dịch vụ Khách sạn thú cưng có nhân viên trực và bảo vệ trông nom 24/7.</p></details>
 <details><summary>Đi tắm Spa cho chó mèo có cần đặt lịch trước không?</summary><p>Bạn nên đặt lịch trước qua website hoặc Zalo 0989 979 675 để được giữ chỗ khung giờ đẹp và không phải chờ đợi. Đặt trước qua Web còn được ưu tiên xếp thợ làm ngay.</p></details>
 <details><summary>Lumi Pet có dùng lồng sấy nhiệt không?</summary><p>Tuyệt đối KHÔNG. Lumi Pet cam kết 100% thợ sấy tay bằng máy sấy chuyên dụng ion ấm, vừa sấy vừa chải tơi lông và quan sát biểu cảm của bé, đảm bảo an toàn và tránh gây sốc nhiệt cho thú cưng.</p></details>
-<details><summary>Khách sạn thú cưng có camera và gửi video không?</summary><p>Có. Lumi Pet cam kết gửi clip tương tác sau 15 phút nhận bé, kèm báo cáo tình hình ăn uống, vệ sinh và vui chơi 3 bữa mỗi ngày qua Zalo cho ba mẹ yên tâm.</p></details>
+<details><summary>Khách sạn thú cưng có camera và gửi video không?</summary><p>Có. Lumi Pet quay video tương tác gửi trực tiếp qua Zalo mỗi ngày để ba mẹ yên tâm theo dõi tình hình ăn uống và nghỉ ngơi của bé.</p></details>
 </section>
 </div>
 </main>

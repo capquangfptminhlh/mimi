@@ -187,7 +187,7 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
             BẢNG GIÁ DỊCH VỤ <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-650">LUMI PET 24/7</span>
           </h1>
           <p className="text-slate-550 text-sm sm:text-base leading-relaxed font-sans font-medium">
-            Công khai minh bạch bảng phí spa thú cưng, combo tắm sấy tạo kiểu nghệ thuật và khách sạn chó mèo cao cấp theo cân nặng. Không phát sinh phụ phí vô lý - Cam kết hoàn tiền nếu không hài lòng.
+            Công khai minh bạch bảng giá Spa, Grooming cắt tỉa và Khách sạn chó mèo theo đúng cân nặng. Các khoản phụ thu (nếu có) sẽ được nhân viên kiểm tra trực tiếp và xác nhận trước khi thực hiện.
           </p>
         </div>
 
@@ -208,16 +208,16 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
             </div>
           </div>
 
-          {/* TRICK 2: Thanh trạng thái khan hiếm & Vé Fast-Track */}
-          <div className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white px-4 py-2.5 rounded-2xl text-xs font-black flex flex-col sm:flex-row items-center justify-between gap-2 shadow-md mb-6 animate-pulse">
-            <div className="flex items-center gap-2">
-              <span className="text-base">🔥</span>
-              <span className="tracking-wide uppercase">HÔM NAY CHỈ CÒN 02 SUẤT FAST-TRACK</span>
+          {/* Banner thông báo đặt lịch thật theo poster Lumi Pet */}
+          <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-500 text-white px-4 py-3 rounded-2xl text-xs font-extrabold flex flex-col sm:flex-row items-center justify-between gap-2 shadow-md mb-6">
+            <div className="flex items-center gap-2 text-center sm:text-left">
+              <span className="text-base">🐾</span>
+              <span className="tracking-wide uppercase">Đặt lịch trước để được phục vụ tốt nhất</span>
               <span className="hidden sm:inline opacity-80 font-normal">|</span>
-              <span className="text-[11px] font-semibold text-amber-100">Đến làm ngay - Không nhốt lồng chờ - Xếp thợ riêng</span>
+              <span className="text-[11px] font-semibold text-orange-50">Đến đúng giờ hẹn tránh để boss chờ lâu</span>
             </div>
-            <span className="bg-white text-orange-600 px-3 py-1 rounded-full text-[11px] font-black shadow-xs shrink-0">
-              ⚡ Vé VIP Ưu Tiên
+            <span className="bg-white/95 text-orange-600 px-3 py-1 rounded-full text-[11px] font-black shadow-xs shrink-0">
+              An toàn · Không stress
             </span>
           </div>
 
@@ -334,8 +334,8 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
               </div>
               <p className="text-[11px] text-slate-450 mt-1.5 leading-relaxed font-medium">
                 {calcService === 'hotel' 
-                  ? '✓ Bao gồm phòng kính riêng tư, điều hoà mát mẻ 24/24, thực đơn tươi 3 bữa và quay camera báo cáo hàng ngày.'
-                  : '✓ Quy trình tắm sấy vắt tuyến hôi, sấy tơi chống rối và tặng kèm chuông cổ xinh xắn.'}
+                  ? '✓ Bao gồm không gian riêng sạch sẽ, máy lạnh mát mẻ 24/24, bữa ăn theo menu và quay video tương tác mỗi ngày.'
+                  : '✓ Bao gồm vệ sinh tai, cắt mài móng, cạo vệ sinh bàn chân/bụng, vắt tuyến hôi, tắm xả sạch sẽ và sấy chải bông mượt.'}
               </p>
             </div>
 
@@ -376,32 +376,32 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
             </div>
           </div>
 
-          {/* TRICK 1: Lead Capture Form - Quà tặng ảo 90K chi phí 0đ */}
-          <div className="mt-6 pt-5 border-t border-dashed border-orange-200 bg-gradient-to-br from-orange-50/90 via-amber-50/90 to-orange-100/60 p-5 rounded-2xl shadow-xs">
+          {/* Form để lại SĐT nhận tư vấn & giữ khung giờ */}
+          <div className="mt-6 pt-5 border-t border-dashed border-orange-200 bg-gradient-to-br from-orange-50/90 via-amber-50/80 to-teal-50/50 p-5 rounded-2xl shadow-xs">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
               <div className="space-y-1.5 max-w-lg">
-                <div className="inline-flex items-center gap-1.5 bg-orange-500 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider">
-                  <span>🎁 ĐẶC QUYỀN ĐẶT QUA WEB</span>
+                <div className="inline-flex items-center gap-1.5 bg-teal-600 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider">
+                  <span>📅 HỖ TRỢ TƯ VẤN &amp; GIỮ LỊCH</span>
                 </div>
                 <h4 className="text-sm font-extrabold text-slate-900 leading-tight">
-                  Giữ 1 Trong 2 Suất Fast-Track Hôm Nay & Nhận Combo Quà 90.000đ
+                  Để Lại SĐT — Lumi Pet Liên Hệ Xác Nhận Khung Giờ &amp; Báo Giá Chuẩn Cho Bé
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-[11px] text-slate-650 pt-1">
                   <div className="flex items-center gap-1.5 font-medium">
                     <span className="text-emerald-600 font-bold">✓</span>
-                    <span>Soi da & kiểm tra nấm/ve rận bằng đèn Wood tia UV (50K)</span>
+                    <span>Đặt lịch trước giúp bé không phải chờ đợi lâu</span>
                   </div>
                   <div className="flex items-center gap-1.5 font-medium">
                     <span className="text-emerald-600 font-bold">✓</span>
-                    <span>Xịt dưỡng Collagen + Đeo Nơ xinh + 1 Thanh Súp thưởng (40K)</span>
+                    <span>Tư vấn rõ ràng trước khi làm, không phát sinh bất ngờ</span>
                   </div>
                 </div>
               </div>
 
               {quoteSubmitted ? (
-                <div className="w-full lg:w-auto bg-emerald-500 text-white px-5 py-3.5 rounded-xl font-bold text-xs text-center shadow-md animate-fade-in flex items-center justify-center gap-2">
+                <div className="w-full lg:w-auto bg-emerald-500 text-white px-5 py-3.5 rounded-xl font-bold text-xs text-center shadow-md flex items-center justify-center gap-2">
                   <span>🎉</span>
-                  <span>Đã giữ suất Fast-Track thành công! Lumi Pet sẽ liên hệ Zalo ngay.</span>
+                  <span>Đã gửi yêu cầu thành công! Lumi Pet sẽ liên hệ Zalo xác nhận ngay.</span>
                 </div>
               ) : (
                 <form onSubmit={handleQuoteSubmit} className="flex flex-col sm:flex-row w-full lg:w-auto items-stretch gap-2 shrink-0">
@@ -410,7 +410,7 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
                     required
                     value={quotePhone}
                     onChange={(e) => setQuotePhone(e.target.value)}
-                    placeholder="Nhập SĐT nhận mã quà & giữ suất..."
+                    placeholder="Nhập SĐT để shop tư vấn & giữ giờ..."
                     className="w-full sm:w-56 px-4 py-3 bg-white border-2 border-orange-300 rounded-xl text-xs font-bold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 shadow-xs"
                   />
                   <button
@@ -418,42 +418,42 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
                     disabled={isSubmittingQuote}
                     className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs px-5 py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap disabled:opacity-50"
                   >
-                    <span>{isSubmittingQuote ? 'Đang gửi...' : 'Giữ Suất & Nhận Báo Giá'}</span>
-                    <span>⚡</span>
+                    <span>{isSubmittingQuote ? 'Đang gửi...' : 'Nhận Tư Vấn Ngay'}</span>
+                    <span>→</span>
                   </button>
                 </form>
               )}
             </div>
           </div>
 
-          {/* TRICK 3: Bảng Checklist 10 Bước Bóc Trần Đối Thủ (5 Món 0đ) */}
+          {/* Các hạng mục đã bao gồm sẵn trong gói Spa Lumi Pet */}
           <div className="mt-5 bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-5 shadow-2xs">
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-base">💡</span>
+              <span className="text-base">✨</span>
               <h5 className="text-xs font-black text-slate-800 uppercase tracking-wide">
-                5 Món Đối Thủ Thu Phí Lẻ (~190.000đ) — Lumi Pet Đã Bao Gồm 0đ Trong Gói:
+                Quy Trình Chăm Sóc Đã Bao Gồm Sẵn Trong Gói Spa Lumi Pet:
               </h5>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
               <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
-                <span className="font-semibold text-slate-700">✂️ Cắt & dũa mài tròn móng</span>
-                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 50k → 0đ</span>
+                <span className="font-semibold text-slate-700">✂️ Cắt &amp; mài tròn móng chân</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đã bao gồm</span>
               </div>
               <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
-                <span className="font-semibold text-slate-700">👂 Nhổ lông tai & khử mùi</span>
-                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 50k → 0đ</span>
+                <span className="font-semibold text-slate-700">👂 Vệ sinh tai sạch sẽ, khử mùi</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đã bao gồm</span>
               </div>
               <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
-                <span className="font-semibold text-slate-700">🐾 Cạo đệm chân, bụng, hậu môn</span>
-                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 50k → 0đ</span>
+                <span className="font-semibold text-slate-700">🐾 Cạo lông đệm chân, bụng, hậu môn</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đã bao gồm</span>
               </div>
               <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
-                <span className="font-semibold text-slate-700">💧 Vắt tuyến hôi phòng viêm</span>
-                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 40k → 0đ</span>
+                <span className="font-semibold text-slate-700">💧 Vắt tuyến hôi sạch sẽ</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đã bao gồm</span>
               </div>
               <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between sm:col-span-2 lg:col-span-2">
-                <span className="font-semibold text-slate-700">🌬️ Thợ sấy tay 100% (Không dùng lồng sấy nhiệt hấp nóng)</span>
-                <span className="font-black text-orange-600 text-[11px] bg-orange-50 px-2 py-0.5 rounded-md">Tiêu chuẩn vàng Lumi Pet</span>
+                <span className="font-semibold text-slate-700">🌬️ Sấy chải nhẹ nhàng kết hợp sản phẩm cao cấp, không gây stress</span>
+                <span className="font-black text-orange-600 text-[11px] bg-orange-50 px-2 py-0.5 rounded-md">Tiêu chuẩn Lumi Pet</span>
               </div>
             </div>
           </div>

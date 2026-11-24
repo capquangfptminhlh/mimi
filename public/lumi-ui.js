@@ -7,9 +7,9 @@
   const BRAND_MARK = rootHref('lumi-brand-mark.svg');
 
   const TOPIC_IMAGES = {
-    spa: 'https://images.pexels.com/photos/6131161/pexels-photo-6131161.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    grooming: 'https://images.pexels.com/photos/6816844/pexels-photo-6816844.jpeg?auto=compress&cs=tinysrgb&w=1400',
-    hotel: 'https://images.pexels.com/photos/7635904/pexels-photo-7635904.jpeg?auto=compress&cs=tinysrgb&w=1400'
+    spa: rootHref('images/vn-bath-dog.jpg'),
+    grooming: rootHref('images/vn-hero-spa.jpg'),
+    hotel: rootHref('images/vn-hotel-cabins.jpg')
   };
 
   const style = document.createElement('style');
@@ -55,10 +55,22 @@
     .lumi-hero-visual figcaption{position:absolute;left:12px;bottom:12px;padding:7px 10px;border-radius:999px;background:rgba(15,23,42,.76);color:#fff;font-size:11px;font-weight:800;backdrop-filter:blur(8px)}
     
     .lumi-contact-quote{background:linear-gradient(135deg,#f97316,#ea580c)!important;color:#fff!important;border:none!important;cursor:pointer!important;position:relative!important;font-family:inherit!important}
-    .lumi-contact-quote::after{content:'-10%';position:absolute;top:-6px;right:-4px;background:#ef4444;color:#fff;font-size:10px;font-weight:900;padding:2px 6px;border-radius:999px;box-shadow:0 2px 6px rgba(239,68,68,.4);animation:lumiQuotePulse 1.8s infinite}
-    @keyframes lumiQuotePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-    .price-table tbody tr{cursor:pointer;transition:background .2s}
+    .lumi-contact-quote::after{content:'2026';position:absolute;top:-6px;right:-4px;background:#0d9488;color:#fff;font-size:9px;font-weight:900;padding:2px 6px;border-radius:999px;box-shadow:0 2px 6px rgba(13,148,136,.35);animation:lumiQuotePulse 2.2s infinite}
+    @keyframes lumiQuotePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+    .price-table tbody tr{cursor:pointer;transition:background .2s,transform .18s}
     .price-table tbody tr:hover{background:#fff7ed!important}
+    .lumi-mobile-dock{display:none}
+    @media(max-width:768px){
+      body:not(.lumi-has-react-root){padding-bottom:78px!important}
+      .lumi-contact-rail{display:none!important}
+      .lumi-mobile-dock{position:fixed;left:0;right:0;bottom:0;z-index:85;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 10px calc(env(safe-area-inset-bottom,0px) + 8px);background:rgba(255,255,255,.96);backdrop-filter:blur(18px);border-top:1px solid #ffedd5;box-shadow:0 -8px 24px rgba(15,23,42,.08)}
+      .lumi-mobile-dock a,.lumi-mobile-dock button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:46px;padding:6px 4px;border-radius:12px;border:none;text-decoration:none;font-size:10.5px;font-weight:900;cursor:pointer;font-family:inherit;transition:transform .16s ease}
+      .lumi-mobile-dock a:active,.lumi-mobile-dock button:active{transform:scale(.94)}
+      .lumi-dock-call{background:#fff7ed;color:#ea580c}
+      .lumi-dock-zalo{background:#eff6ff;color:#0068ff}
+      .lumi-dock-quote{background:#f0fdfa;color:#0d9488}
+      .lumi-dock-book{background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;box-shadow:0 4px 12px rgba(249,115,22,.28)}
+    }
     
     .lumi-modal-overlay{position:fixed;inset:0;z-index:99990;background:rgba(15,23,42,.6);backdrop-filter:blur(8px);display:grid;place-items:center;padding:16px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
     .lumi-modal-overlay.is-active{opacity:1;visibility:visible;pointer-events:auto}
@@ -307,16 +319,16 @@
 
   const PRICING_DB = {
     dog: [
-      { id: 'bath', name: 'Tắm vệ sinh chó (Trọn gói 6 bước)', tiers: [{ max: 3, p: 120000, m: 180000, l: 'Dưới 3kg' }, { max: 6, p: 170000, m: 220000, l: '3 – 6kg' }, { max: 9, p: 220000, m: 300000, l: '6 – 9kg' }, { max: 12, p: 270000, m: 350000, l: '9 – 12kg' }, { max: 18, p: 350000, m: 420000, l: '12 – 18kg' }] },
-      { id: 'shave', name: 'Combo Tắm vệ sinh + Cạo lông', tiers: [{ max: 3, p: 180000, m: 250000, l: 'Dưới 3kg' }, { max: 6, p: 240000, m: 320000, l: '3 – 6kg' }, { max: 9, p: 300000, m: 400000, l: '6 – 9kg' }, { max: 12, p: 360000, m: 460000, l: '9 – 12kg' }, { max: 18, p: 460000, m: 580000, l: '12 – 18kg' }] },
-      { id: 'groom', name: 'Combo Tắm vệ sinh + Cắt tỉa tạo kiểu', tiers: [{ max: 3, p: 260000, m: 350000, l: 'Dưới 3kg' }, { max: 6, p: 320000, m: 400000, l: '3 – 6kg' }, { max: 9, p: 380000, m: 460000, l: '6 – 9kg' }, { max: 12, p: 450000, m: 530000, l: '9 – 12kg' }, { max: 18, p: 550000, m: 650000, l: '12 – 18kg' }] }
+      { id: 'bath', name: 'Tắm vệ sinh chó', tiers: [{ max: 3, p: 140000, l: 'Dưới 3kg' }, { max: 6, p: 190000, l: '3 – 6kg' }, { max: 9, p: 250000, l: '6 – 9kg' }, { max: 12, p: 310000, l: '9 – 12kg' }, { max: 15, p: 370000, l: '12 – 15kg' }, { max: 18, p: 430000, l: '15 – 18kg' }, { max: 20, p: 480000, l: '18 – 20kg' }, { max: 25, p: 550000, l: '20 – 25kg' }] },
+      { id: 'shave', name: 'Combo Tắm + Cạo lông chó', tiers: [{ max: 3, p: 200000, l: 'Dưới 3kg' }, { max: 6, p: 270000, l: '3 – 6kg' }, { max: 9, p: 340000, l: '6 – 9kg' }, { max: 12, p: 410000, l: '9 – 12kg' }, { max: 15, p: 480000, l: '12 – 15kg' }, { max: 18, p: 550000, l: '15 – 18kg' }, { max: 20, p: 620000, l: '18 – 20kg' }, { max: 25, p: 700000, l: '20 – 25kg' }] },
+      { id: 'groom', name: 'Combo Tắm + Cắt tỉa chó', tiers: [{ max: 3, p: 290000, l: 'Dưới 3kg' }, { max: 6, p: 360000, l: '3 – 6kg' }, { max: 9, p: 430000, l: '6 – 9kg' }, { max: 12, p: 520000, l: '9 – 12kg' }, { max: 15, p: 600000, l: '12 – 15kg' }, { max: 18, p: 680000, l: '15 – 18kg' }, { max: 20, p: 760000, l: '18 – 20kg' }, { max: 25, p: 850000, l: '20 – 25kg' }] }
     ],
     cat: [
-      { id: 'bath', name: 'Combo Tắm vệ sinh mèo', tiers: [{ max: 3, p: 150000, m: 220000, l: 'Dưới 3kg' }, { max: 6, p: 200000, m: 280000, l: '3 – 6kg' }, { max: 10, p: 250000, m: 350000, l: '6 – 10kg' }] },
-      { id: 'shave', name: 'Combo Tắm vệ sinh + Cạo lông mèo', tiers: [{ max: 3, p: 230000, m: 320000, l: 'Dưới 3kg' }, { max: 6, p: 290000, m: 380000, l: '3 – 6kg' }, { max: 10, p: 350000, m: 450000, l: '6 – 10kg' }] }
+      { id: 'bath', name: 'Tắm vệ sinh mèo', tiers: [{ max: 3, p: 160000, l: 'Dưới 3kg' }, { max: 6, p: 220000, l: '3 – 6kg' }, { max: 10, p: 270000, l: '6 – 10kg' }] },
+      { id: 'shave', name: 'Tắm + Cạo lông mèo', tiers: [{ max: 3, p: 250000, l: 'Dưới 3kg' }, { max: 6, p: 320000, l: '3 – 6kg' }, { max: 10, p: 380000, l: '6 – 10kg' }] }
     ],
     hotel: [
-      { id: 'standard', name: 'Khách sạn thú cưng (Máy lạnh 24/24)', tiers: [{ max: 3, p: 100000, m: 150000, l: 'Dưới 3kg' }, { max: 6, p: 120000, m: 180000, l: '3 – 6kg' }, { max: 9, p: 160000, m: 220000, l: '6 – 9kg' }, { max: 12, p: 200000, m: 270000, l: '9 – 12kg' }, { max: 15, p: 250000, m: 350000, l: '12 – 15kg' }] }
+      { id: 'standard', name: 'Khách sạn thú cưng (Máy lạnh 24/24)', tiers: [{ max: 3, p: 100000, l: 'Dưới 3kg' }, { max: 6, p: 120000, l: '3 – 6kg' }, { max: 9, p: 160000, l: '6 – 9kg' }, { max: 12, p: 200000, l: '9 – 12kg' }, { max: 15, p: 250000, l: '12 – 15kg' }] }
     ]
   };
 
@@ -360,8 +372,8 @@
           <div class="lumi-res-badge">✅</div>
           <h3 class="lumi-res-title">Báo Giá Của Bé Tại Lumi Pet</h3>
           <div class="lumi-res-pricing">
-            <div class="lumi-res-old">Mặt bằng giá Bình Thạnh: <del id="lumi-calc-old">—</del></div>
-            <div class="lumi-res-new"><span id="lumi-calc-new">—</span> <span class="lumi-res-save" id="lumi-calc-save">Tiết kiệm</span></div>
+            <div class="lumi-res-old" id="lumi-calc-old">Biểu phí chính thức 2026 tại Lumi Pet</div>
+            <div class="lumi-res-new"><span id="lumi-calc-new">—</span> <span class="lumi-res-save" id="lumi-calc-save" style="background:#0d9488">Niêm yết rõ ràng</span></div>
           </div>
           <div class="lumi-res-voucher" style="text-align:left;line-height:1.55">
             ✅ <strong>Quy trình đã bao gồm:</strong> Kiểm tra da lông, xử lý lông bàn chân, vệ sinh tai/mắt, cắt mài móng, vắt tuyến hôi, tắm xả 2 lần, sấy phồng &amp; serum dưỡng lông.<br>
@@ -499,8 +511,6 @@
     }
 
     const lumiPrice = selectedTier.p;
-    const marketPrice = selectedTier.m || Math.round(lumiPrice * 1.35);
-    const savedAmount = marketPrice - lumiPrice;
     const moneyFmt = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
 
     // Show result
@@ -508,9 +518,9 @@
     const newEl = document.getElementById('lumi-calc-new');
     const saveEl = document.getElementById('lumi-calc-save');
     const phEl = document.getElementById('lumi-calc-phone');
-    if (oldEl) oldEl.textContent = moneyFmt.format(marketPrice);
+    if (oldEl) oldEl.textContent = `${serv.name} · ${selectedTier.l}`;
     if (newEl) newEl.textContent = moneyFmt.format(lumiPrice);
-    if (saveEl) saveEl.textContent = `Rẻ hơn ${moneyFmt.format(savedAmount)}`;
+    if (saveEl) saveEl.textContent = 'Giá niêm yết 2026';
     if (phEl) phEl.textContent = phone;
 
     if (formWrap) formWrap.style.display = 'none';
@@ -520,15 +530,15 @@
     const petIcon = curSpecies === 'dog' ? '🐶 Cún' : (curSpecies === 'cat' ? '🐱 Mèo' : '🏨 Khách sạn');
     const timeNow = new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' - ' + new Date().toLocaleDateString('vi-VN');
     const zaloMsg = [
-      '🔥 *【 LUMI PET 】- KHÁCH VỪA XEM BÁO GIÁ & GIỮ LỊCH TRÊN WEB!*',
+      '🐾 *【 LUMI PET 】- KHÁCH VỪA XEM BÁO GIÁ & GIỮ LỊCH TRÊN WEB!*',
       '━━━━━━━━━━━━━━━━━━━━',
       `📞 *Số điện thoại:* [${phone}](tel:${phone})`,
       `🐾 *Dịch vụ:* ${petIcon} - ${serv.name} (${selectedTier.l})`,
-      `💰 *Giá Lumi Pet:* *${moneyFmt.format(lumiPrice)}* _(Mặt bằng Bình Thạnh: ${moneyFmt.format(marketPrice)})_`,
+      `💰 *Giá niêm yết 2026:* *${moneyFmt.format(lumiPrice)}*`,
       `🌐 *Trang xem:* ${location.href}`,
       `⏰ *Thời gian:* ${timeNow}`,
       '━━━━━━━━━━━━━━━━━━━━',
-      '👉 *Sếp gọi lại xác nhận khung giờ đón bé nhé!*'
+      '👉 *Gọi hoặc nhắn Zalo xác nhận khung giờ đón bé nhé!*'
     ].join('\n');
 
     const params = new URLSearchParams();
@@ -571,6 +581,43 @@
       });
     }
   }, true);
+
+  // Mobile native-style bottom dock for all static pages (non-React)
+  if (document.querySelector('#root')) {
+    document.body.classList.add('lumi-has-react-root');
+  } else if (!document.querySelector('.lumi-mobile-dock')) {
+    const dock = document.createElement('nav');
+    dock.className = 'lumi-mobile-dock';
+    dock.setAttribute('aria-label', 'Thao tác nhanh trên điện thoại');
+    dock.innerHTML = `
+      <a class="lumi-dock-call" href="tel:0989979675"><span>☎</span><span>Gọi ngay</span></a>
+      <a class="lumi-dock-zalo" href="${ZALO_URL}" target="_blank" rel="noopener noreferrer"><span>💬</span><span>Zalo</span></a>
+      <button type="button" class="lumi-dock-quote" id="lumi-dock-quote-btn"><span>💰</span><span>Tính giá</span></button>
+      <a class="lumi-dock-book" href="${rootHref('dat-lich/')}"><span>📅</span><span>Đặt lịch</span></a>
+    `;
+    document.body.appendChild(dock);
+    dock.querySelector('#lumi-dock-quote-btn')?.addEventListener('click', () => openQuoteModal());
+  }
+
+  // Smooth staggered scroll-reveal animations on all panels/cards
+  if (!REDUCED && 'IntersectionObserver' in window) {
+    const targets = document.querySelectorAll('.panel, .blog-card, .lumi-vn-showcase, .price-box, .hero-copy, .hero-side');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    targets.forEach((el, idx) => {
+      if (!el.classList.contains('lumi-reveal')) {
+        el.classList.add('lumi-reveal');
+        el.style.transitionDelay = `${Math.min((idx % 4) * 65, 220)}ms`;
+      }
+      io.observe(el);
+    });
+  }
 
   loadBlogEnhancements();
 })();

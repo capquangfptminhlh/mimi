@@ -156,19 +156,17 @@ export async function notifyZaloPriceQuote(data: PriceQuoteNotificationData): Pr
   const petWeightStr = data.petWeight ? ` - ${data.petWeight}kg` : '';
 
   const text = [
-    '🔥 *【 LUMI PET 】- CÓ KHÁCH GIÀNH SUẤT FAST-TRACK & QUÀ 90K!*',
+    '🐾 *【 LUMI PET 】- CÓ KHÁCH YÊU CẦU TƯ VẤN & BÁO GIÁ!*',
     '━━━━━━━━━━━━━━━━━━━━',
     `📞 *Số điện thoại:* [${data.phone}](tel:${data.phone})`,
     data.customerName ? `👤 *Tên khách:* ${data.customerName}` : null,
     `🐾 *Thú cưng:* ${petTypeStr}${petWeightStr}`,
     `✂️ *Dịch vụ đang xem:* ${data.serviceName}`,
     `💰 *Mức giá tham khảo:* *${formatCurrency(data.estimatedPrice)}*`,
-    '🎁 *Ưu đãi cam kết:* Soi da đèn Wood (50k) + Dưỡng Collagen & Nơ cổ (25k) + Súp thưởng (15k)',
-    '⚡ *Chế độ:* Suất ưu tiên Fast-Track (Đến làm ngay không nhốt lồng chờ)',
     data.note ? `📝 *Ghi chú nguồn:* ${data.note}` : null,
     `⏰ *Thời gian:* ${new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })} (Hôm nay)`,
     '━━━━━━━━━━━━━━━━━━━━',
-    '⚡ _Khách vừa điền SĐT giữ suất quà 90k trên web! Hãy gọi hoặc nhắn Zalo xác nhận mã quà và chốt lịch ngay kẻo khách đổi ý!_'
+    '⚡ _Khách vừa để lại SĐT nhận tư vấn trên web. Vui lòng gọi hoặc nhắn Zalo xác nhận khung giờ cho khách!_'
   ].filter(Boolean).join('\n');
 
   return sendZaloRaw(text);

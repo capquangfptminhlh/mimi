@@ -338,13 +338,57 @@ textarea{min-height:108px;resize:vertical}
 }
 
 @media(max-width:480px){
-  .hero-copy,.hero-side,.panel,.price-box{border-radius:21px}
-  .hero-copy{padding:23px}
-  .hero-side,.panel,.price-box{padding:21px}
-  .price-table th,.price-table td{padding:10px 8px;font-size:13px}
-  .hero-actions .btn{width:100%}
-  .price-total{font-size:33px}
-  h1{font-size:38px}
+  html,body{overflow-x:clip}
+  .hero-copy,.hero-side,.panel,.price-box{border-radius:22px}
+  .hero-copy{padding:22px 18px}
+  .hero-side,.panel,.price-box{padding:18px 16px}
+  .price-table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .price-table th,.price-table td{padding:10px 8px;font-size:13px;white-space:nowrap}
+  .hero-actions{flex-direction:column;gap:10px}
+  .hero-actions .btn{width:100%;min-height:46px;justify-content:center}
+  .price-total{font-size:32px}
+  h1{font-size:clamp(28px,7.5vw,38px);line-height:1.12}
+  h2{font-size:clamp(20px,5.6vw,26px)}
+  .lumi-honest-banner{font-size:12px!important;padding:10px 14px!important}
+}
+
+/* Smooth hover & interactive animations across static SEO pages */
+.panel,.hero-copy,.hero-side,.price-box,.lumi-vn-showcase{
+  transition:transform .32s cubic-bezier(.22,1,.36,1),box-shadow .32s ease,border-color .28s ease;
+}
+.panel:hover,.lumi-vn-showcase:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 44px rgba(103,65,31,.11);
+  border-color:var(--line-strong);
+}
+.lumi-vn-showcase img{
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.lumi-vn-showcase:hover img{
+  transform:scale(1.04);
+}
+.btn{
+  position:relative;
+  overflow:hidden;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s ease,filter .22s ease;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(249,115,22,.22);
+}
+.faq details{
+  transition:background .22s ease,border-color .22s ease;
+}
+.faq details[open]{
+  background:#fffaf3;
+  border-color:#fed7aa;
+}
+.faq details[open] p{
+  animation:lumiFaqOpen .28s ease both;
+}
+@keyframes lumiFaqOpen{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:none}
 }
 
 @media(prefers-reduced-motion:reduce){

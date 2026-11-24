@@ -8,46 +8,46 @@ import { Product, SpaService, HotelRoom, Review } from './types';
 export const SPA_SERVICES: SpaService[] = [
   {
     id: 'spa-tam-say',
-    name: 'Combo Tắm Vệ Sinh 10 Bước Chuyên Sâu',
-    description: 'Quy trình vệ sinh sạch bách từ bảo mẫu chăm sóc bao gồm chải lông tơ, nhổ lông tai sạch sẽ, cắt mài móng bo tròn, vắt tuyến hôi phòng ngừa ẩm viêm, tắm dưỡng x2 lần, sấy tơi bồng rực rỡ và dưỡng serum mượt lông.',
-    duration: '45 - 60 phút',
+    name: 'Combo Tắm Vệ Sinh Toàn Diện',
+    description: 'Quy trình vệ sinh sạch sẽ, nhẹ nhàng bao gồm kiểm tra lông da, chải lông, cạo vệ sinh bàn chân/bụng/hậu môn, vệ sinh tai mắt, cắt mài móng, vắt tuyến hôi, tắm xả sạch sẽ 2 lần và sấy chải bông mượt.',
+    duration: '60 - 90 phút',
     price: 140000,
     benefits: [
-      'Khử sạch hoàn toàn mùi hôi bằng dầu gội trị thảo dược',
-      'Vắt tuyến hôi ngăn ngừa viêm nhiễm tuyến bã quanh hậu môn',
-      'Cắt mài móng điện bo tròn, không sợ sệt tránh cào xước da',
-      'Vệ sinh lấy sạch bẩn tai chuyên sâu bằng nước muối sinh lý',
-      'Sấy tơi xốp lông bằng hệ thống sấy khí ion ấm bảo vệ da'
+      'Làm sạch sâu và khử mùi hôi bằng sản phẩm sữa tắm cao cấp dịu nhẹ',
+      'Vắt tuyến hôi sạch sẽ, hạn chế mùi khó chịu và viêm tuyến bã',
+      'Cắt và mài bo tròn móng chân an toàn, không làm đau bé',
+      'Vệ sinh tai, mắt, cạo gọn lông bàn chân, bụng và hậu môn',
+      'Thợ sấy tay nhẹ nhàng kết hợp chải bông lông, không gây stress cho boss'
     ],
     iconName: 'Sparkles'
   },
   {
     id: 'spa-cacao',
-    name: 'Combo Tắm Cạo Lông Sạch Sẽ Mát Mẻ',
-    description: 'Combo làm sạch sâu 10 bước tích hợp đi tông đơ cao cấp cạo tỉa phom gọn gàng mát mẻ cho những ngày hè nắng nóng, hỗ trợ đặc trị nấm rận da.',
+    name: 'Combo Tắm Cạo Lông Sạch Mát',
+    description: 'Bao gồm trọn bộ quy trình tắm vệ sinh sạch sẽ kết hợp cạo lông gọn gàng, thoáng mát cho chó và mèo, phù hợp mùa nóng hoặc xử lý lông bết rối nặng.',
     duration: '60 - 90 phút',
     price: 200000,
     benefits: [
-      'Gồm trọn quy trình tắm dưỡng sấy cơ bản của gói tắm vệ sinh',
-      'Cạo lông gọn gàng sướng thân nhiệt, dễ bảo bọc bôi thuốc nấm',
-      'Ủ dưỡng chất chống rụng xơ xù lông sau khi cạo tông đơ',
-      'Hói ẩm biểu bì da nhạy cảm không gãi ngứa nổi mẩn đỏ',
-      'Tặng kèm nơ thắt ruy bằng đính chuông cổ rủng rỉnh cực bắt tai'
+      'Gồm đầy đủ quy trình tắm vệ sinh, cắt móng, vệ sinh tai và vắt tuyến hôi',
+      'Cạo lông gọn gàng, an toàn giúp da bé thông thoáng và dễ vệ sinh',
+      'Dụng cụ lưỡi tông đơ được vệ sinh, khử khuẩn sạch sẽ giữa các bé',
+      'Tắm xả dịu nhẹ giúp da bé dễ chịu, hạn chế ngứa rát sau khi cạo',
+      'Tư vấn giữ độ dài phù hợp với từng giống chó mèo'
     ],
     iconName: 'Scissors'
   },
   {
     id: 'spa-grooming',
-    name: 'Combo Tắm Cắt Tạo Kiểu Nghệ Thuật (Grooming)',
-    description: 'Trải nghiệm đỉnh cao sắc đẹp thẩm mỹ đẳng cấp 5 sao. Thiết kế kiểu dáng lông theo phom giống loài chó (phom tròn bầu mây Poodle, tỉa bo cạnh gấu Shitzu, Pom phao ly, cún nhỏ).',
-    duration: '90 - 120 phút',
+    name: 'Combo Tắm Cắt Tỉa Tạo Kiểu (Grooming)',
+    description: 'Gói chăm sóc toàn diện kết hợp tắm vệ sinh và cắt tỉa tạo dáng theo từng giống chó (Poodle, Corgi, Pomeranian, Bichon, Shih Tzu...) giúp boss xinh rạng rỡ.',
+    duration: '90 - 150 phút',
     price: 290000,
     benefits: [
-      'Cắt tỉa tạo hình nắn nót bởi chuyên gia Groomer giàu kinh nghiệm chuyên môn',
-      'Nhẹ bẫng lông tơ, tỉa gọn bớt xơ rối mà vẫn giữ được độ phồng dày xinh xắn',
-      'Nhận tư vấn mẫu phom hợp mắt nhất với cấu tạo gương mặt và tai móng bé',
-      'Phục hồi keratin chuyên sâu khóa ẩm dẻo dai từng sợi lông phồng bồng bềnh',
-      'Tặng chuông đồng đeo cổ Lumi Pet cao cấp'
+      'Bao gồm trọn bộ tắm vệ sinh sạch sẽ, cắt mài móng và vắt tuyến hôi',
+      'Groomer tỉa kéo gọn gàng, cân đối gương mặt, tai, thân và chân',
+      'Tư vấn kiểu lông dễ chăm sóc tại nhà và phù hợp chất lông của bé',
+      'Sấy chải duỗi tơi từng lớp lông trước khi tỉa để form lên đều đẹp',
+      'Chăm sóc nhẹ nhàng, kiên nhẫn để bé luôn thoải mái trong suốt buổi làm'
     ],
     iconName: 'Sparkles'
   }
@@ -56,53 +56,50 @@ export const SPA_SERVICES: SpaService[] = [
 export const HOTEL_ROOMS: HotelRoom[] = [
   {
     id: 'hotel-standard',
-    name: 'Phòng Cozy Standard',
-    description: 'Phòng kính cường lực ấm áp, sạch sẽ tuyệt đối với hệ thống thông khí tuần hoàn 2 chiều. Thích hợp cho các bé cỡ nhỏ đến trung bình thích sự riêng tư yên tĩnh.',
-    pricePerNight: 120000,
-    capacity: 'Chó/Mèo dưới 8kg',
+    name: 'Phòng Tiêu Chuẩn (Dưới 6kg)',
+    description: 'Không gian phòng kính riêng sạch sẽ cho cún hoặc mèo cỡ nhỏ dưới 6kg. Phòng luôn khô thoáng, khử khuẩn hằng ngày và bật máy lạnh mát mẻ 24/24.',
+    pricePerNight: 100000,
+    capacity: 'Chó/Mèo dưới 6kg (100k – 120k/ngày)',
     amenities: [
-      'Đệm bông ép 3D kháng khuẩn êm ái',
-      'Chế độ ăn 2 bữa chính (Hạt cao cấp + Súp thưởng)',
-      'Hệ thống điều hòa lọc không khí duy trì 26°C ổn định',
-      'Camera an ninh giám sát chung 24/7',
-      'Vui chơi tự do tại sảnh chung 30 phút/ngày'
+      'Không gian riêng mỗi bé, đảm bảo vệ sinh sạch sẽ',
+      'Máy lạnh mát mẻ ổn định 24/24',
+      'Bữa ăn đầy đủ theo menu (hoặc theo khẩu phần chủ gửi)',
+      'Quay video tương tác gửi Zalo cho ba mẹ mỗi ngày',
+      'Ưu đãi dài ngày: Trên 5 ngày giảm 5% · Trên 10 ngày giảm 8%'
     ],
-    image: 'https://images.unsplash.com/photo-1541599540903-216a46ca1bf0?w=600&auto=format&fit=crop&q=80',
-    rating: 4.8
+    image: '/images/vn-hotel-cabins.jpg',
+    rating: 4.9
   },
   {
     id: 'hotel-deluxe',
-    name: 'Phòng Deluxe Oasis',
-    description: 'Không gian rộng gấp đôi phòng Standard với ban công ngắm cảnh sảnh chung. Có hệ thống đồ chơi cào móng độc lập cho mèo hoặc gối ôm riêng biệt cho chó.',
-    pricePerNight: 220000,
-    capacity: 'Chó dưới 15kg hoặc 2 Mèo cùng nhà',
+    name: 'Phòng Riêng Cho Mèo (Khu Yên Tĩnh)',
+    description: 'Khu lưu trú riêng tách biệt dành cho mèo giúp bé giảm căng thẳng, có bệ nằm sạch sẽ, khay cát riêng và không gian yên tĩnh thoáng mát 24/24.',
+    pricePerNight: 120000,
+    capacity: 'Mèo mọi giống (100k – 160k/ngày)',
     amenities: [
-      'Đệm nằm memory foam ôm cơ thể',
-      'Bát ăn sứ vệ sinh dễ lau chùi sạch',
-      'Camera cá nhân riêng biệt (Gửi link xem Live cho chủ 24/24)',
-      'Thực đơn tùy chọn: Hạt Royal Canin, pate tươi hoặc ức gà hấp xé',
-      'Sân chơi tương tác cùng bảo mẫu 60 phút/ngày',
-      'Tặng combo tắm sấy miễn phí cho kỳ lưu trú trên 5 ngày'
+      'Không gian riêng tư tách biệt khu chó, hạn chế tiếng ồn',
+      'Dọn vệ sinh khay cát và thay nước sạch hằng ngày',
+      'Máy lạnh mát mẻ 24/24, khử mùi sạch sẽ',
+      'Ăn theo menu hoặc thức ăn quen bụng chủ mang theo',
+      'Quay video tương tác cập nhật tình hình bé mỗi ngày'
     ],
-    image: 'https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=600&auto=format&fit=crop&q=80',
+    image: '/images/vn-hotel-cat-vip.jpg',
     rating: 4.9
   },
   {
     id: 'hotel-penthouse',
-    name: 'Căn Hộ Penthouse Hoàng Gia',
-    description: 'Biệt thự sang trọng độc lập cao cấp hàng đầu. Khung cảnh cửa sổ lớn ngập nắng ngoài trời, sở hữu máy lọc nước tự động, tháp leo trèo hoặc đệm lười nhung thượng hạng.',
-    pricePerNight: 450000,
-    capacity: 'Phù hợp mọi kích cỡ thú cưng (Tối đa 4 mèo hoặc 2 chó lớn)',
+    name: 'Phòng Rộng Cho Bé Cỡ Vừa & Lớn',
+    description: 'Không gian phòng rộng rãi dành cho các bé từ 6kg đến 15kg (hoặc 2 bé cùng nhà muốn ở chung) thoải mái xoay trở, nghỉ ngơi và vận động.',
+    pricePerNight: 160000,
+    capacity: 'Chó 6 – 15kg (160k – 250k/ngày)',
     amenities: [
-      'Phòng siêu rộng biệt lập hoàn toàn không tiếng ồn',
-      'Hệ thống nước chảy thác tuần hoàn lọc 4 lớp',
-      'Báo cáo sức khỏe, đo nhiệt độ & nhịp tim mỗi sáng',
-      'Bữa ăn thiết kế riêng chuẩn dinh dưỡng (Bò Beefsteak thái sợi, cá hồi áp chảo)',
-      'Live webcam HD 1080p hỗ trợ đàm thoại 2 chiều với pet',
-      'Trải nghiệm hồ bơi cạn hoặc leo tháp không giới hạn',
-      'Dịch vụ đưa đón tận nhà miễn phí trong bán kính 10km'
+      'Diện tích phòng rộng rãi, sàn vệ sinh khử khuẩn hằng ngày',
+      'Máy lạnh 24/24 thoáng mát cho giống lông dày',
+      'Bữa ăn đầy đủ theo menu và lịch sinh hoạt riêng',
+      'Quay video tương tác mỗi ngày gửi trực tiếp cho chủ',
+      'Bé trên 15kg vui lòng liên hệ shop để bố trí phòng và báo giá'
     ],
-    image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=600&auto=format&fit=crop&q=80',
+    image: '/images/vn-bath-dog.jpg',
     rating: 5.0
   }
 ];
@@ -312,6 +309,6 @@ export const FAQS = [
   },
   {
     q: 'Quy trình khử khuẩn và đặt lịch vệ sinh phòng khách sạn thế nào?',
-    a: 'Mỗi căn cabin phòng ngủ của bé đều được hút bụi kẽ kính, lau dung dịch khử trùng chuyên dụng hữu cơ của Mỹ (Anios/Virkon) tuyệt đối thân thiện màng hô hấp ngay sau khi trả phòng. Hàng ngày phòng luôn được sục sấy khử ozone diệt trùng 15 phút luân phiên buổi sáng dọn giường.'
+    a: 'Mỗi phòng/chuồng lưu trú riêng đều được dọn dẹp, lau rửa và khử khuẩn sạch sẽ bằng dung dịch chuyên dụng an toàn cho thú cưng hằng ngày và sau mỗi lượt khách.'
   }
 ];
