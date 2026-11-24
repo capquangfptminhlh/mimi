@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Product, CartItem } from '../types';
 import { SHOP_PRODUCTS } from '../data';
+import { notifyZaloOrder } from '../utils/zaloNotifier';
 
 // Helper for Vietnamese currency formatting
 export const formatVND = (price: number) => {
@@ -101,6 +102,20 @@ export default function ShopSection({
     setOrderCode(code);
     setOrderSuccess(true);
     setIsCheckingOut(false);
+
+    // Bắn thông báo đơn mua hàng về Zalo Bot
+    notifyZaloOrder({
+      id: code,
+      buyerName,
+      buyerPhone,
+      buyerAddress,
+      items: [...cartItems],
+      total: cartSubtotal,
+      buyerNote
+    }).catch(err => {
+      console.error('Không thể bắn thông báo đơn hàng Zalo:', err);
+    });
+
     onClearCart();
   };
 

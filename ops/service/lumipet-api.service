@@ -1,0 +1,15 @@
+[Unit]
+Description=Lumi Pet Backend Notification Service
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+WorkingDirectory=/var/www/lumipet/current
+EnvironmentFile=-/var/www/lumipet/.env
+ExecStart=/usr/bin/node ops/api/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

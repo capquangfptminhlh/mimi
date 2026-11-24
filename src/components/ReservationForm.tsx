@@ -13,6 +13,7 @@ import { Booking, SpaService, HotelRoom } from '../types';
 import { SPA_SERVICES, HOTEL_ROOMS } from '../data';
 import { formatVND } from './ShopSection';
 import EmailVoucherModal from './EmailVoucherModal';
+import { notifyZaloBooking } from '../utils/zaloNotifier';
 
 interface ReservationFormProps {
   preselectedBookingType: 'spa' | 'hotel' | null;
@@ -203,6 +204,11 @@ export default function ReservationForm({
     const updatedList = [newBooking, ...allBookings];
     saveBookingsList(updatedList);
     setRecentBooking(newBooking);
+
+    // Bắn thông báo tức thì về Zalo Bot của shop
+    notifyZaloBooking(newBooking).catch(err => {
+      console.error('Không thể bắn thông báo Zalo:', err);
+    });
 
     // Clean inputs up
     setPetName('');

@@ -31,17 +31,30 @@
             "publisher": { "@id": "https://lumipet.vn/#business" }
           },
           {
-            "@type": "LocalBusiness",
+            "@type": ["LocalBusiness", "PetStore"],
             "@id": "https://lumipet.vn/#business",
-            "name": "Lumi Pet Spa & Hotel 24/7",
+            "name": "Lumi Pet Shop – Spa & Hotel 24/7 Thú Cưng Bình Thạnh",
             "url": "https://lumipet.vn/",
             "telephone": "+84989979675",
             "priceRange": "100.000₫ – 550.000₫",
+            "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 10.79972,
+              "longitude": 106.69751
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "bestRating": "5",
+              "ratingCount": "180"
+            },
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "27 Võ Trường Toản",
-              "addressLocality": "Bình Thạnh",
+              "streetAddress": "27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ)",
+              "addressLocality": "Phường Gia Định, Bình Thạnh",
               "addressRegion": "TP. Hồ Chí Minh",
+              "postalCode": "700000",
               "addressCountry": "VN"
             },
             "openingHoursSpecification": {
@@ -50,14 +63,31 @@
               "opens": "07:00",
               "closes": "21:00"
             },
-            "sameAs": ["https://www.instagram.com/lumipet.spa/"],
+            "areaServed": [
+              {"@type": "AdministrativeArea", "name": "Phường Gia Định, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Bình Thạnh, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Thạnh Mỹ Tây, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Bình Lợi Trung, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Bình Quới, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Cầu Kiệu (Phú Nhuận), TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Phú Nhuận, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Đức Nhuận, TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Tân Định (Quận 1), TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường Sài Gòn (Quận 1), TP. Hồ Chí Minh"},
+              {"@type": "AdministrativeArea", "name": "Phường An Khánh (Thảo Điền, Quận 2), TP. Hồ Chí Minh"}
+            ],
+            "sameAs": [
+              "https://www.instagram.com/lumipet.spa/",
+              "https://zalo.me/0989979675",
+              "https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg"
+            ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "Dịch vụ Lumi Pet",
               "itemListElement": [
-                {"@type":"OfferCatalog","name":"Spa thú cưng","url":"https://lumipet.vn/spa-thu-cung-binh-thanh/"},
-                {"@type":"OfferCatalog","name":"Grooming chó","url":"https://lumipet.vn/grooming-cho-meo-binh-thanh/"},
-                {"@type":"OfferCatalog","name":"Khách sạn thú cưng","url":"https://lumipet.vn/khach-san-thu-cung-binh-thanh/"}
+                {"@type":"OfferCatalog","name":"Spa tắm vệ sinh chó mèo","url":"https://lumipet.vn/spa-thu-cung-binh-thanh/"},
+                {"@type":"OfferCatalog","name":"Grooming cắt tỉa lông chó mèo","url":"https://lumipet.vn/grooming-cho-meo-binh-thanh/"},
+                {"@type":"OfferCatalog","name":"Khách sạn thú cưng 24/7","url":"https://lumipet.vn/khach-san-thu-cung-binh-thanh/"}
               ]
             }
           }

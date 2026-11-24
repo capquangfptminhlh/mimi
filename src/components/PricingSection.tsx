@@ -4,6 +4,7 @@ import {
   Sparkles, Cat, Dog, Hotel, Check, Info, Scissors, HelpCircle, 
   Video, Utensils, MessageSquare, Phone, Calendar, AlertCircle, Award, ShieldAlert, Star
 } from 'lucide-react';
+import { notifyZaloPriceQuote } from '../utils/zaloNotifier';
 
 interface PricingSectionProps {
   onTriggerBooking: () => void;
@@ -18,9 +19,46 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
   const [calcService, setCalcService] = useState<'tvs' | 'ctc' | 'ctct' | 'hotel'>('tvs');
   const [calcWeight, setCalcWeight] = useState<number>(3.5);
 
+  // Quick Lead Capture & CRO States
+  const [quotePhone, setQuotePhone] = useState('');
+  const [quoteSubmitted, setQuoteSubmitted] = useState(false);
+  const [isSubmittingQuote, setIsSubmittingQuote] = useState(false);
+
   // Helper formatting
   const formatVND = (num: number) => {
     return num.toLocaleString('vi-VN') + 'đ';
+  };
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const phone = quotePhone.trim();
+    if (!/^[0-9]{9,11}$/.test(phone.replace(/\s+/g, ''))) {
+      alert('Vui lòng nhập số điện thoại hợp lệ (10 số)!');
+      return;
+    }
+    setIsSubmittingQuote(true);
+    try {
+      const serviceName = calcService === 'hotel' 
+        ? 'Khách Sạn (Hotel)' 
+        : calcService === 'tvs' 
+          ? 'Combo Tắm Vệ Sinh 10 Bước' 
+          : calcService === 'ctc' 
+            ? 'Combo Tắm Cạo Lông' 
+            : 'Combo Tắm Cắt Tạo Kiểu';
+      await notifyZaloPriceQuote({
+        phone,
+        petType: calcPetType,
+        petWeight: calcWeight,
+        serviceName,
+        estimatedPrice: computedPrice === -1 ? 0 : computedPrice,
+        note: 'Khách điền SĐT từ Bảng Tra Cứu Giá Online (Trang Bảng Giá)'
+      });
+      setQuoteSubmitted(true);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSubmittingQuote(false);
+    }
   };
 
   // Pricing engine matching flyers exactly
@@ -153,6 +191,19 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
             <div className="flex items-center text-xs bg-amber-50 border border-amber-100 text-amber-800 px-3 py-1.5 rounded-lg font-bold">
               ⚡ Báo giá mới cập nhật hôm nay
             </div>
+          </div>
+
+          {/* TRICK 2: Thanh trạng thái khan hiếm & Vé Fast-Track */}
+          <div className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white px-4 py-2.5 rounded-2xl text-xs font-black flex flex-col sm:flex-row items-center justify-between gap-2 shadow-md mb-6 animate-pulse">
+            <div className="flex items-center gap-2">
+              <span className="text-base">🔥</span>
+              <span className="tracking-wide uppercase">HÔM NAY CHỈ CÒN 02 SUẤT FAST-TRACK</span>
+              <span className="hidden sm:inline opacity-80 font-normal">|</span>
+              <span className="text-[11px] font-semibold text-amber-100">Đến làm ngay - Không nhốt lồng chờ - Xếp thợ riêng</span>
+            </div>
+            <span className="bg-white text-orange-600 px-3 py-1 rounded-full text-[11px] font-black shadow-xs shrink-0">
+              ⚡ Vé VIP Ưu Tiên
+            </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -307,6 +358,88 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
                 <Calendar className="w-4 h-4" />
                 <span>Đặt Giữ Lịch Ngay</span>
               </button>
+            </div>
+          </div>
+
+          {/* TRICK 1: Lead Capture Form - Quà tặng ảo 90K chi phí 0đ */}
+          <div className="mt-6 pt-5 border-t border-dashed border-orange-200 bg-gradient-to-br from-orange-50/90 via-amber-50/90 to-orange-100/60 p-5 rounded-2xl shadow-xs">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+              <div className="space-y-1.5 max-w-lg">
+                <div className="inline-flex items-center gap-1.5 bg-orange-500 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider">
+                  <span>🎁 ĐẶC QUYỀN ĐẶT QUA WEB</span>
+                </div>
+                <h4 className="text-sm font-extrabold text-slate-900 leading-tight">
+                  Giữ 1 Trong 2 Suất Fast-Track Hôm Nay & Nhận Combo Quà 90.000đ
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-[11px] text-slate-650 pt-1">
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    <span>Soi da & kiểm tra nấm/ve rận bằng đèn Wood tia UV (50K)</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 font-medium">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    <span>Xịt dưỡng Collagen + Đeo Nơ xinh + 1 Thanh Súp thưởng (40K)</span>
+                  </div>
+                </div>
+              </div>
+
+              {quoteSubmitted ? (
+                <div className="w-full lg:w-auto bg-emerald-500 text-white px-5 py-3.5 rounded-xl font-bold text-xs text-center shadow-md animate-fade-in flex items-center justify-center gap-2">
+                  <span>🎉</span>
+                  <span>Đã giữ suất Fast-Track thành công! Lumi Pet sẽ liên hệ Zalo ngay.</span>
+                </div>
+              ) : (
+                <form onSubmit={handleQuoteSubmit} className="flex flex-col sm:flex-row w-full lg:w-auto items-stretch gap-2 shrink-0">
+                  <input
+                    type="tel"
+                    required
+                    value={quotePhone}
+                    onChange={(e) => setQuotePhone(e.target.value)}
+                    placeholder="Nhập SĐT nhận mã quà & giữ suất..."
+                    className="w-full sm:w-56 px-4 py-3 bg-white border-2 border-orange-300 rounded-xl text-xs font-bold text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 shadow-xs"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubmittingQuote}
+                    className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-black text-xs px-5 py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap disabled:opacity-50"
+                  >
+                    <span>{isSubmittingQuote ? 'Đang gửi...' : 'Giữ Suất & Nhận Báo Giá'}</span>
+                    <span>⚡</span>
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+
+          {/* TRICK 3: Bảng Checklist 10 Bước Bóc Trần Đối Thủ (5 Món 0đ) */}
+          <div className="mt-5 bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-5 shadow-2xs">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-base">💡</span>
+              <h5 className="text-xs font-black text-slate-800 uppercase tracking-wide">
+                5 Món Đối Thủ Thu Phí Lẻ (~190.000đ) — Lumi Pet Đã Bao Gồm 0đ Trong Gói:
+              </h5>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
+              <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
+                <span className="font-semibold text-slate-700">✂️ Cắt & dũa mài tròn móng</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 50k → 0đ</span>
+              </div>
+              <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
+                <span className="font-semibold text-slate-700">👂 Nhổ lông tai & khử mùi</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 50k → 0đ</span>
+              </div>
+              <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
+                <span className="font-semibold text-slate-700">🐾 Cạo đệm chân, bụng, hậu môn</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 50k → 0đ</span>
+              </div>
+              <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between">
+                <span className="font-semibold text-slate-700">💧 Vắt tuyến hôi phòng viêm</span>
+                <span className="font-extrabold text-emerald-600 text-[11px] bg-emerald-50 px-2 py-0.5 rounded-md">Đối thủ 40k → 0đ</span>
+              </div>
+              <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100 flex items-center justify-between sm:col-span-2 lg:col-span-2">
+                <span className="font-semibold text-slate-700">🌬️ Thợ sấy tay 100% (Không dùng lồng sấy nhiệt hấp nóng)</span>
+                <span className="font-black text-orange-600 text-[11px] bg-orange-50 px-2 py-0.5 rounded-md">Tiêu chuẩn vàng Lumi Pet</span>
+              </div>
             </div>
           </div>
         </div>

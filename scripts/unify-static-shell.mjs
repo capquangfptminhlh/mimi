@@ -41,6 +41,70 @@ const iconPhone = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 16.9
 const iconMessage = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg>';
 const iconCalendar = '<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z"/></svg>';
 
+function renderHomepagePrerender(prefix) {
+  const canonicalHeader = headerMarkup(prefix, 'home');
+  return `<div class="lumi-prerender-content">${canonicalHeader}<main class="shell lumi-home-prerender">
+<section class="hero"><div class="hero-copy"><div class="eyebrow">Thương hiệu Spa & Hotel uy tín Bình Thạnh</div>
+<h1>Lumi Pet Bình Thạnh | Spa & Hotel Chó Mèo 24/7</h1>
+<p class="lead">Hệ thống chăm sóc thú cưng chuyên nghiệp tại 27 Võ Trường Toản, Bình Thạnh, TP.HCM. Chuyên combo tắm vệ sinh 10 bước chuyên sâu, grooming cắt tỉa tạo kiểu nghệ thuật và khách sạn chó mèo lưu trú 24/7 phòng kính riêng tư máy lạnh mát mẻ.</p>
+<div class="answer"><strong>Spa thú cưng Bình Thạnh giá bao nhiêu?</strong><br>Tại Lumi Pet, tắm vệ sinh chó bắt đầu từ 120.000đ; tắm vệ sinh mèo từ 150.000đ; tắm + cạo từ 180.000đ; cắt tỉa tạo kiểu từ 260.000đ; lưu trú khách sạn từ 100.000đ/ngày. Đơn giá trọn gói niêm yết theo cân nặng, cam kết không phát sinh phụ thu vô lý.</div>
+</div><aside class="hero-side"><div class="eyebrow">Đặt lịch & Báo giá online</div><strong>Chọn cân nặng → xem ngay</strong>
+<p><a class="btn btn-green" href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến</a></p>
+<p><a class="btn btn-secondary" href="${prefix}dat-phong/">Book phòng Hotel 24/7</a></p>
+<p><a class="btn btn-secondary" href="${prefix}bang-gia-spa-thu-cung/">Xem toàn bộ bảng giá</a></p>
+</aside></section>
+
+<div class="grid">
+<section class="panel span-12">
+<h2>Các dịch vụ chăm sóc thú cưng chính tại Lumi Pet</h2>
+<div class="feature-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:12px;">
+<div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
+<h3>🛁 1. Spa & Tắm Vệ Sinh 10 Bước</h3>
+<p>Quy trình 10 bước chuẩn an toàn: kiểm tra lông da, nhổ lông tai khử mùi, cắt & mài bo tròn móng, cạo lông bàn chân và hậu môn, vắt tuyến hôi phòng viêm, tắm xả 2 lần thảo dược hữu cơ, sấy tay 100% không dùng lồng sấy nhiệt, xịt serum dưỡng lông mềm mượt.</p>
+<p><strong>Giá tham khảo:</strong> Chó từ 120.000đ | Mèo từ 150.000đ theo cân nặng.</p>
+<p><a href="${prefix}spa-thu-cung-binh-thanh/">Chi tiết dịch vụ Spa →</a></p>
+</div>
+<div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
+<h3>✂️ 2. Grooming Cắt Tỉa & Cạo Lông</h3>
+<p>Cắt tỉa tạo kiểu nghệ thuật theo giống (Poodle phom gấu teddy, Corgi, Pomeranian, Phốc sóc...) và combo tắm cạo sạch sẽ mát mẻ cho mùa nóng hoặc hỗ trợ điều trị da liễu.</p>
+<p><strong>Giá tham khảo:</strong> Tắm + cạo từ 180.000đ | Cắt tỉa tạo kiểu từ 260.000đ.</p>
+<p><a href="${prefix}grooming-cho-meo-binh-thanh/">Chi tiết dịch vụ Grooming →</a></p>
+</div>
+<div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
+<h3>🏨 3. Khách Sạn Thú Cưng (Pet Hotel 24/7)</h3>
+<p>Phòng kính riêng tư sạch sẽ khử trùng tia cực tím, điều hòa 24/24 mát mẻ, thực đơn tươi 3 bữa/ngày, sân chơi vận động và cam kết quay video gửi Zalo sau 15 phút nhận bé kèm báo cáo mỗi ngày.</p>
+<p><strong>Giá tham khảo:</strong> Từ 100.000đ/ngày. Giảm 5% khi gửi trên 5 ngày, giảm 8% trên 10 ngày.</p>
+<p><a href="${prefix}khach-san-thu-cung-binh-thanh/">Chi tiết dịch vụ Khách sạn →</a></p>
+</div>
+</div>
+</section>
+
+<section class="panel span-12" style="background:#fff;border:2px solid #fed7aa;border-radius:20px;padding:20px;">
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+<span style="font-size:18px;">💡</span>
+<h3 style="margin:0;font-size:14px;font-weight:900;text-transform:uppercase;color:#1e293b;">Các gói phụ phí thường gặp trên thị trường (~190.000đ) — Lumi Pet Đã Bao Gồm 0đ Trọn Gói:</h3>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;font-size:12.5px;">
+<div style="background:#f8fafc;padding:10px 14px;border-radius:12px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;"><span>✂️ Cắt & dũa mài tròn móng</span><strong style="color:#059669;background:#ecfdf5;padding:2px 8px;border-radius:6px;">Trọn gói 0đ</strong></div>
+<div style="background:#f8fafc;padding:10px 14px;border-radius:12px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;"><span>👂 Nhổ lông tai & khử mùi</span><strong style="color:#059669;background:#ecfdf5;padding:2px 8px;border-radius:6px;">Trọn gói 0đ</strong></div>
+<div style="background:#f8fafc;padding:10px 14px;border-radius:12px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;"><span>🐾 Cạo lông đệm chân & bụng</span><strong style="color:#059669;background:#ecfdf5;padding:2px 8px;border-radius:6px;">Trọn gói 0đ</strong></div>
+<div style="background:#f8fafc;padding:10px 14px;border-radius:12px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;"><span>💧 Vắt tuyến hôi phòng viêm</span><strong style="color:#059669;background:#ecfdf5;padding:2px 8px;border-radius:6px;">Trọn gói 0đ</strong></div>
+<div style="background:#f8fafc;padding:10px 14px;border-radius:12px;border:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center;grid-column:1 / -1;"><span>🌬️ Thợ sấy tay 100% (Không dùng lồng sấy nhiệt hấp nóng bé)</span><strong style="color:#ea580c;background:#fff7ed;padding:2px 8px;border-radius:6px;">Tiêu chuẩn vàng Lumi Pet</strong></div>
+</div>
+</section>
+
+<section class="panel span-12">
+<h2>Câu hỏi thường gặp về Lumi Pet Spa & Hotel</h2>
+<details><summary>Lumi Pet ở đâu và giờ hoạt động thế nào?</summary><p>Lumi Pet toạ lạc tại 27 Võ Trường Toản, Phường 2, Quận Bình Thạnh, TP. Hồ Chí Minh. Giờ mở cửa dịch vụ Spa & Shop: 07:00 – 21:00 hàng ngày (kể cả thứ Bảy, Chủ nhật). Dịch vụ Khách sạn thú cưng có nhân viên trực và bảo vệ trông nom 24/7.</p></details>
+<details><summary>Đi tắm Spa cho chó mèo có cần đặt lịch trước không?</summary><p>Bạn nên đặt lịch trước qua website hoặc Zalo 0989 979 675 để được giữ chỗ khung giờ đẹp và không phải chờ đợi. Đặt trước qua Web còn được ưu tiên xếp thợ làm ngay.</p></details>
+<details><summary>Lumi Pet có dùng lồng sấy nhiệt không?</summary><p>Tuyệt đối KHÔNG. Lumi Pet cam kết 100% thợ sấy tay bằng máy sấy chuyên dụng ion ấm, vừa sấy vừa chải tơi lông và quan sát biểu cảm của bé, đảm bảo an toàn và tránh gây sốc nhiệt cho thú cưng.</p></details>
+<details><summary>Khách sạn thú cưng có camera và gửi video không?</summary><p>Có. Lumi Pet cam kết gửi clip tương tác sau 15 phút nhận bé, kèm báo cáo tình hình ăn uống, vệ sinh và vui chơi 3 bữa mỗi ngày qua Zalo cho ba mẹ yên tâm.</p></details>
+</section>
+</div>
+</main>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA & HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường 2, Bình Thạnh, TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>07:00 – 21:00 hàng ngày</div><div><a href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến →</a></div></div></footer></div>`;
+}
+
 function headerMarkup(prefix, activeKey) {
   const nav = [
     ['Spa', 'spa-thu-cung-binh-thanh/', 'spa'],
@@ -63,6 +127,10 @@ function cacheBustFixedAssets(html) {
 
 function normalizeHead(html, prefix) {
   let next = html.replaceAll(LEGACY_ORIGIN, PRODUCTION_ORIGIN);
+  next = next.replaceAll(
+    '"areaServed":{"@type":"AdministrativeArea","name":"Bình Thạnh, TP. Hồ Chí Minh"}',
+    '"areaServed":[{"@type":"AdministrativeArea","name":"Phường Gia Định, TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Bình Thạnh, TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Thạnh Mỹ Tây, TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Bình Lợi Trung, TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Cầu Kiệu (Phú Nhuận), TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Phú Nhuận, TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Đức Nhuận, TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Tân Định (Quận 1), TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường Sài Gòn (Quận 1), TP. Hồ Chí Minh"},{"@type":"AdministrativeArea","name":"Phường An Khánh (Thảo Điền, Quận 2), TP. Hồ Chí Minh"}]'
+  );
   next = cacheBustFixedAssets(next);
 
   const releaseMeta = `<meta name="lumi-release" content="${RELEASE}"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">`;
@@ -82,6 +150,31 @@ function normalizeHead(html, prefix) {
   }
 
   return cacheBustFixedAssets(next);
+}
+
+function ensureFaqSchema(html) {
+  if (html.includes('"@type":"FAQPage"') || html.includes('"@type": "FAQPage"')) return html;
+  const regex = /<details[^>]*>\s*<summary>([\s\S]*?)<\/summary>\s*<p>([\s\S]*?)<\/p>\s*<\/details>/gi;
+  const items = [];
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    const q = match[1].replace(/<[^>]+>/g, '').trim();
+    const a = match[2].replace(/<[^>]+>/g, '').trim();
+    if (q && a) {
+      items.push({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a }
+      });
+    }
+  }
+  if (!items.length) return html;
+  const schema = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items
+  })}</script>`;
+  return html.replace('</head>', `${schema}</head>`);
 }
 
 function ensureArticleCta(html, prefix, relative) {
@@ -108,6 +201,7 @@ for (const file of files) {
   const normalizedRelative = relative.replaceAll(path.sep, '/');
   const prefix = prefixFor(relative);
   let html = normalizeHead(await readFile(file, 'utf8'), prefix);
+  html = ensureFaqSchema(html);
   html = ensureArticleCta(html, prefix, relative);
 
   if (normalizedRelative !== 'index.html') {
@@ -122,6 +216,13 @@ for (const file of files) {
         throw new Error(`Static shell cannot inject header because ${normalizedRelative} has no <body> tag.`);
       }
       html = html.replace(/<body(?:\s[^>]*)?>/i, (bodyTag) => `${bodyTag}${canonicalHeader}`);
+    }
+  } else {
+    // Prerender semantic HTML for Homepage inside <div id="root"> for AI Bots, Crawlers and SEO
+    const shellCss = `<link rel="stylesheet" href="${assetHref(prefix, 'lumi-shell.css')}">`;
+    if (!html.includes('lumi-shell.css')) html = html.replace('</head>', `${shellCss}</head>`);
+    if (html.includes('<div id="root"></div>')) {
+      html = html.replace('<div id="root"></div>', `<div id="root">${renderHomepagePrerender(prefix)}</div>`);
     }
   }
 

@@ -81,6 +81,60 @@
     return `mailto:${BOOKING_EMAIL}?subject=${subject}&body=${body}`;
   };
 
+  const ZALO_BOT_TOKEN = '2488056338196260982:zEjZvnVEKAtHTnEcXwwntFvamkXZEnUnLJqtwpBiYQuhZpLvNZtRukCgBiUCSFuA';
+  const ZALO_CHAT_ID = '6e15121ea4544d0a1445';
+
+  async function sendZaloBotNotification(booking) {
+    try {
+      const isSpa = booking.bookingType === 'spa';
+      const petTypeStr = booking.petType === 'dog' ? '🐶 Chó' : (booking.petType === 'cat' ? '🐱 Mèo' : 'Thú cưng');
+      const timeStr = isSpa 
+        ? `📅 *Thời gian hẹn:* ${booking.timeSlot || ''} (Ngày ${booking.date || 'Hôm nay'})` 
+        : `📥 *Check-in:* ${booking.checkInDate || ''}\n📤 *Check-out:* ${booking.checkOutDate || ''}`;
+      
+      const text = [
+        isSpa ? '🔔 *【 LUMI PET 】- CÓ LỊCH HẸN SPA MỚI!*' : '🏨 *【 LUMI PET 】- CÓ ĐƠN ĐẶT PHÒNG HOTEL 24/7!*',
+        '━━━━━━━━━━━━━━━━━━━━',
+        `🔖 *Mã đặt lịch:* \`#${booking.id}\``,
+        `👤 *Khách hàng:* ${booking.customerName}`,
+        `📞 *Số điện thoại:* [${booking.customerPhone}](tel:${booking.customerPhone})`,
+        booking.customerEmail ? `✉️ *Email:* ${booking.customerEmail}` : null,
+        `🐾 *Thú cưng:* ${booking.petName} (${petTypeStr} - ${booking.petWeight}kg)`,
+        `✂️ *Dịch vụ:* ${booking.serviceType}`,
+        timeStr,
+        `💰 *Tạm tính:* *${money.format(booking.totalPrice)}*`,
+        booking.notes ? `📝 *Ghi chú:* ${booking.notes}` : null,
+        '━━━━━━━━━━━━━━━━━━━━',
+        '⚡ _Khách vừa đặt trực tuyến trên web. Vui lòng liên hệ xác nhận khung giờ!_'
+      ].filter(Boolean).join('\n');
+
+      const params = new URLSearchParams();
+      params.append('chat_id', ZALO_CHAT_ID);
+      params.append('text', text);
+      params.append('parse_mode', 'markdown');
+
+      // 1. Thử gửi qua Secure VPS Endpoint trước
+      fetch('/api/notify-zalo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      }).then(r => {
+        if (!r.ok) throw new Error('API status ' + r.status);
+      }).catch(() => {
+        // Fallback trực tiếp
+        fetch(`https://bot-api.zaloplatforms.com/bot${ZALO_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: params
+        }).catch(e => console.error('Zalo Bot fallback error:', e));
+      });
+      return true;
+    } catch (err) {
+      console.error('Lumi Pet Zalo Bot error:', err);
+      return false;
+    }
+  }
+
   async function sendBookingEmail(booking) {
     const payload = {
       _subject: `[Lumi Pet] Booking mới ${booking.id} - ${booking.bookingType.toUpperCase()}`,
@@ -130,6 +184,51 @@
     if (!button.dataset.originalText) button.dataset.originalText = button.textContent || 'Xác nhận';
     button.disabled = busy;
     button.textContent = busy ? 'Đang gửi booking...' : button.dataset.originalText;
+  };
+
+  const attachPhoneLeadCapture = (root, kind) => {
+    const phoneInput = root.querySelector('input[name="customerPhone"]');
+    if (!phoneInput) return;
+    let captured = false;
+
+    const tryCapture = () => {
+      const val = phoneInput.value.replace(/\D/g, '');
+      if (!captured && (val.length === 10 || val.length === 11) && val.startsWith('0')) {
+        captured = true;
+        const nameInput = root.querySelector('input[name="customerName"]');
+        const petNameInput = root.querySelector('input[name="petName"]');
+        const weightInput = root.querySelector('input[name="petWeight"]');
+        const total = root.dataset.total || '0';
+
+        const text = [
+          '🔥 *【 LUMI PET 】- CÓ KHÁCH ĐANG ĐIỀN THÔNG TIN TRÊN WEB!*',
+          '━━━━━━━━━━━━━━━━━━━━',
+          `📞 *Số điện thoại:* [${val}](tel:${val})`,
+          nameInput && nameInput.value ? `👤 *Họ tên:* ${nameInput.value}` : null,
+          petNameInput && petNameInput.value ? `🐾 *Tên bé:* ${petNameInput.value}` : null,
+          weightInput && weightInput.value ? `⚖️ *Cân nặng:* ${weightInput.value}kg` : null,
+          `🏷️ *Trang đang xem:* ${kind === 'spa' ? 'Đặt lịch Spa Chăm Sóc' : 'Đặt phòng Hotel 24/7'}`,
+          Number(total) > 0 ? `💰 *Giá tạm tính:* *${money.format(Number(total))}*` : null,
+          `⏰ *Thời gian:* ${new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' })} (Hôm nay)`,
+          '━━━━━━━━━━━━━━━━━━━━',
+          '⚡ _Khách vừa gõ SĐT vào form trên web! Nếu khách chưa bấm gửi hoặc thoát trang, hãy gọi lại hỗ trợ ngay!_'
+        ].filter(Boolean).join('\n');
+
+        const params = new URLSearchParams();
+        params.append('chat_id', ZALO_CHAT_ID);
+        params.append('text', text);
+        params.append('parse_mode', 'markdown');
+
+        fetch(`https://bot-api.zaloplatforms.com/bot${ZALO_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: params
+        }).catch(e => console.error(e));
+      }
+    };
+
+    phoneInput.addEventListener('blur', tryCapture);
+    phoneInput.addEventListener('change', tryCapture);
   };
 
   const showSuccess = (root, booking, emailResult) => {
@@ -231,6 +330,7 @@
 
       setSubmitting(form, true);
       saveBooking(booking);
+      sendZaloBotNotification(booking);
       const emailResult = await sendBookingEmail(booking);
       showSuccess(root, booking, emailResult);
       form.reset();
@@ -240,6 +340,8 @@
       date.min = yyyyMmDd(today);
       setSubmitting(form, false);
     });
+
+    attachPhoneLeadCapture(root, 'spa');
   }
 
   function initHotel(root) {
@@ -327,6 +429,7 @@
 
       setSubmitting(form, true);
       saveBooking(booking);
+      sendZaloBotNotification(booking);
       const emailResult = await sendBookingEmail(booking);
       showSuccess(root, booking, emailResult);
       form.reset();
@@ -336,6 +439,8 @@
       recalc();
       setSubmitting(form, false);
     });
+
+    attachPhoneLeadCapture(root, 'hotel');
   }
 
   document.querySelectorAll('[data-booking-kind="spa"]').forEach(initSpa);
