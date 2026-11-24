@@ -26,7 +26,7 @@ function prefixFor(relativeFile) {
 
 function currentKey(relativeFile) {
   const normalized = relativeFile.replaceAll(path.sep, '/').toLowerCase();
-  if (normalized.includes('spa-thu-cung-binh-thanh') || normalized.includes('tam-cho-phuong-gia-dinh') || normalized.includes('tam-meo-phuong-gia-dinh') || normalized.includes('cat-tia-long-cho-phuong-gia-dinh')) return 'spa';
+  if (normalized.includes('spa-thu-cung-') || normalized.includes('tam-cho-phuong-gia-dinh') || normalized.includes('tam-meo-phuong-gia-dinh') || normalized.includes('cat-tia-long-cho-phuong-gia-dinh')) return 'spa';
   if (normalized.includes('khach-san-thu-cung-binh-thanh') || normalized.includes('khach-san-thu-cung-phuong-gia-dinh')) return 'hotel';
   if (normalized.includes('bang-gia-spa-thu-cung')) return 'price';
   if (normalized.includes('gioi-thieu')) return 'about';
@@ -49,6 +49,7 @@ function renderHomepagePrerender(prefix) {
 <p class="lead">Cơ sở Spa &amp; Khách sạn thú cưng uy tín tại 27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM. Chuyên tắm chó, tắm mèo sấy tay 100%, cắt tỉa lông grooming và gửi chó mèo khách sạn phòng riêng máy lạnh 24/24.</p>
 <div class="answer"><strong>Tắm chó, tắm mèo Phường Gia Định (Bình Thạnh) giá bao nhiêu?</strong><br>Tại Lumi Pet 27 Võ Trường Toản, Phường Gia Định: tắm vệ sinh chó từ 140.000đ (8 mốc tới 25kg); tắm vệ sinh mèo từ 160.000đ (sấy tay 100%); tắm + cạo chó từ 200.000đ, mèo từ 250.000đ; cắt tỉa lông chó từ 290.000đ; gửi chó mèo Hotel 24/7 từ 100.000đ/ngày.</div>
 <p style="margin-top:12px;font-size:13px;"><strong>Dịch vụ tại Phường Gia Định:</strong> <a href="${prefix}tam-cho-phuong-gia-dinh/">Tắm chó Phường Gia Định</a> · <a href="${prefix}tam-meo-phuong-gia-dinh/">Tắm mèo Phường Gia Định</a> · <a href="${prefix}cat-tia-long-cho-phuong-gia-dinh/">Cắt tỉa lông chó Phường Gia Định</a> · <a href="${prefix}khach-san-thu-cung-phuong-gia-dinh/">Khách sạn thú cưng Phường Gia Định</a></p>
+<p style="margin-top:6px;font-size:13px;"><strong>Phục vụ nhanh các phường &amp; quận lân cận:</strong> <a href="${prefix}spa-thu-cung-phuong-binh-thanh/">Phường Bình Thạnh</a> · <a href="${prefix}spa-thu-cung-phuong-binh-loi-trung/">Phường Bình Lợi Trung</a> · <a href="${prefix}spa-thu-cung-phuong-thanh-my-tay/">Phường Thạnh Mỹ Tây</a> · <a href="${prefix}spa-thu-cung-phuong-cau-kieu-phu-nhuan/">Phường Cầu Kiệu (Phú Nhuận)</a> · <a href="${prefix}spa-thu-cung-phuong-tan-dinh-quan-1/">Phường Tân Định (Quận 1)</a></p>
 </div><aside class="hero-side"><div class="eyebrow">Đặt lịch & Báo giá online</div><strong>Chọn cân nặng → xem ngay</strong>
 <p><a class="btn btn-green" href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến</a></p>
 <p><a class="btn btn-secondary" href="${prefix}dat-phong/">Book phòng Hotel 24/7</a></p>
