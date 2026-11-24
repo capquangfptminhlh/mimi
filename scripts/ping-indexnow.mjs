@@ -28,6 +28,12 @@ const urlList = [
   `https://${HOST}/bai-viet/spa-cho-meo-mo-cua-toi-binh-thanh/`,
   `https://${HOST}/bai-viet/spa-meo-khong-dung-long-say-binh-thanh/`,
   `https://${HOST}/bai-viet/gui-meo-cho-dip-tet-binh-thanh/`,
+  `https://${HOST}/bai-viet/cat-tia-long-corgi-mong-dao-binh-thanh/`,
+  `https://${HOST}/bai-viet/cat-tia-long-phoc-soc-pomeranian-binh-thanh/`,
+  `https://${HOST}/bai-viet/tam-cho-lon-husky-golden-samoyed-binh-thanh/`,
+  `https://${HOST}/bai-viet/cao-long-meo-binh-thanh-gia-bao-nhieu/`,
+  `https://${HOST}/bai-viet/tam-meo-anh-long-ngan-long-dai-het-nhon-duoi/`,
+  `https://${HOST}/bai-viet/vat-tuyen-hoi-cho-khi-nao-can/`,
   `https://${HOST}/llms.txt`,
   `https://${HOST}/llms-full.txt`,
 ];

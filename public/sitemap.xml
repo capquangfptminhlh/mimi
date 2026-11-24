@@ -151,10 +151,28 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lumipet.vn/bai-viet/cao-long-meo-binh-thanh-gia-bao-nhieu/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://lumipet.vn/bai-viet/cat-tia-long-cho-gia-bao-nhieu/</loc>
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lumipet.vn/bai-viet/cat-tia-long-corgi-mong-dao-binh-thanh/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://lumipet.vn/bai-viet/cat-tia-long-phoc-soc-pomeranian-binh-thanh/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://lumipet.vn/bai-viet/cham-soc-long-poodle-khong-bi-roi/</loc>
@@ -631,6 +649,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lumipet.vn/bai-viet/tam-cho-lon-husky-golden-samoyed-binh-thanh/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://lumipet.vn/bai-viet/tam-cho-o-nha-hay-di-spa/</loc>
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -647,6 +671,18 @@
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lumipet.vn/bai-viet/tam-meo-anh-long-ngan-long-dai-het-nhon-duoi/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://lumipet.vn/bai-viet/vat-tuyen-hoi-cho-khi-nao-can/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://lumipet.vn/bai-viet/yorkshire-terrier-di-khach-san-can-chuan-bi-gi/</loc>
