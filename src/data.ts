@@ -11,7 +11,7 @@ export const SPA_SERVICES: SpaService[] = [
     name: 'Combo Tắm Vệ Sinh 10 Bước Chuyên Sâu',
     description: 'Quy trình vệ sinh sạch bách từ bảo mẫu chăm sóc bao gồm chải lông tơ, nhổ lông tai sạch sẽ, cắt mài móng bo tròn, vắt tuyến hôi phòng ngừa ẩm viêm, tắm dưỡng x2 lần, sấy tơi bồng rực rỡ và dưỡng serum mượt lông.',
     duration: '45 - 60 phút',
-    price: 120000,
+    price: 140000,
     benefits: [
       'Khử sạch hoàn toàn mùi hôi bằng dầu gội trị thảo dược',
       'Vắt tuyến hôi ngăn ngừa viêm nhiễm tuyến bã quanh hậu môn',
@@ -26,7 +26,7 @@ export const SPA_SERVICES: SpaService[] = [
     name: 'Combo Tắm Cạo Lông Sạch Sẽ Mát Mẻ',
     description: 'Combo làm sạch sâu 10 bước tích hợp đi tông đơ cao cấp cạo tỉa phom gọn gàng mát mẻ cho những ngày hè nắng nóng, hỗ trợ đặc trị nấm rận da.',
     duration: '60 - 90 phút',
-    price: 180000,
+    price: 200000,
     benefits: [
       'Gồm trọn quy trình tắm dưỡng sấy cơ bản của gói tắm vệ sinh',
       'Cạo lông gọn gàng sướng thân nhiệt, dễ bảo bọc bôi thuốc nấm',
@@ -41,7 +41,7 @@ export const SPA_SERVICES: SpaService[] = [
     name: 'Combo Tắm Cắt Tạo Kiểu Nghệ Thuật (Grooming)',
     description: 'Trải nghiệm đỉnh cao sắc đẹp thẩm mỹ đẳng cấp 5 sao. Thiết kế kiểu dáng lông theo phom giống loài chó (phom tròn bầu mây Poodle, tỉa bo cạnh gấu Shitzu, Pom phao ly, cún nhỏ).',
     duration: '90 - 120 phút',
-    price: 260000,
+    price: 290000,
     benefits: [
       'Cắt tỉa tạo hình nắn nót bởi chuyên gia Groomer giàu kinh nghiệm chuyên môn',
       'Nhẹ bẫng lông tơ, tỉa gọn bớt xơ rối mà vẫn giữ được độ phồng dày xinh xắn',

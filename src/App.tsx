@@ -411,33 +411,42 @@ export default function App() {
 
     if (isCat) {
       if (serviceCategory === 'tvs') {
-        if (weight < 3) return 150000;
-        if (weight <= 6) return 200000;
-        return 250000;
+        if (weight < 3) return 160000;
+        if (weight <= 6) return 220000;
+        return 270000;
       } else {
-        if (weight < 3) return 230000;
-        if (weight <= 6) return 290000;
-        return 350000;
+        if (weight < 3) return 250000;
+        if (weight <= 6) return 320000;
+        return 380000;
       }
     } else {
       if (serviceCategory === 'tvs') {
-        if (weight < 3) return 120000;
-        if (weight <= 6) return 170000;
-        if (weight <= 9) return 220000;
-        if (weight <= 12) return 270000;
-        return 350000;
-      } else if (serviceCategory === 'ctc') {
-        if (weight < 3) return 180000;
-        if (weight <= 6) return 240000;
-        if (weight <= 9) return 300000;
-        if (weight <= 12) return 360000;
-        return 460000;
-      } else { // ctct
-        if (weight < 3) return 260000;
-        if (weight <= 6) return 320000;
-        if (weight <= 9) return 380000;
-        if (weight <= 12) return 450000;
+        if (weight < 3) return 140000;
+        if (weight <= 6) return 190000;
+        if (weight <= 9) return 250000;
+        if (weight <= 12) return 310000;
+        if (weight <= 15) return 370000;
+        if (weight <= 18) return 430000;
+        if (weight <= 20) return 480000;
         return 550000;
+      } else if (serviceCategory === 'ctc') {
+        if (weight < 3) return 200000;
+        if (weight <= 6) return 270000;
+        if (weight <= 9) return 340000;
+        if (weight <= 12) return 410000;
+        if (weight <= 15) return 480000;
+        if (weight <= 18) return 550000;
+        if (weight <= 20) return 620000;
+        return 700000;
+      } else { // ctct
+        if (weight < 3) return 290000;
+        if (weight <= 6) return 360000;
+        if (weight <= 9) return 430000;
+        if (weight <= 12) return 520000;
+        if (weight <= 15) return 600000;
+        if (weight <= 18) return 680000;
+        if (weight <= 20) return 760000;
+        return 850000;
       }
     }
   })();
@@ -1291,24 +1300,28 @@ export default function App() {
                     <tbody className="divide-y divide-orange-50 text-xs font-semibold text-slate-650">
                       <tr className="hover:bg-slate-50/50 transition-colors">
                         <td className="py-4 px-4 font-bold text-slate-800">Dưới 3kg</td>
-                        <td className="py-4 px-4 font-extrabold text-slate-900">150.000</td>
-                        <td className="py-4 px-4 font-extrabold text-orange-605">230.000</td>
+                        <td className="py-4 px-4 font-extrabold text-slate-900">160.000</td>
+                        <td className="py-4 px-4 font-extrabold text-orange-605">250.000</td>
                       </tr>
                       <tr className="hover:bg-slate-50/50 transition-colors">
                         <td className="py-4 px-4 font-bold text-slate-800">3 - 6kg</td>
-                        <td className="py-4 px-4 font-extrabold text-slate-900">200.000</td>
-                        <td className="py-4 px-4 font-extrabold text-orange-605">290.000</td>
+                        <td className="py-4 px-4 font-extrabold text-slate-900">220.000</td>
+                        <td className="py-4 px-4 font-extrabold text-orange-605">320.000</td>
                       </tr>
                       <tr className="hover:bg-slate-50/50 transition-colors">
                         <td className="py-4 px-4 font-bold text-slate-800">6 - 10kg</td>
-                        <td className="py-4 px-4 font-extrabold text-slate-900">250.000</td>
-                        <td className="py-4 px-4 font-extrabold text-orange-605">350.000</td>
+                        <td className="py-4 px-4 font-extrabold text-slate-900">270.000</td>
+                        <td className="py-4 px-4 font-extrabold text-orange-605">380.000</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
-                <div className="mt-5 p-3.5 bg-amber-50/40 rounded-xl border border-amber-205 text-[11px] text-amber-850 font-medium space-y-1.5 home-rules-block">
+                <div className="mt-3 p-2.5 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600 font-semibold">
+                  🐾 Trên 10kg liên hệ shop để được tư vấn và báo giá.
+                </div>
+
+                <div className="mt-4 p-3.5 bg-amber-50/40 rounded-xl border border-amber-205 text-[11px] text-amber-850 font-medium space-y-1.5 home-rules-block">
                   <div className="font-extrabold flex items-center gap-1">
                     <span>⚠️</span> Quyết định sức khỏe & lề lối tiếp nhận:
                   </div>
@@ -1342,41 +1355,59 @@ export default function App() {
                     </thead>
                     <tbody className="divide-y divide-orange-50 text-[11px] font-semibold text-slate-655">
                       <tr className="hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3.5 px-3 font-bold text-slate-800">Dưới 3kg</td>
-                        <td className="py-3.5 px-3 font-extrabold text-slate-900">120.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-amber-700">180.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-orange-605">260.000</td>
+                        <td className="py-3 px-3 font-bold text-slate-800">Dưới 3kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">140.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">200.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">290.000</td>
                       </tr>
                       <tr className="hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3.5 px-3 font-bold text-slate-800">3 - 6kg</td>
-                        <td className="py-3.5 px-3 font-extrabold text-slate-900">170.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-amber-700">240.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-orange-605">320.000</td>
+                        <td className="py-3 px-3 font-bold text-slate-800">3 – 6kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">190.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">270.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">360.000</td>
                       </tr>
                       <tr className="hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3.5 px-3 font-bold text-slate-800">6 - 9kg</td>
-                        <td className="py-3.5 px-3 font-extrabold text-slate-900">220.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-amber-700">300.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-orange-605">380.000</td>
+                        <td className="py-3 px-3 font-bold text-slate-800">6 – 9kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">250.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">340.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">430.000</td>
                       </tr>
                       <tr className="hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3.5 px-3 font-bold text-slate-800">9 - 12kg</td>
-                        <td className="py-3.5 px-3 font-extrabold text-slate-900">270.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-amber-700">360.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-orange-605">450.000</td>
+                        <td className="py-3 px-3 font-bold text-slate-800">9 – 12kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">310.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">410.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">520.000</td>
                       </tr>
                       <tr className="hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3.5 px-3 font-bold text-slate-800">12 - 18kg</td>
-                        <td className="py-3.5 px-3 font-extrabold text-slate-900">350.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-amber-700">460.000</td>
-                        <td className="py-3.5 px-3 font-extrabold text-orange-605">550.000</td>
+                        <td className="py-3 px-3 font-bold text-slate-800">12 – 15kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">370.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">480.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">600.000</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/50 transition-colors">
+                        <td className="py-3 px-3 font-bold text-slate-800">15 – 18kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">430.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">550.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">680.000</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/50 transition-colors">
+                        <td className="py-3 px-3 font-bold text-slate-800">18 – 20kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">480.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">620.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">760.000</td>
+                      </tr>
+                      <tr className="hover:bg-slate-50/50 transition-colors">
+                        <td className="py-3 px-3 font-bold text-slate-800">20 – 25kg</td>
+                        <td className="py-3 px-3 font-extrabold text-slate-900">550.000</td>
+                        <td className="py-3 px-3 font-extrabold text-amber-700">700.000</td>
+                        <td className="py-3 px-3 font-extrabold text-orange-605">850.000</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
 
-                <div className="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-500 font-semibold">
-                  🐾 Trên 15kg - 18kg quý khách hàng vui lòng liên hệ trực tiếp đến cửa hàng để thợ kiểm tra lông dày thưa và báo mức giá phù hợp với thể trạng bé cưng.
+                <div className="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600 font-bold">
+                  🐾 Trên 25kg liên hệ shop để được tư vấn và báo giá.
                 </div>
               </div>
 
@@ -1433,20 +1464,24 @@ export default function App() {
                   </h4>
                   <ul className="space-y-3.5 text-xs font-semibold text-slate-650">
                     <li className="flex justify-between items-center pb-2.5 border-b border-orange-50/50">
-                      <span className="text-slate-800">✦ Gỡ rối lông dày nặng</span>
+                      <span className="text-slate-800">✦ Gỡ rối lông (tùy mức độ rối)</span>
                       <span className="text-orange-550 font-black">50k - 500k <span className="text-[10px] text-slate-400 font-medium">(báo trước)</span></span>
                     </li>
                     <li className="flex justify-between items-center pb-2.5 border-b border-orange-50/50">
-                      <span className="text-slate-800">✦ Tạo kiểu đặc biệt (Tròn rốn, trái tim,...)</span>
+                      <span className="text-slate-800">✦ Tạo kiểu đặc biệt (bo tròn, mông đào,...)</span>
                       <span className="text-orange-550 font-black">50k - 100k</span>
                     </li>
                     <li className="flex justify-between items-center pb-2.5 border-b border-orange-50/50">
-                      <span className="text-slate-800">✦ Sữa tắm trắng đặc trị nấm, ve rận kĩ</span>
+                      <span className="text-slate-800">✦ Sữa tắm trắng lông, nấm, ve rận</span>
                       <span className="text-orange-550 font-black">50k - 100k</span>
                     </li>
+                    <li className="flex justify-between items-center pb-2.5 border-b border-orange-50/50">
+                      <span className="text-amber-700">✦ Bé dữ, khó hợp tác</span>
+                      <span className="text-orange-550 font-black">50k - 200k</span>
+                    </li>
                     <li className="flex justify-between items-center">
-                      <span className="text-red-500">✦ Bé có tính khí quấy khóc dữ dằn</span>
-                      <span className="text-orange-550 font-black">50k - 100k</span>
+                      <span className="text-slate-800">✦ Lông quá dày, nhiều bông, tốn thời gian</span>
+                      <span className="text-orange-550 font-black">50k - 150k</span>
                     </li>
                   </ul>
                 </div>

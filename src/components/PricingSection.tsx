@@ -64,39 +64,51 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
   // Pricing engine matching flyers exactly
   const getCatSpaPrice = (service: 'tvs' | 'ctc', weight: number) => {
     if (service === 'tvs') {
-      if (weight < 3) return 150000;
-      if (weight <= 6) return 200000;
-      return 250000; // 6-10kg
+      if (weight < 3) return 160000;
+      if (weight <= 6) return 220000;
+      return 270000; // 6-10kg
     } else { // combo tắm cạo (ctc)
-      if (weight < 3) return 230000;
-      if (weight <= 6) return 290000;
-      return 350000; // 6-10kg
+      if (weight < 3) return 250000;
+      if (weight <= 6) return 320000;
+      return 380000; // 6-10kg
     }
   };
 
   const getDogSpaPrice = (service: 'tvs' | 'ctc' | 'ctct', weight: number) => {
     if (weight < 3) {
-      if (service === 'tvs') return 120000;
-      if (service === 'ctc') return 180000;
-      return 260000;
+      if (service === 'tvs') return 140000;
+      if (service === 'ctc') return 200000;
+      return 290000;
     } else if (weight <= 6) {
-      if (service === 'tvs') return 170000;
-      if (service === 'ctc') return 240000;
-      return 320000;
+      if (service === 'tvs') return 190000;
+      if (service === 'ctc') return 270000;
+      return 360000;
     } else if (weight <= 9) {
-      if (service === 'tvs') return 220000;
-      if (service === 'ctc') return 300000;
-      return 380500; // let's stick with round 380000
+      if (service === 'tvs') return 250000;
+      if (service === 'ctc') return 340000;
+      return 430000;
     } else if (weight <= 12) {
-      if (service === 'tvs') return 270000;
-      if (service === 'ctc') return 360000;
-      return 450000;
+      if (service === 'tvs') return 310000;
+      if (service === 'ctc') return 410000;
+      return 520000;
+    } else if (weight <= 15) {
+      if (service === 'tvs') return 370000;
+      if (service === 'ctc') return 480000;
+      return 600000;
     } else if (weight <= 18) {
-      if (service === 'tvs') return 350000;
-      if (service === 'ctc') return 460000;
-      return 550000;
+      if (service === 'tvs') return 430000;
+      if (service === 'ctc') return 550000;
+      return 680000;
+    } else if (weight <= 20) {
+      if (service === 'tvs') return 480000;
+      if (service === 'ctc') return 620000;
+      return 760000;
+    } else if (weight <= 25) {
+      if (service === 'tvs') return 550000;
+      if (service === 'ctc') return 700000;
+      return 850000;
     } else {
-      return -1; // Contact for custom price
+      return -1; // Trên 25kg liên hệ shop để được tư vấn và báo giá
     }
   };
 
@@ -124,17 +136,20 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
   })();
 
   const dogSpaTiers = [
-    { weight: 'Dưới 3kg', tvs: 120000, ctc: 180000, ctct: 260000 },
-    { weight: '3 - 6kg', tvs: 170000, ctc: 240000, ctct: 320000 },
-    { weight: '6 - 9kg', tvs: 220000, ctc: 300000, ctct: 380000 },
-    { weight: '9 - 12kg', tvs: 270000, ctc: 360000, ctct: 450000 },
-    { weight: '12 - 18kg', tvs: 350000, ctc: 460000, ctct: 550000 }
+    { weight: 'Dưới 3kg', tvs: 140000, ctc: 200000, ctct: 290000 },
+    { weight: '3 – 6kg', tvs: 190000, ctc: 270000, ctct: 360000 },
+    { weight: '6 – 9kg', tvs: 250000, ctc: 340000, ctct: 430000 },
+    { weight: '9 – 12kg', tvs: 310000, ctc: 410000, ctct: 520000 },
+    { weight: '12 – 15kg', tvs: 370000, ctc: 480000, ctct: 600000 },
+    { weight: '15 – 18kg', tvs: 430000, ctc: 550000, ctct: 680000 },
+    { weight: '18 – 20kg', tvs: 480000, ctc: 620000, ctct: 760000 },
+    { weight: '20 – 25kg', tvs: 550000, ctc: 700000, ctct: 850000 }
   ];
 
   const catSpaTiers = [
-    { weight: 'Dưới 3kg', tvs: 150000, ctc: 230000 },
-    { weight: '3 - 6kg', tvs: 200000, ctc: 290000 },
-    { weight: '6 - 10kg', tvs: 250000, ctc: 350000 }
+    { weight: 'Dưới 3kg', tvs: 160000, ctc: 250000 },
+    { weight: '3 – 6kg', tvs: 220000, ctc: 320000 },
+    { weight: '6 – 10kg', tvs: 270000, ctc: 380000 }
   ];
 
   const hotelTiers = [
@@ -262,7 +277,7 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
                 <input
                   type="range"
                   min="0.5"
-                  max="20"
+                  max="25"
                   step="0.5"
                   value={calcWeight}
                   onChange={(e) => setCalcWeight(parseFloat(e.target.value))}
@@ -272,8 +287,8 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
               <div className="flex justify-between text-[10px] text-slate-400 font-bold">
                 <span>Dưới 3kg</span>
                 <span>3 - 6kg</span>
-                <span>6 - 12kg</span>
-                <span>Hơn 15kg</span>
+                <span>6 - 15kg</span>
+                <span>15 - 25kg</span>
               </div>
             </div>
 
@@ -530,8 +545,8 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
                   </table>
                 </div>
 
-                <div className="text-slate-450 text-[11px] font-semibold bg-slate-50 rounded-xl p-3 border border-slate-100">
-                  * Lưu ý: Thú cưng trên 15kg - 18kg vui lòng liên hệ hệ thống để thợ Groomer báo giá cụ thể tương ứng phom dáng lông.
+                <div className="text-slate-600 text-xs font-bold bg-amber-50/50 rounded-xl p-3.5 border border-amber-200">
+                  🐾 Trên 25kg liên hệ shop để được tư vấn và báo giá chi tiết theo thể trạng lông của bé.
                 </div>
               </div>
             )}
@@ -569,6 +584,10 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
                       ))}
                     </tbody>
                   </table>
+                </div>
+
+                <div className="text-slate-600 text-xs font-bold bg-amber-50/50 rounded-xl p-3.5 border border-amber-200">
+                  🐾 Trên 10kg liên hệ shop để được tư vấn và báo giá.
                 </div>
               </div>
             )}
@@ -688,30 +707,37 @@ export default function PricingSection({ onTriggerBooking, onSelectServiceType }
               <ul className="space-y-3.5 text-xs text-slate-650 font-semibold">
                 <li className="flex items-center justify-between pb-2 border-b border-slate-50">
                   <span className="flex items-center gap-1.5 text-gray-700">
-                    <span>✂️</span> Gỡ rối lông chết xơ xù
+                    <span>✂️</span> Gỡ rối lông (tùy mức độ rối)
                   </span>
                   <span className="text-orange-550 font-black">50k - 500k <span className="text-[9px] text-gray-400 font-medium">(báo trước)</span></span>
                 </li>
                 
                 <li className="flex items-center justify-between pb-2 border-b border-slate-50">
                   <span className="flex items-center gap-1.5 text-gray-700">
-                    <span>❤️</span> Thiết kế phom rốn tim, tròn xinh xẻo
+                    <span>❤️</span> Tạo kiểu đặc biệt (bo tròn, mông đào,...)
                   </span>
                   <span className="text-orange-550 font-black">50k - 100k</span>
                 </li>
 
                 <li className="flex items-center justify-between pb-2 border-b border-slate-50">
                   <span className="flex items-center gap-1.5 text-gray-700">
-                    <span>🌱</span> Sữa tắm thảo dược hỗ trợ nấm, ve rận
+                    <span>🌱</span> Sữa tắm trắng lông, nấm, ve rận
                   </span>
                   <span className="text-orange-550 font-black">50k - 100k</span>
                 </li>
 
-                <li className="flex items-center justify-between">
-                  <span className="flex items-center gap-1.5 text-red-500">
-                    <span>🚨</span> Bé có tính khí cọ quậy dữ dằn, khó chiều
+                <li className="flex items-center justify-between pb-2 border-b border-slate-50">
+                  <span className="flex items-center gap-1.5 text-amber-700">
+                    <span>🚨</span> Bé dữ, khó hợp tác
                   </span>
-                  <span className="text-orange-550 font-black">50k - 100k</span>
+                  <span className="text-orange-550 font-black">50k - 200k</span>
+                </li>
+
+                <li className="flex items-center justify-between">
+                  <span className="flex items-center gap-1.5 text-gray-700">
+                    <span>⏱️</span> Lông quá dày, nhiều bông, tốn thời gian
+                  </span>
+                  <span className="text-orange-550 font-black">50k - 150k</span>
                 </li>
               </ul>
             </div>

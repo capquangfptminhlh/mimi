@@ -47,7 +47,7 @@ function renderHomepagePrerender(prefix) {
 <section class="hero"><div class="hero-copy"><div class="eyebrow">Thương hiệu Spa & Hotel uy tín Bình Thạnh</div>
 <h1>Lumi Pet Bình Thạnh | Spa & Hotel Chó Mèo 24/7</h1>
 <p class="lead">Hệ thống chăm sóc thú cưng chuyên nghiệp tại 27 Võ Trường Toản, Bình Thạnh, TP.HCM. Chuyên combo tắm vệ sinh 10 bước chuyên sâu, grooming cắt tỉa tạo kiểu nghệ thuật và khách sạn chó mèo lưu trú 24/7 phòng kính riêng tư máy lạnh mát mẻ.</p>
-<div class="answer"><strong>Spa thú cưng Bình Thạnh giá bao nhiêu?</strong><br>Tại Lumi Pet, tắm vệ sinh chó bắt đầu từ 120.000đ; tắm vệ sinh mèo từ 150.000đ; tắm + cạo từ 180.000đ; cắt tỉa tạo kiểu từ 260.000đ; lưu trú khách sạn từ 100.000đ/ngày. Đơn giá trọn gói niêm yết theo cân nặng, cam kết không phát sinh phụ thu vô lý.</div>
+<div class="answer"><strong>Spa thú cưng Bình Thạnh giá bao nhiêu?</strong><br>Tại Lumi Pet, tắm vệ sinh chó bắt đầu từ 140.000đ; tắm vệ sinh mèo từ 160.000đ; tắm + cạo từ 200.000đ; cắt tỉa tạo kiểu từ 290.000đ; lưu trú khách sạn từ 100.000đ/ngày. Đơn giá trọn gói niêm yết theo cân nặng, cam kết không phát sinh phụ thu vô lý.</div>
 </div><aside class="hero-side"><div class="eyebrow">Đặt lịch & Báo giá online</div><strong>Chọn cân nặng → xem ngay</strong>
 <p><a class="btn btn-green" href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến</a></p>
 <p><a class="btn btn-secondary" href="${prefix}dat-phong/">Book phòng Hotel 24/7</a></p>
@@ -61,13 +61,13 @@ function renderHomepagePrerender(prefix) {
 <div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
 <h3>🛁 1. Spa & Tắm Vệ Sinh 10 Bước</h3>
 <p>Quy trình 10 bước chuẩn an toàn: kiểm tra lông da, nhổ lông tai khử mùi, cắt & mài bo tròn móng, cạo lông bàn chân và hậu môn, vắt tuyến hôi phòng viêm, tắm xả 2 lần thảo dược hữu cơ, sấy tay 100% không dùng lồng sấy nhiệt, xịt serum dưỡng lông mềm mượt.</p>
-<p><strong>Giá tham khảo:</strong> Chó từ 120.000đ | Mèo từ 150.000đ theo cân nặng.</p>
+<p><strong>Giá tham khảo:</strong> Chó từ 140.000đ | Mèo từ 160.000đ theo cân nặng.</p>
 <p><a href="${prefix}spa-thu-cung-binh-thanh/">Chi tiết dịch vụ Spa →</a></p>
 </div>
 <div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
 <h3>✂️ 2. Grooming Cắt Tỉa & Cạo Lông</h3>
 <p>Cắt tỉa tạo kiểu nghệ thuật theo giống (Poodle phom gấu teddy, Corgi, Pomeranian, Phốc sóc...) và combo tắm cạo sạch sẽ mát mẻ cho mùa nóng hoặc hỗ trợ điều trị da liễu.</p>
-<p><strong>Giá tham khảo:</strong> Tắm + cạo từ 180.000đ | Cắt tỉa tạo kiểu từ 260.000đ.</p>
+<p><strong>Giá tham khảo:</strong> Tắm + cạo từ 200.000đ | Cắt tỉa tạo kiểu từ 290.000đ.</p>
 <p><a href="${prefix}grooming-cho-meo-binh-thanh/">Chi tiết dịch vụ Grooming →</a></p>
 </div>
 <div style="background:#f8fafc;padding:16px;border-radius:16px;border:1px solid #e2e8f0;">
