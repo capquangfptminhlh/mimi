@@ -72,6 +72,9 @@ function normalizeHead(html, prefix) {
   if (!next.includes('rel="icon"')) next = next.replace('</head>', `<meta name="theme-color" content="#f97316">${favicon}</head>`);
   else if (!next.includes('name="theme-color"')) next = next.replace('</head>', '<meta name="theme-color" content="#f97316"></head>');
 
+  const googleAdsTag = `<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17749467170"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17749467170');</script>`;
+  if (!next.includes('AW-17749467170')) next = next.replace('</head>', `${googleAdsTag}</head>`);
+
   if (!next.includes('lumi-ui.js')) {
     const uiScript = `<script src="${assetHref(prefix, 'lumi-ui.js')}" defer></script>`;
     if (!next.includes('</body>')) throw new Error('Static shell cannot inject lumi-ui.js because </body> is missing.');
