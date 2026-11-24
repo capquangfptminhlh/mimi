@@ -2190,37 +2190,40 @@ export default function App() {
             </div>
           </div>
 
-          {/* Links 1: Dịch vụ */}
+          {/* Links 1: Dịch vụ Phường Gia Định (Local SEO Links) */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700 mb-4">Các dịch vụ</h4>
-            <div className="flex flex-col space-y-2.5 text-xs text-gray-400">
-              <button onClick={() => setActiveTab('spa')} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Tắm sục sấy phồng dưỡng mềm lông</button>
-              <button onClick={() => setActiveTab('spa')} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Cắt tỉa tạo kiểu phom Golden, Poodle</button>
-              <button onClick={() => setActiveTab('spa')} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Combo Tắm Cắt Tỉa Tạo Kiểu (Grooming)</button>
-              <button onClick={() => setActiveTab('hotel')} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Cabin standard, deluxe, penthouse hoàng gia</button>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700 mb-4">Dịch vụ Phường Gia Định</h4>
+            <div className="flex flex-col space-y-2.5 text-xs text-gray-500 font-medium">
+              <a href="/tam-cho-phuong-gia-dinh/" className="hover:text-orange-500 transition-colors">Tắm chó Phường Gia Định (từ 140k)</a>
+              <a href="/tam-meo-phuong-gia-dinh/" className="hover:text-orange-500 transition-colors">Tắm mèo Phường Gia Định (từ 160k)</a>
+              <a href="/cat-tia-long-cho-phuong-gia-dinh/" className="hover:text-orange-500 transition-colors">Cắt tỉa lông chó Phường Gia Định (từ 290k)</a>
+              <a href="/khach-san-thu-cung-phuong-gia-dinh/" className="hover:text-orange-500 transition-colors">Khách sạn thú cưng Phường Gia Định 24/7</a>
+              <a href="/bang-gia-spa-thu-cung/" className="hover:text-orange-500 transition-colors">Bảng giá Spa &amp; Hotel 2026</a>
             </div>
           </div>
 
-          {/* Links 2: Shop */}
+          {/* Links 2: Khu vực Bình Thạnh & Cẩm nang */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700 mb-4">Danh mục Pet shop</h4>
-            <div className="flex flex-col space-y-2.5 text-xs text-gray-400">
-              <button onClick={() => { setActiveTab('shop'); setShopCategory('food'); }} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Hạt Royal Canin, hạt Lamb & Rice mềm</button>
-              <button onClick={() => { setActiveTab('shop'); setShopCategory('food'); }} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Pate hộp Whiskas vị cá ngừ thu</button>
-              <button onClick={() => { setActiveTab('shop'); setShopCategory('toy'); }} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Chuột giật cót, xương đồ chơi cao su mài răng</button>
-              <button onClick={() => { setActiveTab('shop'); setShopCategory('accessory'); }} className="text-left hover:text-orange-500 transition-colors cursor-pointer">Vòng cổ đeo chuông bạc hoạt hình cute</button>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700 mb-4">Spa &amp; Hotel Bình Thạnh</h4>
+            <div className="flex flex-col space-y-2.5 text-xs text-gray-500 font-medium">
+              <a href="/spa-thu-cung-binh-thanh/" className="hover:text-orange-500 transition-colors">Spa thú cưng Bình Thạnh</a>
+              <a href="/grooming-cho-meo-binh-thanh/" className="hover:text-orange-500 transition-colors">Grooming cắt tỉa &amp; cạo lông chó mèo</a>
+              <a href="/khach-san-thu-cung-binh-thanh/" className="hover:text-orange-500 transition-colors">Khách sạn chó mèo 24/7 Bình Thạnh</a>
+              <a href="/gioi-thieu/" className="hover:text-orange-500 transition-colors">Giới thiệu &amp; Hồ sơ Lumi Pet</a>
+              <a href="/bai-viet/" className="hover:text-orange-500 transition-colors">Kiến thức chăm sóc chó mèo</a>
             </div>
           </div>
 
           {/* Contact & Address info */}
-          <div className="space-y-3 text-xs text-gray-400">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700 mb-3">Liên Hệ & Chi Nhánh</h4>
+          <div className="space-y-3 text-xs text-gray-500">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-700 mb-3">Liên Hệ Lumi Pet</h4>
             <div className="flex items-start space-x-2">
               <MapPin className="w-4.5 h-4.5 text-orange-500 flex-shrink-0 mt-0.5" />
-              <span>Cơ sở chính: 27 Võ Trường Toản, Phường 2, Bình Thạnh, TP. Hồ Chí Minh</span>
+              <span>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP. Hồ Chí Minh</span>
             </div>
-            <div className="pt-2 border-t border-slate-50 flex justify-between items-center text-gray-500">
-              <span>Hotline và Zalo: 0989 979 675</span>
+            <div className="text-gray-500">Spa &amp; Shop: 07:00 – 21:00 · Hotel: 24/7</div>
+            <div className="pt-2 border-t border-slate-100 flex justify-between items-center text-gray-500">
+              <a href="tel:0989979675" className="font-bold text-orange-600 hover:underline">Hotline/Zalo: 0989 979 675</a>
               <span>© 2026 Lumi Pet</span>
             </div>
           </div>
