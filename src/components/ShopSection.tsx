@@ -431,7 +431,7 @@ export default function ShopSection({
                       </div>
                       <div className="flex justify-between text-xs text-slate-500 font-semibold">
                         <span>Vận chuyển (Phí ship):</span>
-                        <span className="text-emerald-600 font-bold">Miễn phí ship</span>
+                        <span className="text-slate-600 font-bold">Xác nhận khi đặt</span>
                       </div>
                       <div className="h-px bg-slate-200 my-1" />
                       <div className="flex justify-between text-sm text-slate-805 font-bold">
@@ -531,7 +531,7 @@ export default function ShopSection({
                     </div>
                     <div className="flex justify-between text-sm text-slate-500 font-semibold">
                       <span>Gói vận giao COD:</span>
-                      <span className="text-emerald-600 font-bold">Freeship miễn phí</span>
+                      <span className="text-slate-600 font-bold">Xác nhận khi đặt</span>
                     </div>
                     <div className="h-px bg-slate-200 my-2" />
                     <div className="flex justify-between text-base text-slate-800 font-black">

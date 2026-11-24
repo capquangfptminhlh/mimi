@@ -495,10 +495,10 @@ export default function App() {
       petWeight: spaEstimatorWeight,
       serviceName: service ? service.name : 'Dịch vụ Spa Chăm Sóc',
       estimatedPrice: computedSpaEstimate,
-      note: 'Khách nhập SĐT tại Bộ tính giá Spa để nhận báo giá & voucher 10%'
+      note: 'Khách nhập SĐT tại Bộ tính giá Spa để nhận tư vấn báo giá'
     });
 
-    triggerToast('🎉 Lumi Pet đã nhận được SĐT! Shop sẽ liên hệ tư vấn báo giá và tặng voucher 10% ngay nhé!');
+    triggerToast('🎉 Lumi Pet đã nhận được SĐT! Shop sẽ liên hệ tư vấn báo giá và xác nhận khung giờ cho bé ngay nhé!');
     setQuickSpaPhone('');
   };
 
@@ -612,10 +612,10 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Top Welcome Ribbon */}
-      <div className="bg-orange-500 text-white py-2 px-4 text-center text-xs sm:text-sm font-bold flex items-center justify-center space-x-2 shadow-inner relative z-30">
-        <Gift className="w-4.5 h-4.5 animate-bounce fill-orange-450 text-white" />
-        <span>Khai trương chi nhánh sang chảnh mới: Giảm 20% dịch vụ Spa & Tặng 1 hộp Pate Royal Canin khi đặt phòng Hotel trên 3 ngày!</span>
+      {/* Top Info Ribbon (100% đúng thông tin thực tế của Lumi Pet) */}
+      <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-600 text-white py-2 px-4 text-center text-[11px] sm:text-xs font-bold flex items-center justify-center gap-2 shadow-inner relative z-30">
+        <span>🐾</span>
+        <span>Lumi Pet Bình Thạnh · 27 Võ Trường Toản, P. Gia Định · Mở cửa 07:00 – 21:00 tất cả các ngày · Hotel trên 5 ngày giảm 5%, trên 10 ngày giảm 8%</span>
       </div>
 
       {/* Navbar Component */}
@@ -1228,7 +1228,7 @@ export default function App() {
                       {computedSpaEstimate.toLocaleString('vi-VN')}đ
                     </span>
                     <span className="text-[10px] bg-amber-50 border border-amber-100 text-amber-800 px-2 py-0.5 rounded-md font-extrabold">
-                      Tặng kèm nơ thắt ruy băng xinh xắn
+                      Sấy chải bông mượt, không gây stress cho boss
                     </span>
                   </div>
                 </div>
