@@ -102,7 +102,7 @@ function renderHomepagePrerender(prefix) {
 </section>
 </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA & HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường 2, Bình Thạnh, TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>07:00 – 21:00 hàng ngày</div><div><a href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến →</a></div></div></footer></div>`;
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA & HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến →</a></div></div></footer></div>`;
 }
 
 function headerMarkup(prefix, activeKey) {
@@ -139,6 +139,65 @@ function normalizeHead(html, prefix) {
   const favicon = `<link rel="icon" type="image/svg+xml" href="${assetHref(prefix, 'favicon.svg')}"><link rel="shortcut icon" href="${assetHref(prefix, 'favicon.svg')}">`;
   if (!next.includes('rel="icon"')) next = next.replace('</head>', `<meta name="theme-color" content="#f97316">${favicon}</head>`);
   else if (!next.includes('name="theme-color"')) next = next.replace('</head>', '<meta name="theme-color" content="#f97316"></head>');
+
+  if (!next.includes('property="og:image"')) {
+    next = next.replace('</head>', `<meta property="og:image" content="${PRODUCTION_ORIGIN}/images/bang-gia-spa-grooming-lumi-pet.jpg"></head>`);
+  }
+
+  // Phase 1 Local SEO: inject unified LocalBusiness entity graph on every static page that doesn't define it yet
+  if (!next.includes('"@type":["LocalBusiness","PetStore"]') && !next.includes('"@type": ["LocalBusiness", "PetStore"]')) {
+    const localBusinessSchema = {
+      '@context': 'https://schema.org',
+      '@type': ['LocalBusiness', 'PetStore'],
+      '@id': `${PRODUCTION_ORIGIN}/#business`,
+      name: 'Lumi Pet Shop – Spa & Hotel 24/7 Thú Cưng Bình Thạnh',
+      alternateName: 'Lumi Pet Bình Thạnh',
+      description: 'Cơ sở Spa tắm vệ sinh, Grooming cắt tỉa & cạo lông và Khách sạn thú cưng (Pet Hotel) tại 27 Võ Trường Toản, Bình Thạnh, TP.HCM. Spa mở cửa 07:00–21:00 mỗi ngày; Hotel trông giữ bé 24/7. Không phải phòng khám thú y.',
+      url: `${PRODUCTION_ORIGIN}/`,
+      telephone: '+84989979675',
+      priceRange: '100.000₫ – 850.000₫',
+      image: `${PRODUCTION_ORIGIN}/images/bang-gia-spa-grooming-lumi-pet.jpg`,
+      logo: `${PRODUCTION_ORIGIN}/lumi-brand-mark.svg`,
+      hasMap: 'https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg',
+      geo: { '@type': 'GeoCoordinates', latitude: 10.79972, longitude: 106.69751 },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ)',
+        addressLocality: 'Phường Gia Định, Bình Thạnh',
+        addressRegion: 'TP. Hồ Chí Minh',
+        postalCode: '700000',
+        addressCountry: 'VN',
+      },
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '07:00',
+        closes: '21:00',
+      },
+      areaServed: [
+        { '@type': 'AdministrativeArea', name: 'Phường Gia Định, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Quận Bình Thạnh, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Quận Phú Nhuận, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Quận Gò Vấp, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Quận 1, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường An Khánh (Thảo Điền, TP. Thủ Đức), TP. Hồ Chí Minh' },
+      ],
+      sameAs: [
+        'https://www.facebook.com/lumipet.spa',
+        'https://www.instagram.com/lumipet.spa/',
+        'https://zalo.me/0989979675',
+        'https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg',
+      ],
+      makesOffer: [
+        { '@type': 'Offer', name: 'Tắm vệ sinh chó', priceSpecification: { '@type': 'PriceSpecification', minPrice: 140000, maxPrice: 550000, priceCurrency: 'VND' } },
+        { '@type': 'Offer', name: 'Tắm vệ sinh mèo', priceSpecification: { '@type': 'PriceSpecification', minPrice: 160000, maxPrice: 270000, priceCurrency: 'VND' } },
+        { '@type': 'Offer', name: 'Combo tắm + cạo lông chó mèo', priceSpecification: { '@type': 'PriceSpecification', minPrice: 200000, maxPrice: 700000, priceCurrency: 'VND' } },
+        { '@type': 'Offer', name: 'Combo tắm + cắt tỉa chó', priceSpecification: { '@type': 'PriceSpecification', minPrice: 290000, maxPrice: 850000, priceCurrency: 'VND' } },
+        { '@type': 'Offer', name: 'Khách sạn thú cưng 24/7', priceSpecification: { '@type': 'PriceSpecification', minPrice: 100000, maxPrice: 250000, priceCurrency: 'VND' } },
+      ],
+    };
+    next = next.replace('</head>', `<script type="application/ld+json">${JSON.stringify(localBusinessSchema)}</script></head>`);
+  }
 
   const googleAdsTag = `<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17749467170"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17749467170');</script>`;
   if (!next.includes('AW-17749467170')) next = next.replace('</head>', `${googleAdsTag}</head>`);
@@ -179,12 +238,20 @@ function ensureFaqSchema(html) {
 
 function ensureArticleCta(html, prefix, relative) {
   const normalized = relative.replaceAll(path.sep, '/');
-  if (!/^bai-viet\/[^/]+\/index\.html$/.test(normalized) || html.includes('blog-cta')) return html;
-  if (!html.includes('</article>')) {
-    throw new Error(`Static shell cannot inject article CTA because ${normalized} has no </article> tag.`);
+  if (!/^bai-viet\/[^/]+\/index\.html$/.test(normalized)) return html;
+  let next = html;
+  if (!next.includes('lumi-eeat-reviewer') && next.includes('</article>')) {
+    const reviewerBox = `<section class="lumi-eeat-reviewer" style="margin:24px 0;padding:16px 18px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;font-size:13.5px;line-height:1.6;"><strong style="color:#0f172a;">Kiểm duyệt chuyên môn:</strong> Đội ngũ Lead Groomer &amp; Chăm sóc Lưu trú <strong>Lumi Pet Bình Thạnh</strong> (27 Võ Trường Toản, Phường Gia Định). Nội dung mang tính hướng dẫn chăm sóc Spa &amp; Hotel thực tế — <em>Lumi Pet không phải phòng khám thú y; các trường hợp bệnh lý cấp tính cần thăm khám bác sĩ thú y.</em> <a href="${prefix}gioi-thieu/#doi-ngu" style="color:#ea580c;font-weight:700;">Xem hồ sơ đội ngũ &amp; Fact Sheet →</a></section>`;
+    next = next.replace('</article>', `${reviewerBox}</article>`);
   }
-  const cta = `<section class="blog-cta" data-lumi-auto-cta="true"><h2>Cần tư vấn dịch vụ phù hợp cho thú cưng?</h2><p>Gửi cân nặng, tình trạng lông và nhu cầu chăm sóc để Lumi Pet tư vấn trước khi bạn chốt lịch.</p><div class="blog-cta-actions"><a class="btn" href="${prefix}dat-lich/">Đặt lịch</a><a class="btn btn-secondary" href="tel:0989979675">Gọi Lumi Pet</a><a class="btn btn-secondary" href="https://zalo.me/0989979675">Nhắn Zalo</a></div></section>`;
-  return html.replace('</article>', `${cta}</article>`);
+  if (!next.includes('blog-cta')) {
+    if (!next.includes('</article>')) {
+      throw new Error(`Static shell cannot inject article CTA because ${normalized} has no </article> tag.`);
+    }
+    const cta = `<section class="blog-cta" data-lumi-auto-cta="true"><h2>Cần tư vấn dịch vụ phù hợp cho thú cưng?</h2><p>Gửi cân nặng, tình trạng lông và nhu cầu chăm sóc để Lumi Pet tư vấn trước khi bạn chốt lịch.</p><div class="blog-cta-actions"><a class="btn" href="${prefix}dat-lich/">Đặt lịch</a><a class="btn btn-secondary" href="tel:0989979675">Gọi Lumi Pet</a><a class="btn btn-secondary" href="https://zalo.me/0989979675">Nhắn Zalo</a></div></section>`;
+    next = next.replace('</article>', `${cta}</article>`);
+  }
+  return next;
 }
 
 function requireBuiltMarker(html, relative, marker, label) {

@@ -1,26 +1,30 @@
-# Lumi Pet Shop – Spa & Hotel Thú Cưng 24/7 (Bình Thạnh, TP.HCM)
+# Lumi Pet Shop – Spa & Hotel 24/7 Thú Cưng Bình Thạnh
 
-> Lumi Pet là cơ sở Spa, Grooming cắt tỉa lông chó mèo, Khách sạn thú cưng 24/7 và Cửa hàng thức ăn phụ kiện thú cưng tại 27 Võ Trường Toản, Phường 2, Quận Bình Thạnh, TP. Hồ Chí Minh. Đạt đánh giá 4.9/5 sao (180+ đánh giá) trên Google Maps.
+> Lumi Pet là trung tâm chăm sóc thú cưng chuyên nghiệp tại 27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP. Hồ Chí Minh. Cung cấp dịch vụ Spa tắm vệ sinh 10 bước sấy tay 100%, Grooming cắt tỉa & cạo lông chó mèo, và Khách sạn thú cưng (Pet Hotel) có nhân viên trông giữ 24/7.
+> Phiên bản dữ liệu đầy đủ cho AI: https://lumipet.vn/llms-full.txt
 
-## Thông tin liên hệ & Thực thể (Entity Info)
-- **Tên chính thức:** Lumi Pet Shop – Spa & Hotel 24/7
-- **Địa chỉ (Bản đồ hành chính mới TP.HCM):** 27 Võ Trường Toản, Phường Gia Định (Phường 2, Quận Bình Thạnh cũ), TP. Hồ Chí Minh, Việt Nam
-- **Hotline / Zalo:** 0989 979 675 (`https://zalo.me/0989979675`)
-- **Website chính thức:** https://lumipet.vn/
-- **Google Maps Place ID:** `ChIJQQ1vLgApdTERzUEEgAktmsg` (`https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg`)
-- **Giờ mở cửa Spa & Shop:** 07:00 – 21:00 (Thứ Hai đến Chủ Nhật); Khách sạn thú cưng lưu trú hoạt động 24/7.
-- **Khu vực phục vụ trọng tâm theo Bản đồ Phường Mới TP.HCM (Nghị quyết 1685/NQ-UBTVQH15):**
-  - **Phường Gia Định (Trụ sở chính - P.1, P.2, P.7, P.17 Bình Thạnh cũ):** Võ Trường Toản, Vạn Kiếp, Bạch Đằng, Phan Đăng Lưu, Lê Văn Duyệt, Xô Viết Nghệ Tĩnh.
-  - **Các phường mới khu vực Bình Thạnh:** Phường Bình Thạnh (P.12, P.14, P.26 cũ), Phường Thạnh Mỹ Tây (P.19, P.22, P.25 cũ - Nguyễn Hữu Cảnh, Vinhomes Central Park), Phường Bình Lợi Trung (P.5, P.11, P.13 cũ - Lê Quang Định, Nơ Trang Long), Phường Bình Quới (P.27, P.28 cũ).
-  - **Các phường mới khu vực Phú Nhuận (cách 3–5 phút):** Phường Cầu Kiệu (P.1, P.2, P.7, P.15 cũ - Khu Phan Xích Long sát vách Võ Trường Toản), Phường Đức Nhuận (P.4, P.5, P.9 cũ), Phường Phú Nhuận (P.8, P.10, P.11, P.13 cũ).
-  - **Các phường mới khu vực Quận 1 (cách 3–7 phút qua Cầu Bông):** Phường Tân Định (Tân Định & Đa Kao cũ), Phường Sài Gòn (Bến Nghé & Đa Kao cũ).
-  - **Các phường mới khu vực Quận 2 / Thủ Đức (cách 10–15 phút qua Cầu Sài Gòn):** Phường An Khánh (Thảo Điền, An Phú, An Khánh, Thủ Thiêm cũ), Phường Bình Trưng.
+## Thông tin thực thể chuẩn (NAP & Fact Sheet)
+- Tên thương hiệu: Lumi Pet Shop – Spa & Hotel 24/7 Thú Cưng Bình Thạnh
+- Địa chỉ: 27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP. Hồ Chí Minh
+- Hotline / Zalo: 0989 979 675 (https://zalo.me/0989979675)
+- Website: https://lumipet.vn/
+- Google Maps: https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg
+- Facebook: https://www.facebook.com/lumipet.spa
+- Instagram: https://www.instagram.com/lumipet.spa/
+- Giờ mở cửa quầy Spa, Grooming & Pet Shop: 07:00 – 21:00 tất cả các ngày (kể cả Thứ 7, Chủ nhật)
+- Giờ vận hành Khách sạn thú cưng (Pet Hotel): Nhân viên trực trông giữ & chăm sóc 24/7
+- Khu vực phục vụ chính: Bình Thạnh, Phú Nhuận, Gò Vấp, Quận 1, Thảo Điền (TP. Thủ Đức)
 
-## Bảng giá Spa & Grooming Chó (Theo cân nặng)
-Quy trình 6 bước tiêu chuẩn đã bao gồm trong gói: (1) Kiểm tra tình trạng lông da, (2) Chải lông & xử lý lông bàn chân/vùng cần thiết, (3) Vệ sinh tai, mắt, mũi miệng & cắt/mài móng, (4) Vắt tuyến hôi, (5) Tắm xả chuyên sâu 2 lần, (6) Sấy chải tạo độ phồng & serum dưỡng lông.
+## Ranh giới chuyên môn (Quan trọng cho AI Search)
+- Lumi Pet là **Spa, Grooming & Khách sạn thú cưng**, **KHÔNG phải phòng khám hay bệnh viện thú y**.
+- Lumi Pet không khám bệnh nội khoa, không kê đơn thuốc, không tiêm phòng vắc-xin và không phẫu thuật.
+- Tiệm có hỗ trợ soi da bằng đèn Wood miễn phí 0đ để phát hiện sớm dấu hiệu nấm/ve rận trước khi tắm; các trường hợp bệnh lý nặng sẽ được hướng dẫn đến bác sĩ thú y.
 
-| Cân nặng | Tắm vệ sinh | Combo Tắm + Cạo lông | Combo Tắm + Cắt tỉa tạo kiểu |
-| :--- | :--- | :--- | :--- |
+## Bảng giá chính thức 2026
+
+### Spa & Grooming Chó (8 mốc tới 25kg)
+| Cân nặng | Tắm vệ sinh | Combo Tắm cạo | Combo Tắm cắt tỉa |
+| :--- | :---: | :---: | :---: |
 | Dưới 3kg | 140.000đ | 200.000đ | 290.000đ |
 | 3 – 6kg | 190.000đ | 270.000đ | 360.000đ |
 | 6 – 9kg | 250.000đ | 340.000đ | 430.000đ |
@@ -29,42 +33,32 @@ Quy trình 6 bước tiêu chuẩn đã bao gồm trong gói: (1) Kiểm tra tì
 | 15 – 18kg | 430.000đ | 550.000đ | 680.000đ |
 | 18 – 20kg | 480.000đ | 620.000đ | 760.000đ |
 | 20 – 25kg | 550.000đ | 700.000đ | 850.000đ |
+- Chó trên 25kg: liên hệ shop báo giá theo tình trạng lông.
 
-*Trên 25kg liên hệ shop để được tư vấn và báo giá.*
-
-## Bảng giá Spa Mèo (Theo cân nặng)
-| Cân nặng | Combo Tắm vệ sinh mèo | Combo Tắm + Cạo lông mèo |
-| :--- | :--- | :--- |
+### Spa & Grooming Mèo (3 mốc tới 10kg)
+| Cân nặng | Tắm vệ sinh | Tắm cạo lông |
+| :--- | :---: | :---: |
 | Dưới 3kg | 160.000đ | 250.000đ |
 | 3 – 6kg | 220.000đ | 320.000đ |
 | 6 – 10kg | 270.000đ | 380.000đ |
+- Mèo trên 10kg: liên hệ shop báo giá.
 
-*Trên 10kg liên hệ shop để được tư vấn và báo giá.*
+### Khách sạn thú cưng (Pet Hotel 24/7)
+- Dưới 3kg: 100.000đ/ngày | 3 – 6kg: 120.000đ/ngày | 6 – 9kg: 160.000đ/ngày | 9 – 12kg: 200.000đ/ngày | 12 – 15kg: 250.000đ/ngày.
+- Ưu đãi dài ngày (ngày thường): Trên 5 ngày giảm 5%; trên 10 ngày giảm 8%.
 
-## Phụ thu phát sinh & Lưu ý
-- Gỡ rối lông: 50.000đ – 500.000đ (tùy mức độ rối)
-- Tạo kiểu đặc biệt (bo tròn, mông đào,...): 50.000đ – 100.000đ
-- Sữa tắm trắng lông, nấm, ve rận: 50.000đ – 100.000đ
-- Bé dữ, khó hợp tác: 50.000đ – 200.000đ
-- Lông quá dày, nhiều bông, tốn thời gian: 50.000đ – 150.000đ
-
-> **Lưu ý y tế:** Lumi Pet là hệ thống cơ sở Spa, Grooming & Khách sạn thú cưng cao cấp, KHÔNG PHẢI bệnh viện phẫu thuật thú y.
-
-## Bảng giá Khách sạn Thú Cưng (Pet Hotel 24/7)
-Giá phòng đã bao gồm: Không gian riêng mỗi bé, đảm bảo vệ sinh sạch sẽ, máy lạnh mát mẻ 24/24, bữa ăn theo menu và quay video tương tác gửi chủ mỗi ngày.
-- **Dưới 3kg:** 100.000đ / ngày
-- **3 – 6kg:** 120.000đ / ngày
-- **6 – 9kg:** 160.000đ / ngày
-- **9 – 12kg:** 200.000đ / ngày
-- **12 – 15kg:** 250.000đ / ngày
-- **Ưu đãi lưu trú dài ngày:** Gửi trên 5 ngày giảm 5%; gửi trên 10 ngày giảm 8%.
-
-## Các trang dịch vụ chính
-- [Trang chủ Lumi Pet](https://lumipet.vn/)
-- [Dịch vụ Spa Thú Cưng Bình Thạnh](https://lumipet.vn/spa-thu-cung-binh-thanh/)
-- [Dịch vụ Grooming Cắt Tỉa Lông Chó Mèo](https://lumipet.vn/grooming-cho-meo-binh-thanh/)
-- [Khách Sạn Thú Cưng Bình Thạnh 24/7](https://lumipet.vn/khach-san-thu-cung-binh-thanh/)
-- [Bảng Giá Spa & Khách Sạn Thú Cưng](https://lumipet.vn/bang-gia-spa-thu-cung/)
-- [Đặt Lịch Spa Trực Tuyến](https://lumipet.vn/dat-lich/)
-- [Đặt Phòng Khách Sạn Thú Cưng](https://lumipet.vn/dat-phong/)
-- [Cẩm Nang Kiến Thức Chăm Sóc Chó Mèo](https://lumipet.vn/bai-viet/)
+## Các trang trọng yếu & Tài liệu nghiên cứu
+- [Trang chủ](https://lumipet.vn/)
+- [Bảng giá Spa & Grooming 2026](https://lumipet.vn/bang-gia-spa-thu-cung/)
+- [Spa thú cưng Bình Thạnh (Tắm vệ sinh 10 bước)](https://lumipet.vn/spa-thu-cung-binh-thanh/)
+- [Grooming cắt tỉa & cạo lông chó mèo Bình Thạnh](https://lumipet.vn/grooming-cho-meo-binh-thanh/)
+- [Khách sạn thú cưng Bình Thạnh 24/7](https://lumipet.vn/khach-san-thu-cung-binh-thanh/)
+- [Giới thiệu & Hồ sơ thông tin chính thức (Fact Sheet)](https://lumipet.vn/gioi-thieu/)
+- [Liên hệ & Chỉ đường 27 Võ Trường Toản](https://lumipet.vn/lien-he/)
+- [Đặt lịch Spa Online](https://lumipet.vn/dat-lich/)
+- [Book phòng Khách sạn thú cưng](https://lumipet.vn/dat-phong/)
+- [Khảo sát bảng giá Spa thú cưng Bình Thạnh 2026 (Báo cáo dữ liệu)](https://lumipet.vn/bai-viet/khao-sat-bang-gia-spa-thu-cung-binh-thanh-2026/)
+- [Spa chó mèo mở cửa tối đến 21h tại Bình Thạnh](https://lumipet.vn/bai-viet/spa-cho-meo-mo-cua-toi-binh-thanh/)
+- [Spa mèo không dùng lồng sấy tại Bình Thạnh](https://lumipet.vn/bai-viet/spa-meo-khong-dung-long-say-binh-thanh/)
+- [Kinh nghiệm gửi mèo chó dịp Tết Bình Thạnh](https://lumipet.vn/bai-viet/gui-meo-cho-dip-tet-binh-thanh/)
+- [Cẩm nang kiến thức chăm sóc chó mèo](https://lumipet.vn/bai-viet/)
