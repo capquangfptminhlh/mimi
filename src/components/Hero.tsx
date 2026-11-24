@@ -122,9 +122,9 @@ export default function Hero({ onNavigate }: HeroProps) {
                     <Scissors className="w-4 h-4 text-teal-600" /> Spa chó
                   </div>
                   <div className="mt-2 grid grid-cols-3 gap-2 text-center">
-                    <div className="rounded-xl bg-slate-50 p-2.5"><span className="block text-[10px] text-slate-500">Tắm</span><strong className="text-sm">từ 120k</strong></div>
-                    <div className="rounded-xl bg-slate-50 p-2.5"><span className="block text-[10px] text-slate-500">Tắm + cạo</span><strong className="text-sm">từ 180k</strong></div>
-                    <div className="rounded-xl bg-slate-50 p-2.5"><span className="block text-[10px] text-slate-500">Cắt tỉa</span><strong className="text-sm">từ 260k</strong></div>
+                    <div className="rounded-xl bg-slate-50 p-2.5"><span className="block text-[10px] text-slate-500">Tắm</span><strong className="text-sm">từ 140k</strong></div>
+                    <div className="rounded-xl bg-slate-50 p-2.5"><span className="block text-[10px] text-slate-500">Tắm + cạo</span><strong className="text-sm">từ 200k</strong></div>
+                    <div className="rounded-xl bg-slate-50 p-2.5"><span className="block text-[10px] text-slate-500">Cắt tỉa</span><strong className="text-sm">từ 290k</strong></div>
                   </div>
                 </div>
 
