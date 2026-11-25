@@ -8,7 +8,9 @@
     "build": "vite build && node scripts/unify-static-shell.mjs",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "seo:check": "node scripts/weekly-seo-health-check.mjs",
+    "seo:indexnow": "node scripts/ping-indexnow.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
