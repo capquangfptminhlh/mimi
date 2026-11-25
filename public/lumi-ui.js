@@ -91,11 +91,11 @@
     .lumi-q-select:focus{border-color:#f97316;background:#fff}
     .lumi-q-weights{display:flex;flex-wrap:wrap;gap:6px}
     .lumi-q-weights .lumi-q-pill{flex:1 1 calc(33.333% - 6px);min-width:75px;font-size:12px}
-    .lumi-q-phone-wrap{position:relative}
-    .lumi-q-phone-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px}
-    .lumi-q-phone-input{width:100%;box-sizing:border-box;padding:12px 14px 12px 42px;border:2px solid #fdba74;border-radius:14px;background:#fff;font-size:16px;font-weight:800;color:#0f172a;outline:none;transition:border-color .2s,box-shadow .2s}
-    .lumi-q-phone-input:focus{border-color:#ea580c;box-shadow:0 0 0 4px rgba(249,115,22,.18)}
-    .lumi-q-phone-input::placeholder{font-size:13px;font-weight:500;color:#94a3b8}
+    .lumi-q-phone-wrap{position:relative;width:100%}
+    .lumi-q-phone-wrap span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:17px;line-height:1;pointer-events:none;z-index:2}
+    .lumi-q-phone-wrap input,.lumi-q-phone-input{display:block!important;width:100%!important;box-sizing:border-box!important;padding:12px 14px 12px 44px!important;border:2px solid #fdba74!important;border-radius:14px!important;background:#fff!important;font-size:16px!important;font-weight:800!important;color:#0f172a!important;outline:none!important;transition:border-color .2s,box-shadow .2s}
+    .lumi-q-phone-wrap input:focus,.lumi-q-phone-input:focus{border-color:#ea580c!important;box-shadow:0 0 0 4px rgba(249,115,22,.18)!important}
+    .lumi-q-phone-wrap input::placeholder,.lumi-q-phone-input::placeholder{font-size:13.5px;font-weight:500;color:#94a3b8}
     .lumi-q-tip{display:block;font-size:11px;color:#f97316;font-weight:700;margin-top:5px}
     .lumi-q-submit{width:100%;padding:14px;border:none;border-radius:14px;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 10px 24px rgba(234,88,12,.28);transition:transform .18s,box-shadow .18s}
     .lumi-q-submit:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(234,88,12,.35)}
@@ -360,8 +360,8 @@
             <div class="lumi-q-field">
               <label class="lumi-q-label">4. Số điện thoại xem giá &amp; giữ lịch hẹn:</label>
               <div class="lumi-q-phone-wrap">
-                <span>📱</span>
-                <input type="tel" id="lumi-quote-phone-input" name="tel" autocomplete="tel" inputmode="tel" placeholder="Chạm để tự điền số điện thoại..." required>
+                <span aria-hidden="true">📱</span>
+                <input type="tel" id="lumi-quote-phone-input" class="lumi-q-phone-input" name="tel" autocomplete="tel" inputmode="tel" placeholder="Nhập số điện thoại Zalo của bạn..." required>
               </div>
               <small class="lumi-q-tip">💡 Đã gồm: Vệ sinh tai/mắt, cắt mài móng, xử lý lông bàn chân, vắt tuyến hôi, tắm xả 2 lần &amp; serum dưỡng lông.</small>
             </div>
@@ -380,7 +380,7 @@
             🏨 <strong>Ưu đãi Khách sạn:</strong> Máy lạnh 24/24, quay video mỗi ngày (Gửi &gt;5 ngày giảm 5%, &gt;10 ngày giảm 8%).<br>
             📞 Đã ghi nhận giữ lịch cho SĐT <strong id="lumi-calc-phone"></strong>
           </div>
-          <p style="font-size:12px;color:#64748b;margin:0 0 14px">Lumi Pet tại <strong>27 Võ Trường Toản, P.2, Bình Thạnh</strong> hân hạnh đón bé!</p>
+          <p style="font-size:12px;color:#64748b;margin:0 0 14px">Lumi Pet tại <strong>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ)</strong> hân hạnh đón bé!</p>
           <div class="lumi-res-actions">
             <a class="lumi-res-call" href="tel:0989979675">☎ Gọi Xác Nhận Giờ</a>
             <a class="lumi-res-zalo" href="${ZALO_URL}" target="_blank" rel="noopener noreferrer">💬 Nhắn Zalo Ngay</a>
