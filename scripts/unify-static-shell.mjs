@@ -141,6 +141,10 @@ function normalizeHead(html, prefix) {
   );
   next = cacheBustFixedAssets(next);
 
+  const cspMeta = `<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://lumipet.vn https://images.pexels.com https://www.google-analytics.com https://www.google.com https://www.google.com.vn https://googleads.g.doubleclick.net https://www.googletagmanager.com; connect-src 'self' https://lumipet.vn https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.com.vn https://googleads.g.doubleclick.net https://www.googleadservices.com; frame-src 'self' https://www.google.com https://maps.google.com https://www.googletagmanager.com https://td.doubleclick.net; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self'; upgrade-insecure-requests;">`;
+  if (!next.includes('http-equiv="Content-Security-Policy"')) next = next.replace('</head>', `${cspMeta}</head>`);
+  if (!next.includes('name="referrer"')) next = next.replace('</head>', '<meta name="referrer" content="strict-origin-when-cross-origin"></head>');
+
   const releaseMeta = `<meta name="lumi-release" content="${RELEASE}"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">`;
   if (!next.includes('name="lumi-release"')) next = next.replace('</head>', `${releaseMeta}</head>`);
 
