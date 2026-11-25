@@ -1,9 +1,11 @@
 import https from 'node:https';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const ORIGIN = 'https://lumipet.vn';
-const REPORT_DIR = path.resolve('reports');
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const REPORT_DIR = path.resolve(__dirname, '..', 'reports');
 
 const FORBIDDEN = [
   /capquangfptminhlh\.github\.io/i,
