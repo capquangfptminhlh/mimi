@@ -113,6 +113,48 @@
     .lumi-res-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .lumi-res-call{padding:12px 8px;border-radius:12px;background:#10b981;color:#fff;font-size:13px;font-weight:900;text-decoration:none;display:inline-block;text-align:center}
     .lumi-res-zalo{padding:12px 8px;border-radius:12px;background:#0068ff;color:#fff;font-size:13px;font-weight:900;text-decoration:none;display:inline-block;text-align:center}
+
+    /* === COMBO 1 + 2 + 3: REAL-TIME STATUS RIBBON & VERIFIED PROOF PULSE (100% REAL DATA) === */
+    .lumi-live-ribbon{background:linear-gradient(90deg,#fff7ed,#fffbeb,#f0fdfa);border-bottom:1px solid #fed7aa;padding:8px 16px;font-family:inherit}
+    .lumi-live-ribbon-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .lumi-live-status{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;color:#1e293b;line-height:1.35}
+    .lumi-live-dot{width:9px;height:9px;border-radius:999px;flex:0 0 9px;background:#10b981;box-shadow:0 0 0 0 rgba(16,185,129,.55);animation:lumiLiveDot 1.8s infinite}
+    .lumi-live-dot.is-peak{background:#f97316;box-shadow:0 0 0 0 rgba(249,115,22,.55);animation:lumiPeakDot 1.5s infinite}
+    .lumi-live-dot.is-night{background:#6366f1;box-shadow:none;animation:none}
+    @keyframes lumiLiveDot{0%{box-shadow:0 0 0 0 rgba(16,185,129,.55)}70%{box-shadow:0 0 0 7px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+    @keyframes lumiPeakDot{0%{box-shadow:0 0 0 0 rgba(249,115,22,.55)}70%{box-shadow:0 0 0 7px rgba(249,115,22,0)}100%{box-shadow:0 0 0 0 rgba(249,115,22,0)}}
+    .lumi-live-cta{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:999px;border:none;background:#ea580c;color:#fff;font-size:12px;font-weight:900;cursor:pointer;text-decoration:none;white-space:nowrap;box-shadow:0 4px 12px rgba(234,88,12,.22);transition:transform .18s ease,background .18s ease}
+    .lumi-live-cta:hover{background:#c2410c;transform:translateY(-1px)}
+
+    .lumi-pulse-toast{position:fixed;left:18px;bottom:20px;z-index:75;width:332px;max-width:calc(100vw - 36px);background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border:1.5px solid #fed7aa;border-radius:18px;padding:11px 12px;box-shadow:0 16px 40px rgba(15,23,42,.14);display:flex;align-items:center;gap:10px;font-family:inherit;opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .4s cubic-bezier(.2,.8,.2,1),transform .4s cubic-bezier(.2,.8,.2,1)}
+    .lumi-pulse-toast.is-shown{opacity:1;transform:none;pointer-events:auto}
+    .lumi-pulse-toast.is-switching{opacity:0;transform:translateY(8px)}
+    .lumi-pulse-toast.is-near-footer,.lumi-pulse-toast.is-dismissed{opacity:0!important;transform:translateY(18px)!important;pointer-events:none!important}
+    .lumi-pulse-icon{width:38px;height:38px;flex:0 0 38px;border-radius:12px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1px solid #fed7aa;display:grid;place-items:center;font-size:18px;line-height:1}
+    .lumi-pulse-body{min-width:0;flex:1}
+    .lumi-pulse-kicker{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:#ea580c;margin-bottom:2px}
+    .lumi-pulse-kicker.is-real{color:#059669}
+    .lumi-pulse-title{font-size:12.5px;font-weight:900;color:#0f172a;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .lumi-pulse-sub{font-size:11px;font-weight:600;color:#64748b;line-height:1.3;margin-top:2px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+    .lumi-pulse-action{flex:0 0 auto;padding:7px 10px;border-radius:10px;border:none;background:#fff7ed;color:#ea580c;border:1px solid #fdba74;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s,transform .15s}
+    .lumi-pulse-action:hover{background:#ea580c;color:#fff;transform:scale(1.03)}
+    .lumi-pulse-close{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:999px;border:1px solid #e2e8f0;background:#fff;color:#64748b;font-size:12px;font-weight:900;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 10px rgba(15,23,42,.12);transition:background .16s,color .16s}
+    .lumi-pulse-close:hover{background:#fee2e2;color:#ef4444;border-color:#fecaca}
+
+    /* Prevent overlap on medium desktop screens where homepage bottom-center bar sits at bottom:16px */
+    @media(min-width:769px) and (max-width:1360px){
+      body.lumi-has-react-root .lumi-pulse-toast{bottom:86px;left:16px}
+    }
+    @media(max-width:768px){
+      .lumi-live-ribbon{padding:7px 12px}
+      .lumi-live-status{font-size:11.5px}
+      .lumi-live-cta{padding:4px 10px;font-size:11px}
+      .lumi-pulse-toast{left:10px;right:10px;width:auto;max-width:none;bottom:76px;padding:9px 11px;border-radius:15px;gap:9px}
+      .lumi-pulse-icon{width:34px;height:34px;flex-basis:34px;font-size:16px;border-radius:10px}
+      .lumi-pulse-title{font-size:12px}
+      .lumi-pulse-sub{font-size:10.5px}
+      .lumi-pulse-action{padding:6px 9px;font-size:10.5px}
+    }
   
     .btn:active,.nav-cta:active,.lumi-contact-rail a:active,.lumi-mobile-nav a:active,.lumi-mobile-toggle:active,.lumi-header-action:active{transform:scale(.96)}
     @media(max-width:1080px){.lumi-top .main-nav{display:none!important}.lumi-header-actions .lumi-desktop-action{display:none}.lumi-mobile-toggle{display:grid;place-items:center}.lumi-mobile-nav.is-open{display:block;animation:lumiMenuIn .24s ease both}@keyframes lumiMenuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}}
@@ -612,6 +654,269 @@
       io.observe(el);
     });
   }
+
+  // === COMBO 1 + 2 + 3: REAL-TIME GMT+7 STATUS, VERIFIED GOOGLE MAPS PROOF & REAL ACTIVITY FEED ===
+  const getVietnamTimeInfo = () => {
+    const now = new Date();
+    const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
+    const vn = new Date(utcMs + 7 * 3600000);
+    const h = vn.getHours();
+    const m = vn.getMinutes();
+    const day = vn.getDay();
+    const mins = h * 60 + m;
+    const isWeekend = day === 0 || day === 6;
+
+    if (mins >= 8 * 60 && mins < 21 * 60) {
+      if (mins >= 19 * 60 + 45) {
+        return {
+          mode: 'closing',
+          dotClass: 'is-peak',
+          shortText: 'Sắp hết ca tối (đóng 21:00) · Đặt trước ca sáng mai từ 08:00 · Hotel trực 24/7',
+          pulseTitle: 'Sắp hết ca tối 21:00 hôm nay',
+          pulseSub: 'Đặt trước ca sáng mai từ 08:00 · Pet Hotel vẫn nhận & trực 24/7',
+        };
+      }
+      if (isWeekend || (mins >= 16 * 60 + 30 && mins < 19 * 60 + 45)) {
+        return {
+          mode: 'peak',
+          dotClass: 'is-peak',
+          shortText: isWeekend
+            ? 'Cuối tuần cao điểm (08:00 – 21:00) · Đặt lịch trước 1–2 tiếng để bé vào làm ngay, không chờ'
+            : 'Khung giờ cao điểm tan làm (đến 21:00) · Đặt trước để giữ bàn cho bé, không phải chờ',
+          pulseTitle: isWeekend ? 'Cuối tuần cao điểm — nên giữ lịch sớm' : 'Đang vào khung giờ cao điểm 16:30–19:30',
+          pulseSub: 'Đặt lịch trước 1–2 tiếng để bé vào tắm sấy ngay không phải chờ',
+        };
+      }
+      return {
+        mode: 'open',
+        dotClass: '',
+        shortText: 'Đang mở cửa (08:00 – 21:00) · 4.9★ (181 đánh giá Google Maps) · Đặt trước để bé vào tắm ngay',
+        pulseTitle: 'Lumi Pet đang mở cửa (08:00 – 21:00)',
+        pulseSub: 'Chọn khung giờ đẹp hôm nay · Không phụ thu ca tối · 27 Võ Trường Toản',
+      };
+    }
+
+    return {
+      mode: 'night',
+      dotClass: 'is-night',
+      shortText: 'Ngoài giờ Spa (mở lại 08:00 sáng mai) · Khách sạn thú cưng vẫn trực trông bé 24/7',
+      pulseTitle: 'Đặt trước khung giờ đẹp sáng mai từ 08:00',
+      pulseSub: 'Quầy Spa mở 08:00–21:00 · Pet Hotel có nhân viên trực chăm bé 24/7',
+    };
+  };
+
+  const formatAgoVi = (mins) => {
+    const n = Number(mins) || 1;
+    if (n < 60) return `${n} phút trước`;
+    const hrs = Math.floor(n / 60);
+    return `${hrs} giờ trước`;
+  };
+
+  const mountLiveRibbon = () => {
+    if (document.querySelector('.lumi-live-ribbon')) return;
+    const info = getVietnamTimeInfo();
+    const ribbon = document.createElement('div');
+    ribbon.className = 'lumi-live-ribbon';
+    ribbon.setAttribute('data-lumi-live-ribbon', 'true');
+    const inner = document.createElement('div');
+    inner.className = 'lumi-live-ribbon-inner';
+
+    const status = document.createElement('div');
+    status.className = 'lumi-live-status';
+    const dot = document.createElement('span');
+    dot.className = `lumi-live-dot ${info.dotClass}`.trim();
+    const textSpan = document.createElement('span');
+    textSpan.textContent = info.shortText;
+    status.appendChild(dot);
+    status.appendChild(textSpan);
+
+    const cta = document.createElement('button');
+    cta.type = 'button';
+    cta.className = 'lumi-live-cta';
+    cta.textContent = 'Giữ lịch ngay →';
+    cta.addEventListener('click', () => openQuoteModal());
+
+    inner.appendChild(status);
+    inner.appendChild(cta);
+    ribbon.appendChild(inner);
+
+    const staticHeader = document.querySelector('header.lumi-top');
+    if (staticHeader && staticHeader.parentNode) {
+      staticHeader.parentNode.insertBefore(ribbon, staticHeader.nextSibling);
+      return;
+    }
+    const reactHeader = document.querySelector('#root header');
+    if (reactHeader && reactHeader.parentNode) {
+      reactHeader.parentNode.insertBefore(ribbon, reactHeader.nextSibling);
+    }
+  };
+
+  const mountLivePulseToast = () => {
+    if (document.querySelector('.lumi-pulse-toast')) return;
+    try {
+      if (sessionStorage.getItem('lumi_pulse_dismissed') === '1') return;
+    } catch {}
+
+    const info = getVietnamTimeInfo();
+    const baseSlides = [
+      {
+        icon: '⭐',
+        kicker: 'Xác thực Google Maps',
+        isReal: false,
+        title: '4.9/5.0 ★ từ 181 đánh giá thực tế',
+        sub: 'Lumi Pet 27 Võ Trường Toản · Cách Chợ Bà Chiểu ~300m',
+        cta: 'Giữ lịch',
+      },
+      {
+        icon: info.mode === 'peak' ? '🔥' : (info.mode === 'night' ? '🌙' : '🟢'),
+        kicker: info.mode === 'peak' ? 'Giờ cao điểm thực tế' : 'Trạng thái tiệm trực tiếp',
+        isReal: false,
+        title: info.pulseTitle,
+        sub: info.pulseSub,
+        cta: 'Chọn giờ',
+      },
+      {
+        icon: '💨',
+        kicker: 'Cam kết an toàn 100%',
+        isReal: false,
+        title: 'Sấy tay ion 100% · Không lồng sấy',
+        sub: 'Tắm chó từ 140k · Tắm mèo khu riêng từ 160k · Cắt tỉa 290k',
+        cta: 'Tính giá',
+      },
+      {
+        icon: '🎄',
+        kicker: 'Mùa lễ Noel & Tết 2027',
+        isReal: false,
+        title: 'Nên đặt sớm 5–14 ngày dịp cao điểm',
+        sub: 'Giữ bàn cắt tỉa & phòng riêng Hotel 24/7 qua Zalo 0989 979 675',
+        cta: 'Giữ chỗ',
+      },
+    ];
+
+    let slides = [...baseSlides];
+    let currentIdx = 0;
+    let isHovered = false;
+    let timerId = null;
+
+    const toast = document.createElement('aside');
+    toast.className = 'lumi-pulse-toast';
+    toast.setAttribute('aria-live', 'polite');
+    toast.setAttribute('data-lumi-pulse-toast', 'true');
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'lumi-pulse-close';
+    closeBtn.setAttribute('aria-label', 'Ẩn thông báo');
+    closeBtn.textContent = '×';
+
+    const iconEl = document.createElement('div');
+    iconEl.className = 'lumi-pulse-icon';
+    const bodyEl = document.createElement('div');
+    bodyEl.className = 'lumi-pulse-body';
+    const kickerEl = document.createElement('div');
+    kickerEl.className = 'lumi-pulse-kicker';
+    const titleEl = document.createElement('div');
+    titleEl.className = 'lumi-pulse-title';
+    const subEl = document.createElement('div');
+    subEl.className = 'lumi-pulse-sub';
+    bodyEl.appendChild(kickerEl);
+    bodyEl.appendChild(titleEl);
+    bodyEl.appendChild(subEl);
+
+    const actionBtn = document.createElement('button');
+    actionBtn.type = 'button';
+    actionBtn.className = 'lumi-pulse-action';
+    actionBtn.addEventListener('click', () => openQuoteModal());
+
+    closeBtn.addEventListener('click', () => {
+      toast.classList.add('is-dismissed');
+      if (timerId) clearInterval(timerId);
+      try { sessionStorage.setItem('lumi_pulse_dismissed', '1'); } catch {}
+    });
+
+    toast.appendChild(closeBtn);
+    toast.appendChild(iconEl);
+    toast.appendChild(bodyEl);
+    toast.appendChild(actionBtn);
+    document.body.appendChild(toast);
+
+    const renderSlide = (s) => {
+      iconEl.textContent = s.icon;
+      kickerEl.textContent = s.kicker;
+      kickerEl.className = s.isReal ? 'lumi-pulse-kicker is-real' : 'lumi-pulse-kicker';
+      titleEl.textContent = s.title;
+      subEl.textContent = s.sub;
+      actionBtn.textContent = s.cta;
+    };
+
+    renderSlide(slides[0]);
+
+    toast.addEventListener('mouseenter', () => { isHovered = true; });
+    toast.addEventListener('mouseleave', () => { isHovered = false; });
+
+    const watchFooter = () => {
+      if (!('IntersectionObserver' in window)) return;
+      const footers = document.querySelectorAll('footer, [data-lumi-unified-footer="true"]');
+      if (!footers.length) return;
+      const fio = new IntersectionObserver((entries) => {
+        const anyVisible = entries.some((e) => e.isIntersecting);
+        toast.classList.toggle('is-near-footer', anyVisible);
+      }, { threshold: 0.02, rootMargin: '0px 0px 24px 0px' });
+      footers.forEach((f) => fio.observe(f));
+    };
+    watchFooter();
+    if (document.querySelector('#root')) {
+      setTimeout(watchFooter, 900);
+    }
+
+    fetch('/api/recent-activity', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (!data || !data.ok || !Array.isArray(data.items) || data.items.length === 0) return;
+        const realSlides = data.items.slice(0, 3).map((item) => ({
+          icon: '🐾',
+          kicker: `● Đặt lịch thật · ${formatAgoVi(item.agoMinutes)}`,
+          isReal: true,
+          title: `Khách vừa chọn ${String(item.service || 'Spa thú cưng')}`,
+          sub: 'Lumi Pet 27 Võ Trường Toản · Đặt trước để bé vào làm ngay',
+          cta: 'Đặt ngay',
+        }));
+        slides = [...realSlides, ...baseSlides];
+        currentIdx = 0;
+        renderSlide(slides[0]);
+      })
+      .catch(() => {});
+
+    setTimeout(() => {
+      toast.classList.add('is-shown');
+    }, 1400);
+
+    if (!REDUCED) {
+      timerId = setInterval(() => {
+        if (isHovered || toast.classList.contains('is-near-footer') || toast.classList.contains('is-dismissed')) return;
+        if (document.querySelector('.lumi-modal-overlay.is-active')) return;
+        toast.classList.add('is-switching');
+        setTimeout(() => {
+          currentIdx = (currentIdx + 1) % slides.length;
+          renderSlide(slides[currentIdx]);
+          toast.classList.remove('is-switching');
+        }, 320);
+      }, 7200);
+    }
+  };
+
+  mountLiveRibbon();
+  if (document.querySelector('#root') && !document.querySelector('.lumi-live-ribbon')) {
+    const mo = new MutationObserver(() => {
+      if (document.querySelector('#root header')) {
+        mountLiveRibbon();
+        mo.disconnect();
+      }
+    });
+    mo.observe(document.querySelector('#root'), { childList: true, subtree: true });
+    setTimeout(() => mo.disconnect(), 5000);
+  }
+  mountLivePulseToast();
 
   loadBlogEnhancements();
 })();
