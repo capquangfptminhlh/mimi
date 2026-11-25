@@ -2230,7 +2230,7 @@ export default function App() {
       </main>
 
       {/* FOOTER AREA */}
-      <footer className="bg-white border-t border-orange-100 py-12 px-4 shadow-inner mt-auto relative z-20">
+      <footer className="bg-white border-t border-orange-100 pt-12 pb-28 md:pb-24 px-4 shadow-inner mt-auto relative z-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           
           {/* Logo & About */}
@@ -2240,12 +2240,12 @@ export default function App() {
               <span className="text-2xl font-bold tracking-tight text-gray-800 font-display">Lumi<span className="text-orange-500">Pet</span></span>
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              Hệ thống khách sạn chăm sóc & Spa cắt lông tạo kiểu nghệ thuật hàng đầu Việt Nam. Lumi Pet ra đời với mong muốn mang lại trải nghiệm tiện nghi, hạnh phúc trọn vẹn nhất cho boss yêu.
+              Trung tâm Spa tắm vệ sinh sấy tay 100%, Grooming cắt tỉa &amp; Khách sạn thú cưng 24/7 tại 27 Võ Trường Toản, Phường Gia Định (Bình Thạnh), TP.HCM.
             </p>
             <div className="flex space-x-3 pt-1">
-              <span className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs text-orange-500 hover:bg-orange-500 hover:text-white transition-all cursor-pointer">FB</span>
-              <span className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs text-orange-500 hover:bg-orange-500 hover:text-white transition-all cursor-pointer">IG</span>
-              <span className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs text-orange-500 hover:bg-orange-500 hover:text-white transition-all cursor-pointer">YT</span>
+              <a href="https://www.facebook.com/lumipet.spa" target="_blank" rel="noopener noreferrer" aria-label="Facebook Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">FB</a>
+              <a href="https://www.instagram.com/lumipet.spa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">IG</a>
+              <a href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer" aria-label="Zalo Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-[11px] font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">Zalo</a>
             </div>
           </div>
 
