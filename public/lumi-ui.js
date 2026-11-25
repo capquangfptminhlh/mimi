@@ -745,7 +745,12 @@
       staticHeader.parentNode.insertBefore(ribbon, staticHeader.nextSibling);
       return;
     }
-    const reactHeader = document.querySelector('#root header');
+    const reactMain = document.querySelector('#root main');
+    if (reactMain && reactMain.parentNode) {
+      reactMain.parentNode.insertBefore(ribbon, reactMain);
+      return;
+    }
+    const reactHeader = document.querySelector('#root header, #root nav');
     if (reactHeader && reactHeader.parentNode) {
       reactHeader.parentNode.insertBefore(ribbon, reactHeader.nextSibling);
     }
@@ -908,7 +913,7 @@
   mountLiveRibbon();
   if (document.querySelector('#root') && !document.querySelector('.lumi-live-ribbon')) {
     const mo = new MutationObserver(() => {
-      if (document.querySelector('#root header')) {
+      if (document.querySelector('#root main') || document.querySelector('#root header, #root nav')) {
         mountLiveRibbon();
         mo.disconnect();
       }
