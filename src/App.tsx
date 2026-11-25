@@ -2246,13 +2246,16 @@ export default function App() {
           <a href="/spa-thu-cung-phuong-an-nhon-go-vap/" className="hover:text-orange-600 transition-colors">P. An Nhơn (Gò Vấp)</a>
           <a href="/spa-thu-cung-phuong-an-khanh-thao-dien/" className="hover:text-orange-600 transition-colors">P. An Khánh (Thảo Điền)</a>
         </div>
-        <div className="max-w-7xl mx-auto mt-2.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-gray-500 font-semibold">
-          <span className="text-gray-700 font-extrabold">Quận cũ &amp; Tuyến đường:</span>
+        <div className="max-w-7xl mx-auto mt-2.5 flex flex-wrap items-center justify-center gap-x-3.5 gap-y-1.5 text-[11px] text-gray-500 font-semibold">
+          <span className="text-gray-700 font-extrabold">Địa danh &amp; Quận cũ:</span>
+          <a href="/tam-cho-meo-gan-cho-ba-chieu/" className="hover:text-orange-600 transition-colors">Gần Chợ Bà Chiểu (300m)</a>
+          <a href="/tam-cho-meo-gan-phan-xich-long-mieu-noi/" className="hover:text-orange-600 transition-colors">Gần Phan Xích Long – Miếu Nổi</a>
+          <a href="/tam-cho-meo-gan-vinhomes-hang-xanh/" className="hover:text-orange-600 transition-colors">Gần Vinhomes – Hàng Xanh</a>
           <a href="/spa-thu-cung-quan-phu-nhuan/" className="hover:text-orange-600 transition-colors">Quận Phú Nhuận</a>
           <a href="/spa-thu-cung-quan-1/" className="hover:text-orange-600 transition-colors">Quận 1</a>
           <a href="/spa-thu-cung-quan-go-vap/" className="hover:text-orange-600 transition-colors">Quận Gò Vấp</a>
           <a href="/spa-thu-cung-quan-2-thao-dien/" className="hover:text-orange-600 transition-colors">Quận 2 (Thảo Điền)</a>
-          <a href="/spa-thu-cung-gan-cho-ba-chieu-vo-truong-toan/" className="hover:text-orange-600 transition-colors font-bold text-slate-700">Full 100+ tuyến đường gần tiệm</a>
+          <a href="/spa-thu-cung-gan-cho-ba-chieu-vo-truong-toan/" className="hover:text-orange-600 transition-colors font-bold text-slate-700">Full 100+ tuyến đường</a>
         </div>
         <div className="max-w-7xl mx-auto mt-2.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-orange-600 font-bold">
           <span className="text-gray-700 font-extrabold">Mùa cao điểm Noel 2026 &amp; Tết 2027:</span>
