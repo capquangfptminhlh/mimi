@@ -2230,7 +2230,7 @@ export default function App() {
 
         </div>
 
-        {/* Local SEO Wards Strip (Phường mới & Quận cũ lân cận) */}
+        {/* Local SEO Wards & Seasonal Strip (Phường mới, Quận cũ & Mùa Noel/Tết) */}
         <div className="max-w-7xl mx-auto mt-6 pt-5 border-t border-orange-100/70 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-gray-500 font-semibold">
           <span className="text-gray-700 font-extrabold">Khu vực phục vụ nhanh (4–10 phút):</span>
           <a href="/spa-thu-cung-phuong-binh-thanh/" className="hover:text-orange-600 transition-colors">Phường Bình Thạnh</a>
@@ -2238,6 +2238,11 @@ export default function App() {
           <a href="/spa-thu-cung-phuong-thanh-my-tay/" className="hover:text-orange-600 transition-colors">Phường Thạnh Mỹ Tây (Hàng Xanh)</a>
           <a href="/spa-thu-cung-phuong-cau-kieu-phu-nhuan/" className="hover:text-orange-600 transition-colors">Phường Cầu Kiệu (Phú Nhuận)</a>
           <a href="/spa-thu-cung-phuong-tan-dinh-quan-1/" className="hover:text-orange-600 transition-colors">Phường Tân Định (Quận 1)</a>
+        </div>
+        <div className="max-w-7xl mx-auto mt-2.5 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-orange-600 font-bold">
+          <span className="text-gray-700 font-extrabold">Mùa cao điểm Noel 2026 &amp; Tết 2027:</span>
+          <a href="/khach-san-thu-cung-tet-binh-thanh/" className="hover:underline">Khách sạn thú cưng &amp; Gửi chó mèo Tết 2027</a>
+          <a href="/spa-cho-meo-don-noel-tet-binh-thanh/" className="hover:underline">Tắm &amp; Cắt tỉa chó mèo đón Noel, Tết</a>
         </div>
       </footer>
 

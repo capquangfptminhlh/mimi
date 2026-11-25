@@ -21,6 +21,8 @@ const CORE_AND_WARD_PAGES = [
   { path: '/spa-thu-cung-binh-thanh/', needFaq: true },
   { path: '/grooming-cho-meo-binh-thanh/', needFaq: true },
   { path: '/khach-san-thu-cung-binh-thanh/', needFaq: true },
+  { path: '/khach-san-thu-cung-tet-binh-thanh/', needFaq: true },
+  { path: '/spa-cho-meo-don-noel-tet-binh-thanh/', needFaq: true },
   { path: '/bang-gia-spa-thu-cung/', needFaq: true },
   { path: '/tam-cho-phuong-gia-dinh/', needFaq: true },
   { path: '/tam-meo-phuong-gia-dinh/', needFaq: true },

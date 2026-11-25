@@ -5,9 +5,9 @@ const PUBLIC_DIR = path.resolve('public');
 const BLOG_INDEX = path.join(PUBLIC_DIR, 'bai-viet', 'index.html');
 const SITEMAP_PATH = path.join(PUBLIC_DIR, 'sitemap.xml');
 const ORIGIN = 'https://lumipet.vn';
-const TODAY = '2026-11-24';
+const TODAY = '2026-11-25';
 
-// 1. Update public/bai-viet/index.html (CollectionPage + ItemList + feature 4 new AEO/GEO articles)
+// 1. Update public/bai-viet/index.html (CollectionPage + ItemList + feature new AEO/GEO articles)
 let html = fs.readFileSync(BLOG_INDEX, 'utf8').replace(/\r\n/g, '\n');
 
 const newSchema = `<script type="application/ld+json">\n${JSON.stringify(
@@ -24,16 +24,18 @@ const newSchema = `<script type="application/ld+json">\n${JSON.stringify(
       '@type': 'ItemList',
       name: 'Bài viết nổi bật về Spa, Grooming & Pet Hotel Bình Thạnh',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Khảo sát bảng giá Spa thú cưng Bình Thạnh 2026', url: `${ORIGIN}/bai-viet/khao-sat-bang-gia-spa-thu-cung-binh-thanh-2026/` },
-        { '@type': 'ListItem', position: 2, name: 'Spa chó mèo mở cửa tối đến 21h tại Bình Thạnh', url: `${ORIGIN}/bai-viet/spa-cho-meo-mo-cua-toi-binh-thanh/` },
-        { '@type': 'ListItem', position: 3, name: 'Spa mèo không dùng lồng sấy tại Bình Thạnh', url: `${ORIGIN}/bai-viet/spa-meo-khong-dung-long-say-binh-thanh/` },
-        { '@type': 'ListItem', position: 4, name: 'Gửi mèo chó dịp Tết Bình Thạnh: Kinh nghiệm & Đặt phòng', url: `${ORIGIN}/bai-viet/gui-meo-cho-dip-tet-binh-thanh/` },
-        { '@type': 'ListItem', position: 5, name: 'Cắt tỉa lông Corgi mông đào Bình Thạnh giá bao nhiêu?', url: `${ORIGIN}/bai-viet/cat-tia-long-corgi-mong-dao-binh-thanh/` },
-        { '@type': 'ListItem', position: 6, name: 'Cắt tỉa lông Phốc sóc (Pomeranian) Bình Thạnh', url: `${ORIGIN}/bai-viet/cat-tia-long-phoc-soc-pomeranian-binh-thanh/` },
-        { '@type': 'ListItem', position: 7, name: 'Tắm chó lớn Husky, Golden, Samoyed Bình Thạnh (15–25kg)', url: `${ORIGIN}/bai-viet/tam-cho-lon-husky-golden-samoyed-binh-thanh/` },
-        { '@type': 'ListItem', position: 8, name: 'Cạo lông mèo Bình Thạnh giá bao nhiêu?', url: `${ORIGIN}/bai-viet/cao-long-meo-binh-thanh-gia-bao-nhieu/` },
-        { '@type': 'ListItem', position: 9, name: 'Tắm mèo Anh lông ngắn, lông dài sạch nhờn đuôi', url: `${ORIGIN}/bai-viet/tam-meo-anh-long-ngan-long-dai-het-nhon-duoi/` },
-        { '@type': 'ListItem', position: 10, name: 'Vắt tuyến hôi cho chó: khi nào cần & giá tại Bình Thạnh', url: `${ORIGIN}/bai-viet/vat-tuyen-hoi-cho-khi-nao-can/` },
+        { '@type': 'ListItem', position: 1, name: 'Đặt lịch tắm & cắt tỉa chó mèo cận Tết tại Bình Thạnh', url: `${ORIGIN}/bai-viet/dat-lich-spa-cat-tia-cho-meo-can-tet-binh-thanh/` },
+        { '@type': 'ListItem', position: 2, name: 'Gửi chó mèo dịp Noel & Tết Dương lịch Bình Thạnh', url: `${ORIGIN}/bai-viet/gui-cho-meo-dip-noel-tet-duong-lich-binh-thanh/` },
+        { '@type': 'ListItem', position: 3, name: 'Khảo sát bảng giá Spa thú cưng Bình Thạnh 2026', url: `${ORIGIN}/bai-viet/khao-sat-bang-gia-spa-thu-cung-binh-thanh-2026/` },
+        { '@type': 'ListItem', position: 4, name: 'Spa chó mèo mở cửa tối đến 21h tại Bình Thạnh', url: `${ORIGIN}/bai-viet/spa-cho-meo-mo-cua-toi-binh-thanh/` },
+        { '@type': 'ListItem', position: 5, name: 'Spa mèo không dùng lồng sấy tại Bình Thạnh', url: `${ORIGIN}/bai-viet/spa-meo-khong-dung-long-say-binh-thanh/` },
+        { '@type': 'ListItem', position: 6, name: 'Gửi mèo chó dịp Tết Bình Thạnh: Kinh nghiệm & Đặt phòng', url: `${ORIGIN}/bai-viet/gui-meo-cho-dip-tet-binh-thanh/` },
+        { '@type': 'ListItem', position: 7, name: 'Cắt tỉa lông Corgi mông đào Bình Thạnh giá bao nhiêu?', url: `${ORIGIN}/bai-viet/cat-tia-long-corgi-mong-dao-binh-thanh/` },
+        { '@type': 'ListItem', position: 8, name: 'Cắt tỉa lông Phốc sóc (Pomeranian) Bình Thạnh', url: `${ORIGIN}/bai-viet/cat-tia-long-phoc-soc-pomeranian-binh-thanh/` },
+        { '@type': 'ListItem', position: 9, name: 'Tắm chó lớn Husky, Golden, Samoyed Bình Thạnh (15–25kg)', url: `${ORIGIN}/bai-viet/tam-cho-lon-husky-golden-samoyed-binh-thanh/` },
+        { '@type': 'ListItem', position: 10, name: 'Cạo lông mèo Bình Thạnh giá bao nhiêu?', url: `${ORIGIN}/bai-viet/cao-long-meo-binh-thanh-gia-bao-nhieu/` },
+        { '@type': 'ListItem', position: 11, name: 'Tắm mèo Anh lông ngắn, lông dài sạch nhờn đuôi', url: `${ORIGIN}/bai-viet/tam-meo-anh-long-ngan-long-dai-het-nhon-duoi/` },
+        { '@type': 'ListItem', position: 12, name: 'Vắt tuyến hôi cho chó: khi nào cần & giá tại Bình Thạnh', url: `${ORIGIN}/bai-viet/vat-tuyen-hoi-cho-khi-nao-can/` },
       ],
     },
   },
@@ -43,7 +45,9 @@ const newSchema = `<script type="application/ld+json">\n${JSON.stringify(
 
 html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, newSchema);
 
-const newCards = `<section><h2>Mới cập nhật (AEO &amp; Dữ liệu 2026)</h2><div class="blog-grid">
+const newCards = `<section><h2>Mới cập nhật (Noel 2026 · Tết 2027 &amp; Dữ liệu AEO)</h2><div class="blog-grid">
+<a class="blog-card" href="./dat-lich-spa-cat-tia-cho-meo-can-tet-binh-thanh/"><img src="../images/vn-hero-spa.jpg" alt="Đặt lịch tắm và cắt tỉa chó mèo cận Tết Bình Thạnh" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">Mùa Lễ · Spa Tết 2027</span><h2>Đặt lịch tắm &amp; cắt tỉa chó mèo cận Tết: Nên đặt khi nào?</h2><p>Mốc đặt trước 7–14 ngày cho cắt tỉa Poodle/Corgi và 3–5 ngày cho tắm vệ sinh, tránh chờ lâu dịp cao điểm Noel &amp; Tết.</p></div></a>
+<a class="blog-card" href="./gui-cho-meo-dip-noel-tet-duong-lich-binh-thanh/"><img src="../images/vn-hotel-cat-vip.jpg" alt="Gửi chó mèo dịp Noel và Tết Dương lịch Bình Thạnh" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">Pet Hotel · Noel &amp; Tết Tây</span><h2>Gửi chó mèo dịp Noel &amp; Tết Dương lịch Bình Thạnh</h2><p>Phòng riêng máy lạnh 24/24, trực trông giữ 24/7 và quay video Zalo mỗi ngày khi ba mẹ đi chơi Giáng Sinh, nghỉ lễ.</p></div></a>
 <a class="blog-card" href="./khao-sat-bang-gia-spa-thu-cung-binh-thanh-2026/"><img src="../images/bang-gia-spa-grooming-lumi-pet.jpg" alt="Khảo sát bảng giá Spa thú cưng Bình Thạnh 2026" loading="lazy"><div class="blog-card-body"><span class="blog-card-tag">Báo cáo 2026 · Dữ liệu Giá</span><h2>Khảo sát bảng giá Spa thú cưng Bình Thạnh 2026</h2><p>Phân tích 8 phân khúc cân nặng chó (140k–850k), 3 phân khúc mèo (160k–380k) và bóc tách 5 khoản phụ phí phổ biến.</p></div></a>
 <a class="blog-card" href="./spa-cho-meo-mo-cua-toi-binh-thanh/"><div class="blog-card-body"><span class="blog-card-tag">Spa Bình Thạnh · Khung giờ tối</span><h2>Spa chó mèo mở cửa tối đến 21h tại Bình Thạnh</h2><p>Hướng dẫn đặt ca tắm sau giờ tan làm, không phụ thu giờ tối và cam kết sấy tay khô 100% tránh cảm lạnh.</p></div></a>
 <a class="blog-card" href="./spa-meo-khong-dung-long-say-binh-thanh/"><div class="blog-card-body"><span class="blog-card-tag">Spa Mèo · An toàn</span><h2>Spa mèo không dùng lồng sấy tại Bình Thạnh</h2><p>Vì sao sấy tay bằng máy ion giảm ồn ở khu riêng giúp mèo tránh stress và sốc nhiệt so với lồng sấy kín.</p></div></a>
@@ -66,6 +70,8 @@ const coreUrls = [
   { loc: `${ORIGIN}/spa-thu-cung-binh-thanh/`, priority: '0.95', changefreq: 'weekly' },
   { loc: `${ORIGIN}/grooming-cho-meo-binh-thanh/`, priority: '0.95', changefreq: 'weekly' },
   { loc: `${ORIGIN}/khach-san-thu-cung-binh-thanh/`, priority: '0.95', changefreq: 'weekly' },
+  { loc: `${ORIGIN}/khach-san-thu-cung-tet-binh-thanh/`, priority: '0.95', changefreq: 'weekly' },
+  { loc: `${ORIGIN}/spa-cho-meo-don-noel-tet-binh-thanh/`, priority: '0.95', changefreq: 'weekly' },
   { loc: `${ORIGIN}/bang-gia-spa-thu-cung/`, priority: '0.95', changefreq: 'weekly' },
   { loc: `${ORIGIN}/tam-cho-phuong-gia-dinh/`, priority: '0.95', changefreq: 'weekly' },
   { loc: `${ORIGIN}/tam-meo-phuong-gia-dinh/`, priority: '0.95', changefreq: 'weekly' },
@@ -102,6 +108,8 @@ for (const slug of blogSlugs) {
     continue;
   }
   const isNewFlagship = [
+    'dat-lich-spa-cat-tia-cho-meo-can-tet-binh-thanh',
+    'gui-cho-meo-dip-noel-tet-duong-lich-binh-thanh',
     'khao-sat-bang-gia-spa-thu-cung-binh-thanh-2026',
     'spa-cho-meo-mo-cua-toi-binh-thanh',
     'spa-meo-khong-dung-long-say-binh-thanh',
