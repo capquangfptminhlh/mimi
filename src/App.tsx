@@ -605,11 +605,46 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Top Info Ribbon (100% đúng thông tin thực tế của Lumi Pet) */}
-      <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-600 text-white py-2 px-4 text-center text-[11px] sm:text-xs font-bold flex items-center justify-center gap-2 shadow-inner relative z-30">
-        <span>🐾</span>
-        <span>Lumi Pet Bình Thạnh · 27 Võ Trường Toản, P. Gia Định · Mở cửa 08:00 – 21:00 tất cả các ngày · Hotel trên 5 ngày giảm 5%, trên 10 ngày giảm 8%</span>
-      </div>
+      {/* Combo 1: Top Live Real-Time GMT+7 Status & Peak-Hour Ribbon (100% dữ liệu thật) */}
+      {(() => {
+        const now = new Date();
+        const vn = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + 7 * 3600000);
+        const mins = vn.getHours() * 60 + vn.getMinutes();
+        const isWeekend = vn.getDay() === 0 || vn.getDay() === 6;
+        const isOpen = mins >= 8 * 60 && mins < 21 * 60;
+        const isClosing = isOpen && mins >= 19 * 60 + 45;
+        const isPeak = isOpen && !isClosing && (isWeekend || (mins >= 16 * 60 + 30 && mins < 19 * 60 + 45));
+        const msg = isClosing
+          ? 'Sắp hết ca tối (đóng 21:00) · Đặt trước ca sáng mai từ 08:00 · Pet Hotel vẫn trực 24/7'
+          : isPeak
+            ? (isWeekend
+              ? 'Cuối tuần cao điểm (08:00 – 21:00) · Đặt lịch trước 1–2 tiếng để bé vào tắm ngay, không chờ'
+              : 'Khung giờ cao điểm tan làm (đến 21:00) · Đặt trước để giữ bàn cho bé, không phải chờ')
+            : isOpen
+              ? 'Đang mở cửa (08:00 – 21:00) · 4.9★ (181 đánh giá Google Maps) · 27 Võ Trường Toản, P. Gia Định'
+              : 'Ngoài giờ Spa (mở lại 08:00 sáng mai) · Khách sạn thú cưng vẫn trực trông bé 24/7';
+        return (
+          <div
+            data-lumi-live-ribbon="true"
+            className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-600 text-white py-2 px-4 text-center text-[11px] sm:text-xs font-bold flex items-center justify-center flex-wrap gap-2 shadow-inner relative z-30"
+          >
+            <span className="inline-flex items-center gap-1.5">
+              <span className={`w-2 h-2 rounded-full ${isOpen ? (isPeak || isClosing ? 'bg-yellow-200 animate-ping' : 'bg-emerald-300 animate-pulse') : 'bg-indigo-200'}`} />
+              <span>{msg}</span>
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                setBookingFormData(prev => ({ ...prev, bookingType: 'spa' }));
+                setIsBookingModalOpen(true);
+              }}
+              className="px-2.5 py-0.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-extrabold text-[11px] border border-white/40 transition-colors cursor-pointer"
+            >
+              Giữ lịch ngay →
+            </button>
+          </div>
+        );
+      })()}
 
       {/* Navbar Component */}
       <Navbar 

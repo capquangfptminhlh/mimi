@@ -910,16 +910,9 @@
     }
   };
 
-  mountLiveRibbon();
-  if (document.querySelector('#root') && !document.querySelector('.lumi-live-ribbon')) {
-    const mo = new MutationObserver(() => {
-      if (document.querySelector('#root main') || document.querySelector('#root header, #root nav')) {
-        mountLiveRibbon();
-        mo.disconnect();
-      }
-    });
-    mo.observe(document.querySelector('#root'), { childList: true, subtree: true });
-    setTimeout(() => mo.disconnect(), 5000);
+  // On React homepage (#root), App.tsx renders the live ribbon natively; on all 158 static subpages, lumi-ui.js mounts it
+  if (!document.querySelector('#root')) {
+    mountLiveRibbon();
   }
   mountLivePulseToast();
 
