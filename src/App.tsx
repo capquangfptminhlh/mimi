@@ -2174,7 +2174,7 @@ export default function App() {
               Trung tâm Spa tắm vệ sinh sấy tay 100%, Grooming cắt tỉa &amp; Khách sạn thú cưng 24/7 tại 27 Võ Trường Toản, Phường Gia Định (Bình Thạnh), TP.HCM.
             </p>
             <div className="flex space-x-3 pt-1">
-              <a href="https://www.facebook.com/lumipet.spa" target="_blank" rel="noopener noreferrer" aria-label="Facebook Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">FB</a>
+              <a href="https://www.facebook.com/lumipet27" target="_blank" rel="noopener noreferrer" aria-label="Facebook Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">FB</a>
               <a href="https://www.instagram.com/lumipet.spa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-xs font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">IG</a>
               <a href="https://zalo.me/0989979675" target="_blank" rel="noopener noreferrer" aria-label="Zalo Lumi Pet" className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center text-[11px] font-bold text-orange-500 hover:bg-orange-500 hover:text-white transition-all">Zalo</a>
             </div>
