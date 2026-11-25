@@ -63,6 +63,11 @@ const urlList = [
   `https://${HOST}/bai-viet/cao-long-meo-binh-thanh-gia-bao-nhieu/`,
   `https://${HOST}/bai-viet/tam-meo-anh-long-ngan-long-dai-het-nhon-duoi/`,
   `https://${HOST}/bai-viet/vat-tuyen-hoi-cho-khi-nao-can/`,
+  `https://${HOST}/bai-viet/tam-cho-meo-cu-dan-vinhomes-central-park-landmark-81/`,
+  `https://${HOST}/bai-viet/spa-tam-cho-meo-saigon-pearl-the-manor-sunwah-pearl/`,
+  `https://${HOST}/bai-viet/tam-cat-tia-cho-meo-city-garden-soho-premier-wilton-tower/`,
+  `https://${HOST}/bai-viet/spa-gui-cho-meo-richmond-city-saigonres-plaza-nguyen-xi/`,
+  `https://${HOST}/bai-viet/spa-tam-cho-meo-botanic-towers-orchard-garden-phan-xich-long/`,
   `https://${HOST}/llms.txt`,
   `https://${HOST}/llms-full.txt`,
 ];
