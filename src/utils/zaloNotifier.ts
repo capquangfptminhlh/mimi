@@ -1,57 +1,33 @@
 /**
- * Lumi Pet - Zalo Bot Notification Service
- * Tự động gửi thông báo đơn đặt lịch Spa, đặt phòng Hotel và đơn hàng về Zalo Bot
+ * Lumi Pet - Secure Zalo Notification Client
+ * Toàn bộ token Zalo Bot được giữ kín hoàn toàn trên VPS (/api/notify-zalo),
+ * tuyệt đối không lưu hoặc đẩy token xuống trình duyệt khách hàng.
  */
 
 import { Booking, Product } from '../types';
 
-export const ZALO_BOT_CONFIG = {
-  BOT_ID: '2488056338196260982',
-  BOT_NAME: 'Bot lumipet',
-  BOT_TOKEN: '2488056338196260982:zEjZvnVEKAtHTnEcXwwntFvamkXZEnUnLJqtwpBiYQuhZpLvNZtRukCgBiUCSFuA',
-  CHAT_ID: '6e15121ea4544d0a1445',
-  API_URL: 'https://bot-api.zaloplatforms.com'
-};
+const NOTIFY_ENDPOINT = '/api/notify-zalo';
 
 function formatCurrency(amount: number): string {
   return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount || 0);
 }
 
 /**
- * Gửi tin nhắn văn bản thuần hoặc Markdown tới Zalo Bot
+ * Gửi tin nhắn văn bản thuần hoặc Markdown qua Secure VPS Proxy (rate-limited, origin-checked)
  */
 export async function sendZaloRaw(text: string): Promise<boolean> {
-  // 1. Thử gửi qua Secure VPS Endpoint trước (đảm bảo không lộ token, có rate limit)
+  const safeText = String(text || '').trim().slice(0, 1900);
+  if (safeText.length < 5) return false;
+
   try {
-    const apiRes = await fetch('/api/notify-zalo', {
+    const apiRes = await fetch(NOTIFY_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text })
+      body: JSON.stringify({ text: safeText, _hp: '' })
     });
-    if (apiRes.ok) {
-      return true;
-    }
-  } catch {
-    // Endpoint nội bộ chưa chạy hoặc môi trường dev -> fallback
-  }
-
-  // 2. Fallback trực tiếp để đảm bảo thông báo luôn được gửi không bao giờ trễ
-  try {
-    const url = `${ZALO_BOT_CONFIG.API_URL}/bot${ZALO_BOT_CONFIG.BOT_TOKEN}/sendMessage`;
-    const params = new URLSearchParams();
-    params.append('chat_id', ZALO_BOT_CONFIG.CHAT_ID);
-    params.append('text', text);
-    params.append('parse_mode', 'markdown');
-
-    await fetch(url, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: params
-    });
-
-    return true;
+    return apiRes.ok;
   } catch (error) {
-    console.error('❌ [ZaloBot] Lỗi khi gửi thông báo tới Zalo Bot:', error);
+    console.error('❌ [ZaloBot] Không thể gửi thông báo qua /api/notify-zalo:', error);
     return false;
   }
 }

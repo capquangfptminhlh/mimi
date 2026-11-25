@@ -87,6 +87,10 @@ jobs:
             echo 'Legacy GitHub Pages canonical/origin detected in production build.'
             exit 1
           fi
+          if grep -R -Eq 'ZALO_BOT_TOKEN|zEjZvnVEKAtHTnEc|ghp_[A-Za-z0-9]{20,}|Mã PIN mặc định' dist; then
+            echo 'SECURITY GATE FAIL: Secret token or hardcoded PIN detected in public dist/ bundle!'
+            exit 1
+          fi
 
       - name: Verify one canonical header on every static page
         shell: bash

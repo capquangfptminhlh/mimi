@@ -7,9 +7,9 @@
   const BRAND_MARK = rootHref('lumi-brand-mark.svg');
 
   const TOPIC_IMAGES = {
-    spa: rootHref('images/vn-bath-dog.jpg'),
-    grooming: rootHref('images/vn-hero-spa.jpg'),
-    hotel: rootHref('images/vn-hotel-cabins.jpg')
+    spa: rootHref('images/bai-truc-phan-dang-luu.jpg'),
+    grooming: rootHref('images/bai-cat-tia-poodle.jpg'),
+    hotel: rootHref('images/bai-truc-vinhomes.jpg')
   };
 
   const style = document.createElement('style');
@@ -312,9 +312,8 @@
     document.body.appendChild(blogScript);
   };
   
-  // === LUMI PET 1-TAP PRICE QUOTE & INSTANT ZALO LEAD ALERT ===
-  const ZALO_BOT_TOKEN = '2488056338196260982:zEjZvnVEKAtHTnEcXwwntFvamkXZEnUnLJqtwpBiYQuhZpLvNZtRukCgBiUCSFuA';
-  const ZALO_CHAT_ID = '6e15121ea4544d0a1445';
+  // === LUMI PET 1-TAP PRICE QUOTE & SECURE SERVER-SIDE ZALO LEAD ALERT ===
+  const NOTIFY_ZALO_ENDPOINT = '/api/notify-zalo';
   const GOOGLE_CONVERSION_TAG = 'AW-17749467170';
 
   const PRICING_DB = {
@@ -541,15 +540,10 @@
       '👉 *Gọi hoặc nhắn Zalo xác nhận khung giờ đón bé nhé!*'
     ].join('\n');
 
-    const params = new URLSearchParams();
-    params.append('chat_id', ZALO_CHAT_ID);
-    params.append('text', zaloMsg);
-    params.append('parse_mode', 'markdown');
-
-    fetch(`https://bot-api.zaloplatforms.com/bot${ZALO_BOT_TOKEN}/sendMessage`, {
+    fetch(NOTIFY_ZALO_ENDPOINT, {
       method: 'POST',
-      mode: 'no-cors',
-      body: params
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: zaloMsg.slice(0, 1900), _hp: '' })
     }).catch(err => console.error('Lumi Zalo Alert err:', err));
 
     // 2. Fire Google Ads Conversion

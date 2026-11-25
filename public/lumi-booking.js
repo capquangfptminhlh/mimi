@@ -81,8 +81,7 @@
     return `mailto:${BOOKING_EMAIL}?subject=${subject}&body=${body}`;
   };
 
-  const ZALO_BOT_TOKEN = '2488056338196260982:zEjZvnVEKAtHTnEcXwwntFvamkXZEnUnLJqtwpBiYQuhZpLvNZtRukCgBiUCSFuA';
-  const ZALO_CHAT_ID = '6e15121ea4544d0a1445';
+  const NOTIFY_ZALO_ENDPOINT = '/api/notify-zalo';
 
   async function sendZaloBotNotification(booking) {
     try {
@@ -108,26 +107,12 @@
         '⚡ _Khách vừa đặt trực tuyến trên web. Vui lòng liên hệ xác nhận khung giờ!_'
       ].filter(Boolean).join('\n');
 
-      const params = new URLSearchParams();
-      params.append('chat_id', ZALO_CHAT_ID);
-      params.append('text', text);
-      params.append('parse_mode', 'markdown');
-
-      // 1. Thử gửi qua Secure VPS Endpoint trước
-      fetch('/api/notify-zalo', {
+      // Gửi duy nhất qua Secure VPS Endpoint (không lộ token ở client, có rate limit & origin check)
+      fetch(NOTIFY_ZALO_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
-      }).then(r => {
-        if (!r.ok) throw new Error('API status ' + r.status);
-      }).catch(() => {
-        // Fallback trực tiếp
-        fetch(`https://bot-api.zaloplatforms.com/bot${ZALO_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: params
-        }).catch(e => console.error('Zalo Bot fallback error:', e));
-      });
+        body: JSON.stringify({ text: text.slice(0, 1900), _hp: '' })
+      }).catch(e => console.error('Lumi Pet Zalo API error:', e));
       return true;
     } catch (err) {
       console.error('Lumi Pet Zalo Bot error:', err);
@@ -214,15 +199,10 @@
           '⚡ _Khách vừa gõ SĐT vào form trên web! Nếu khách chưa bấm gửi hoặc thoát trang, hãy gọi lại hỗ trợ ngay!_'
         ].filter(Boolean).join('\n');
 
-        const params = new URLSearchParams();
-        params.append('chat_id', ZALO_CHAT_ID);
-        params.append('text', text);
-        params.append('parse_mode', 'markdown');
-
-        fetch(`https://bot-api.zaloplatforms.com/bot${ZALO_BOT_TOKEN}/sendMessage`, {
+        fetch(NOTIFY_ZALO_ENDPOINT, {
           method: 'POST',
-          mode: 'no-cors',
-          body: params
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: text.slice(0, 1900), _hp: '' })
         }).catch(e => console.error(e));
       }
     };
