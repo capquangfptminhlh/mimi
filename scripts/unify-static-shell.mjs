@@ -49,7 +49,7 @@ function renderHomepagePrerender(prefix) {
 <p class="lead">Cơ sở Spa &amp; Khách sạn thú cưng uy tín tại 27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM. Chuyên tắm chó, tắm mèo sấy tay 100%, cắt tỉa lông grooming và gửi chó mèo khách sạn phòng riêng máy lạnh 24/24.</p>
 <div class="answer"><strong>Tắm chó, tắm mèo Phường Gia Định (Bình Thạnh) giá bao nhiêu?</strong><br>Tại Lumi Pet 27 Võ Trường Toản, Phường Gia Định: tắm vệ sinh chó từ 140.000đ (8 mốc tới 25kg); tắm vệ sinh mèo từ 160.000đ (sấy tay 100%); tắm + cạo chó từ 200.000đ, mèo từ 250.000đ; cắt tỉa lông chó từ 290.000đ; gửi chó mèo Hotel 24/7 từ 100.000đ/ngày.</div>
 <p style="margin-top:12px;font-size:13px;"><strong>Dịch vụ tại Phường Gia Định:</strong> <a href="${prefix}tam-cho-phuong-gia-dinh/">Tắm chó Phường Gia Định</a> · <a href="${prefix}tam-meo-phuong-gia-dinh/">Tắm mèo Phường Gia Định</a> · <a href="${prefix}cat-tia-long-cho-phuong-gia-dinh/">Cắt tỉa lông chó Phường Gia Định</a> · <a href="${prefix}khach-san-thu-cung-phuong-gia-dinh/">Khách sạn thú cưng Phường Gia Định</a></p>
-<p style="margin-top:6px;font-size:13px;"><strong>Phục vụ nhanh các phường &amp; quận lân cận:</strong> <a href="${prefix}spa-thu-cung-phuong-binh-thanh/">Phường Bình Thạnh</a> · <a href="${prefix}spa-thu-cung-phuong-binh-loi-trung/">Phường Bình Lợi Trung</a> · <a href="${prefix}spa-thu-cung-phuong-thanh-my-tay/">Phường Thạnh Mỹ Tây</a> · <a href="${prefix}spa-thu-cung-phuong-cau-kieu-phu-nhuan/">Phường Cầu Kiệu (Phú Nhuận)</a> · <a href="${prefix}spa-thu-cung-phuong-tan-dinh-quan-1/">Phường Tân Định (Quận 1)</a></p>
+<p style="margin-top:6px;font-size:13px;"><strong>Phục vụ nhanh 12 phường lân cận (Bình Thạnh · Phú Nhuận · Q.1 · Gò Vấp · Thảo Điền):</strong> <a href="${prefix}spa-thu-cung-phuong-binh-thanh/">Phường Bình Thạnh</a> · <a href="${prefix}spa-thu-cung-phuong-binh-loi-trung/">Phường Bình Lợi Trung</a> · <a href="${prefix}spa-thu-cung-phuong-thanh-my-tay/">Phường Thạnh Mỹ Tây</a> · <a href="${prefix}spa-thu-cung-phuong-binh-quoi/">Phường Bình Quới</a> · <a href="${prefix}spa-thu-cung-phuong-cau-kieu-phu-nhuan/">Phường Cầu Kiệu (Phú Nhuận)</a> · <a href="${prefix}spa-thu-cung-phuong-duc-nhuan-phu-nhuan/">Phường Đức Nhuận (Phú Nhuận)</a> · <a href="${prefix}spa-thu-cung-phuong-phu-nhuan/">Phường Phú Nhuận</a> · <a href="${prefix}spa-thu-cung-phuong-tan-dinh-quan-1/">Phường Tân Định (Quận 1)</a> · <a href="${prefix}spa-thu-cung-phuong-sai-gon-quan-1/">Phường Sài Gòn (Quận 1)</a> · <a href="${prefix}spa-thu-cung-phuong-hanh-thong-go-vap/">Phường Hạnh Thông (Gò Vấp)</a> · <a href="${prefix}spa-thu-cung-phuong-an-nhon-go-vap/">Phường An Nhơn (Gò Vấp)</a> · <a href="${prefix}spa-thu-cung-phuong-an-khanh-thao-dien/">Phường An Khánh (Thảo Điền)</a></p>
 <p style="margin-top:6px;font-size:13px;"><strong>Mùa lễ Noel 2026 &amp; Tết 2027:</strong> <a href="${prefix}khach-san-thu-cung-tet-binh-thanh/">Khách sạn thú cưng &amp; Gửi chó mèo Tết 2027</a> · <a href="${prefix}spa-cho-meo-don-noel-tet-binh-thanh/">Tắm &amp; Cắt tỉa chó mèo đón Noel, Tết</a></p>
 </div><aside class="hero-side"><div class="eyebrow">Đặt lịch & Báo giá online</div><strong>Chọn cân nặng → xem ngay</strong>
 <p><a class="btn btn-green" href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến</a></p>
@@ -179,11 +179,18 @@ function normalizeHead(html, prefix) {
       },
       areaServed: [
         { '@type': 'AdministrativeArea', name: 'Phường Gia Định, TP. Hồ Chí Minh' },
-        { '@type': 'AdministrativeArea', name: 'Quận Bình Thạnh, TP. Hồ Chí Minh' },
-        { '@type': 'AdministrativeArea', name: 'Quận Phú Nhuận, TP. Hồ Chí Minh' },
-        { '@type': 'AdministrativeArea', name: 'Quận Gò Vấp, TP. Hồ Chí Minh' },
-        { '@type': 'AdministrativeArea', name: 'Quận 1, TP. Hồ Chí Minh' },
-        { '@type': 'AdministrativeArea', name: 'Phường An Khánh (Thảo Điền, TP. Thủ Đức), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Bình Thạnh, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Bình Lợi Trung, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Thạnh Mỹ Tây, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Bình Quới, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Cầu Kiệu (Phú Nhuận), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Đức Nhuận (Phú Nhuận), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Phú Nhuận, TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Tân Định (Quận 1), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Sài Gòn (Quận 1), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường Hạnh Thông (Gò Vấp), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường An Nhơn (Gò Vấp), TP. Hồ Chí Minh' },
+        { '@type': 'AdministrativeArea', name: 'Phường An Khánh (Thảo Điền, Quận 2 cũ), TP. Hồ Chí Minh' },
       ],
       sameAs: [
         'https://www.facebook.com/lumipet.spa',
