@@ -355,7 +355,7 @@
   };
   
   // === LUMI PET 1-TAP PRICE QUOTE & SECURE SERVER-SIDE ZALO LEAD ALERT ===
-  const NOTIFY_ZALO_ENDPOINT = '/api/notify-zalo';
+  const NOTIFY_ZALO_ENDPOINTS = ['/api/booking', '/api/notify-zalo'];
   const GOOGLE_CONVERSION_TAG = 'AW-17749467170';
 
   const PRICING_DB = {
@@ -582,11 +582,36 @@
       '👉 *Gọi hoặc nhắn Zalo xác nhận khung giờ đón bé nhé!*'
     ].join('\n');
 
-    fetch(NOTIFY_ZALO_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: zaloMsg.slice(0, 1900), _hp: '' })
-    }).catch(err => console.error('Lumi Zalo Alert err:', err));
+    const quotePayload = JSON.stringify({
+      bookingType: 'quote',
+      type: 'Xem báo giá & giữ lịch 1 chạm',
+      customerName: 'Khách xem báo giá',
+      name: 'Khách xem báo giá',
+      customerPhone: phone,
+      phone,
+      petType: petIcon,
+      weight: selectedTier.l,
+      service: `${serv.name} (${selectedTier.l})`,
+      serviceType: `${serv.name} (${selectedTier.l})`,
+      totalPrice: lumiPrice,
+      price: moneyFmt.format(lumiPrice),
+      pageUrl: location.href,
+      text: zaloMsg.slice(0, 1900),
+      message: zaloMsg.slice(0, 1900),
+      _hp: ''
+    });
+    (async () => {
+      for (const ep of NOTIFY_ZALO_ENDPOINTS) {
+        try {
+          const r = await fetch(ep, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: quotePayload
+          });
+          if (r.ok) return;
+        } catch {}
+      }
+    })();
 
     // 2. Fire Google Ads Conversion
     if (window.gtag) {

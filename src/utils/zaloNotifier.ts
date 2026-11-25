@@ -1,35 +1,53 @@
 /**
  * Lumi Pet - Secure Zalo Notification Client
- * Toàn bộ token Zalo Bot được giữ kín hoàn toàn trên VPS (/api/notify-zalo),
+ * Toàn bộ token Zalo Bot được giữ kín hoàn toàn trên VPS (/api/booking & /api/notify-zalo),
  * tuyệt đối không lưu hoặc đẩy token xuống trình duyệt khách hàng.
  */
 
 import { Booking, Product } from '../types';
 
-const NOTIFY_ENDPOINT = '/api/notify-zalo';
+const PRIMARY_ENDPOINT = '/api/booking';
+const FALLBACK_ENDPOINT = '/api/notify-zalo';
 
 function formatCurrency(amount: number): string {
   return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount || 0);
 }
 
 /**
- * Gửi tin nhắn văn bản thuần hoặc Markdown qua Secure VPS Proxy (rate-limited, origin-checked)
+ * Gửi payload đặt lịch / tư vấn / đơn hàng tới Secure VPS Endpoint (không lộ token ở client)
  */
-export async function sendZaloRaw(text: string): Promise<boolean> {
+async function dispatchToServer(payload: Record<string, unknown>): Promise<boolean> {
+  const body = JSON.stringify({ ...payload, _hp: '' });
+  for (const endpoint of [PRIMARY_ENDPOINT, FALLBACK_ENDPOINT]) {
+    try {
+      const apiRes = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body,
+      });
+      if (apiRes.ok) {
+        return true;
+      }
+    } catch {
+      // Try next internal endpoint
+    }
+  }
+  console.error('❌ [ZaloBot] Không thể gửi thông báo qua API nội bộ VPS');
+  return false;
+}
+
+/**
+ * Gửi tin nhắn văn bản thuần hoặc Markdown tới Zalo Bot qua Secure VPS Proxy
+ */
+export async function sendZaloRaw(text: string, meta: Record<string, unknown> = {}): Promise<boolean> {
   const safeText = String(text || '').trim().slice(0, 1900);
   if (safeText.length < 5) return false;
-
-  try {
-    const apiRes = await fetch(NOTIFY_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: safeText, _hp: '' })
-    });
-    return apiRes.ok;
-  } catch (error) {
-    console.error('❌ [ZaloBot] Không thể gửi thông báo qua /api/notify-zalo:', error);
-    return false;
-  }
+  return dispatchToServer({
+    ...meta,
+    text: safeText,
+    message: safeText,
+    pageUrl: typeof location !== 'undefined' ? location.href : 'https://lumipet.vn/',
+  });
 }
 
 /**
@@ -75,7 +93,29 @@ export async function notifyZaloBooking(booking: Booking): Promise<boolean> {
     ].filter(Boolean).join('\n');
   }
 
-  return sendZaloRaw(text);
+  return sendZaloRaw(text, {
+    id: booking.id,
+    bookingType: booking.bookingType,
+    type: isSpa ? 'Đặt lịch Spa' : 'Đặt phòng Hotel 24/7',
+    customerName: booking.customerName,
+    name: booking.customerName,
+    customerPhone: booking.customerPhone,
+    phone: booking.customerPhone,
+    customerEmail: booking.customerEmail || '',
+    petName: booking.petName,
+    petType: petTypeStr,
+    petWeight: booking.petWeight,
+    weight: `${booking.petWeight}kg`,
+    serviceType: booking.serviceType,
+    service: booking.serviceType,
+    date: booking.date || booking.checkInDate || '',
+    timeSlot: booking.timeSlot || '',
+    checkInDate: booking.checkInDate || '',
+    checkOutDate: booking.checkOutDate || '',
+    totalPrice: booking.totalPrice,
+    price: formatCurrency(booking.totalPrice),
+    notes: booking.notes || '',
+  });
 }
 
 export interface OrderNotificationData {
@@ -92,7 +132,7 @@ export interface OrderNotificationData {
  * Gửi thông báo khi có khách đặt mua hàng Pet Shop
  */
 export async function notifyZaloOrder(order: OrderNotificationData): Promise<boolean> {
-  const itemsText = order.items.map((it, idx) => 
+  const itemsText = order.items.map((it, idx) =>
     `   ${idx + 1}. ${it.product.name} x${it.quantity} (${formatCurrency(it.product.price)})`
   ).join('\n');
 
@@ -111,7 +151,20 @@ export async function notifyZaloOrder(order: OrderNotificationData): Promise<boo
     '⚡ _Đơn hàng vừa đặt trên web. Vui lòng gọi xác nhận địa chỉ và xuất kho!_'
   ].filter(Boolean).join('\n');
 
-  return sendZaloRaw(text);
+  return sendZaloRaw(text, {
+    id: order.id,
+    bookingType: 'order',
+    type: 'Đơn hàng Pet Shop',
+    customerName: order.buyerName,
+    name: order.buyerName,
+    customerPhone: order.buyerPhone,
+    phone: order.buyerPhone,
+    service: `Đơn hàng Pet Shop (${order.items.length} SP)`,
+    serviceType: `Đơn hàng Pet Shop (${order.items.length} SP)`,
+    totalPrice: order.total,
+    price: formatCurrency(order.total),
+    notes: `Địa chỉ: ${order.buyerAddress}${order.buyerNote ? ' | ' + order.buyerNote : ''}`,
+  });
 }
 
 export interface PriceQuoteNotificationData {
@@ -145,5 +198,19 @@ export async function notifyZaloPriceQuote(data: PriceQuoteNotificationData): Pr
     '⚡ _Khách vừa để lại SĐT nhận tư vấn trên web. Vui lòng gọi hoặc nhắn Zalo xác nhận khung giờ cho khách!_'
   ].filter(Boolean).join('\n');
 
-  return sendZaloRaw(text);
+  return sendZaloRaw(text, {
+    bookingType: 'quote',
+    type: 'Yêu cầu báo giá & tư vấn',
+    customerName: data.customerName || 'Khách xem báo giá',
+    name: data.customerName || 'Khách xem báo giá',
+    customerPhone: data.phone,
+    phone: data.phone,
+    petType: petTypeStr,
+    petWeight: data.petWeight || 0,
+    service: data.serviceName,
+    serviceType: data.serviceName,
+    totalPrice: data.estimatedPrice,
+    price: formatCurrency(data.estimatedPrice),
+    notes: data.note || '',
+  });
 }

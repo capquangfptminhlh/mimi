@@ -81,7 +81,23 @@
     return `mailto:${BOOKING_EMAIL}?subject=${subject}&body=${body}`;
   };
 
-  const NOTIFY_ZALO_ENDPOINT = '/api/notify-zalo';
+  const PRIMARY_ZALO_ENDPOINT = '/api/booking';
+  const FALLBACK_ZALO_ENDPOINT = '/api/notify-zalo';
+
+  async function postZaloSecure(payload) {
+    const body = JSON.stringify(Object.assign({}, payload, { _hp: '' }));
+    for (const ep of [PRIMARY_ZALO_ENDPOINT, FALLBACK_ZALO_ENDPOINT]) {
+      try {
+        const res = await fetch(ep, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body
+        });
+        if (res.ok) return true;
+      } catch {}
+    }
+    return false;
+  }
 
   async function sendZaloBotNotification(booking) {
     try {
@@ -107,13 +123,33 @@
         '⚡ _Khách vừa đặt trực tuyến trên web. Vui lòng liên hệ xác nhận khung giờ!_'
       ].filter(Boolean).join('\n');
 
-      // Gửi duy nhất qua Secure VPS Endpoint (không lộ token ở client, có rate limit & origin check)
-      fetch(NOTIFY_ZALO_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: text.slice(0, 1900), _hp: '' })
-      }).catch(e => console.error('Lumi Pet Zalo API error:', e));
-      return true;
+      // Gửi qua Secure VPS Endpoint /api/booking (không lộ token ở client)
+      return await postZaloSecure({
+        id: booking.id,
+        bookingType: booking.bookingType,
+        type: isSpa ? 'Đặt lịch Spa' : 'Đặt phòng Hotel 24/7',
+        customerName: booking.customerName,
+        name: booking.customerName,
+        customerPhone: booking.customerPhone,
+        phone: booking.customerPhone,
+        customerEmail: booking.customerEmail || '',
+        petName: booking.petName,
+        petType: petTypeStr,
+        petWeight: booking.petWeight,
+        weight: `${booking.petWeight}kg`,
+        service: booking.serviceType,
+        serviceType: booking.serviceType,
+        date: booking.date || booking.checkInDate || '',
+        timeSlot: booking.timeSlot || '',
+        checkInDate: booking.checkInDate || '',
+        checkOutDate: booking.checkOutDate || '',
+        totalPrice: booking.totalPrice,
+        price: money.format(booking.totalPrice),
+        notes: booking.notes || '',
+        pageUrl: location.href,
+        text: text.slice(0, 1900),
+        message: text.slice(0, 1900)
+      });
     } catch (err) {
       console.error('Lumi Pet Zalo Bot error:', err);
       return false;
@@ -199,10 +235,22 @@
           '⚡ _Khách vừa gõ SĐT vào form trên web! Nếu khách chưa bấm gửi hoặc thoát trang, hãy gọi lại hỗ trợ ngay!_'
         ].filter(Boolean).join('\n');
 
-        fetch(NOTIFY_ZALO_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: text.slice(0, 1900), _hp: '' })
+        postZaloSecure({
+          bookingType: kind,
+          type: kind === 'spa' ? 'Khách đang điền form Spa' : 'Khách đang điền form Hotel 24/7',
+          customerName: (nameInput && nameInput.value) || 'Khách đang điền form',
+          name: (nameInput && nameInput.value) || 'Khách đang điền form',
+          customerPhone: val,
+          phone: val,
+          petName: (petNameInput && petNameInput.value) || '',
+          petWeight: (weightInput && weightInput.value) || '',
+          service: kind === 'spa' ? 'Đặt lịch Spa Chăm Sóc' : 'Đặt phòng Hotel 24/7',
+          serviceType: kind === 'spa' ? 'Đặt lịch Spa Chăm Sóc' : 'Đặt phòng Hotel 24/7',
+          totalPrice: Number(total) || 0,
+          price: Number(total) > 0 ? money.format(Number(total)) : '',
+          pageUrl: location.href,
+          text: text.slice(0, 1900),
+          message: text.slice(0, 1900)
         }).catch(e => console.error(e));
       }
     };

@@ -179,8 +179,8 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Zalo dispatch endpoint
-  if (parsed.pathname === '/api/notify-zalo' && req.method === 'POST') {
+  // Zalo dispatch endpoints (supports both /api/booking and /api/notify-zalo)
+  if ((parsed.pathname === '/api/notify-zalo' || parsed.pathname === '/api/booking') && req.method === 'POST') {
     const referer = String(req.headers.referer || '');
     const originAllowed = !origin || ALLOWED_ORIGINS.has(origin);
     const refererAllowed = !referer || referer.startsWith('https://lumipet.vn/') || referer.startsWith('https://www.lumipet.vn/');
