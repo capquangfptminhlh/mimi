@@ -645,6 +645,65 @@ export default function App() {
               }
             }} />
 
+            {/* Seasonal Noel 2026 & Tet 2027 Booking Strip (100% thông tin thật) */}
+            <section aria-label="Lịch mùa lễ Noel 2026 và Tết Nguyên Đán 2027" className="bg-gradient-to-r from-orange-50 via-amber-50/70 to-teal-50/60 border-y border-orange-100 py-8 px-4">
+              <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  <div className="max-w-2xl">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-orange-600 bg-white border border-orange-200 px-3 py-1 rounded-full mb-2.5">
+                      <span>🎄</span> Mùa cao điểm Noel 2026 &amp; Tết Nguyên Đán 2027
+                    </span>
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-display leading-snug">
+                      Mở nhận đặt lịch Spa đón lễ &amp; Giữ phòng Pet Hotel Tết 2027
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
+                      Nên chốt sớm khung giờ cắt tỉa trước <strong>7–14 ngày</strong> và giữ phòng lưu trú trước <strong>2–4 tuần</strong> để bé có không gian riêng máy lạnh 24/24 và không phải chờ lâu.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 shrink-0">
+                    <a
+                      href="/khach-san-thu-cung-tet-binh-thanh/"
+                      className="group flex items-center gap-3 bg-white hover:bg-orange-50/60 border border-orange-200/80 rounded-2xl p-2.5 pr-4 shadow-sm hover:shadow-md transition-all"
+                    >
+                      <img
+                        src="/images/vn-hotel-tet.jpg"
+                        alt="Phòng khách sạn thú cưng Tết 2027 tại Lumi Pet Bình Thạnh"
+                        loading="lazy"
+                        className="w-16 h-16 rounded-xl object-cover shrink-0 group-hover:scale-105 transition-transform"
+                      />
+                      <div className="min-w-0">
+                        <span className="block text-[10px] font-black uppercase text-teal-600">Pet Hotel 24/7</span>
+                        <span className="block text-xs sm:text-sm font-extrabold text-slate-900 group-hover:text-orange-600 transition-colors">
+                          Đặt phòng Tết 2027 →
+                        </span>
+                        <span className="block text-[11px] text-slate-500 truncate">Phòng riêng · Video Zalo mỗi ngày</span>
+                      </div>
+                    </a>
+
+                    <a
+                      href="/spa-cho-meo-don-noel-tet-binh-thanh/"
+                      className="group flex items-center gap-3 bg-white hover:bg-orange-50/60 border border-orange-200/80 rounded-2xl p-2.5 pr-4 shadow-sm hover:shadow-md transition-all"
+                    >
+                      <img
+                        src="/images/vn-spa-noel-tet.jpg"
+                        alt="Tắm và cắt tỉa chó mèo đón Noel và Tết 2027 tại Lumi Pet"
+                        loading="lazy"
+                        className="w-16 h-16 rounded-xl object-cover shrink-0 group-hover:scale-105 transition-transform"
+                      />
+                      <div className="min-w-0">
+                        <span className="block text-[10px] font-black uppercase text-orange-600">Spa &amp; Grooming</span>
+                        <span className="block text-xs sm:text-sm font-extrabold text-slate-900 group-hover:text-orange-600 transition-colors">
+                          Tắm &amp; Cắt tỉa Noel, Tết →
+                        </span>
+                        <span className="block text-[11px] text-slate-500 truncate">Tắm từ 140k · Sấy tay 100%</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Why Choose Us Features Area */}
             <section className="py-16 bg-white px-4">
               <div className="max-w-7xl mx-auto">
