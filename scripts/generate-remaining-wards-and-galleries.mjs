@@ -79,7 +79,7 @@ const NEW_WARDS = [
       '<strong>Từ Ngã tư Phú Nhuận / Hoàng Văn Thụ (7–8 phút):</strong> Đi thẳng Phan Đăng Lưu qua Ngã tư Phan Xích Long → tới khu Bệnh viện Gia Định rẽ vào 27 Võ Trường Toản.',
       '<strong>Từ Huỳnh Văn Bánh / Lê Văn Sỹ (9–10 phút):</strong> Chạy Huỳnh Văn Bánh → Phan Đình Phùng → rẽ phải Phan Đăng Lưu → Võ Trường Toản.',
     ],
-    tip: 'Với khách ở khu chung cư Nguyễn Văn Trỗi – Huỳnh Văn Bánh đi làm giờ hành chính, Lumi Pet mở cửa từ 07:00 sáng đến 21:00 tối nên bạn dễ gửi bé buổi sáng trước khi đi làm hoặc buổi tối sau giờ tan ca.',
+    tip: 'Với khách ở khu chung cư Nguyễn Văn Trỗi – Huỳnh Văn Bánh đi làm giờ hành chính, Lumi Pet mở cửa từ 08:00 sáng đến 21:00 tối nên bạn dễ gửi bé buổi sáng trước khi đi làm hoặc buổi tối sau giờ tan ca.',
     faqs: [
       ['Từ Phường Phú Nhuận sang Lumi Pet 27 Võ Trường Toản đi đường nào nhanh nhất?', 'Đường nhanh nhất là chạy thẳng Phan Đăng Lưu hướng về Chợ Bà Chiểu (8–10 phút), sau đó rẽ vào Võ Trường Toản số 27.'],
       ['Cắt tỉa lông Poodle, Corgi, Phốc sóc giá bao nhiêu tại Lumi Pet?', 'Combo tắm + cắt tỉa tạo kiểu 2026 từ 290.000đ (<3kg), 360.000đ (3–6kg), 430.000đ (6–9kg) đến 850.000đ (20–25kg), đã gồm đủ bước vệ sinh cơ bản.'],
@@ -106,7 +106,7 @@ const NEW_WARDS = [
       '<strong>Từ Đinh Tiên Hoàng / Nguyễn Thị Minh Khai (7–8 phút):</strong> Chạy thẳng Đinh Tiên Hoàng qua Cầu Bông → nối tiếp đường Lê Văn Duyệt → rẽ phải vào Võ Trường Toản số 27.',
       '<strong>Từ khu trung tâm Bến Nghé / Lê Duẩn (9–10 phút):</strong> Đi theo trục Hai Bà Trưng hoặc Đinh Tiên Hoàng hướng Cầu Bông sang Phường Gia Định.',
     ],
-    tip: 'Rất nhiều ba mẹ làm việc tại khu văn phòng Quận 1 (Phường Sài Gòn) gửi bé làm Spa hoặc lưu trú ngày tại Lumi Pet lúc sáng đi làm (từ 07:00) và đón bé trên đường về nhà (đến 21:00) với mức giá tiết kiệm hơn đáng kể so với lõi trung tâm Quận 1.',
+    tip: 'Rất nhiều ba mẹ làm việc tại khu văn phòng Quận 1 (Phường Sài Gòn) gửi bé làm Spa hoặc lưu trú ngày tại Lumi Pet lúc sáng đi làm (từ 08:00) và đón bé trên đường về nhà (đến 21:00) với mức giá tiết kiệm hơn đáng kể so với lõi trung tâm Quận 1.',
     faqs: [
       ['Từ Phường Sài Gòn (Bến Nghé / Đa Kao Quận 1) sang Lumi Pet bao xa?', 'Chỉ khoảng 2 – 3km (7–10 phút chạy xe qua Cầu Bông hoặc Cầu Thị Nghè), đường đi thẳng rất dễ tìm.'],
       ['Giá Spa & Pet Hotel tại Lumi Pet cho khách Quận 1 có tính giá riêng không?', 'Không. Lumi Pet áp dụng duy nhất 1 bảng giá niêm yết 2026 công khai: tắm chó từ 140.000đ, tắm mèo từ 160.000đ, cắt tỉa từ 290.000đ và Pet Hotel từ 100.000đ/ngày.'],
@@ -164,7 +164,7 @@ const NEW_WARDS = [
     faqs: [
       ['Từ Phường An Nhơn (Phan Văn Trị Gò Vấp) sang Lumi Pet bao xa?', 'Khoảng 3,5 – 4,5km (10–12 phút qua Phan Văn Trị → Lê Quang Định hoặc Nơ Trang Long), rất dễ đi thẳng một trục.'],
       ['Giá gửi chó mèo Khách sạn 24/7 cho khách Phường An Nhơn bao nhiêu?', 'Giá ngày thường 100.000đ (<3kg), 120.000đ (3–6kg), 160.000đ (6–9kg), 200.000đ (9–12kg), 250.000đ (12–15kg). Trên 5 ngày giảm 5%, trên 10 ngày giảm 8%.'],
-      ['Lumi Pet mở cửa tới mấy giờ mỗi ngày?', 'Quầy Spa & Shop mở cửa 07:00 – 21:00 tất cả các ngày (kể cả Thứ 7, Chủ nhật); Khách sạn thú cưng trực chăm sóc 24/7.'],
+      ['Lumi Pet mở cửa tới mấy giờ mỗi ngày?', 'Quầy Spa & Shop mở cửa 08:00 – 21:00 tất cả các ngày (kể cả Thứ 7, Chủ nhật); Khách sạn thú cưng trực chăm sóc 24/7.'],
     ],
   },
   {
@@ -400,7 +400,7 @@ ${w.faqs.map(([q, a], idx) => `        <details${idx === 0 ? ' open' : ''}><summ
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
 </body>
 </html>
 `;

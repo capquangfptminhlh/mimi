@@ -184,7 +184,7 @@ function buildLandmarkHtml(l) {
     <div class="hero-copy">
       <div class="eyebrow">${l.eyebrow}</div>
       <h1>${l.h1.replaceAll('&', '&amp;')}</h1>
-      <p class="lead">Ba mẹ đang tìm địa chỉ <strong>tắm chó, tắm mèo, cắt tỉa lông (grooming) hoặc gửi thú cưng ${l.shortName}</strong>? <strong>Lumi Pet – 27 Võ Trường Toản, Phường Gia Định (Bình Thạnh)</strong> chỉ cách <strong>${l.distance}</strong>, phục vụ 07:00 – 21:00 mỗi ngày (Pet Hotel trực 24/7), sấy tay 100% không lồng sấy nhiệt.</p>
+      <p class="lead">Ba mẹ đang tìm địa chỉ <strong>tắm chó, tắm mèo, cắt tỉa lông (grooming) hoặc gửi thú cưng ${l.shortName}</strong>? <strong>Lumi Pet – 27 Võ Trường Toản, Phường Gia Định (Bình Thạnh)</strong> chỉ cách <strong>${l.distance}</strong>, phục vụ 08:00 – 21:00 mỗi ngày (Pet Hotel trực 24/7), sấy tay 100% không lồng sấy nhiệt.</p>
       <div class="answer">
         <strong>Trả lời nhanh:</strong> Tại Lumi Pet (27 Võ Trường Toản, cách ${l.shortName} ${l.distance}), bảng giá niêm yết 2026: <strong>tắm vệ sinh chó từ 140.000đ</strong> (8 mốc tới 25kg), <strong>tắm vệ sinh mèo từ 160.000đ</strong> (khu riêng, sấy tay 100%), <strong>cắt tỉa chó từ 290.000đ</strong> và <strong>khách sạn chó mèo 24/7 từ 100.000đ/ngày</strong>.
       </div>
@@ -229,7 +229,7 @@ ${l.keywordCombos
       <ul>
 ${l.routes.map((r) => `        <li>${r}</li>`).join('\n')}
       </ul>
-      <div class="notice"><strong>Mở cửa 07:00 – 21:00 mỗi ngày:</strong> Tiện ghé gửi bé tắm buổi sáng trước giờ đi làm hoặc ca tối sau giờ tan ca (không phụ thu ca tối). Đặt trước qua Zalo <strong>0989 979 675</strong> để bé được làm ngay không phải chờ.</div>
+      <div class="notice"><strong>Mở cửa 08:00 – 21:00 mỗi ngày:</strong> Tiện ghé gửi bé tắm buổi sáng trước giờ đi làm hoặc ca tối sau giờ tan ca (không phụ thu ca tối). Đặt trước qua Zalo <strong>0989 979 675</strong> để bé được làm ngay không phải chờ.</div>
       <p style="margin-top:12px;"><a class="btn btn-secondary" href="https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg" target="_blank" rel="noopener noreferrer">📍 Mở Google Maps chỉ đường</a></p>
     </section>
 
@@ -279,7 +279,7 @@ ${l.faqs.map(([q, a], idx) => `        <details${idx === 0 ? ' open' : ''}><summ
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
 </body>
 </html>
 `;

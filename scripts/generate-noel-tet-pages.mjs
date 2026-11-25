@@ -135,7 +135,7 @@ const tetHotelHtml = `<!doctype html>
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: 24/7</div><div><a href="../dat-phong/">Book phòng Tết ngay →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: 24/7</div><div><a href="../dat-phong/">Book phòng Tết ngay →</a></div></div></footer>
 <script src="../lumi-ui.js" defer></script>
 </body>
 </html>
@@ -211,7 +211,7 @@ const noelTetSpaHtml = `<!doctype html>
         <li>🎄 Đón Noel: Đặt từ 18–23/12</li>
         <li>🎆 Tết Dương lịch: Đặt từ 27–30/12</li>
         <li>🧧 Đón Tết Nguyên Đán: Tỉa trước 5–7 ngày</li>
-        <li>🕒 Mở cửa 07:00 – 21:00 mỗi ngày</li>
+        <li>🕒 Mở cửa 08:00 – 21:00 mỗi ngày</li>
       </ul>
     </aside>
   </section>
@@ -270,7 +270,7 @@ const noelTetSpaHtml = `<!doctype html>
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa Noel / Tết →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa Noel / Tết →</a></div></div></footer>
 <script src="../lumi-ui.js" defer></script>
 </body>
 </html>
@@ -315,7 +315,7 @@ const articles = [
       ['28 – 29 Tết Lumi Pet Bình Thạnh có còn nhận tắm chó mèo không?', 'Lịch làm việc chính xác từng ngày cận Tết sẽ được thông báo trước trên website và Zalo 0989 979 675. Ba mẹ nên đặt trước sớm 7–14 ngày để chắc chắn có suất.'],
       ['Cắt tỉa lông cho Poodle trước Tết 1 tuần có bị dài nhanh quá không?', 'Không. Sau 5–7 ngày là lúc lông Poodle vào nếp bồng tự nhiên và đẹp nhất, giữ dáng gọn gàng suốt hơn 3 tuần sau Tết.'],
       ['Tắm chó mèo cận Tết có bị nhốt lồng sấy nhiệt để làm cho nhanh không?', 'Không. Lumi Pet giữ nguyên tiêu chuẩn thợ sấy tay 100% nhẹ nhàng để bảo vệ an toàn cho bé; vì vậy tiệm giới hạn số lượng nhận mỗi khung giờ và khuyến khích đặt lịch trước.'],
-      ['Có thể đặt lịch tắm cho bé vào buổi tối sau giờ tan làm cuối năm không?', 'Có. Lumi Pet mở cửa 07:00 – 21:00 mỗi ngày, nhận ca tắm tối sau giờ hành chính (nên gửi bé trước 19:30).'],
+      ['Có thể đặt lịch tắm cho bé vào buổi tối sau giờ tan làm cuối năm không?', 'Có. Lumi Pet mở cửa 08:00 – 21:00 mỗi ngày, nhận ca tắm tối sau giờ hành chính (nên gửi bé trước 19:30).'],
     ],
   },
   {
@@ -362,7 +362,7 @@ const articles = [
           <li><strong>Lịch sinh hoạt ngắn gọn:</strong> Ghi chú giờ ăn, thói quen đi vệ sinh và tính cách của bé cho nhân viên Lumi Pet.</li>
         </ol>`,
     faqs: [
-      ['Đêm 24/12 Noel và ngày 1/1 Tết Dương lịch Lumi Pet có mở cửa nhận trả bé không?', 'Có. Quầy tiếp nhận mở cửa 07:00 – 21:00 tất cả các ngày và khu Hotel có nhân viên trực trông giữ bé 24/7. Bạn chỉ cần đặt lịch trước để tiệm sắp xếp chu đáo nhất.'],
+      ['Đêm 24/12 Noel và ngày 1/1 Tết Dương lịch Lumi Pet có mở cửa nhận trả bé không?', 'Có. Quầy tiếp nhận mở cửa 08:00 – 21:00 tất cả các ngày và khu Hotel có nhân viên trực trông giữ bé 24/7. Bạn chỉ cần đặt lịch trước để tiệm sắp xếp chu đáo nhất.'],
       ['Đi chơi 1–2 đêm dịp Noel gửi mèo tại Lumi Pet có ổn không?', 'Rất ổn. Mèo được ở khu phòng riêng tách biệt khu chó, yên tĩnh, máy lạnh 24/24 và nhân viên quay video cập nhật hằng ngày qua Zalo.'],
       ['Nếu gửi bé 6 ngày xuyên dịp Tết Dương lịch có được giảm 5% không?', 'Chính sách ngày thường giảm 5% cho kỳ trên 5 ngày và 8% trên 10 ngày. Với các ngày trùng Lễ, nhân viên sẽ báo rõ mức giá áp dụng và tổng chi phí trọn kỳ trước khi bạn đặt phòng.'],
       ['Khách ở Phú Nhuận hoặc Quận 1 qua gửi bé có tiện không?', 'Rất tiện — từ Phan Xích Long (Phường Cầu Kiệu) hoặc Cầu Bông (Phường Tân Định Q1) chạy sang 27 Võ Trường Toản, Phường Gia Định chỉ mất 4–6 phút.'],
@@ -466,7 +466,7 @@ for (const a of articles) {
     </div>
   </article>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: 24/7</div><div><a href="../">Kiến thức →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: 24/7</div><div><a href="../">Kiến thức →</a></div></div></footer>
 <script src="../../lumi-ui.js" defer></script>
 </body>
 </html>

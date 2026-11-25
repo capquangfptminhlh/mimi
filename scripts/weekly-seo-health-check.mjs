@@ -14,6 +14,7 @@ const FORBIDDEN = [
   /khai trương chi nhánh/i,
   /giảm 20%/i,
   /đặc quyền 90\.000/i,
+  /(?<!\+)07:00/,
 ];
 
 const CORE_AND_WARD_PAGES = [

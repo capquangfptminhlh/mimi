@@ -45,7 +45,7 @@ const CORRIDOR_ARTICLES = [
         <p>Khu vực quanh Chợ Bà Chiểu và Phan Đăng Lưu khá nhộn nhịp buổi sáng 07:30–09:00 và chiều 17:00–18:30. Ba mẹ ở sát tiệm có thể chọn khung <strong>09:30–11:30</strong>, <strong>13:30–16:00</strong> hoặc đặt trước <strong>ca tối 18:30–19:30</strong> (tiệm mở tới 21:00 không phụ thu ngoài giờ). Xem thêm trang tổng hợp <a href="../../tam-cho-meo-gan-cho-ba-chieu/">Tắm chó mèo gần Chợ Bà Chiểu</a>.</p>`,
     faqs: [
       ['Từ Bùi Hữu Nghĩa, Vũ Tùng hay Bạch Đằng sang 27 Võ Trường Toản có chỗ đậu xe không?', 'Có. Mặt tiền 27 Võ Trường Toản rộng thoáng, có chỗ để xe máy ngay trước tiệm và thuận tiện dừng ô tô trả/đón các bé chó lớn.'],
-      ['Đi tắm chó gần Chợ Bà Chiểu buổi tối sau 18h có phụ thu không?', 'Không. Lumi Pet mở cửa 07:00 – 21:00 mỗi ngày với 1 bảng giá thống nhất 2026, không phụ thu ca tối.'],
+      ['Đi tắm chó gần Chợ Bà Chiểu buổi tối sau 18h có phụ thu không?', 'Không. Lumi Pet mở cửa 08:00 – 21:00 mỗi ngày với 1 bảng giá thống nhất 2026, không phụ thu ca tối.'],
       ['Làm sao đặt lịch trước để sang là làm ngay không phải chờ?', 'Bạn nhắn Zalo hoặc gọi trực tiếp 0989 979 675, hoặc đặt lịch online trên lumipet.vn trước 1–2 tiếng.'],
     ],
   },
@@ -78,7 +78,7 @@ const CORRIDOR_ARTICLES = [
         <ul>
           <li><strong>Cún lớn hay đi dạo công viên / bờ kè Thanh Đa:</strong> Nên chọn gói <a href="../tam-cho-lon-husky-golden-samoyed-binh-thanh/">tắm chó lớn 15–25kg</a> (430k–550k), sấy tay khô kiệt tận gốc lớp lông kép để tránh hôi ẩm và nấm kẽ chân.</li>
           <li><strong>Mèo căn hộ chung cư Nguyễn Xí / Richmond / Saigonres:</strong> Mèo ít ra đường nên rất sợ tiếng ồn — tại Lumi Pet mèo được tắm khu tách biệt chó và <strong>sấy tay 100% không nhốt lồng sấy</strong> (160k–270k).</li>
-          <li><strong>Gửi chó mèo dài ngày khi đi công tác / về quê:</strong> Tiện gửi buổi sáng từ 07:00 ngay trên trục vào trung tâm Quận 1, nhận video Zalo hằng ngày và ưu đãi dài ngày (trên 5 ngày giảm 5%, trên 10 ngày giảm 8%).</li>
+          <li><strong>Gửi chó mèo dài ngày khi đi công tác / về quê:</strong> Tiện gửi buổi sáng từ 08:00 ngay trên trục vào trung tâm Quận 1, nhận video Zalo hằng ngày và ưu đãi dài ngày (trên 5 ngày giảm 5%, trên 10 ngày giảm 8%).</li>
         </ul>`,
     faqs: [
       ['Từ chung cư Nguyễn Xí / Chu Văn An sang Lumi Pet 27 Võ Trường Toản mất bao lâu?', 'Khoảng 5–8 phút theo trục Phan Chu Trinh – Bạch Đằng hoặc Đinh Bộ Lĩnh – Bạch Đằng (khoảng 1,8 – 2,5km).'],
@@ -114,12 +114,12 @@ const CORRIDOR_ARTICLES = [
         <h2 id="bang-gia-truc-le-quang-dinh">2. Điểm cộng khi khách Bình Lợi Trung &amp; Gò Vấp ghé Lumi Pet</h2>
         <ul>
           <li><strong>Không phí ẩn &amp; chốt giá tại quầy trước khi làm:</strong> Tắm chó 140k–550k (8 mốc tới 25kg), tắm mèo 160k–270k, tắm + cạo 200k–700k (chó) / 250k–380k (mèo), cắt tỉa tạo kiểu 290k–850k.</li>
-          <li><strong>Mở cửa từ 07:00 sáng tới 21:00 tối:</strong> Cư dân Gò Vấp đi làm vào Quận 1 – Bình Thạnh rất tiện gửi bé sáng sớm (07:00–08:30) rồi chiều tan làm đón về sạch thơm.</li>
+          <li><strong>Mở cửa từ 08:00 sáng tới 21:00 tối:</strong> Cư dân Gò Vấp đi làm vào Quận 1 – Bình Thạnh rất tiện gửi bé sáng sớm (08:00–09:00) rồi chiều tan làm đón về sạch thơm.</li>
           <li><strong>Phụ thu minh bạch rõ ràng:</strong> Chỉ áp dụng khi có sự đồng ý trước (gỡ rối 50k–500k, sữa tắm đặc trị 50k–100k, tạo kiểu đặc biệt 50k–100k). Xem thêm <a href="../../spa-thu-cung-quan-go-vap/">trang Quận Gò Vấp</a>.</li>
         </ul>`,
     faqs: [
       ['Từ Nơ Trang Long hoặc Lê Quang Định sang Lumi Pet bao xa?', 'Từ đoạn P.5, P.11, P.13 Bình Thạnh cũ (P. Bình Lợi Trung) chỉ mất 5–7 phút (~1,5–2,5km); từ Phạm Văn Đồng / Chợ Gò Vấp mất khoảng 8–10 phút.'],
-      ['Sáng 7h30 trên đường đi làm từ Gò Vấp có gửi bé tắm hoặc gửi Hotel được không?', 'Được. Quầy tiếp nhận Lumi Pet mở cửa từ 07:00 sáng mỗi ngày; bạn chỉ cần nhắn trước qua Zalo 0989 979 675 để nhân viên tiếp nhận nhanh gọn.'],
+      ['sáng 8h00 trên đường đi làm từ Gò Vấp có gửi bé tắm hoặc gửi Hotel được không?', 'Được. Quầy tiếp nhận Lumi Pet mở cửa từ 08:00 sáng mỗi ngày; bạn chỉ cần nhắn trước qua Zalo 0989 979 675 để nhân viên tiếp nhận nhanh gọn.'],
       ['Lumi Pet có nhận gỡ rối và cắt tỉa cho Poodle, Phốc sóc không?', 'Có. Combo cắt tỉa Poodle/Phốc sóc từ 290.000đ (<3kg) và 360.000đ (3–6kg); nếu bé bị rối nặng thợ sẽ kiểm tra và báo rõ phương án trước khi làm.'],
     ],
   },
@@ -188,7 +188,7 @@ const CORRIDOR_ARTICLES = [
         <h2 id="loi-the-cho-khach-q1-pn">2. Lý do khách văn phòng Quận 1 &amp; cư dân Phú Nhuận chuộng Lumi Pet</h2>
         <ul>
           <li><strong>Giá minh bạch 1 biểu phí chung:</strong> Không chênh giá như khu lõi Quận 1 — tắm chó từ 140k, tắm mèo sấy tay 100% từ 160k, cắt tỉa Poodle/Corgi/Bichon từ 290k, Pet Hotel từ 100k/ngày.</li>
-          <li><strong>Khung giờ linh hoạt 07:00 – 21:00:</strong> Tiện gửi bé buổi sáng trên đường qua Cầu Bông vào văn phòng Quận 1, hoặc ghé tắm ca tối 18:30–19:30 sau khi tan làm (không phụ thu ngoài giờ).</li>
+          <li><strong>Khung giờ linh hoạt 08:00 – 21:00:</strong> Tiện gửi bé buổi sáng trên đường qua Cầu Bông vào văn phòng Quận 1, hoặc ghé tắm ca tối 18:30–19:30 sau khi tan làm (không phụ thu ngoài giờ).</li>
           <li><strong>Xem thêm:</strong> <a href="../../tam-cho-meo-gan-phan-xich-long-mieu-noi/">Tắm chó mèo gần Phan Xích Long – Miếu Nổi</a> · <a href="../../spa-thu-cung-phuong-tan-dinh-quan-1/">Phường Tân Định (Q.1)</a> · <a href="../../spa-thu-cung-phuong-cau-kieu-phu-nhuan/">Phường Cầu Kiệu (Phú Nhuận)</a>.</li>
         </ul>`,
     faqs: [
@@ -277,7 +277,7 @@ ${a.faqs.map(([q, ans], i) => `            <details${i === 0 ? ' open' : ''}><su
     </div>
   </article>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
 </body>
 </html>
 `;

@@ -115,7 +115,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             >
               <div className="bg-white/95 rounded-2xl border border-orange-100 p-3.5 shadow-xs hover:shadow-md transition-shadow">
                 <div className="flex items-center gap-2 text-slate-900 font-black text-xs sm:text-sm">
-                  <Clock3 className="w-4 h-4 text-orange-500 shrink-0" /> 07:00 – 21:00
+                  <Clock3 className="w-4 h-4 text-orange-500 shrink-0" /> 08:00 – 21:00
                 </div>
                 <p className="mt-0.5 text-[11px] text-slate-500">Spa mở tất cả các ngày</p>
               </div>

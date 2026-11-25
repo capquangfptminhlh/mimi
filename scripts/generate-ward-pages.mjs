@@ -37,7 +37,7 @@ const wards = [
     eyebrow: 'Phường Bình Lợi Trung · Nơ Trang Long – Lê Quang Định',
     h1: 'Tắm chó mèo, Grooming & Hotel cho khách Phường Bình Lợi Trung (Bình Thạnh cũ)',
     lead: 'Dành cho ba mẹ nuôi thú cưng tại <strong>Phường Bình Lợi Trung</strong> (khu vực Nơ Trang Long, Lê Quang Định, Phan Văn Trị, Nguyễn Văn Đậu, Phạm Văn Đồng — Phường 5, 11, 13 Bình Thạnh cũ). Chỉ <strong>5–9 phút</strong> chạy thẳng xuống <strong>Lumi Pet – 27 Võ Trường Toản, Phường Gia Định</strong> với bảng giá 2026 minh bạch và thợ sấy tay 100% không lồng sấy nhiệt.',
-    answer: 'Khách tại <strong>Phường Bình Lợi Trung</strong> có thể đưa chó mèo tới Lumi Pet (27 Võ Trường Toản, gần Chợ Bà Chiểu) với biểu phí 2026 rõ ràng: <strong>tắm chó 140.000đ – 550.000đ</strong>, <strong>tắm mèo 160.000đ – 270.000đ</strong>, <strong>cắt tỉa chó 290.000đ – 850.000đ</strong> và <strong>gửi Pet Hotel 24/7 từ 100.000đ/ngày</strong>. Mở cửa 07:00 – 21:00 mỗi ngày.',
+    answer: 'Khách tại <strong>Phường Bình Lợi Trung</strong> có thể đưa chó mèo tới Lumi Pet (27 Võ Trường Toản, gần Chợ Bà Chiểu) với biểu phí 2026 rõ ràng: <strong>tắm chó 140.000đ – 550.000đ</strong>, <strong>tắm mèo 160.000đ – 270.000đ</strong>, <strong>cắt tỉa chó 290.000đ – 850.000đ</strong> và <strong>gửi Pet Hotel 24/7 từ 100.000đ/ngày</strong>. Mở cửa 08:00 – 21:00 mỗi ngày.',
     img: '../images/vn-hero-spa.jpg',
     imgAlt: 'Groomer sấy chải và cắt tỉa lông chó Poodle cho khách Phường Bình Lợi Trung tại Lumi Pet',
     imgCap: 'Grooming cắt tỉa tạo kiểu Poodle, Corgi, Phốc sóc và tắm vệ sinh chó mèo chuẩn an toàn gần Phường Bình Lợi Trung',
@@ -52,7 +52,7 @@ const wards = [
       ['Từ đường Nơ Trang Long / Lê Quang Định (Phường Bình Lợi Trung) tới Lumi Pet mất bao lâu?', 'Chỉ mất khoảng 5–9 phút chạy thẳng xuống khu vực Chợ Bà Chiểu – Bệnh viện Gia Định và rẽ vào 27 Võ Trường Toản, có chỗ đậu xe máy và dừng ô tô thuận tiện.'],
       ['Tắm mèo và cạo lông mèo cho khách Phường Bình Lợi Trung giá bao nhiêu?', 'Tắm vệ sinh mèo sấy tay 100% giá 160.000đ (dưới 3kg), 220.000đ (3–6kg), 270.000đ (6–10kg). Combo tắm + cạo lông mèo giá 250.000đ – 380.000đ.'],
       ['Chó lớn 15–25kg (Golden, Husky, Samoyed) tiệm có nhận tắm không?', 'Có. Lumi Pet niêm yết rõ tới 8 mốc cân nặng: 15–18kg (430k), 18–20kg (480k), 20–25kg (550k) cho gói tắm vệ sinh trọn gói; bé trên 25kg vui lòng nhắn Zalo báo giá riêng.'],
-      ['Lumi Pet có mở cửa Thứ 7 và Chủ nhật không?', 'Có. Quầy Spa & Grooming mở cửa 07:00 – 21:00 tất cả các ngày trong tuần kể cả Thứ 7, Chủ nhật; khu Pet Hotel trông giữ bé 24/7.'],
+      ['Lumi Pet có mở cửa Thứ 7 và Chủ nhật không?', 'Có. Quầy Spa & Grooming mở cửa 08:00 – 21:00 tất cả các ngày trong tuần kể cả Thứ 7, Chủ nhật; khu Pet Hotel trông giữ bé 24/7.'],
     ],
   },
   {
@@ -303,7 +303,7 @@ function buildHtml(w) {
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: 24/7</div><div><a href="../dat-lich/">Đặt lịch ngay →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (P.2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: 24/7</div><div><a href="../dat-lich/">Đặt lịch ngay →</a></div></div></footer>
 <script src="../lumi-ui.js" defer></script>
 </body>
 </html>

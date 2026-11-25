@@ -88,7 +88,7 @@ export default function Footer({ setActiveTab }: FooterProps) {
               </div>
               <div className="flex items-start gap-3 rounded-2xl border border-orange-100 bg-white px-4 py-3 shadow-sm">
                 <Clock3 className="mt-0.5 w-4.5 h-4.5 flex-shrink-0 text-teal-600" />
-                <span><strong className="text-slate-900">07:00 – 21:00</strong><br />Phục vụ tất cả các ngày</span>
+                <span><strong className="text-slate-900">08:00 – 21:00</strong><br />Phục vụ tất cả các ngày</span>
               </div>
             </div>
           </div>

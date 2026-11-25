@@ -69,7 +69,7 @@ const OLD_DISTRICTS = [
     faqs: [
       ['Từ Quận Phú Nhuận sang Lumi Pet 27 Võ Trường Toản bao xa?', 'Chỉ 1 – 3km (5–10 phút chạy xe thẳng trục Phan Đăng Lưu), gần như sát vách các tuyến đường Phan Xích Long, Thích Quảng Đức, Nguyễn Kiệm.'],
       ['Giá tắm chó, tắm mèo cho khách Quận Phú Nhuận năm 2026 bao nhiêu?', 'Tắm vệ sinh chó 140.000đ – 550.000đ (8 mốc tới 25kg), tắm vệ sinh mèo sấy tay 100% giá 160.000đ – 270.000đ, cắt tỉa chó từ 290.000đ, Pet Hotel 24/7 từ 100.000đ/ngày.'],
-      ['Khách Quận Phú Nhuận đi làm về muộn có gửi tắm tối được không?', 'Được. Lumi Pet mở cửa 07:00 – 21:00 tất cả các ngày (không phụ thu ca tối), nhận ca tắm muộn tới 19:30 để sấy khô kỹ 100%.'],
+      ['Khách Quận Phú Nhuận đi làm về muộn có gửi tắm tối được không?', 'Được. Lumi Pet mở cửa 08:00 – 21:00 tất cả các ngày (không phụ thu ca tối), nhận ca tắm muộn tới 19:30 để sấy khô kỹ 100%.'],
     ],
   },
   {
@@ -96,7 +96,7 @@ const OLD_DISTRICTS = [
     routes: [
       '<strong>Qua Cầu Bông (5–6 phút):</strong> Từ Đinh Tiên Hoàng, Võ Thị Sáu, Trần Quang Khải, Hai Bà Trưng chạy thẳng qua Cầu Bông → đường Lê Văn Duyệt → rẽ phải Võ Trường Toản số 27.',
       '<strong>Qua Cầu Thị Nghè (7–8 phút):</strong> Từ Nguyễn Thị Minh Khai, Nguyễn Bỉnh Khiêm, Thảo Cầm Viên qua Cầu Thị Nghè → rẽ trái hướng Lê Văn Duyệt / Chợ Bà Chiểu → 27 Võ Trường Toản.',
-      '<strong>Gửi bé giờ đi làm:</strong> Tiệm mở từ 07:00 sáng tới 21:00 tối — tiện gửi bé sáng đi làm tại Quận 1 và đón chiều về.',
+      '<strong>Gửi bé giờ đi làm:</strong> Tiệm mở từ 08:00 sáng tới 21:00 tối — tiện gửi bé sáng đi làm tại Quận 1 và đón chiều về.',
     ],
     areaServed: ['Quận 1, TP. Hồ Chí Minh', 'Phường Tân Định, TP. Hồ Chí Minh', 'Phường Sài Gòn, TP. Hồ Chí Minh'],
     faqs: [
@@ -115,7 +115,7 @@ const OLD_DISTRICTS = [
     h1: 'Tắm chó mèo, Cắt tỉa & Khách sạn thú cưng gần Quận Gò Vấp (Full 20+ tuyến đường)',
     heroImg: 'vn-evening-spa.jpg',
     heroAlt: 'Tắm chó mèo sấy tay 100% mở cửa đến 21h gần Quận Gò Vấp tại Lumi Pet',
-    heroCap: '🌙 Chạy thẳng Lê Quang Định hoặc Phan Văn Trị từ Quận Gò Vấp sang Lumi Pet chỉ 8–12 phút — mở cửa 07:00 – 21:00',
+    heroCap: '🌙 Chạy thẳng Lê Quang Định hoặc Phan Văn Trị từ Quận Gò Vấp sang Lumi Pet chỉ 8–12 phút — mở cửa 08:00 – 21:00',
     travelTime: '8–12 phút',
     wardsHtml:
       '<li><a href="../spa-thu-cung-phuong-hanh-thong-go-vap/"><strong>Phường Hạnh Thông</strong></a> (P.1, P.3 cũ — Lê Quang Định, Phạm Văn Đồng, Nguyễn Thái Sơn, Nguyễn Văn Nghi): <strong>8–10 phút</strong></li>' +
@@ -328,7 +328,7 @@ ${d.faqs.map(([q, a], idx) => `        <details${idx === 0 ? ' open' : ''}><summ
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
 </body>
 </html>
 `;
@@ -460,7 +460,7 @@ const streetsHtml = `<!doctype html>
       <h1>Spa thú cưng &amp; Khách sạn chó mèo gần Chợ Bà Chiểu, Võ Trường Toản và 100+ tuyến đường lân cận</h1>
       <p class="lead">Tọa lạc tại <strong>27 Võ Trường Toản, Phường Gia Định (Phường 2, Quận Bình Thạnh cũ)</strong> — nút giao trung tâm kết nối Chợ Bà Chiểu, Bệnh viện Gia Định, Phan Đăng Lưu, Bạch Đằng và Cầu Bông — Lumi Pet phục vụ nhanh khách hàng từ hơn <strong>100 tuyến đường</strong> thuộc Bình Thạnh, Phú Nhuận, Quận 1, Gò Vấp và Thảo Điền (Quận 2 cũ).</p>
       <div class="answer">
-        <strong>Trả lời nhanh:</strong> Bạn đang tìm <strong>spa thú cưng gần đây</strong> quanh Chợ Bà Chiểu, Võ Trường Toản, Phan Đăng Lưu, Lê Văn Duyệt, Bạch Đằng, Phan Xích Long hay Cầu Bông? Ghé ngay <strong>Lumi Pet 27 Võ Trường Toản</strong> (mở cửa 07:00 – 21:00; Pet Hotel trực 24/7). Tắm chó từ <strong>140.000đ</strong>, tắm mèo sấy tay 100% từ <strong>160.000đ</strong>, Hotel từ <strong>100.000đ/ngày</strong>.
+        <strong>Trả lời nhanh:</strong> Bạn đang tìm <strong>spa thú cưng gần đây</strong> quanh Chợ Bà Chiểu, Võ Trường Toản, Phan Đăng Lưu, Lê Văn Duyệt, Bạch Đằng, Phan Xích Long hay Cầu Bông? Ghé ngay <strong>Lumi Pet 27 Võ Trường Toản</strong> (mở cửa 08:00 – 21:00; Pet Hotel trực 24/7). Tắm chó từ <strong>140.000đ</strong>, tắm mèo sấy tay 100% từ <strong>160.000đ</strong>, Hotel từ <strong>100.000đ/ngày</strong>.
       </div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://www.google.com/maps/place/?q=place_id:ChIJQQ1vLgApdTERzUEEgAktmsg" target="_blank" rel="noopener noreferrer">📍 Mở Google Maps chỉ đường</a>
@@ -474,7 +474,7 @@ const streetsHtml = `<!doctype html>
       <ul class="mini-list">
         <li>📍 27 Võ Trường Toản, P. Gia Định</li>
         <li>🏪 Sát Chợ Bà Chiểu &amp; ĐH Mỹ Thuật</li>
-        <li>⏰ Spa &amp; Shop: 07:00 – 21:00</li>
+        <li>⏰ Spa &amp; Shop: 08:00 – 21:00</li>
         <li>🏨 Pet Hotel: Trông giữ 24/7</li>
         <li>📞 Zalo/Hotline: 0989 979 675</li>
       </ul>
@@ -517,7 +517,7 @@ ${buildGallery(DEFAULT_GALLERY)}
     </section>
   </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA &amp; HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="../dat-lich/">Đặt lịch Spa →</a></div></div></footer>
 </body>
 </html>
 `;

@@ -42,12 +42,12 @@ const updates = [
   {
     file: 'public/gioi-thieu/index.html',
     title: 'Giới Thiệu Lumi Pet Phường Gia Định Bình Thạnh (Fact Sheet)',
-    desc: 'Hồ sơ chính thức Lumi Pet 27 Võ Trường Toản, Phường Gia Định (P.2 Bình Thạnh cũ): Spa tắm chó mèo 07:00–21:00, Hotel 24/7, đội ngũ Groomer & ranh giới.',
+    desc: 'Hồ sơ chính thức Lumi Pet 27 Võ Trường Toản, Phường Gia Định (P.2 Bình Thạnh cũ): Spa tắm chó mèo 08:00–21:00, Hotel 24/7, đội ngũ Groomer & ranh giới.',
   },
   {
     file: 'public/lien-he/index.html',
     title: 'Liên Hệ & Chỉ Đường Lumi Pet 27 Võ Trường Toản Gia Định',
-    desc: 'Địa chỉ Lumi Pet: 27 Võ Trường Toản, Phường Gia Định (P.2 Bình Thạnh cũ), gần Chợ Bà Chiểu & Cầu Bông. Hotline/Zalo 0989 979 675. Spa 07:00–21:00.',
+    desc: 'Địa chỉ Lumi Pet: 27 Võ Trường Toản, Phường Gia Định (P.2 Bình Thạnh cũ), gần Chợ Bà Chiểu & Cầu Bông. Hotline/Zalo 0989 979 675. Spa 08:00–21:00.',
   },
   {
     file: 'public/bai-viet/index.html',

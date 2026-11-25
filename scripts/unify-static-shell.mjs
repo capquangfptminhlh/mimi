@@ -99,14 +99,14 @@ function renderHomepagePrerender(prefix) {
 
 <section class="panel span-12">
 <h2>Câu hỏi thường gặp về Lumi Pet Spa & Hotel</h2>
-<details><summary>Lumi Pet ở đâu và giờ hoạt động thế nào?</summary><p>Lumi Pet toạ lạc tại 27 Võ Trường Toản, Phường 2, Quận Bình Thạnh, TP. Hồ Chí Minh. Giờ mở cửa dịch vụ Spa & Shop: 07:00 – 21:00 hàng ngày (kể cả thứ Bảy, Chủ nhật). Dịch vụ Khách sạn thú cưng có nhân viên trực và bảo vệ trông nom 24/7.</p></details>
+<details><summary>Lumi Pet ở đâu và giờ hoạt động thế nào?</summary><p>Lumi Pet toạ lạc tại 27 Võ Trường Toản, Phường 2, Quận Bình Thạnh, TP. Hồ Chí Minh. Giờ mở cửa dịch vụ Spa & Shop: 08:00 – 21:00 hàng ngày (kể cả thứ Bảy, Chủ nhật). Dịch vụ Khách sạn thú cưng có nhân viên trực và bảo vệ trông nom 24/7.</p></details>
 <details><summary>Đi tắm Spa cho chó mèo có cần đặt lịch trước không?</summary><p>Bạn nên đặt lịch trước qua website hoặc Zalo 0989 979 675 để được giữ chỗ khung giờ đẹp và không phải chờ đợi. Đặt trước qua Web còn được ưu tiên xếp thợ làm ngay.</p></details>
 <details><summary>Lumi Pet có dùng lồng sấy nhiệt không?</summary><p>Tuyệt đối KHÔNG. Lumi Pet cam kết 100% thợ sấy tay bằng máy sấy chuyên dụng ion ấm, vừa sấy vừa chải tơi lông và quan sát biểu cảm của bé, đảm bảo an toàn và tránh gây sốc nhiệt cho thú cưng.</p></details>
 <details><summary>Khách sạn thú cưng có camera và gửi video không?</summary><p>Có. Lumi Pet quay video tương tác gửi trực tiếp qua Zalo mỗi ngày để ba mẹ yên tâm theo dõi tình hình ăn uống và nghỉ ngơi của bé.</p></details>
 </section>
 </div>
 </main>
-<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA & HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 07:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến →</a></div></div></footer></div>`;
+<footer class="footer"><div class="footer-inner"><div><strong>LUMI PET SHOP – SPA & HOTEL 24/7</strong><br>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP.HCM</div><div><a href="tel:0989979675">0989 979 675</a><br>Spa: 08:00 – 21:00 · Hotel: trông bé 24/7</div><div><a href="${prefix}dat-lich/">Đặt lịch Spa trực tuyến →</a></div></div></footer></div>`;
 }
 
 function headerMarkup(prefix, activeKey) {
@@ -156,7 +156,7 @@ function normalizeHead(html, prefix) {
       '@id': `${PRODUCTION_ORIGIN}/#business`,
       name: 'Lumi Pet Shop – Spa & Hotel 24/7 Thú Cưng Bình Thạnh',
       alternateName: 'Lumi Pet Bình Thạnh',
-      description: 'Cơ sở Spa tắm vệ sinh, Grooming cắt tỉa & cạo lông và Khách sạn thú cưng (Pet Hotel) tại 27 Võ Trường Toản, Bình Thạnh, TP.HCM. Spa mở cửa 07:00–21:00 mỗi ngày; Hotel trông giữ bé 24/7. Không phải phòng khám thú y.',
+      description: 'Cơ sở Spa tắm vệ sinh, Grooming cắt tỉa & cạo lông và Khách sạn thú cưng (Pet Hotel) tại 27 Võ Trường Toản, Bình Thạnh, TP.HCM. Spa mở cửa 08:00–21:00 mỗi ngày; Hotel trông giữ bé 24/7. Không phải phòng khám thú y.',
       url: `${PRODUCTION_ORIGIN}/`,
       telephone: '+84989979675',
       priceRange: '100.000₫ – 850.000₫',
@@ -175,7 +175,7 @@ function normalizeHead(html, prefix) {
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '07:00',
+        opens: '08:00',
         closes: '21:00',
       },
       areaServed: [

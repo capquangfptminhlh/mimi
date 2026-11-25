@@ -615,7 +615,7 @@ export default function App() {
       {/* Top Info Ribbon (100% đúng thông tin thực tế của Lumi Pet) */}
       <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-teal-600 text-white py-2 px-4 text-center text-[11px] sm:text-xs font-bold flex items-center justify-center gap-2 shadow-inner relative z-30">
         <span>🐾</span>
-        <span>Lumi Pet Bình Thạnh · 27 Võ Trường Toản, P. Gia Định · Mở cửa 07:00 – 21:00 tất cả các ngày · Hotel trên 5 ngày giảm 5%, trên 10 ngày giảm 8%</span>
+        <span>Lumi Pet Bình Thạnh · 27 Võ Trường Toản, P. Gia Định · Mở cửa 08:00 – 21:00 tất cả các ngày · Hotel trên 5 ngày giảm 5%, trên 10 ngày giảm 8%</span>
       </div>
 
       {/* Navbar Component */}
@@ -2280,7 +2280,7 @@ export default function App() {
               <MapPin className="w-4.5 h-4.5 text-orange-500 flex-shrink-0 mt-0.5" />
               <span>27 Võ Trường Toản, Phường Gia Định (Phường 2, Bình Thạnh cũ), TP. Hồ Chí Minh</span>
             </div>
-            <div className="text-gray-500">Spa &amp; Shop: 07:00 – 21:00 · Hotel: 24/7</div>
+            <div className="text-gray-500">Spa &amp; Shop: 08:00 – 21:00 · Hotel: 24/7</div>
             <div className="pt-2 border-t border-slate-100 flex justify-between items-center text-gray-500">
               <a href="tel:0989979675" className="font-bold text-orange-600 hover:underline">Hotline/Zalo: 0989 979 675</a>
               <span>© 2026 Lumi Pet</span>
