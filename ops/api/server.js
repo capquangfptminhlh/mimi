@@ -1,6 +1,6 @@
-const http = require('http');
-const https = require('https');
-const url = require('url');
+import http from 'node:http';
+import https from 'node:https';
+import url from 'node:url';
 
 const PORT = Number(process.env.PORT || 3001);
 const ZALO_BOT_TOKEN = (process.env.ZALO_BOT_TOKEN || '').trim();
