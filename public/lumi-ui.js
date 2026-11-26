@@ -249,47 +249,21 @@
   };
 
   const addHeroVisual = () => {
+    // Pages with a bespoke .lumi-vn-showcase photo keep that unique photo as their sole lead visual.
+    if (document.querySelector('.lumi-vn-showcase')) return;
     const side = document.querySelector('.hero-side');
     if (!side || side.querySelector('.lumi-hero-visual')) return;
-    const { src, alt } = imageForPath();
+    const ogImg = document.querySelector('meta[property="og:image"]')?.getAttribute('content');
+    const fallback = imageForPath();
+    const src = ogImg || fallback.src;
+    const alt = ogImg ? (document.title || fallback.alt) : fallback.alt;
     const figure = document.createElement('figure');
     figure.className = 'lumi-hero-visual';
-    figure.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"><figcaption>Ảnh minh hoạ đúng dịch vụ</figcaption>`;
+    figure.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"><figcaption>Ảnh minh hoạ dịch vụ tại Lumi Pet</figcaption>`;
     side.appendChild(figure);
   };
 
-  const syncHomepageImages = () => {
-    const images = Array.from(document.querySelectorAll('#root img'));
-    if (!images.length) return false;
-    let changed = 0;
-    images.forEach(img => {
-      const alt = (img.getAttribute('alt') || '').toLowerCase();
-      let target = null;
-      if (alt.includes('khách sạn') || alt.includes('lưu trú') || alt.includes('hotel')) target = TOPIC_IMAGES.hotel;
-      else if (alt.includes('spa') || alt.includes('grooming') || alt.includes('thú cưng')) {
-        target = alt.includes('spa') && !alt.includes('grooming') ? TOPIC_IMAGES.spa : TOPIC_IMAGES.grooming;
-      }
-      if (target && img.src !== target) {
-        img.src = target;
-        img.removeAttribute('srcset');
-        img.setAttribute('referrerpolicy', 'no-referrer');
-        changed += 1;
-      }
-    });
-    return changed > 0;
-  };
-
   addHeroVisual();
-  syncHomepageImages();
-  window.setTimeout(syncHomepageImages, 80);
-  window.setTimeout(syncHomepageImages, 300);
-  window.setTimeout(syncHomepageImages, 900);
-
-  if (document.querySelector('#root')) {
-    const rootObserver = new MutationObserver(() => syncHomepageImages());
-    rootObserver.observe(document.querySelector('#root'), { childList: true, subtree: true });
-    window.setTimeout(() => rootObserver.disconnect(), 5000);
-  }
 
   let revealObserver;
   const prepareReveals = () => {
