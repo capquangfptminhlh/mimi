@@ -417,7 +417,7 @@ for (const item of ASSIGNMENTS.filter((x) => x.type === 'blog' || x.type === 'bl
     const hasImg = /<img[^>]+src="([^"]+)"/i.test(html);
     if (!hasImg) {
       const figHtml = `<figure class="article-visual"><img src="${relImg}" alt="${item.alt}" loading="lazy"><figcaption>${item.caption}</figcaption></figure>`;
-      html = html.replace(/<\/header>/i, `${figHtml}</header>`);
+      html = html.replace(/(<header class="article-hero"[\s\S]*?)<\/header>/i, `$1${figHtml}</header>`);
     } else {
       let doneImg = false;
       html = html.replace(/<img([^>]*?)src="([^"]+)"([^>]*)>/gi, (m, a, src, b) => {
